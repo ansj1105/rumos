@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-import { ProductSubnav } from "@/components/product-subnav";
 import { SubpageHero } from "@/components/subpage-hero";
 import { getProducts } from "@/lib/content";
 import { getDictionary } from "@/lib/dictionaries";
@@ -14,14 +13,9 @@ export default async function ProductsPage({
   const { locale } = await params;
   const dict = getDictionary(locale);
   const products = await getProducts();
-  const navItems = products.map((product) => ({
-    slug: product.slug,
-    label: locale === "ko" ? product.nameKo : product.nameEn,
-  }));
 
   return (
     <div className="productsPage">
-      <ProductSubnav locale={locale} products={navItems} />
       <SubpageHero
         eyebrow="Product"
         title={dict.products.title}

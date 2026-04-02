@@ -130,7 +130,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
     },
     products: {
       title: "Products",
-      lead: "각 제품 페이지는 독립적인 SEO 메타데이터와 상세 설명을 가집니다.",
+      lead: "공정 조건과 검사 목적에 맞는 루모스 제품군을 확인하실 수 있습니다.",
     },
     contact: {
       title: "Contact",
@@ -214,7 +214,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
     },
     products: {
       title: "Products",
-      lead: "Each product page has its own SEO metadata and detailed content.",
+      lead: "Explore the Rumos product lineup for different inspection goals and process conditions.",
     },
     contact: {
       title: "Contact",
