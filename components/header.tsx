@@ -47,11 +47,7 @@ export function Header({ locale }: HeaderProps) {
           </nav>
 
           <div className="headerActions">
-            <div
-              className="localeMenu"
-              onMouseEnter={() => setLocaleOpen(true)}
-              onMouseLeave={() => setLocaleOpen(false)}
-            >
+            <div className="localeMenu">
               <button
                 type="button"
                 className="localeSwitch"

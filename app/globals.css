@@ -309,8 +309,8 @@ select {
 
 .navItem {
   position: relative;
-  padding-bottom: 22px;
-  margin-bottom: -22px;
+  padding-bottom: 12px;
+  margin-bottom: -12px;
 }
 
 .desktopNavLink {
@@ -349,7 +349,7 @@ select {
 
 .navDropdown {
   position: absolute;
-  top: calc(100% + 20px);
+  top: calc(100% + 8px);
   left: 50%;
   min-width: 240px;
   padding: 8px;
@@ -395,6 +395,8 @@ select {
 
 .localeMenu {
   position: relative;
+  padding-bottom: 12px;
+  margin-bottom: -12px;
 }
 
 .localeSwitch {
@@ -424,7 +426,7 @@ select {
 
 .localeDropdown {
   position: absolute;
-  top: calc(100% + 12px);
+  top: calc(100% + 10px);
   right: 0;
   min-width: 164px;
   padding: 8px;
