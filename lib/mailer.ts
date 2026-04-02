@@ -33,7 +33,7 @@ export async function sendInquiryMail(payload: InquiryMail) {
   await transporter.sendMail({
     to: CONTACT_RECEIVER_EMAIL,
     from: SMTP_USER || CONTACT_RECEIVER_EMAIL,
-    subject: `[Rumos] New inquiry from ${payload.name}`,
+    subject: `[Lumos] New inquiry from ${payload.name}`,
     text: [
       `Locale: ${payload.locale}`,
       `Company: ${payload.company ?? "-"}`,

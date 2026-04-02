@@ -45,7 +45,7 @@ export default async function DirectionsPage({
           </div>
           <div className="card" style={{ padding: 0, overflow: "hidden" }}>
             <iframe
-              title={locale === "ko" ? "루모스 오시는 길 지도" : "Rumos directions map"}
+              title={locale === "ko" ? "루모스 오시는 길 지도" : "Lumos directions map"}
               src={googleMapEmbedUrl}
               width="100%"
               height="420"

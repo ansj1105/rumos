@@ -33,7 +33,7 @@ export function Footer({ locale }: { locale: Locale }) {
         <div className="footerBottom">
           <span>{dict.brand}</span>
           <span style={{ color: "var(--muted)" }}>
-              Copyright 2026 Rumos. All Rights Reserved.
+              Copyright 2026 Lumos. All Rights Reserved.
           </span>
         </div>
       </div>

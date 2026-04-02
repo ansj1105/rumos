@@ -30,7 +30,7 @@ export default async function AdminPage() {
     <main className="container" style={{ padding: "32px 0 96px" }}>
       <div className="card" style={{ padding: 28 }}>
         <div className="eyebrow">Admin</div>
-        <h1 className="sectionTitle">Rumos Content Operations</h1>
+        <h1 className="sectionTitle">Lumos Content Operations</h1>
         <p className="sectionLead">
           관리자 영역은 기본 인증으로 보호되며, 메인/애플리케이션/제품/자료실/문의 상태를 관리합니다.
         </p>

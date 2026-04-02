@@ -18,4 +18,4 @@ export const productSlugs = [
 ] as const;
 
 export const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rumos.co.kr";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.lumos.co.kr";

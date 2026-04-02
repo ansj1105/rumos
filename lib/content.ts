@@ -8,17 +8,17 @@ const fallbackSiteConfig = {
   heroDescriptionKo:
     "루모스는 산업용 검사 환경에 맞춘 광학 장비와 소프트웨어를 공급합니다.",
   heroDescriptionEn:
-    "Rumos delivers industrial optical hardware and software for production inspection workflows.",
+    "Lumos delivers industrial optical hardware and software for production inspection workflows.",
   storyBodyKo:
-    "Rumos는 빛을 뜻하는 어원을 기반으로 공정 품질을 선명하게 드러내는 광학 기술 브랜드를 지향합니다.",
+    "Lumos는 빛을 뜻하는 어원을 기반으로 공정 품질을 선명하게 드러내는 광학 기술 브랜드를 지향합니다.",
   storyBodyEn:
-    "Rumos is inspired by light and aims to reveal process quality with clarity through industrial optical technology.",
+    "Lumos is inspired by light and aims to reveal process quality with clarity through industrial optical technology.",
   seoTitleKo: "루모스 | 산업용 광학 솔루션",
-  seoTitleEn: "Rumos | Industrial Optical Solutions",
+  seoTitleEn: "Lumos | Industrial Optical Solutions",
   seoDescriptionKo:
     "루모스 제품, 애플리케이션, 자료실, 문의를 제공하는 공식 웹사이트입니다.",
   seoDescriptionEn:
-    "Official website for Rumos products, applications, resources, and contact.",
+    "Official website for Lumos products, applications, resources, and contact.",
   createdAt: new Date(),
   updatedAt: new Date(),
 };
@@ -109,7 +109,7 @@ const fallbackProducts = [
       `${name} is a product line built for stable measurement and repeatable precision in industrial optical inspection environments. It is structured to support equipment configuration and operational flow based on process requirements.`,
     imageUrl: null,
     seoTitleKo: `${name} | 루모스`,
-    seoTitleEn: `${name} | Rumos`,
+    seoTitleEn: `${name} | Lumos`,
     seoDescriptionKo: `${name} 제품 상세 안내 페이지입니다.`,
     seoDescriptionEn: `Detailed product page for ${name}.`,
     published: true,
@@ -125,7 +125,7 @@ const fallbackResources = [
     titleKo: "회사 소개서",
     titleEn: "Company Profile",
     excerptKo: "루모스 회사 소개 자료 예시입니다.",
-    excerptEn: "Sample Rumos company introduction resource.",
+    excerptEn: "Sample Lumos company introduction resource.",
     bodyKo:
       "자료실 상세 페이지는 문서 설명, 첨부 파일 링크, 게시 시점을 제공하도록 구현했습니다.",
     bodyEn:

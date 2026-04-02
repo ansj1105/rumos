@@ -106,7 +106,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
     story: {
       title: "Brand Story",
       body:
-        "Rumos는 빛을 뜻하는 어원을 바탕으로, 공정 품질을 선명하게 드러내는 광학 기술 브랜드를 지향합니다.",
+        "Lumos는 빛을 뜻하는 어원을 바탕으로, 공정 품질을 선명하게 드러내는 광학 기술 브랜드를 지향합니다.",
     },
     homepage: {
       productTitle: "Product",
@@ -150,11 +150,11 @@ export const dictionaries: Record<Locale, Dictionary> = {
   },
   en: {
     localeName: "English",
-    brand: "Rumos",
+    brand: "Lumos",
     meta: {
-      title: "Rumos | Industrial Optical Solutions",
+      title: "Lumos | Industrial Optical Solutions",
       description:
-        "Official website for Rumos products, applications, contact, and resources.",
+        "Official website for Lumos products, applications, contact, and resources.",
     },
     nav: [
       { label: "Directions", href: "/directions" },
@@ -183,14 +183,14 @@ export const dictionaries: Record<Locale, Dictionary> = {
       eyebrow: "OPTICAL INSPECTION PLATFORM",
       title: "Reliable optical solutions for precision manufacturing",
       description:
-        "Rumos delivers industrial optical hardware and software for production inspection workflows.",
+        "Lumos delivers industrial optical hardware and software for production inspection workflows.",
       ctaPrimary: "View products",
       ctaSecondary: "Contact us",
     },
     story: {
       title: "Brand Story",
       body:
-        "Rumos is inspired by light, with a brand direction centered on optical technology that reveals process quality with clarity.",
+        "Lumos is inspired by light, with a brand direction centered on optical technology that reveals process quality with clarity.",
     },
     homepage: {
       productTitle: "Products",
@@ -214,7 +214,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
     },
     products: {
       title: "Products",
-      lead: "Explore the Rumos product lineup for different inspection goals and process conditions.",
+      lead: "Explore the Lumos product lineup for different inspection goals and process conditions.",
     },
     contact: {
       title: "Contact",
