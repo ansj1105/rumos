@@ -1,12 +1,12 @@
 import { PrismaClient } from "@prisma/client";
 
-import { createPasswordHash } from "@/lib/admin-auth";
+import { createPasswordHash } from "../lib/admin-auth";
 import {
   defaultApplications,
   defaultProducts,
   defaultResources,
   defaultSiteConfig,
-} from "@/lib/default-content";
+} from "../lib/default-content";
 
 const prisma = new PrismaClient();
 
