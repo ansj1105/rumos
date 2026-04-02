@@ -851,6 +851,12 @@ select {
   gap: 18px;
   overflow-x: auto;
   padding: 14px 0;
+  scrollbar-width: none;
+}
+
+.productSubnavInner::-webkit-scrollbar,
+.applicationsIndexInner::-webkit-scrollbar {
+  display: none;
 }
 
 .productSubnavLink {
@@ -1042,6 +1048,7 @@ select {
   gap: 18px;
   overflow-x: auto;
   padding: 16px 0;
+  scrollbar-width: none;
 }
 
 .applicationsIndexLink {
@@ -1513,6 +1520,306 @@ td {
 
   .subpageContent {
     padding-top: 24px;
+  }
+}
+
+@media (max-width: 720px) {
+  .container {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .headline,
+  .sectionTitle,
+  .applicationTitle {
+    line-height: 1.08;
+  }
+
+  .subhead,
+  .sectionLead,
+  .applicationSummary,
+  .productDirectorySummary {
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .headerInner {
+    min-height: 68px;
+    gap: 14px;
+  }
+
+  .brandLink {
+    font-size: 22px;
+  }
+
+  .footerGrid {
+    gap: 22px;
+    padding-bottom: 22px;
+  }
+
+  .footerBrand {
+    font-size: 21px;
+  }
+
+  .heroSection {
+    padding: 38px 0 56px;
+  }
+
+  .buttonRow {
+    gap: 10px;
+  }
+
+  .button {
+    min-height: 44px;
+    padding: 0 16px;
+  }
+
+  .heroVisual {
+    min-height: 280px;
+  }
+
+  .heroVisualPanel {
+    min-height: 280px;
+  }
+
+  .heroVisualFrame {
+    inset: 14px 14px 14px 74px;
+  }
+
+  .heroVisualLabel {
+    top: 16px;
+    left: 16px;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+  }
+
+  .heroVisualScreen {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    height: 136px;
+    background-size: 28px 28px, 28px 28px;
+  }
+
+  .heroWheelWrap {
+    top: 18px;
+    left: 14px;
+    width: 122px;
+    height: 122px;
+  }
+
+  .heroWheelMiddle {
+    inset: 14px;
+  }
+
+  .heroWheelInner {
+    inset: 32px;
+  }
+
+  .heroWheelCenter {
+    inset: 47px;
+    font-size: 9px;
+  }
+
+  .heroVisualCaption {
+    max-width: 150px;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .storySection {
+    padding: 52px 0 56px;
+  }
+
+  .storyContent {
+    gap: 22px;
+  }
+
+  .storyFact {
+    padding: 16px 16px 18px;
+  }
+
+  .subpageHero {
+    min-height: 180px;
+  }
+
+  .subpageHeroInner {
+    padding: 74px 0 24px;
+  }
+
+  .subpageHeroCopy {
+    padding-left: 0;
+    gap: 8px;
+  }
+
+  .subpageContent {
+    padding-top: 20px;
+    padding-bottom: 48px;
+  }
+
+  .applicationsHeroMetaWrap {
+    padding: 48px 0 24px;
+  }
+
+  .applicationsHeroMeta {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .applicationsHeroMetaItem {
+    padding-top: 14px;
+  }
+
+  .applicationsHeroMetaItem strong {
+    font-size: 26px;
+  }
+
+  .applicationsIndexInner,
+  .productSubnavInner {
+    gap: 14px;
+    padding: 12px 0;
+  }
+
+  .applicationVisualPanel {
+    min-height: 220px;
+  }
+
+  .applicationVisualLines {
+    inset: 46px 16px 16px;
+    background-size: 24px 24px;
+  }
+
+  .applicationVisualFrame {
+    inset: 76px 28px 28px;
+  }
+
+  .applicationVisualBadge {
+    top: 16px;
+    left: 16px;
+    font-size: 12px;
+  }
+
+  .applicationFeature {
+    padding-bottom: 40px;
+  }
+
+  .productDetailHero {
+    padding: 8px 0 28px;
+  }
+
+  .productMetaLine {
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 14px;
+    font-size: 14px;
+  }
+
+  .productDetailVisualPanel {
+    min-height: 240px;
+  }
+
+  .productDetailVisualGrid {
+    inset: 48px 16px 16px;
+    background-size: 26px 26px;
+  }
+
+  .productSection {
+    padding: 34px 0;
+  }
+
+  .productDirectoryName {
+    font-size: 19px;
+  }
+
+  .resourcesTableHead {
+    display: none;
+  }
+
+  .resourcesRow {
+    grid-template-columns: 46px minmax(0, 1fr);
+    align-items: start;
+    gap: 8px 12px;
+    padding: 14px 0;
+    min-height: 0;
+  }
+
+  .resourcesRow > span:last-child {
+    grid-column: 2;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .resourceDetailHead {
+    gap: 8px;
+    padding: 12px 0;
+  }
+
+  .contactIntro {
+    gap: 16px;
+    padding-bottom: 22px;
+  }
+
+  .contactForm {
+    gap: 16px;
+    padding-top: 28px;
+  }
+}
+
+@media (max-width: 520px) {
+  .headline,
+  .sectionTitle {
+    font-size: 30px;
+  }
+
+  .brandLink {
+    font-size: 20px;
+  }
+
+  .mobileMenuTitle {
+    font-size: 17px;
+  }
+
+  .heroVisual {
+    min-height: 248px;
+  }
+
+  .heroVisualPanel {
+    min-height: 248px;
+  }
+
+  .heroVisualFrame {
+    inset: 12px;
+  }
+
+  .heroVisualScreen {
+    height: 118px;
+  }
+
+  .heroWheelWrap {
+    width: 104px;
+    height: 104px;
+  }
+
+  .heroWheelInner {
+    inset: 28px;
+  }
+
+  .heroWheelCenter {
+    inset: 42px;
+  }
+
+  .heroVisualCaption {
+    right: 14px;
+    bottom: 14px;
+    max-width: 126px;
+  }
+
+  .applicationsIndexNo,
+  .productDirectoryNo {
+    font-size: 11px;
+  }
+
+  .resourcesTableWrap {
+    min-height: 340px;
   }
 }
 .shell main {
