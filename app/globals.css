@@ -309,8 +309,8 @@ select {
 
 .navItem {
   position: relative;
-  padding-bottom: 18px;
-  margin-bottom: -18px;
+  padding-bottom: 22px;
+  margin-bottom: -22px;
 }
 
 .desktopNavLink {
@@ -349,7 +349,7 @@ select {
 
 .navDropdown {
   position: absolute;
-  top: calc(100% + 10px);
+  top: calc(100% + 20px);
   left: 50%;
   min-width: 240px;
   padding: 8px;
@@ -400,7 +400,7 @@ select {
 .localeSwitch {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   min-height: 42px;
   padding: 0 16px;
   border: 1px solid var(--line);
@@ -420,12 +420,6 @@ select {
 .localeGlobe svg {
   width: 18px;
   height: 18px;
-}
-
-.localeCaret {
-  color: var(--blue);
-  font-size: 16px;
-  line-height: 1;
 }
 
 .localeDropdown {

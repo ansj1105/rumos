@@ -68,7 +68,6 @@ export function Header({ locale }: HeaderProps) {
                   </svg>
                 </span>
                 <span>{locale === "ko" ? "Korean" : "English"}</span>
-                <span className="localeCaret" aria-hidden="true">+</span>
               </button>
 
               <div className={`localeDropdown card ${localeOpen ? "isOpen" : ""}`}>
