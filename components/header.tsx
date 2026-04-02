@@ -1,0 +1,126 @@
+"use client";
+
+import Link from "next/link";
+import { useState } from "react";
+
+import { getDictionary } from "@/lib/dictionaries";
+import type { Locale } from "@/lib/site";
+
+type HeaderProps = {
+  locale: Locale;
+};
+
+export function Header({ locale }: HeaderProps) {
+  const dict = getDictionary(locale);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [localeOpen, setLocaleOpen] = useState(false);
+
+  return (
+    <header className="siteHeader">
+      <div className="headerBar">
+        <div className="container headerInner">
+          <Link href={`/${locale}`} className="brandLink">
+            {dict.brand}
+          </Link>
+
+          <nav className="desktopNav" aria-label="Primary navigation">
+            {dict.nav.map((item) => (
+              <div key={item.href} className="navItem">
+                <Link href={`/${locale}${item.href}`} className="desktopNavLink">
+                  {item.label}
+                </Link>
+                {item.children ? (
+                  <div className="navDropdown card">
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={`/${locale}${child.href}`}
+                        className="navDropdownLink"
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+            ))}
+          </nav>
+
+          <div className="headerActions">
+            <div
+              className="localeMenu"
+              onMouseEnter={() => setLocaleOpen(true)}
+              onMouseLeave={() => setLocaleOpen(false)}
+            >
+              <button
+                type="button"
+                className="localeSwitch"
+                aria-expanded={localeOpen}
+                aria-label="Select language"
+                onClick={() => setLocaleOpen((value) => !value)}
+              >
+                <span className="localeGlobe" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                    <circle cx="12" cy="12" r="8.25" />
+                    <path d="M3.9 9h16.2" />
+                    <path d="M3.9 15h16.2" />
+                    <path d="M12 3.8c2.5 2.1 4 5.1 4 8.2s-1.5 6.1-4 8.2c-2.5-2.1-4-5.1-4-8.2s1.5-6.1 4-8.2Z" />
+                  </svg>
+                </span>
+                <span>{locale === "ko" ? "Korean" : "English"}</span>
+                <span className="localeCaret" aria-hidden="true">+</span>
+              </button>
+
+              <div className={`localeDropdown card ${localeOpen ? "isOpen" : ""}`}>
+                <Link href="/ko" className={`localeDropdownLink ${locale === "ko" ? "isActive" : ""}`}>
+                  <span>KR</span>
+                  <span>한국어</span>
+                </Link>
+                <Link href="/en" className={`localeDropdownLink ${locale === "en" ? "isActive" : ""}`}>
+                  <span>EN</span>
+                  <span>English</span>
+                </Link>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              className="mobileMenuButton"
+              aria-expanded={mobileOpen}
+              aria-label="Toggle menu"
+              onClick={() => setMobileOpen((value) => !value)}
+            >
+              <span />
+              <span />
+              <span />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div className={`mobileMenu card ${mobileOpen ? "isOpen" : ""}`}>
+        <div className="container mobileMenuInner">
+          {dict.nav.map((item) => (
+            <div key={item.href} className="mobileMenuSection">
+              <Link href={`/${locale}${item.href}`} className="mobileMenuTitle">
+                {item.label}
+              </Link>
+              <div className="mobileMenuLinks">
+                {item.children?.map((child) => (
+                  <Link
+                    key={child.href}
+                    href={`/${locale}${child.href}`}
+                    className="mobileMenuLink"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {child.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </header>
+  );
+}
