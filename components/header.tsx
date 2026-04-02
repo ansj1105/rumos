@@ -17,12 +17,14 @@ export function Header({ locale }: HeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [localeOpen, setLocaleOpen] = useState(false);
   const [openNavHref, setOpenNavHref] = useState<string | null>(null);
+  const [suppressNavHover, setSuppressNavHover] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
     setOpenNavHref(null);
     setLocaleOpen(false);
     setMobileOpen(false);
+    setSuppressNavHover(true);
   }, [pathname]);
 
   return (
@@ -41,15 +43,29 @@ export function Header({ locale }: HeaderProps) {
           </Link>
 
           <nav
-            className="desktopNav"
+            className={`desktopNav ${suppressNavHover ? "isSuppressed" : ""}`}
             aria-label="Primary navigation"
-            onMouseLeave={() => setOpenNavHref(null)}
+            onMouseLeave={() => {
+              setOpenNavHref(null);
+              setSuppressNavHover(false);
+            }}
+            onMouseMove={() => {
+              if (suppressNavHover) {
+                setSuppressNavHover(false);
+              }
+            }}
           >
             {dict.nav.map((item) => (
               <div
                 key={item.href}
                 className={`navItem ${openNavHref === item.href ? "isOpen" : ""}`}
-                onMouseEnter={() => setOpenNavHref(item.children ? item.href : null)}
+                onMouseEnter={() => {
+                  if (suppressNavHover) {
+                    return;
+                  }
+
+                  setOpenNavHref(item.children ? item.href : null);
+                }}
               >
                 <Link
                   href={`/${locale}${item.href}`}
