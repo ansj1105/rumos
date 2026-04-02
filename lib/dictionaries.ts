@@ -73,8 +73,11 @@ export const dictionaries: Record<Locale, Dictionary> = {
         "루모스 제품, 애플리케이션, 문의 및 자료실을 제공하는 공식 웹사이트입니다.",
     },
     nav: [
-      { label: "오시는 길", href: "/directions" },
-      { label: "Application", href: "/applications" },
+      {
+        label: "Application",
+        href: "/applications",
+        children: [{ label: "어플리케이션 소개", href: "/applications" }],
+      },
       {
         label: "Product",
         href: "/products",
@@ -87,10 +90,12 @@ export const dictionaries: Record<Locale, Dictionary> = {
         ],
       },
       {
-        label: "Contact",
+        label: "Contact Us",
         href: "/contact",
         children: [
-          { label: "Contact Us", href: "/contact" },
+          { label: "견적문의", href: "/contact/quote" },
+          { label: "대리점소개", href: "/contact/distributors" },
+          { label: "찾아오시는길", href: "/contact/directions" },
           { label: "자료실", href: "/contact/resources" },
         ],
       },
@@ -157,8 +162,11 @@ export const dictionaries: Record<Locale, Dictionary> = {
         "Official website for Lumos products, applications, contact, and resources.",
     },
     nav: [
-      { label: "Directions", href: "/directions" },
-      { label: "Applications", href: "/applications" },
+      {
+        label: "Applications",
+        href: "/applications",
+        children: [{ label: "Application Overview", href: "/applications" }],
+      },
       {
         label: "Product",
         href: "/products",
@@ -171,10 +179,12 @@ export const dictionaries: Record<Locale, Dictionary> = {
         ],
       },
       {
-        label: "Contact",
+        label: "Contact Us",
         href: "/contact",
         children: [
-          { label: "Contact Us", href: "/contact" },
+          { label: "Quote Request", href: "/contact/quote" },
+          { label: "Distributors", href: "/contact/distributors" },
+          { label: "Directions", href: "/contact/directions" },
           { label: "Resources", href: "/contact/resources" },
         ],
       },

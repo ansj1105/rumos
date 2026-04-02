@@ -1,9 +1,9 @@
 import { DirectionsContent } from "@/components/directions-content";
-import { SubpageHero } from "@/components/subpage-hero";
 import { getDictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/site";
+import { SubpageHero } from "@/components/subpage-hero";
 
-export default async function DirectionsPage({
+export default async function ContactDirectionsPage({
   params,
 }: {
   params: Promise<{ locale: Locale }>;
@@ -14,7 +14,7 @@ export default async function DirectionsPage({
   return (
     <div className="subpageShell">
       <SubpageHero
-        eyebrow="Directions"
+        eyebrow={locale === "ko" ? "찾아오시는길" : "Directions"}
         title={dict.directions.title}
         description={dict.directions.body}
         tone="directions"

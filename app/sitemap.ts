@@ -11,7 +11,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     prisma.resource.findMany({ where: { published: true } }),
   ]);
 
-  const staticPaths = ["", "/directions", "/applications", "/products", "/contact", "/contact/resources"];
+  const staticPaths = [
+    "",
+    "/directions",
+    "/applications",
+    "/products",
+    "/contact",
+    "/contact/quote",
+    "/contact/distributors",
+    "/contact/directions",
+    "/contact/resources",
+  ];
 
   const entries: MetadataRoute.Sitemap = [];
 
