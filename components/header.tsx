@@ -15,6 +15,13 @@ export function Header({ locale }: HeaderProps) {
   const dict = getDictionary(locale);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [localeOpen, setLocaleOpen] = useState(false);
+  const [suppressNavHover, setSuppressNavHover] = useState(false);
+
+  function handleNavLinkClick() {
+    setSuppressNavHover(true);
+    setLocaleOpen(false);
+    setMobileOpen(false);
+  }
 
   return (
     <header className="siteHeader">
@@ -31,10 +38,18 @@ export function Header({ locale }: HeaderProps) {
             />
           </Link>
 
-          <nav className="desktopNav" aria-label="Primary navigation">
+          <nav
+            className={`desktopNav ${suppressNavHover ? "isHoverSuppressed" : ""}`}
+            aria-label="Primary navigation"
+            onMouseLeave={() => setSuppressNavHover(false)}
+          >
             {dict.nav.map((item) => (
               <div key={item.href} className="navItem">
-                <Link href={`/${locale}${item.href}`} className="desktopNavLink">
+                <Link
+                  href={`/${locale}${item.href}`}
+                  className="desktopNavLink"
+                  onClick={handleNavLinkClick}
+                >
                   {item.label}
                 </Link>
                 {item.children ? (
@@ -44,6 +59,7 @@ export function Header({ locale }: HeaderProps) {
                         key={child.href}
                         href={`/${locale}${child.href}`}
                         className="navDropdownLink"
+                        onClick={handleNavLinkClick}
                       >
                         {child.label}
                       </Link>
@@ -76,6 +92,7 @@ export function Header({ locale }: HeaderProps) {
 
               <div className={`localeDropdown card ${localeOpen ? "isOpen" : ""}`}>
                 <Link href="/ko" className={`localeDropdownLink ${locale === "ko" ? "isActive" : ""}`}>
+                  
                   <span>KR</span>
                   <span>한국어</span>
                 </Link>

@@ -313,6 +313,18 @@ select {
   gap: 34px;
 }
 
+.desktopNav.isHoverSuppressed .navItem:hover .navDropdown {
+  display: none;
+}
+
+.desktopNav.isHoverSuppressed .navItem:hover .desktopNavLink {
+  color: var(--text);
+}
+
+.desktopNav.isHoverSuppressed .navItem:hover .desktopNavLink::after {
+  transform: scaleX(0);
+}
+
 .navItem {
   position: relative;
 }
