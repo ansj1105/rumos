@@ -291,9 +291,15 @@ select {
 }
 
 .brandLink {
-  font-size: 29px;
-  font-weight: 800;
-  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+}
+
+.brandLogo {
+  width: auto;
+  height: 44px;
+  object-fit: contain;
 }
 
 .desktopNavWrap {
@@ -543,7 +549,14 @@ select {
 }
 
 .footerBrand {
-  font-size: 24px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.footerBrandLogo {
+  width: auto;
+  height: 38px;
+  object-fit: contain;
 }
 
 .footerBottom {
@@ -1310,7 +1323,7 @@ td {
   }
 
   .brandLink {
-    font-size: 26px;
+    min-height: 40px;
   }
 
   .desktopNavWrap {
@@ -1561,7 +1574,15 @@ td {
   }
 
   .footerBrand {
-    font-size: 21px;
+    min-height: 32px;
+  }
+
+  .brandLogo {
+    height: 36px;
+  }
+
+  .footerBrandLogo {
+    height: 32px;
   }
 
   .heroSection {
@@ -1775,7 +1796,11 @@ td {
   }
 
   .brandLink {
-    font-size: 20px;
+    min-height: 34px;
+  }
+
+  .brandLogo {
+    height: 30px;
   }
 
   .mobileMenuTitle {

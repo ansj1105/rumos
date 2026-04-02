@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { getDictionary } from "@/lib/dictionaries";
@@ -11,7 +12,15 @@ export function Footer({ locale }: { locale: Locale }) {
       <div className="container footerInner">
         <div className="footerGrid">
           <div className="footerBlock">
-            <strong className="footerBrand">{dict.brand}</strong>
+            <strong className="footerBrand">
+              <Image
+                src="/lumos-logo.png"
+                alt={dict.brand}
+                width={318}
+                height={86}
+                className="footerBrandLogo"
+              />
+            </strong>
             <span>{dict.footer.company}</span>
             <span>08594</span>
             <span>T. 02-852-0533</span>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -20,7 +21,14 @@ export function Header({ locale }: HeaderProps) {
       <div className="headerBar">
         <div className="container headerInner">
           <Link href={`/${locale}`} className="brandLink">
-            {dict.brand}
+            <Image
+              src="/lumos-logo.png"
+              alt={dict.brand}
+              width={318}
+              height={86}
+              className="brandLogo"
+              priority
+            />
           </Link>
 
           <nav className="desktopNav" aria-label="Primary navigation">
