@@ -196,10 +196,12 @@ select {
   max-width: 820px;
   display: grid;
   gap: 10px;
+  padding-left: 12px;
 }
 
 .subpageContent {
   padding-top: 36px;
+  padding-bottom: 72px;
 }
 
 .subpageHero-default,
@@ -1354,6 +1356,18 @@ td {
 
   .heroSection {
     padding: 54px 0 72px;
+  }
+
+  .subpageHeroInner {
+    padding: 84px 0 30px;
+  }
+
+  .subpageHeroCopy {
+    padding-left: 4px;
+  }
+
+  .subpageContent {
+    padding-bottom: 56px;
   }
 
   .heroVisual {
