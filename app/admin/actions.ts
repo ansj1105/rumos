@@ -9,10 +9,9 @@ import {
   ensureAdminAccount,
   logAdminAccess,
   requireAdminSession,
-  verifyPassword,
-  createPasswordHash,
 } from "@/lib/admin-auth";
 import { sendInquiryReplyMail } from "@/lib/mailer";
+import { createPasswordHash, verifyPassword } from "@/lib/password";
 import { prisma } from "@/lib/prisma";
 
 function parseBoolean(value: FormDataEntryValue | null) {

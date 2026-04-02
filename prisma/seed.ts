@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 
-import { createPasswordHash } from "../lib/admin-auth";
+import { createPasswordHash } from "../lib/password";
 import {
   defaultApplications,
   defaultProducts,
