@@ -313,18 +313,6 @@ select {
   gap: 34px;
 }
 
-.desktopNav.isHoverSuppressed .navItem:hover .navDropdown {
-  display: none;
-}
-
-.desktopNav.isHoverSuppressed .navItem:hover .desktopNavLink {
-  color: var(--text);
-}
-
-.desktopNav.isHoverSuppressed .navItem:hover .desktopNavLink::after {
-  transform: scaleX(0);
-}
-
 .navItem {
   position: relative;
 }
@@ -364,12 +352,14 @@ select {
 }
 
 .navItem:hover .desktopNavLink,
+.navItem.isOpen .desktopNavLink,
 .navItem:focus-within .desktopNavLink {
   color: var(--blue-deep);
 }
 
 .desktopNavLink:hover::after,
 .desktopNavLink:focus-visible::after,
+.navItem.isOpen .desktopNavLink::after,
 .navItem:hover .desktopNavLink::after,
 .navItem:focus-within .desktopNavLink::after {
   transform: scaleX(1);
@@ -389,6 +379,7 @@ select {
 }
 
 .navItem:hover .navDropdown,
+.navItem.isOpen .navDropdown,
 .navItem:focus-within .navDropdown {
   display: grid;
 }

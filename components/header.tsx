@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 import { getDictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/site";
@@ -15,13 +16,14 @@ export function Header({ locale }: HeaderProps) {
   const dict = getDictionary(locale);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [localeOpen, setLocaleOpen] = useState(false);
-  const [suppressNavHover, setSuppressNavHover] = useState(false);
+  const [openNavHref, setOpenNavHref] = useState<string | null>(null);
+  const pathname = usePathname();
 
-  function handleNavLinkClick() {
-    setSuppressNavHover(true);
+  useEffect(() => {
+    setOpenNavHref(null);
     setLocaleOpen(false);
     setMobileOpen(false);
-  }
+  }, [pathname]);
 
   return (
     <header className="siteHeader">
@@ -39,16 +41,19 @@ export function Header({ locale }: HeaderProps) {
           </Link>
 
           <nav
-            className={`desktopNav ${suppressNavHover ? "isHoverSuppressed" : ""}`}
+            className="desktopNav"
             aria-label="Primary navigation"
-            onMouseLeave={() => setSuppressNavHover(false)}
+            onMouseLeave={() => setOpenNavHref(null)}
           >
             {dict.nav.map((item) => (
-              <div key={item.href} className="navItem">
+              <div
+                key={item.href}
+                className={`navItem ${openNavHref === item.href ? "isOpen" : ""}`}
+                onMouseEnter={() => setOpenNavHref(item.children ? item.href : null)}
+              >
                 <Link
                   href={`/${locale}${item.href}`}
                   className="desktopNavLink"
-                  onClick={handleNavLinkClick}
                 >
                   {item.label}
                 </Link>
@@ -59,7 +64,6 @@ export function Header({ locale }: HeaderProps) {
                         key={child.href}
                         href={`/${locale}${child.href}`}
                         className="navDropdownLink"
-                        onClick={handleNavLinkClick}
                       >
                         {child.label}
                       </Link>
