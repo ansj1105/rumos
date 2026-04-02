@@ -70,6 +70,10 @@ export function Header({ locale }: HeaderProps) {
                 <Link
                   href={`/${locale}${item.href}`}
                   className="desktopNavLink"
+                  onClick={() => {
+                    setOpenNavHref(null);
+                    setSuppressNavHover(true);
+                  }}
                 >
                   {item.label}
                 </Link>
@@ -80,6 +84,10 @@ export function Header({ locale }: HeaderProps) {
                         key={child.href}
                         href={`/${locale}${child.href}`}
                         className="navDropdownLink"
+                        onClick={() => {
+                          setOpenNavHref(null);
+                          setSuppressNavHover(true);
+                        }}
                       >
                         {child.label}
                       </Link>

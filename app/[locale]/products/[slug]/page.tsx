@@ -56,6 +56,26 @@ export default async function ProductDetailPage({
     label: locale === "ko" ? item.nameKo : item.nameEn,
   }));
   const reference = getProductReference(slug, locale);
+  const localizedFeatures =
+    locale === "ko" ? product.featuresKo : product.featuresEn;
+  const localizedApplications =
+    locale === "ko" ? product.applicationsKo : product.applicationsEn;
+  const localizedSpecs = locale === "ko" ? product.specsKo : product.specsEn;
+  const features = Array.isArray(localizedFeatures) && localizedFeatures.length > 0
+    ? localizedFeatures.map((item) => String(item))
+    : reference.features;
+  const applications = Array.isArray(localizedApplications) && localizedApplications.length > 0
+    ? localizedApplications.map((item) => String(item))
+    : reference.applications;
+  const specs = Array.isArray(localizedSpecs) && localizedSpecs.length > 0
+    ? localizedSpecs
+        .map((item) =>
+          typeof item === "object" && item && "label" in item && "value" in item
+            ? { label: String(item.label), value: String(item.value) }
+            : null,
+        )
+        .filter((item): item is { label: string; value: string } => Boolean(item))
+    : reference.specs;
 
   return (
     <div className="productsPage">
@@ -103,7 +123,7 @@ export default async function ProductDetailPage({
             <h2 className="sectionTitle">Key Features</h2>
           </div>
           <div className="productFeatureList">
-            {reference.features.map((feature) => (
+            {features.map((feature) => (
               <div key={feature} className="productFeatureItem">
                 <span className="productFeatureMark" />
                 <span>{feature}</span>
@@ -119,7 +139,7 @@ export default async function ProductDetailPage({
               <h2 className="sectionTitle">Target Applications</h2>
             </div>
             <div className="productApplicationList">
-              {reference.applications.map((item) => (
+              {applications.map((item) => (
                 <div key={item} className="productApplicationItem">
                   {item}
                 </div>
@@ -132,7 +152,7 @@ export default async function ProductDetailPage({
               <h2 className="sectionTitle">Quick Specs</h2>
             </div>
             <div className="productSpecTable">
-              {reference.specs.map((spec) => (
+              {specs.map((spec) => (
                 <div key={spec.label} className="productSpecRow">
                   <strong>{spec.label}</strong>
                   <span>{spec.value}</span>

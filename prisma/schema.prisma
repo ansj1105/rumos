@@ -8,19 +8,33 @@ datasource db {
 }
 
 model SiteConfig {
-  id               Int      @id @default(1)
-  heroTitleKo      String
-  heroTitleEn      String
-  heroDescriptionKo String   @db.Text
-  heroDescriptionEn String   @db.Text
-  storyBodyKo      String    @db.Text
-  storyBodyEn      String    @db.Text
-  seoTitleKo       String
-  seoTitleEn       String
-  seoDescriptionKo String    @db.Text
-  seoDescriptionEn String    @db.Text
-  createdAt        DateTime  @default(now())
-  updatedAt        DateTime  @updatedAt
+  id                Int                @id @default(1)
+  heroTitleKo       String
+  heroTitleEn       String
+  heroDescriptionKo String             @db.Text
+  heroDescriptionEn String             @db.Text
+  heroImageUrl      String?
+  heroFontSize      Int                @default(56)
+  storyTitleKo      String             @default("산업 현장과 공정 목적에 맞춘 광학 설계")
+  storyTitleEn      String             @default("Optical engineering aligned with industrial processes")
+  storyBodyKo       String             @db.Text
+  storyBodyEn       String             @db.Text
+  storyFontSize     Int                @default(17)
+  seoTitleKo        String
+  seoTitleEn        String
+  seoDescriptionKo  String             @db.Text
+  seoDescriptionEn  String             @db.Text
+  heroImageHistory  HeroImageHistory[]
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+}
+
+model HeroImageHistory {
+  id           Int        @id @default(autoincrement())
+  siteConfigId Int
+  imageUrl     String
+  createdAt    DateTime   @default(now())
+  siteConfig   SiteConfig @relation(fields: [siteConfigId], references: [id], onDelete: Cascade)
 }
 
 model Application {
@@ -42,12 +56,19 @@ model Application {
 model Product {
   id               Int      @id @default(autoincrement())
   slug             String   @unique
+  displayOrder     Int      @default(0)
   nameKo           String
   nameEn           String
   summaryKo        String   @db.Text
   summaryEn        String   @db.Text
   contentKo        String   @db.Text
   contentEn        String   @db.Text
+  featuresKo       Json?
+  featuresEn       Json?
+  applicationsKo   Json?
+  applicationsEn   Json?
+  specsKo          Json?
+  specsEn          Json?
   imageUrl         String?
   seoTitleKo       String?
   seoTitleEn       String?
@@ -61,6 +82,7 @@ model Product {
 model Resource {
   id               Int      @id @default(autoincrement())
   slug             String   @unique
+  displayIndex     Int      @default(1)
   titleKo          String
   titleEn          String
   excerptKo        String   @db.Text
@@ -68,21 +90,67 @@ model Resource {
   bodyKo           String   @db.Text
   bodyEn           String   @db.Text
   fileUrl          String?
+  publishedAt      DateTime @default(now())
   published        Boolean  @default(true)
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
 }
 
 model Inquiry {
-  id               Int      @id @default(autoincrement())
+  id               Int           @id @default(autoincrement())
   company          String?
   name             String
   email            String
   phone            String?
-  message          String   @db.Text
+  message          String        @db.Text
   locale           String
   status           InquiryStatus @default(RECEIVED)
-  createdAt        DateTime @default(now())
+  internalNote     String?       @db.Text
+  replySubject     String?
+  replyBody        String?       @db.Text
+  replySentAt      DateTime?
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+}
+
+model AdminAccount {
+  id             Int              @id @default(autoincrement())
+  username       String           @unique
+  passwordHash   String
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+  sessions       AdminSession[]
+  accessLogs     AdminAccessLog[]
+}
+
+model AdminSession {
+  id           Int          @id @default(autoincrement())
+  token        String       @unique
+  adminId      Int
+  expiresAt    DateTime
+  createdAt    DateTime     @default(now())
+  admin        AdminAccount @relation(fields: [adminId], references: [id], onDelete: Cascade)
+}
+
+model AdminAccessLog {
+  id           Int          @id @default(autoincrement())
+  adminId      Int?
+  username     String
+  ipAddress    String?
+  userAgent    String?
+  success      Boolean      @default(false)
+  createdAt    DateTime     @default(now())
+  admin        AdminAccount? @relation(fields: [adminId], references: [id], onDelete: SetNull)
+}
+
+model VisitLog {
+  id           Int      @id @default(autoincrement())
+  visitDate    DateTime
+  visitorKey   String
+  locale       String?
+  createdAt    DateTime @default(now())
+
+  @@unique([visitDate, visitorKey])
 }
 
 enum InquiryStatus {

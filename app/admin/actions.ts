@@ -1,14 +1,94 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
+import {
+  clearAdminSession,
+  createAdminSession,
+  ensureAdminAccount,
+  logAdminAccess,
+  requireAdminSession,
+  verifyPassword,
+  createPasswordHash,
+} from "@/lib/admin-auth";
+import { sendInquiryReplyMail } from "@/lib/mailer";
 import { prisma } from "@/lib/prisma";
 
 function parseBoolean(value: FormDataEntryValue | null) {
   return value === "on" || value === "true";
 }
 
+function parseTextArray(value: FormDataEntryValue | null) {
+  return String(value ?? "")
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+}
+
+function parseSpecArray(value: FormDataEntryValue | null) {
+  return String(value ?? "")
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .map((line) => {
+      const [label, ...rest] = line.split("|");
+      return {
+        label: label?.trim() ?? "",
+        value: rest.join("|").trim(),
+      };
+    })
+    .filter((item) => item.label && item.value);
+}
+
+function revalidatePublicPages() {
+  revalidatePath("/ko");
+  revalidatePath("/en");
+  revalidatePath("/ko/applications");
+  revalidatePath("/en/applications");
+  revalidatePath("/ko/products");
+  revalidatePath("/en/products");
+  revalidatePath("/ko/contact");
+  revalidatePath("/en/contact");
+  revalidatePath("/ko/contact/resources");
+  revalidatePath("/en/contact/resources");
+}
+
+function revalidateAdminPages() {
+  revalidatePath("/asdasddfg");
+  revalidatePath("/asdasddfg/admin");
+}
+
+async function storeHeroHistory(imageUrl: string) {
+  if (!imageUrl) {
+    return;
+  }
+
+  await prisma.heroImageHistory.create({
+    data: {
+      siteConfigId: 1,
+      imageUrl,
+    },
+  });
+
+  const history = await prisma.heroImageHistory.findMany({
+    where: { siteConfigId: 1 },
+    orderBy: { createdAt: "desc" },
+  });
+
+  const staleIds = history.slice(10).map((item) => item.id);
+
+  if (staleIds.length > 0) {
+    await prisma.heroImageHistory.deleteMany({
+      where: { id: { in: staleIds } },
+    });
+  }
+}
+
 export async function updateSiteConfig(formData: FormData) {
+  const current = await prisma.siteConfig.findUnique({ where: { id: 1 } });
+  const heroImageUrl = String(formData.get("heroImageUrl") ?? "").trim() || null;
+
   await prisma.siteConfig.upsert({
     where: { id: 1 },
     update: {
@@ -16,8 +96,13 @@ export async function updateSiteConfig(formData: FormData) {
       heroTitleEn: String(formData.get("heroTitleEn") ?? ""),
       heroDescriptionKo: String(formData.get("heroDescriptionKo") ?? ""),
       heroDescriptionEn: String(formData.get("heroDescriptionEn") ?? ""),
+      heroImageUrl,
+      heroFontSize: Number(formData.get("heroFontSize") ?? 52),
+      storyTitleKo: String(formData.get("storyTitleKo") ?? ""),
+      storyTitleEn: String(formData.get("storyTitleEn") ?? ""),
       storyBodyKo: String(formData.get("storyBodyKo") ?? ""),
       storyBodyEn: String(formData.get("storyBodyEn") ?? ""),
+      storyFontSize: Number(formData.get("storyFontSize") ?? 18),
       seoTitleKo: String(formData.get("seoTitleKo") ?? ""),
       seoTitleEn: String(formData.get("seoTitleEn") ?? ""),
       seoDescriptionKo: String(formData.get("seoDescriptionKo") ?? ""),
@@ -29,8 +114,13 @@ export async function updateSiteConfig(formData: FormData) {
       heroTitleEn: String(formData.get("heroTitleEn") ?? ""),
       heroDescriptionKo: String(formData.get("heroDescriptionKo") ?? ""),
       heroDescriptionEn: String(formData.get("heroDescriptionEn") ?? ""),
+      heroImageUrl,
+      heroFontSize: Number(formData.get("heroFontSize") ?? 52),
+      storyTitleKo: String(formData.get("storyTitleKo") ?? ""),
+      storyTitleEn: String(formData.get("storyTitleEn") ?? ""),
       storyBodyKo: String(formData.get("storyBodyKo") ?? ""),
       storyBodyEn: String(formData.get("storyBodyEn") ?? ""),
+      storyFontSize: Number(formData.get("storyFontSize") ?? 18),
       seoTitleKo: String(formData.get("seoTitleKo") ?? ""),
       seoTitleEn: String(formData.get("seoTitleEn") ?? ""),
       seoDescriptionKo: String(formData.get("seoDescriptionKo") ?? ""),
@@ -38,9 +128,30 @@ export async function updateSiteConfig(formData: FormData) {
     },
   });
 
-  revalidatePath("/ko");
-  revalidatePath("/en");
-  revalidatePath("/admin");
+  if (heroImageUrl && current?.heroImageUrl !== heroImageUrl) {
+    await storeHeroHistory(heroImageUrl);
+  }
+
+  revalidatePublicPages();
+  revalidateAdminPages();
+}
+
+export async function restoreHeroImage(formData: FormData) {
+  const imageUrl = String(formData.get("imageUrl") ?? "").trim();
+
+  if (!imageUrl) {
+    return;
+  }
+
+  await prisma.siteConfig.update({
+    where: { id: 1 },
+    data: { heroImageUrl: imageUrl },
+  });
+
+  await storeHeroHistory(imageUrl);
+
+  revalidatePublicPages();
+  revalidateAdminPages();
 }
 
 export async function saveApplication(formData: FormData) {
@@ -52,14 +163,8 @@ export async function saveApplication(formData: FormData) {
     summaryKo: String(formData.get("summaryKo") ?? ""),
     summaryEn: String(formData.get("summaryEn") ?? ""),
     imageUrl: String(formData.get("imageUrl") ?? "") || null,
-    bulletsKo: String(formData.get("bulletsKo") ?? "")
-      .split("\n")
-      .map((line) => line.trim())
-      .filter(Boolean),
-    bulletsEn: String(formData.get("bulletsEn") ?? "")
-      .split("\n")
-      .map((line) => line.trim())
-      .filter(Boolean),
+    bulletsKo: parseTextArray(formData.get("bulletsKo")),
+    bulletsEn: parseTextArray(formData.get("bulletsEn")),
     sortOrder: Number(formData.get("sortOrder") ?? 0),
     published: parseBoolean(formData.get("published")),
   };
@@ -73,21 +178,35 @@ export async function saveApplication(formData: FormData) {
     await prisma.application.create({ data });
   }
 
-  revalidatePath("/ko/applications");
-  revalidatePath("/en/applications");
-  revalidatePath("/admin");
+  revalidatePublicPages();
+  revalidateAdminPages();
 }
 
 export async function saveProduct(formData: FormData) {
   const id = Number(formData.get("id") ?? 0);
+
+  if (id === 0) {
+    const count = await prisma.product.count();
+    if (count >= 10) {
+      throw new Error("Products are limited to 10 entries.");
+    }
+  }
+
   const data = {
     slug: String(formData.get("slug") ?? ""),
+    displayOrder: Number(formData.get("displayOrder") ?? 0),
     nameKo: String(formData.get("nameKo") ?? ""),
     nameEn: String(formData.get("nameEn") ?? ""),
     summaryKo: String(formData.get("summaryKo") ?? ""),
     summaryEn: String(formData.get("summaryEn") ?? ""),
     contentKo: String(formData.get("contentKo") ?? ""),
     contentEn: String(formData.get("contentEn") ?? ""),
+    featuresKo: parseTextArray(formData.get("featuresKo")),
+    featuresEn: parseTextArray(formData.get("featuresEn")),
+    applicationsKo: parseTextArray(formData.get("applicationsKo")),
+    applicationsEn: parseTextArray(formData.get("applicationsEn")),
+    specsKo: parseSpecArray(formData.get("specsKo")),
+    specsEn: parseSpecArray(formData.get("specsEn")),
     imageUrl: String(formData.get("imageUrl") ?? "") || null,
     seoTitleKo: String(formData.get("seoTitleKo") ?? "") || null,
     seoTitleEn: String(formData.get("seoTitleEn") ?? "") || null,
@@ -105,15 +224,27 @@ export async function saveProduct(formData: FormData) {
     await prisma.product.create({ data });
   }
 
-  revalidatePath("/ko/products");
-  revalidatePath("/en/products");
-  revalidatePath("/admin");
+  revalidatePublicPages();
+  revalidateAdminPages();
+}
+
+export async function deleteProduct(formData: FormData) {
+  const id = Number(formData.get("id") ?? 0);
+
+  if (!id) {
+    return;
+  }
+
+  await prisma.product.delete({ where: { id } });
+  revalidatePublicPages();
+  revalidateAdminPages();
 }
 
 export async function saveResource(formData: FormData) {
   const id = Number(formData.get("id") ?? 0);
   const data = {
     slug: String(formData.get("slug") ?? ""),
+    displayIndex: Number(formData.get("displayIndex") ?? 1),
     titleKo: String(formData.get("titleKo") ?? ""),
     titleEn: String(formData.get("titleEn") ?? ""),
     excerptKo: String(formData.get("excerptKo") ?? ""),
@@ -121,6 +252,7 @@ export async function saveResource(formData: FormData) {
     bodyKo: String(formData.get("bodyKo") ?? ""),
     bodyEn: String(formData.get("bodyEn") ?? ""),
     fileUrl: String(formData.get("fileUrl") ?? "") || null,
+    publishedAt: new Date(String(formData.get("publishedAt") ?? new Date().toISOString())),
     published: parseBoolean(formData.get("published")),
   };
 
@@ -133,9 +265,20 @@ export async function saveResource(formData: FormData) {
     await prisma.resource.create({ data });
   }
 
-  revalidatePath("/ko/contact/resources");
-  revalidatePath("/en/contact/resources");
-  revalidatePath("/admin");
+  revalidatePublicPages();
+  revalidateAdminPages();
+}
+
+export async function deleteResource(formData: FormData) {
+  const id = Number(formData.get("id") ?? 0);
+
+  if (!id) {
+    return;
+  }
+
+  await prisma.resource.delete({ where: { id } });
+  revalidatePublicPages();
+  revalidateAdminPages();
 }
 
 export async function updateInquiryStatus(formData: FormData) {
@@ -149,5 +292,106 @@ export async function updateInquiryStatus(formData: FormData) {
     },
   });
 
-  revalidatePath("/admin");
+  revalidateAdminPages();
+}
+
+export async function saveInquiryReply(formData: FormData) {
+  const id = Number(formData.get("id") ?? 0);
+
+  await prisma.inquiry.update({
+    where: { id },
+    data: {
+      internalNote: String(formData.get("internalNote") ?? "") || null,
+      replySubject: String(formData.get("replySubject") ?? "") || null,
+      replyBody: String(formData.get("replyBody") ?? "") || null,
+      status: (String(formData.get("status") ?? "REVIEWING") || "REVIEWING") as
+        | "RECEIVED"
+        | "REVIEWING"
+        | "REPLIED",
+    },
+  });
+
+  revalidateAdminPages();
+}
+
+export async function sendInquiryReply(formData: FormData) {
+  const id = Number(formData.get("id") ?? 0);
+  const inquiry = await prisma.inquiry.findUnique({ where: { id } });
+
+  if (!inquiry || !inquiry.replySubject || !inquiry.replyBody) {
+    throw new Error("Inquiry reply content is incomplete.");
+  }
+
+  await sendInquiryReplyMail({
+    to: inquiry.email,
+    subject: inquiry.replySubject,
+    body: inquiry.replyBody,
+  });
+
+  await prisma.inquiry.update({
+    where: { id },
+    data: {
+      status: "REPLIED",
+      replySentAt: new Date(),
+    },
+  });
+
+  revalidateAdminPages();
+}
+
+export async function loginAdmin(formData: FormData) {
+  const username = String(formData.get("username") ?? "").trim();
+  const password = String(formData.get("password") ?? "");
+
+  const seeded = await ensureAdminAccount();
+  const admin = await prisma.adminAccount.findUnique({
+    where: { username },
+  });
+
+  if (!admin || !verifyPassword(password, admin.passwordHash)) {
+    await logAdminAccess({
+      username: username || seeded.username,
+      adminId: admin?.id ?? null,
+      success: false,
+    });
+    redirect("/asdasddfg?error=invalid");
+  }
+
+  await createAdminSession(admin.id);
+  await logAdminAccess({
+    username: admin.username,
+    adminId: admin.id,
+    success: true,
+  });
+  redirect("/asdasddfg/admin/home");
+}
+
+export async function logoutAdmin() {
+  await clearAdminSession();
+  redirect("/asdasddfg");
+}
+
+export async function changeAdminPassword(formData: FormData) {
+  const session = await requireAdminSession();
+  const currentPassword = String(formData.get("currentPassword") ?? "");
+  const nextPassword = String(formData.get("nextPassword") ?? "");
+  const confirmPassword = String(formData.get("confirmPassword") ?? "");
+
+  if (!verifyPassword(currentPassword, session.admin.passwordHash)) {
+    throw new Error("Current password is incorrect.");
+  }
+
+  if (nextPassword.length < 8 || nextPassword !== confirmPassword) {
+    throw new Error("New password validation failed.");
+  }
+
+  await prisma.adminAccount.update({
+    where: { id: session.adminId },
+    data: {
+      passwordHash: createPasswordHash(nextPassword),
+    },
+  });
+
+  await clearAdminSession();
+  redirect("/asdasddfg?message=password-updated");
 }

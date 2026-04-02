@@ -1,5 +1,6 @@
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { VisitTracker } from "@/components/visit-tracker";
 import type { Locale } from "@/lib/site";
 
 export function PageShell({
@@ -11,6 +12,7 @@ export function PageShell({
 }) {
   return (
     <div className="shell">
+      <VisitTracker locale={locale} />
       <Header locale={locale} />
       <main>{children}</main>
       <Footer locale={locale} />

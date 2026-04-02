@@ -28,17 +28,17 @@ export default async function ResourceListPage({
             <span>Date</span>
           </div>
           <div className="resourcesTableBody">
-            {resources.map((resource, index) => (
+            {resources.map((resource) => (
               <Link
                 key={resource.slug}
                 href={`/${locale}/contact/resources/${resource.slug}`}
                 className="resourcesRow"
               >
-                <span>{String(index + 1).padStart(2, "0")}</span>
+                <span>{String(resource.displayIndex ?? 0).padStart(2, "0")}</span>
                 <span className="resourcesRowTitle">
                   {locale === "ko" ? resource.titleKo : resource.titleEn}
                 </span>
-                <span>{new Date(resource.createdAt).toLocaleDateString(locale === "ko" ? "ko-KR" : "en-US")}</span>
+                <span>{new Date(resource.publishedAt ?? resource.createdAt).toLocaleDateString(locale === "ko" ? "ko-KR" : "en-US")}</span>
               </Link>
             ))}
           </div>

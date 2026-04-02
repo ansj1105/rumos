@@ -351,7 +351,6 @@ select {
   transition: transform 180ms ease;
 }
 
-.navItem:hover .desktopNavLink,
 .navItem.isOpen .desktopNavLink,
 .navItem:focus-within .desktopNavLink {
   color: var(--blue-deep);
@@ -360,7 +359,6 @@ select {
 .desktopNavLink:hover::after,
 .desktopNavLink:focus-visible::after,
 .navItem.isOpen .desktopNavLink::after,
-.navItem:hover .desktopNavLink::after,
 .navItem:focus-within .desktopNavLink::after {
   transform: scaleX(1);
 }
@@ -378,9 +376,20 @@ select {
   box-shadow: none;
 }
 
-.navItem:hover .navDropdown,
 .navItem.isOpen .navDropdown,
 .navItem:focus-within .navDropdown {
+  display: grid;
+}
+
+.desktopNav:not(.isSuppressed) .navItem:hover .desktopNavLink {
+  color: var(--blue-deep);
+}
+
+.desktopNav:not(.isSuppressed) .navItem:hover .desktopNavLink::after {
+  transform: scaleX(1);
+}
+
+.desktopNav:not(.isSuppressed) .navItem:hover .navDropdown {
   display: grid;
 }
 
@@ -516,6 +525,523 @@ select {
 .mobileMenuLinks {
   display: grid;
   gap: 8px;
+}
+
+.lumosAdminLayout {
+  min-height: 100vh;
+  --admin-bg: #0d1522;
+  --admin-surface: #172334;
+  --admin-surface-strong: #1c2b40;
+  --admin-text: #f7fbff;
+  --admin-muted: #8ea0b7;
+  --admin-border: rgba(143, 167, 196, 0.16);
+  --admin-accent: #2b6ff2;
+  background: var(--admin-bg);
+  color: var(--admin-text);
+}
+
+.lumosAdminLayout[data-theme="light"] {
+  --admin-bg: #f3f6fb;
+  --admin-surface: #ffffff;
+  --admin-surface-strong: #f7f9fc;
+  --admin-text: #11233c;
+  --admin-muted: #67778d;
+  --admin-border: rgba(17, 35, 60, 0.1);
+  --admin-accent: #215ee0;
+}
+
+.lumosAdminSidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 280px;
+  padding: 18px 14px;
+  background: linear-gradient(180deg, #111d2d 0%, #0c1623 100%);
+  border-right: 1px solid rgba(143, 167, 196, 0.12);
+  overflow-y: auto;
+  transition: width 180ms ease;
+}
+
+.lumosAdminLayout[data-theme="light"] .lumosAdminSidebar {
+  background: linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%);
+  border-right-color: rgba(17, 35, 60, 0.08);
+}
+
+.lumosAdminLayout[data-collapsed="true"] .lumosAdminSidebar {
+  width: 88px;
+}
+
+.lumosAdminSidebarHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 10px 8px 18px;
+  border-bottom: 1px solid rgba(143, 167, 196, 0.12);
+}
+
+.lumosAdminSidebarHead strong {
+  display: block;
+  font-size: 18px;
+}
+
+.lumosAdminSidebarHead span {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  color: var(--admin-muted);
+}
+
+.lumosAdminIconButton,
+.lumosAdminGhostButton,
+.lumosAdminPrimaryButton,
+.lumosAdminDangerButton {
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: 8px;
+  border: 1px solid var(--admin-border);
+  background: transparent;
+  color: inherit;
+}
+
+.lumosAdminIconButton,
+.lumosAdminMenuToggle,
+.lumosAdminInquiryBadge {
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lumosAdminPrimaryButton {
+  background: var(--admin-accent);
+  border-color: var(--admin-accent);
+  color: #fff;
+}
+
+.lumosAdminDangerButton {
+  border-color: rgba(224, 84, 84, 0.3);
+  color: #f08b8b;
+}
+
+.lumosAdminNav {
+  display: grid;
+  gap: 16px;
+}
+
+.lumosAdminNavGroup {
+  display: grid;
+  gap: 8px;
+}
+
+.lumosAdminNavGroupLabel {
+  padding: 0 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--admin-muted);
+}
+
+.lumosAdminNavGroupItems {
+  display: grid;
+  gap: 8px;
+}
+
+.lumosAdminNavItem {
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  align-items: start;
+  gap: 10px;
+  padding: 14px 14px 14px 16px;
+  border-radius: 10px;
+  border-left: 3px solid transparent;
+  color: var(--admin-muted);
+}
+
+.lumosAdminNavItem:hover,
+.lumosAdminNavItem.isActive {
+  background: rgba(43, 111, 242, 0.12);
+  border-left-color: var(--admin-accent);
+  color: var(--admin-text);
+}
+
+.lumosAdminNavLabel {
+  font-weight: 700;
+}
+
+.lumosAdminNavText {
+  display: grid;
+  gap: 6px;
+}
+
+.lumosAdminNavIcon {
+  font-size: 11px;
+  line-height: 1.2;
+  color: currentColor;
+  margin-top: 2px;
+}
+
+.lumosAdminNavMeta {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.lumosAdminLayout[data-collapsed="true"] .lumosAdminSidebarHead span,
+.lumosAdminLayout[data-collapsed="true"] .lumosAdminNavMeta,
+.lumosAdminLayout[data-collapsed="true"] .lumosAdminNavGroupLabel {
+  display: none;
+}
+
+.lumosAdminLayout[data-collapsed="true"] .lumosAdminNavItem {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.lumosAdminLayout[data-collapsed="true"] .lumosAdminNavLabel {
+  font-size: 11px;
+  text-align: center;
+}
+
+.lumosAdminMain {
+  margin-left: 280px;
+  min-height: 100vh;
+  transition: margin-left 180ms ease;
+}
+
+.lumosAdminLayout[data-collapsed="true"] .lumosAdminMain {
+  margin-left: 88px;
+}
+
+.lumosAdminHeader {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 24px 28px 18px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--admin-surface) 88%, var(--admin-bg)) 0%, color-mix(in srgb, var(--admin-surface-strong) 92%, var(--admin-bg)) 100%);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--admin-border);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.14);
+}
+
+.lumosAdminHeader h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.lumosAdminHeader p {
+  margin: 8px 0 0;
+  color: var(--admin-muted);
+}
+
+.lumosAdminHeaderTitle {
+  min-width: 280px;
+}
+
+.lumosAdminMenuToggle {
+  border: 1px solid color-mix(in srgb, var(--admin-accent) 35%, transparent);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--admin-accent) 18%, transparent);
+  color: color-mix(in srgb, var(--admin-accent) 70%, #fff);
+}
+
+.lumosAdminHeaderStats {
+  display: flex;
+  gap: 14px;
+  flex: 1;
+  overflow-x: auto;
+}
+
+.lumosAdminStatItem {
+  min-width: 130px;
+  display: grid;
+  gap: 4px;
+}
+
+.lumosAdminStatItem span {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--admin-muted);
+}
+
+.lumosAdminStatItem strong {
+  font-size: 14px;
+}
+
+.lumosAdminHeaderActions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.lumosAdminInquiryBadge {
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--admin-accent) 35%, transparent);
+  background: color-mix(in srgb, var(--admin-accent) 18%, transparent);
+  color: color-mix(in srgb, var(--admin-accent) 70%, #fff);
+}
+
+.lumosAdminContent {
+  padding: 28px;
+}
+
+.lumosAdminGrid,
+.lumosAdminStack {
+  display: grid;
+  gap: 20px;
+}
+
+.lumosAdminGrid {
+  grid-template-columns: 1.35fr 0.85fr;
+  align-items: start;
+}
+
+.lumosAdminSectionCard {
+  background: var(--admin-surface);
+  border: 1px solid var(--admin-border);
+  border-radius: 14px;
+  padding: 22px;
+}
+
+.lumosAdminSectionHead {
+  margin-bottom: 18px;
+}
+
+.lumosAdminSectionHead h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.lumosAdminSectionHead p {
+  margin: 8px 0 0;
+  color: var(--admin-muted);
+  line-height: 1.6;
+}
+
+.lumosAdminForm,
+.lumosAdminInlineForm {
+  display: grid;
+  gap: 16px;
+}
+
+.lumosAdminFormGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.lumosAdminFormGrid .field:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.lumosAdminLayout .field span {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--admin-muted);
+}
+
+.lumosAdminLayout .field input,
+.lumosAdminLayout .field textarea,
+.lumosAdminLayout .field select {
+  background: var(--admin-surface-strong);
+  color: var(--admin-text);
+  border-color: var(--admin-border);
+}
+
+.lumosAdminLayout .field textarea {
+  min-height: 132px;
+}
+
+.lumosAdminCheckbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lumosAdminActionRow,
+.lumosAdminInlineActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.lumosAdminActionRowEnd {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.lumosAdminHistoryList {
+  display: grid;
+  gap: 12px;
+}
+
+.lumosAdminHistoryItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--admin-border);
+  border-radius: 10px;
+  background: var(--admin-surface-strong);
+}
+
+.lumosAdminHistoryItem strong,
+.lumosAdminInquiryMeta strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.lumosAdminHistoryItem span,
+.lumosAdminInquiryMeta span {
+  color: var(--admin-muted);
+  font-size: 13px;
+}
+
+.lumosAdminInquiryMeta {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.lumosAdminInquiryBody {
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  border: 1px solid var(--admin-border);
+  background: var(--admin-surface-strong);
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+.lumosAdminLogTable {
+  display: grid;
+  gap: 10px;
+}
+
+.lumosAdminLogHead,
+.lumosAdminLogRow {
+  display: grid;
+  grid-template-columns: 1.2fr 0.7fr 0.5fr 0.8fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.lumosAdminLogHead {
+  padding: 0 10px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--admin-muted);
+}
+
+.lumosAdminLogRow {
+  padding: 12px 10px;
+  border: 1px solid var(--admin-border);
+  border-radius: 10px;
+  background: var(--admin-surface-strong);
+}
+
+.adminLoginPage {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at top right, rgba(43, 111, 242, 0.15), transparent 30%),
+    linear-gradient(180deg, #0d1522 0%, #111c2b 100%);
+}
+
+.adminLoginCard {
+  width: min(520px, 100%);
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid rgba(143, 167, 196, 0.16);
+  background: rgba(18, 29, 46, 0.92);
+  color: #f7fbff;
+}
+
+.adminLoginHead h1 {
+  margin: 10px 0 0;
+  font-size: 32px;
+}
+
+.adminLoginHead p {
+  margin: 12px 0 0;
+  color: rgba(247, 251, 255, 0.72);
+}
+
+.adminLoginForm {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.adminLoginError,
+.adminLoginMessage {
+  margin: 0;
+  font-size: 14px;
+}
+
+.adminLoginError {
+  color: #ff9b9b;
+}
+
+.adminLoginMessage {
+  color: #a9d0ff;
+}
+
+@media (max-width: 1100px) {
+  .lumosAdminGrid,
+  .lumosAdminFormGrid,
+  .lumosAdminInquiryMeta,
+  .lumosAdminLogHead,
+  .lumosAdminLogRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 960px) {
+  .lumosAdminSidebar {
+    position: static;
+    width: 100%;
+    min-height: auto;
+  }
+
+  .lumosAdminMain,
+  .lumosAdminLayout[data-collapsed="true"] .lumosAdminMain {
+    margin-left: 0;
+  }
+
+  .lumosAdminLayout {
+    display: grid;
+  }
+
+  .lumosAdminHeader {
+    position: static;
+    padding-top: 18px;
+    flex-wrap: wrap;
+  }
+
+  .lumosAdminHeaderTitle,
+  .lumosAdminHeaderStats {
+    min-width: 100%;
+  }
 }
 
 .mobileMenuLink {

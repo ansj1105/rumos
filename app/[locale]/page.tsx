@@ -20,16 +20,23 @@ export default async function HomePage({
         heroDescription={
           locale === "ko" ? config?.heroDescriptionKo : config?.heroDescriptionEn
         }
+        heroImageUrl={config?.heroImageUrl}
+        heroFontSize={config?.heroFontSize}
       />
 
       <section className="storySection">
         <div className="container storyInner">
           <div className="storyLeadBlock">
             <span className="eyebrow">Section 2</span>
-            <h2 className="sectionTitle">{dict.story.title}</h2>
+            <h2 className="sectionTitle">
+              {locale === "ko" ? config?.storyTitleKo : config?.storyTitleEn ?? dict.story.title}
+            </h2>
           </div>
           <div className="storyContent">
-            <p className="sectionLead">
+            <p
+              className="sectionLead"
+              style={config?.storyFontSize ? { fontSize: `${config.storyFontSize}px` } : undefined}
+            >
               {locale === "ko" ? config?.storyBodyKo : config?.storyBodyEn ?? dict.story.body}
             </p>
             <div className="storyFacts">

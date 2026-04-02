@@ -7,17 +7,30 @@ type HeroProps = {
   locale: Locale;
   heroTitle?: string;
   heroDescription?: string;
+  heroImageUrl?: string | null;
+  heroFontSize?: number;
 };
 
-export function Hero({ locale, heroTitle, heroDescription }: HeroProps) {
+export function Hero({
+  locale,
+  heroTitle,
+  heroDescription,
+  heroImageUrl,
+  heroFontSize,
+}: HeroProps) {
   const dict = getDictionary(locale);
 
   return (
     <section className="heroSection">
-      <div className="heroBackdrop" />
+      <div
+        className={`heroBackdrop ${heroImageUrl ? "hasImage" : ""}`}
+        style={heroImageUrl ? { backgroundImage: `linear-gradient(rgba(8, 17, 30, 0.45), rgba(8, 17, 30, 0.15)), url(${heroImageUrl})` } : undefined}
+      />
       <div className="container heroInner">
         <div className="heroCopy">
-          <h1 className="headline">{heroTitle ?? dict.hero.title}</h1>
+          <h1 className="headline" style={heroFontSize ? { fontSize: `clamp(32px, 5vw, ${heroFontSize}px)` } : undefined}>
+            {heroTitle ?? dict.hero.title}
+          </h1>
           <p className="subhead">{heroDescription ?? dict.hero.description}</p>
           <div className="buttonRow">
             <Link href={`/${locale}/products`} className="button primary">
