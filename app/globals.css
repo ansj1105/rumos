@@ -1574,13 +1574,13 @@ select {
 .seriesCardMedia {
   position: relative;
   overflow: hidden;
-  min-height: 320px;
+  min-height: 284px;
   background: linear-gradient(180deg, #eef3f7 0%, #e5edf6 100%);
 }
 
 .seriesCardImage {
   object-fit: contain;
-  padding: 18px;
+  padding: 10px 14px;
   transition: transform 320ms ease;
 }
 
@@ -2362,14 +2362,11 @@ td {
   }
 
   .seriesCardMedia {
-    min-height: 280px;
+    min-height: 252px;
   }
 
   .homeSeriesSliderControls {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
+    display: none;
   }
 
   .homeSeriesSliderButton {
@@ -2696,7 +2693,7 @@ td {
   }
 
   .seriesCardMedia {
-    min-height: 236px;
+    min-height: 220px;
   }
 
   .seriesCardText strong {
@@ -2927,7 +2924,7 @@ td {
   }
 
   .seriesCardMedia {
-    min-height: 214px;
+    min-height: 198px;
   }
 
   .seriesCardBody {

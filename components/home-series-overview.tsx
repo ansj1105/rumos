@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import type { Locale } from "@/lib/site";
 
@@ -46,7 +46,7 @@ const seriesItems = [
 
 export function HomeSeriesOverview({ locale }: { locale: Locale }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [dragStartX, setDragStartX] = useState<number | null>(null);
 
   function goToPrev() {
     setCurrentIndex((index) => (index === 0 ? seriesItems.length - 1 : index - 1));
@@ -55,6 +55,14 @@ export function HomeSeriesOverview({ locale }: { locale: Locale }) {
   function goToNext() {
     setCurrentIndex((index) => (index + 1) % seriesItems.length);
   }
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setCurrentIndex((index) => (index + 1) % seriesItems.length);
+    }, 3000);
+
+    return () => window.clearInterval(timer);
+  }, []);
 
   return (
     <section className="homeSeriesSection">
@@ -80,14 +88,13 @@ export function HomeSeriesOverview({ locale }: { locale: Locale }) {
           <div
             className="homeSeriesSliderTrack"
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-            onTouchStart={(event) => setTouchStartX(event.touches[0]?.clientX ?? null)}
-            onTouchEnd={(event) => {
-              if (touchStartX === null) {
+            onPointerDown={(event) => setDragStartX(event.clientX)}
+            onPointerUp={(event) => {
+              if (dragStartX === null) {
                 return;
               }
 
-              const touchEndX = event.changedTouches[0]?.clientX ?? touchStartX;
-              const delta = touchStartX - touchEndX;
+              const delta = dragStartX - event.clientX;
 
               if (Math.abs(delta) > 40) {
                 if (delta > 0) {
@@ -97,8 +104,10 @@ export function HomeSeriesOverview({ locale }: { locale: Locale }) {
                 }
               }
 
-              setTouchStartX(null);
+              setDragStartX(null);
             }}
+            onPointerCancel={() => setDragStartX(null)}
+            onPointerLeave={() => setDragStartX(null)}
           >
             {seriesItems.map((item) => (
               <div key={item.slug} className="homeSeriesSlide">
@@ -107,7 +116,7 @@ export function HomeSeriesOverview({ locale }: { locale: Locale }) {
             ))}
           </div>
 
-          <div className="homeSeriesSliderControls">
+          <div className="homeSeriesSliderControls" aria-hidden="true">
             <button
               type="button"
               className="homeSeriesSliderButton"
