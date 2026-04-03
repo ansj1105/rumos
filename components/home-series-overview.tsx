@@ -70,7 +70,7 @@ export function HomeSeriesOverview({ locale }: { locale: Locale }) {
   }, []);
 
   return (
-    <section className="homeSeriesSection">
+    <section id="homeSeriesSection" className="homeSeriesSection">
       <div className="container homeSeriesInner">
         <div className="homeSeriesHead">
           <h2 className="sectionTitle">LUMOS series overview</h2>
@@ -91,8 +91,7 @@ export function HomeSeriesOverview({ locale }: { locale: Locale }) {
 
         <div className="homeSeriesSlider">
           <div
-            className="homeSeriesSliderTrack"
-            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            className="homeSeriesSliderViewport"
             onPointerDown={(event) => setDragStartX(event.clientX)}
             onPointerUp={(event) => {
               if (dragStartX === null) {
@@ -114,12 +113,43 @@ export function HomeSeriesOverview({ locale }: { locale: Locale }) {
             onPointerCancel={() => setDragStartX(null)}
             onPointerLeave={() => setDragStartX(null)}
           >
-            {seriesItems.map((item) => (
-              <div key={item.slug} className="homeSeriesSlide">
-                <SeriesCard item={item} locale={locale} />
-              </div>
-            ))}
+            <div
+              className="homeSeriesSliderTrack"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            >
+              {seriesItems.map((item) => (
+                <div key={item.slug} className="homeSeriesSlide">
+                  <Link href={`/${locale}/products/${item.slug}`} className="seriesCard seriesCardMobile">
+                    <div className="seriesCardMedia">
+                      <div className={`seriesCardMediaFrame ${item.imageClassName}`}>
+                        <Image
+                          src={item.imageUrl}
+                          alt={item.name}
+                          width={1200}
+                          height={900}
+                          sizes="84vw"
+                          className={`seriesCardImage ${item.imageClassName}`}
+                        />
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+              ))}
+            </div>
           </div>
+
+          <Link
+            href={`/${locale}/products/${seriesItems[currentIndex].slug}`}
+            className="seriesCardBody seriesCardBodyMobile"
+          >
+            <div className="seriesCardText">
+              <strong>{seriesItems[currentIndex].name}</strong>
+              <span>{locale === "ko" ? seriesItems[currentIndex].taglineKo : seriesItems[currentIndex].taglineEn}</span>
+            </div>
+            <span className="seriesCardArrow" aria-hidden="true">
+              ↗
+            </span>
+          </Link>
 
           <div className="homeSeriesSliderControls" aria-hidden="true">
             <button

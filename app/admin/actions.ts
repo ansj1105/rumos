@@ -40,6 +40,11 @@ function parseSpecArray(value: FormDataEntryValue | null) {
     .filter((item) => item.label && item.value);
 }
 
+function parseOptionalNumber(value: FormDataEntryValue | null, fallback: number) {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : fallback;
+}
+
 function revalidatePublicPages() {
   revalidatePath("/ko");
   revalidatePath("/en");
@@ -196,6 +201,14 @@ export async function saveProduct(formData: FormData) {
     displayOrder: Number(formData.get("displayOrder") ?? 0),
     nameKo: String(formData.get("nameKo") ?? ""),
     nameEn: String(formData.get("nameEn") ?? ""),
+    heroEyebrowKo: String(formData.get("heroEyebrowKo") ?? "").trim() || null,
+    heroEyebrowEn: String(formData.get("heroEyebrowEn") ?? "").trim() || null,
+    heroTitleKo: String(formData.get("heroTitleKo") ?? "").trim() || null,
+    heroTitleEn: String(formData.get("heroTitleEn") ?? "").trim() || null,
+    heroLeadKo: String(formData.get("heroLeadKo") ?? "").trim() || null,
+    heroLeadEn: String(formData.get("heroLeadEn") ?? "").trim() || null,
+    heroBgImageUrl: String(formData.get("heroBgImageUrl") ?? "").trim() || null,
+    heroBgOpacity: parseOptionalNumber(formData.get("heroBgOpacity"), 0.2),
     summaryKo: String(formData.get("summaryKo") ?? ""),
     summaryEn: String(formData.get("summaryEn") ?? ""),
     contentKo: String(formData.get("contentKo") ?? ""),

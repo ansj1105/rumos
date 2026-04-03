@@ -347,6 +347,14 @@ export function ProductsAdminSection({
     displayOrder: number;
     nameKo: string;
     nameEn: string;
+    heroEyebrowKo: string | null;
+    heroEyebrowEn: string | null;
+    heroTitleKo: string | null;
+    heroTitleEn: string | null;
+    heroLeadKo: string | null;
+    heroLeadEn: string | null;
+    heroBgImageUrl: string | null;
+    heroBgOpacity: number | null;
     summaryKo: string;
     summaryEn: string;
     contentKo: string;
@@ -393,6 +401,53 @@ export function ProductsAdminSection({
               <label className="field">
                 <span>Name EN</span>
                 <input name="nameEn" defaultValue={product.nameEn} />
+              </label>
+            </div>
+            <div className="lumosAdminFormGrid">
+              <label className="field">
+                <span>Sub Hero Eyebrow KO</span>
+                <input name="heroEyebrowKo" defaultValue={product.heroEyebrowKo ?? ""} />
+              </label>
+              <label className="field">
+                <span>Sub Hero Eyebrow EN</span>
+                <input name="heroEyebrowEn" defaultValue={product.heroEyebrowEn ?? ""} />
+              </label>
+            </div>
+            <div className="lumosAdminFormGrid">
+              <label className="field">
+                <span>Sub Hero Title KO</span>
+                <input name="heroTitleKo" defaultValue={product.heroTitleKo ?? ""} />
+              </label>
+              <label className="field">
+                <span>Sub Hero Title EN</span>
+                <input name="heroTitleEn" defaultValue={product.heroTitleEn ?? ""} />
+              </label>
+            </div>
+            <div className="lumosAdminFormGrid">
+              <label className="field">
+                <span>Sub Hero Lead KO</span>
+                <textarea name="heroLeadKo" defaultValue={product.heroLeadKo ?? ""} />
+              </label>
+              <label className="field">
+                <span>Sub Hero Lead EN</span>
+                <textarea name="heroLeadEn" defaultValue={product.heroLeadEn ?? ""} />
+              </label>
+            </div>
+            <div className="lumosAdminFormGrid">
+              <label className="field">
+                <span>Sub Hero BG Image URL</span>
+                <input name="heroBgImageUrl" defaultValue={product.heroBgImageUrl ?? ""} />
+              </label>
+              <label className="field">
+                <span>Sub Hero BG Opacity</span>
+                <input
+                  name="heroBgOpacity"
+                  type="number"
+                  min={0}
+                  max={1}
+                  step={0.05}
+                  defaultValue={product.heroBgOpacity ?? 0.2}
+                />
               </label>
             </div>
             <div className="lumosAdminFormGrid">
@@ -510,6 +565,46 @@ export function ProductsAdminSection({
             <label className="field">
               <span>Name EN</span>
               <input name="nameEn" />
+            </label>
+          </div>
+          <div className="lumosAdminFormGrid">
+            <label className="field">
+              <span>Sub Hero Eyebrow KO</span>
+              <input name="heroEyebrowKo" />
+            </label>
+            <label className="field">
+              <span>Sub Hero Eyebrow EN</span>
+              <input name="heroEyebrowEn" />
+            </label>
+          </div>
+          <div className="lumosAdminFormGrid">
+            <label className="field">
+              <span>Sub Hero Title KO</span>
+              <input name="heroTitleKo" />
+            </label>
+            <label className="field">
+              <span>Sub Hero Title EN</span>
+              <input name="heroTitleEn" />
+            </label>
+          </div>
+          <div className="lumosAdminFormGrid">
+            <label className="field">
+              <span>Sub Hero Lead KO</span>
+              <textarea name="heroLeadKo" />
+            </label>
+            <label className="field">
+              <span>Sub Hero Lead EN</span>
+              <textarea name="heroLeadEn" />
+            </label>
+          </div>
+          <div className="lumosAdminFormGrid">
+            <label className="field">
+              <span>Sub Hero BG Image URL</span>
+              <input name="heroBgImageUrl" />
+            </label>
+            <label className="field">
+              <span>Sub Hero BG Opacity</span>
+              <input name="heroBgOpacity" type="number" min={0} max={1} step={0.05} defaultValue={0.2} />
             </label>
           </div>
           <div className="lumosAdminFormGrid">

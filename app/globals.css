@@ -1204,24 +1204,29 @@ select {
 }
 
 .footerInner {
-  padding: 42px 0 24px;
+  padding: 54px 0 24px;
 }
 
 .footerGrid {
   display: grid;
-  grid-template-columns: 1.4fr 0.8fr 0.8fr;
-  gap: 28px;
-  padding-bottom: 28px;
+  grid-template-columns: 1.2fr 1.15fr 0.9fr 1fr 0.8fr;
+  gap: 34px;
+  padding-bottom: 32px;
+  align-items: start;
 }
 
+.footerBrandBlock,
 .footerBlock {
   display: grid;
-  gap: 10px;
+  gap: 12px;
   color: rgba(255, 255, 255, 0.7);
 }
 
 .footerBlock strong {
   color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: lowercase;
 }
 
 .footerBrand {
@@ -1231,8 +1236,28 @@ select {
 
 .footerBrandLogo {
   width: auto;
-  height: 38px;
+  height: 74px;
   object-fit: contain;
+}
+
+.footerEmail {
+  color: #56a5ff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.footerLinkGroup {
+  display: grid;
+  gap: 8px;
+}
+
+.footerGroupTitle {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.footerSubLink {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .footerBottom {
@@ -1287,109 +1312,65 @@ select {
   position: relative;
   overflow: hidden;
   padding: 88px 0 110px;
-  background: linear-gradient(180deg, #f8fafc 0%, #eef3f7 100%);
+  background: #0c1825;
   border-bottom: 1px solid rgba(15, 34, 61, 0.1);
 }
 
 .heroBackdrop {
   position: absolute;
   inset: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.heroBackdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
   background:
-    radial-gradient(circle at 74% 30%, rgba(199, 216, 235, 0.38), transparent 28%),
-    linear-gradient(135deg, #f8fafc 0%, #f1f5f9 58%, #e8eef5 100%);
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px, 56px 56px;
+  opacity: 0.12;
 }
 
 .heroInner {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
+  grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
   gap: 36px;
   align-items: center;
+  min-height: 560px;
 }
 
 .heroCopy {
   position: relative;
   z-index: 1;
+  max-width: 720px;
+  color: #ffffff;
 }
 
 .heroVisual {
   position: relative;
-  min-height: 500px;
+  min-height: 420px;
 }
 
 .heroVisualPanel {
   position: relative;
   height: 100%;
-  min-height: 500px;
-  overflow: hidden;
-  border-radius: 4px;
-  border: 1px solid rgba(15, 34, 61, 0.12);
-  background:
-    linear-gradient(145deg, rgba(10, 27, 47, 0.98), rgba(21, 52, 87, 0.95)),
-    radial-gradient(circle at 78% 28%, rgba(110, 175, 255, 0.2), transparent 34%);
-  box-shadow: none;
-}
-
-.heroVisualGlow {
-  position: absolute;
-  inset: auto auto 52px 56px;
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(130, 194, 255, 0.28), rgba(130, 194, 255, 0));
-  filter: blur(8px);
-}
-
-.heroVisualPattern {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 42%);
-  background-size: 56px 56px, 56px 56px, auto;
-  opacity: 0.55;
-}
-
-.heroVisualFrame {
-  position: absolute;
-  inset: 28px 28px 28px 150px;
-  z-index: 2;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255,255,255,0.02);
-}
-
-.heroVisualLabel {
-  position: absolute;
-  top: 22px;
-  left: 22px;
-  color: rgba(255, 255, 255, 0.76);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-}
-
-.heroVisualScreen {
-  position: absolute;
-  left: 46px;
-  right: 42px;
-  bottom: 42px;
-  height: 220px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background:
-    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
-  background-size: 44px 44px, 44px 44px;
+  min-height: 420px;
+  overflow: visible;
 }
 
 .heroWheelWrap {
   position: absolute;
-  top: 50%;
-  left: 34px;
+  right: 34px;
+  bottom: 24px;
   z-index: 3;
-  width: 240px;
-  height: 240px;
-  transform: translateY(-50%);
+  width: 180px;
+  height: 180px;
+  opacity: 0.78;
 }
 
 .heroWheel {
@@ -1446,56 +1427,13 @@ select {
 
 .heroVisualCaption {
   position: absolute;
-  right: 28px;
-  bottom: 24px;
+  right: 0;
+  bottom: 228px;
   z-index: 3;
-  max-width: 280px;
+  max-width: 260px;
   color: rgba(255, 255, 255, 0.8);
   font-size: 13px;
   line-height: 1.7;
-}
-
-.heroScan {
-  position: absolute;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.92);
-}
-
-.heroScanOne {
-  top: 32%;
-  left: 12%;
-  width: 48%;
-}
-
-.heroScanTwo {
-  top: 54%;
-  left: 28%;
-  width: 44%;
-}
-
-.heroScanThree {
-  top: 69%;
-  left: 18%;
-  width: 56%;
-}
-
-.heroAxis {
-  position: absolute;
-  background: rgba(255, 255, 255, 0.28);
-}
-
-.heroAxisHorizontal {
-  left: 10%;
-  right: 10%;
-  bottom: 22%;
-  height: 1px;
-}
-
-.heroAxisVertical {
-  top: 18%;
-  bottom: 10%;
-  left: 24%;
-  width: 1px;
 }
 
 @keyframes heroWheelRotate {
@@ -1519,45 +1457,63 @@ select {
 .storySection {
   width: 100%;
   padding: 92px 0 110px;
-  background: #eaf0f6;
+  background: #eef3f8;
   border-top: 1px solid rgba(15, 34, 61, 0.08);
   border-bottom: 1px solid rgba(15, 34, 61, 0.08);
 }
 
 .storyInner {
   display: grid;
-  grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.2fr);
-  gap: 56px;
+  grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.18fr);
+  gap: 64px;
   align-items: start;
 }
 
 .storyLeadBlock {
   position: sticky;
-  top: 120px;
+  top: 132px;
+}
+
+.storyDisplayTitle {
+  margin: 0;
+  color: #1f4f96;
+  font-size: clamp(64px, 7vw, 112px);
+  line-height: 0.94;
+  letter-spacing: -0.05em;
+  white-space: pre-line;
 }
 
 .storyContent {
   display: grid;
   gap: 30px;
+  padding-top: 8px;
 }
 
-.storyFacts {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-  padding-top: 12px;
-}
-
-.storyFact {
-  display: grid;
-  gap: 8px;
-  padding: 18px 20px;
-  border: 1px solid rgba(15, 34, 61, 0.1);
-  background: rgba(255, 255, 255, 0.9);
-}
-
-.storyFact strong {
+.storyEyebrow {
+  color: #5aa4e8;
   font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.storyParagraphs {
+  display: grid;
+  gap: 44px;
+}
+
+.storyParagraph {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.95;
+  color: #111827;
+}
+
+.storyParagraph strong {
+  font-weight: 800;
+}
+
+.storyParagraphEmphasis {
+  font-weight: 700;
 }
 
 .homeSeriesSection {
@@ -1625,7 +1581,7 @@ select {
   transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background: #ffffff;
 }
 
@@ -1643,16 +1599,18 @@ select {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  object-position: center center;
+  object-position: left center;
   padding: 6px 8px;
   --series-image-scale: 1;
   --series-image-hover-scale: 1.05;
-  transform: scale(var(--series-image-scale));
-  transition: transform 320ms ease;
+  --series-image-shift-x: 0%;
+  transform: translateX(var(--series-image-shift-x)) scale(var(--series-image-scale));
+  transform-origin: left center;
+  transition: transform 380ms ease;
 }
 
 .seriesCard:hover .seriesCardImage {
-  transform: scale(var(--series-image-hover-scale));
+  transform: translateX(var(--series-image-shift-x)) scale(var(--series-image-hover-scale));
 }
 
 .seriesCardImage.isLumB {
@@ -1787,7 +1745,7 @@ select {
 
 .productSubnav {
   position: sticky;
-  top: 86px;
+  top: 85px;
   z-index: 15;
   border-top: 1px solid rgba(15, 34, 61, 0.08);
   border-bottom: 1px solid rgba(15, 34, 61, 0.08);
@@ -2185,6 +2143,60 @@ select {
   padding: 36px 0 96px;
 }
 
+.applicationsBodyShowcase {
+  position: relative;
+  background:
+    linear-gradient(rgba(15, 34, 61, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 34, 61, 0.08) 1px, transparent 1px);
+  background-size: 132px 132px, 132px 132px;
+}
+
+.applicationsShowcase {
+  display: grid;
+  border-top: 1px solid rgba(15, 34, 61, 0.2);
+}
+
+.applicationShowcaseRow {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 34px;
+  align-items: center;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(15, 34, 61, 0.2);
+}
+
+.applicationShowcaseMedia {
+  position: relative;
+  border: 1px solid rgba(15, 34, 61, 0.12);
+  background: #ffffff;
+}
+
+.applicationShowcaseImage {
+  display: block;
+  width: 100%;
+  height: 156px;
+  object-fit: cover;
+}
+
+.applicationShowcaseBody {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+}
+
+.applicationShowcaseTitle {
+  margin: 0;
+  font-size: 18px;
+  color: #111827;
+}
+
+.applicationShowcaseText {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.65;
+  color: #111827;
+}
+
 .applicationsList {
   display: grid;
   gap: 72px;
@@ -2460,7 +2472,6 @@ td {
   .footerGrid,
   .heroInner,
   .storyInner,
-  .storyFacts,
   .applicationsHeroInner,
   .applicationFeature,
   .applicationFeature.isReversed,
@@ -2500,14 +2511,17 @@ td {
 
   .homeSeriesSlider {
     display: grid;
-    gap: 16px;
+    gap: 12px;
+  }
+
+  .homeSeriesSliderViewport {
     overflow: hidden;
   }
 
   .homeSeriesSliderTrack {
     display: flex;
     will-change: transform;
-    transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 940ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .homeSeriesSlide {
@@ -2519,13 +2533,23 @@ td {
     min-height: 242px;
   }
 
+  .seriesCardMobile {
+    min-height: 0;
+  }
+
+  .seriesCardBodyMobile {
+    min-height: 0;
+    padding: 14px 16px 16px;
+    background: #ffffff;
+  }
+
   .seriesCardMedia {
-    aspect-ratio: 1.56 / 1;
+    aspect-ratio: 1.48 / 1;
   }
 
   .seriesCardMediaFrame {
-    width: 64%;
-    height: 56%;
+    width: 68%;
+    height: 58%;
   }
 
   .homeSeriesSliderControls {
@@ -2651,6 +2675,14 @@ td {
     position: static;
   }
 
+  .storyDisplayTitle {
+    font-size: clamp(52px, 9vw, 78px);
+  }
+
+  .storyContent {
+    padding-top: 0;
+  }
+
   .applicationsIndex {
     top: 72px;
   }
@@ -2662,6 +2694,15 @@ td {
 
   .applicationsBody {
     padding: 24px 0 72px;
+  }
+
+  .applicationShowcaseRow {
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .applicationShowcaseImage {
+    height: 140px;
   }
 
   .applicationsList {
@@ -2777,7 +2818,7 @@ td {
   }
 
   .footerBrandLogo {
-    height: 32px;
+    height: 56px;
   }
 
   .heroSection {
@@ -2867,8 +2908,12 @@ td {
   }
 
   .seriesCardMediaFrame {
-    width: 62%;
-    height: 54%;
+    width: 66%;
+    height: 56%;
+  }
+
+  .seriesCardBodyMobile {
+    padding: 14px 14px 16px;
   }
 
   .seriesCardText strong {
@@ -2886,8 +2931,17 @@ td {
     gap: 22px;
   }
 
-  .storyFact {
-    padding: 16px 16px 18px;
+  .storyEyebrow {
+    font-size: 16px;
+  }
+
+  .storyParagraphs {
+    gap: 26px;
+  }
+
+  .storyParagraph {
+    font-size: 16px;
+    line-height: 1.85;
   }
 
   .subpageHero {
@@ -2939,6 +2993,29 @@ td {
   .productSubnavInner {
     gap: 14px;
     padding: 10px 0;
+  }
+
+  .applicationsShowcase {
+    gap: 0;
+  }
+
+  .applicationShowcaseRow {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 18px 0;
+  }
+
+  .applicationShowcaseImage {
+    height: 220px;
+  }
+
+  .applicationShowcaseTitle {
+    font-size: 17px;
+  }
+
+  .applicationShowcaseText {
+    font-size: 15px;
+    line-height: 1.8;
   }
 
   .productSubnavShell {
@@ -3068,6 +3145,24 @@ td {
     font-size: 17px;
   }
 
+  .applicationsBodyShowcase {
+    background-size: 92px 92px, 92px 92px;
+  }
+
+  .applicationShowcaseImage {
+    height: 184px;
+  }
+
+  .storyDisplayTitle {
+    font-size: 46px;
+    line-height: 0.98;
+  }
+
+  .storyParagraph {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
   .heroVisual {
     min-height: 248px;
   }
@@ -3115,31 +3210,33 @@ td {
   .seriesCardMedia {
     display: flex;
     align-items: center;
-    justify-content: center;
-    aspect-ratio: 1.95 / 1;
+    justify-content: flex-start;
+    aspect-ratio: 2.18 / 1;
   }
 
   .seriesCardMediaFrame {
     position: relative;
     top: auto;
-    left: auto;
+    left: 0;
     width: 100%;
     height: 100%;
-    padding: 10px 18px 8px;
+    padding: 4px 10px 4px 0;
     transform: none;
     box-sizing: border-box;
   }
 
-  .seriesCardBody {
-    padding: 16px;
+  .seriesCardBody,
+  .seriesCardBodyMobile {
+    padding: 14px 14px 16px;
   }
 
   .seriesCardImage {
     display: block;
     width: 100%;
     height: 100%;
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
+    --series-image-shift-x: -5%;
   }
 
   .seriesCardText strong {

@@ -194,15 +194,43 @@ export default async function ProductDetailPage({
   const isLumZSeries = slug === "lum-z";
   const isSoftwareSeries = slug === "software";
   const isCustomSeries = isLumBSeries || isLumBLSeries || isLumFSeries;
+  const productHeroEyebrow =
+    locale === "ko"
+      ? product.heroEyebrowKo ?? "Product Detail"
+      : product.heroEyebrowEn ?? "Product Detail";
+  const productHeroTitle =
+    locale === "ko"
+      ? product.heroTitleKo ?? `${product.nameKo} Series`
+      : product.heroTitleEn ?? `${product.nameEn} Series`;
+  const productHeroLead =
+    locale === "ko"
+      ? product.heroLeadKo ?? product.summaryKo
+      : product.heroLeadEn ?? product.summaryEn;
+  const productHeroBgImageUrl =
+    product.heroBgImageUrl ??
+    (slug === "lum-b"
+      ? "/subpage-lum-b-bg.png"
+      : slug === "lum-b-l"
+        ? "/subpage-lum-b-l-bg.png"
+        : slug === "lum-f"
+          ? "/subpage-lum-f-bg.png"
+          : slug === "lum-z"
+            ? "/subpage-lum-z-bg.png"
+            : slug === "software"
+              ? "/subpage-software-bg.png"
+        : null);
+  const productHeroBgOpacity = product.heroBgOpacity ?? 0.2;
 
   return (
     <div className="productsPage">
       <ProductSubnav locale={locale} products={navItems} activeSlug={slug} />
       <SubpageHero
-        eyebrow="Product Detail"
-        title={`${locale === "ko" ? product.nameKo : product.nameEn} Series`}
-        description={locale === "ko" ? product.summaryKo : product.summaryEn}
+        eyebrow={productHeroEyebrow}
+        title={productHeroTitle}
+        description={productHeroLead}
         tone="products"
+        backgroundImageUrl={productHeroBgImageUrl}
+        backgroundOpacity={productHeroBgOpacity}
       />
       <div className="productDetailHero">
         <div className="container productDetailHeroInner">

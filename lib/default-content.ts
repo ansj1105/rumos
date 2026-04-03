@@ -11,9 +11,9 @@ export const defaultSiteConfig = {
   storyTitleKo: "LUMOS 이름 어원",
   storyTitleEn: "Origin of the name LUMOS",
   storyBodyKo:
-    "Lumos는 빛을 뜻하는 어원을 기반으로 공정 품질을 선명하게 드러내는 광학 기술 브랜드를 지향합니다.",
+    "LUMOS는 빛을 뜻하는 라틴어 'Lumen'에서 유래했습니다. 정확한 측정을 통해 빛의 본질을 포착하고, 광학 및 레이저 빔 분석 분야에 신뢰할 수 있는 정밀도를 제공하겠다는 의미를 담고 있습니다.",
   storyBodyEn:
-    "Lumos is inspired by light and aims to reveal process quality with clarity through industrial optical technology.",
+    "LUMOS comes from the Latin 'Lumen' (Light). It represents our mission to capture the true essence of light through precise measurement and to deliver trusted precision for optics and laser beam analysis.",
   storyFontSize: 18,
   seoTitleKo: "루모스 | 산업용 광학 솔루션",
   seoTitleEn: "Lumos | Industrial Optical Solutions",
@@ -96,6 +96,14 @@ export const defaultProducts = [
   displayOrder: index + 1,
   nameKo: item.name,
   nameEn: item.name,
+  heroEyebrowKo: null,
+  heroEyebrowEn: null,
+  heroTitleKo: null,
+  heroTitleEn: null,
+  heroLeadKo: null,
+  heroLeadEn: null,
+  heroBgImageUrl: null,
+  heroBgOpacity: 0.2,
   summaryKo: `${item.name} 제품 개요와 핵심 사양을 소개합니다.`,
   summaryEn: `Overview and key specifications for ${item.name}.`,
   contentKo: `${item.name}는 공정 조건에 따른 광학 검사 요구에 대응하도록 설계된 루모스 제품군입니다.`,
@@ -122,6 +130,14 @@ export const defaultProducts = [
   displayOrder: number;
   nameKo: string;
   nameEn: string;
+  heroEyebrowKo: string | null;
+  heroEyebrowEn: string | null;
+  heroTitleKo: string | null;
+  heroTitleEn: string | null;
+  heroLeadKo: string | null;
+  heroLeadEn: string | null;
+  heroBgImageUrl: string | null;
+  heroBgOpacity: number;
   summaryKo: string;
   summaryEn: string;
   contentKo: string;

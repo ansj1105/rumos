@@ -55,7 +55,10 @@ type Dictionary = {
   };
   footer: {
     company: string;
-    legal: string[];
+    email: string;
+    phone: string;
+    fax: string;
+    legal: Array<{ label: string; href: string }>;
   };
   admin: {
     title: string;
@@ -111,7 +114,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
     story: {
       title: "Brand Story",
       body:
-        "Lumos는 빛을 뜻하는 어원을 바탕으로, 공정 품질을 선명하게 드러내는 광학 기술 브랜드를 지향합니다.",
+        "LUMOS는 빛을 뜻하는 라틴어 'Lumen'에서 유래했습니다. 정확한 측정을 통해 빛의 본질을 포착하고, 광학 및 레이저 빔 분석 분야에 신뢰할 수 있는 정밀도를 제공하겠다는 의미를 담고 있습니다.",
     },
     homepage: {
       productTitle: "Product",
@@ -146,7 +149,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
     },
     footer: {
       company: "서울특별시 금천구 가산디지털 1로 19 대륭테크노타운 18차 1306호",
-      legal: ["개인정보처리방침", "이용약관"],
+      email: "Sales@lumosity.co.kr",
+      phone: "+82-2-852-0533",
+      fax: "+82-2-853-0537",
+      legal: [
+        { label: "개인정보처리방침", href: "/legal/privacy" },
+        { label: "이용약관", href: "/legal/terms" },
+      ],
     },
     admin: {
       title: "관리자",
@@ -200,7 +209,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
     story: {
       title: "Brand Story",
       body:
-        "Lumos is inspired by light, with a brand direction centered on optical technology that reveals process quality with clarity.",
+        "LUMOS comes from the Latin 'Lumen' (Light). It represents our mission to capture the true essence of light through precise measurement and to deliver trusted precision for optics and laser beam analysis.",
     },
     homepage: {
       productTitle: "Products",
@@ -236,7 +245,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
     footer: {
       company:
         "1306, Daeryung Technotown 18-cha, 19 Gasan digital 1-ro, Geumcheon-gu, Seoul, Korea",
-      legal: ["Privacy Policy", "Terms of Service"],
+      email: "Sales@lumosity.co.kr",
+      phone: "+82-2-852-0533",
+      fax: "+82-2-853-0537",
+      legal: [
+        { label: "Privacy Policy", href: "/legal/privacy" },
+        { label: "Terms of Service", href: "/legal/terms" },
+      ],
     },
     admin: {
       title: "Admin",

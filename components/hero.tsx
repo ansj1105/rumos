@@ -19,12 +19,19 @@ export function Hero({
   heroFontSize,
 }: HeroProps) {
   const dict = getDictionary(locale);
+  const backgroundImageUrl = heroImageUrl ?? "/hero-lab-bg.png";
 
   return (
     <section className="heroSection">
       <div
-        className={`heroBackdrop ${heroImageUrl ? "hasImage" : ""}`}
-        style={heroImageUrl ? { backgroundImage: `linear-gradient(rgba(8, 17, 30, 0.45), rgba(8, 17, 30, 0.15)), url(${heroImageUrl})` } : undefined}
+        className={`heroBackdrop ${backgroundImageUrl ? "hasImage" : ""}`}
+        style={
+          backgroundImageUrl
+            ? {
+                backgroundImage: `linear-gradient(90deg, rgba(9, 20, 33, 0.82) 0%, rgba(9, 20, 33, 0.64) 34%, rgba(9, 20, 33, 0.28) 62%, rgba(9, 20, 33, 0.18) 100%), url(${backgroundImageUrl})`,
+              }
+            : undefined
+        }
       />
       <div className="container heroInner">
         <div className="heroCopy">
@@ -33,7 +40,7 @@ export function Hero({
           </h1>
           <p className="subhead">{heroDescription ?? dict.hero.description}</p>
           <div className="buttonRow">
-            <Link href={`/${locale}/products`} className="button primary">
+            <Link href={`/${locale}#homeSeriesSection`} className="button primary">
               {dict.hero.ctaPrimary}
             </Link>
             <Link href={`/${locale}/contact`} className="button secondary">
@@ -43,8 +50,6 @@ export function Hero({
         </div>
         <div className="heroVisual" aria-hidden="true">
           <div className="heroVisualPanel">
-            <div className="heroVisualGlow" />
-            <div className="heroVisualPattern" />
             <div className="heroWheelWrap">
               <div className="heroWheel heroWheelOuter" />
               <div className="heroWheel heroWheelMiddle" />
@@ -53,20 +58,10 @@ export function Hero({
                 <span>LUMOS</span>
               </div>
             </div>
-            <div className="heroVisualFrame">
-              <div className="heroVisualLabel">OPTICAL INSPECTION</div>
-              <div className="heroVisualScreen">
-                <div className="heroScan heroScanOne" />
-                <div className="heroScan heroScanTwo" />
-                <div className="heroScan heroScanThree" />
-                <div className="heroAxis heroAxisHorizontal" />
-                <div className="heroAxis heroAxisVertical" />
-              </div>
-            </div>
             <div className="heroVisualCaption">
               {locale === "ko"
-                ? "반도체와 정밀 공정 환경을 위한 광학 측정 레이어"
-                : "Optical measurement layers for semiconductor and precision processes"}
+                ? "정밀 측정과 빔 분석이 수행되는 실제 광학 검사 환경"
+                : "A real optical inspection environment for precision measurement and beam analysis"}
             </div>
           </div>
         </div>

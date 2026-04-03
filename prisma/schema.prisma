@@ -59,6 +59,14 @@ model Product {
   displayOrder     Int      @default(0)
   nameKo           String
   nameEn           String
+  heroEyebrowKo    String?
+  heroEyebrowEn    String?
+  heroTitleKo      String?
+  heroTitleEn      String?
+  heroLeadKo       String?  @db.Text
+  heroLeadEn       String?  @db.Text
+  heroBgImageUrl   String?
+  heroBgOpacity    Float?   @default(0.2)
   summaryKo        String   @db.Text
   summaryEn        String   @db.Text
   contentKo        String   @db.Text

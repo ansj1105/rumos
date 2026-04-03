@@ -12,6 +12,15 @@ export default async function HomePage({
   const { locale } = await params;
   const dict = getDictionary(locale);
   const config = await getSiteConfig();
+  const storySource = (locale === "ko" ? config?.storyBodyKo : config?.storyBodyEn) ?? dict.story.body;
+  const storyParagraphs = storySource
+    .split(/\n{2,}/)
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean);
+  const storyClosing =
+    locale === "ko"
+      ? "진정한 레이저 성능은 외형이 아니라 정확한 측정으로 정의됩니다. LUMOS는 고도화된 빔 프로파일링을 통해 사용자가 성능을 명확하게 평가할 수 있도록 돕고, 정밀 계측 분야의 새로운 기준을 제시합니다."
+      : "True laser performance is defined by accurate measurement, not just appearance. LUMOS empowers users to evaluate performance with clarity through advanced beam profiling and aims to set a new standard in precision metrology.";
 
   return (
     <>
@@ -28,34 +37,30 @@ export default async function HomePage({
       <section className="storySection">
         <div className="container storyInner">
           <div className="storyLeadBlock">
-            <h2 className="sectionTitle">
-              {locale === "ko" ? "LUMOS 이름 어원" : "Origin of the name LUMOS"}
+            <h2 className="storyDisplayTitle">
+              {locale === "ko" ? "The Origin\nof LUMOS" : "The Origin\nof LUMOS"}
             </h2>
           </div>
           <div className="storyContent">
-            <p
-              className="sectionLead"
-              style={config?.storyFontSize ? { fontSize: `${config.storyFontSize}px` } : undefined}
-            >
-              {locale === "ko" ? config?.storyBodyKo : config?.storyBodyEn ?? dict.story.body}
-            </p>
-            <div className="storyFacts">
-              <div className="storyFact">
-                <strong>{locale === "ko" ? "Optical Control" : "Optical Control"}</strong>
-                <span>
-                  {locale === "ko"
-                    ? "정렬, 검출, 측정 과정에서 필요한 광학 안정성과 반복 정밀도를 기반으로 공정 품질을 지원합니다."
-                    : "Supports process quality through optical stability and repeatable precision across alignment, detection, and measurement workflows."}
-                </span>
-              </div>
-              <div className="storyFact">
-                <strong>{locale === "ko" ? "Industrial Use" : "Industrial Use"}</strong>
-                <span>
-                  {locale === "ko"
-                    ? "반도체와 정밀 공정 환경에서 요구되는 검사 조건에 맞춰 장비, 소프트웨어, 운영 흐름을 함께 설계합니다."
-                    : "Combines equipment, software, and operational flow for inspection conditions required by semiconductor and precision manufacturing environments."}
-                </span>
-              </div>
+            <span className="storyEyebrow">
+              {locale === "ko" ? "Brand Origin: LUMOS" : "Brand Origin: LUMOS"}
+            </span>
+            <div className="storyParagraphs">
+              {storyParagraphs.map((paragraph, index) => (
+                <p
+                  key={`${index}-${paragraph.slice(0, 24)}`}
+                  className="storyParagraph"
+                  style={config?.storyFontSize ? { fontSize: `${config.storyFontSize}px` } : undefined}
+                >
+                  {paragraph}
+                </p>
+              ))}
+              <p
+                className="storyParagraph storyParagraphEmphasis"
+                style={config?.storyFontSize ? { fontSize: `${config.storyFontSize}px` } : undefined}
+              >
+                {storyClosing}
+              </p>
             </div>
           </div>
         </div>
