@@ -83,6 +83,8 @@ export default async function ApplicationsPage({
         title={dict.applications.title}
         description={dict.applications.lead}
         tone="applications"
+        backgroundImageUrl="/subpage-applications-bg.png"
+        backgroundOpacity={0.6}
       />
       <ApplicationsIndexNav locale={locale} items={applicationEntries} />
 
@@ -96,6 +98,7 @@ export default async function ApplicationsPage({
                   alt={locale === "ko" ? entry.titleKo : entry.titleEn}
                   width={960}
                   height={720}
+                  sizes="(max-width: 960px) 100vw, 46vw"
                   className="applicationShowcaseImage"
                 />
               </div>

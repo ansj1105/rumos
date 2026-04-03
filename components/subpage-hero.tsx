@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export function SubpageHero({
   eyebrow,
   title,
@@ -13,20 +15,22 @@ export function SubpageHero({
   backgroundImageUrl?: string | null;
   backgroundOpacity?: number;
 }) {
-  const heroBgStyle =
-    backgroundImageUrl
-      ? {
-          backgroundImage: `linear-gradient(90deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.08) 42%, rgba(255,255,255,0.16) 100%), linear-gradient(90deg, rgba(15, 34, 61, 0.02) 1px, transparent 1px), linear-gradient(rgba(15, 34, 61, 0.02) 1px, transparent 1px), url("${backgroundImageUrl}")`,
-          backgroundSize: "auto, 56px 56px, 56px 56px, cover",
-          backgroundPosition: "center, center, center, center",
-          backgroundRepeat: "no-repeat, repeat, repeat, no-repeat",
-          opacity: String(backgroundOpacity ?? 0.48),
-        }
-      : undefined;
-
   return (
     <section className={`subpageHero subpageHero-${tone}`}>
-      <div className="subpageHeroBg" style={heroBgStyle} />
+      <div className="subpageHeroBg">
+        {backgroundImageUrl ? (
+          <Image
+            src={backgroundImageUrl}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="subpageHeroBgImage"
+            style={{ opacity: backgroundOpacity ?? 0.48 }}
+          />
+        ) : null}
+        <div className="subpageHeroBgOverlay" />
+      </div>
       <div className="container subpageHeroInner">
         <div className="subpageHeroCopy">
           <div className="eyebrow">{eyebrow}</div>

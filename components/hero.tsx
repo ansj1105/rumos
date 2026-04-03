@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { getDictionary } from "@/lib/dictionaries";
@@ -23,16 +24,18 @@ export function Hero({
 
   return (
     <section className="heroSection">
-      <div
-        className={`heroBackdrop ${backgroundImageUrl ? "hasImage" : ""}`}
-        style={
-          backgroundImageUrl
-            ? {
-                backgroundImage: `linear-gradient(90deg, rgba(9, 20, 33, 0.05) 0%, rgba(9, 20, 33, 0.05) 100%), url(${backgroundImageUrl})`,
-              }
-            : undefined
-        }
-      />
+      <div className={`heroBackdrop ${backgroundImageUrl ? "hasImage" : ""}`}>
+        {backgroundImageUrl ? (
+          <Image
+            src={backgroundImageUrl}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="heroBackdropImage"
+          />
+        ) : null}
+      </div>
       <div className="container heroInner">
         <div className="heroCopy">
           <h1 className="headline" style={heroFontSize ? { fontSize: `clamp(32px, 5vw, ${heroFontSize}px)` } : undefined}>

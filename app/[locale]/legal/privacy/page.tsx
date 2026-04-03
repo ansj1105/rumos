@@ -19,6 +19,8 @@ export default async function PrivacyPage({
             : "This page explains how Lumos handles basic information collected through the website."
         }
         tone="resources"
+        backgroundImageUrl="/subpage-contact-bg.png"
+        backgroundOpacity={0.6}
       />
       <div className="container subpageContent">
         <div className="resourceDetailBody">

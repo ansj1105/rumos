@@ -179,15 +179,24 @@ select {
 .subpageHeroBg {
   position: absolute;
   inset: 0;
+  overflow: hidden;
+}
+
+.subpageHeroBgImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.subpageHeroBgOverlay {
+  position: absolute;
+  inset: 0;
   background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.76) 0%, rgba(255, 255, 255, 0.58) 42%, rgba(255, 255, 255, 0.66) 100%),
-    linear-gradient(90deg, rgba(15, 34, 61, 0.035) 1px, transparent 1px),
-    linear-gradient(rgba(15, 34, 61, 0.035) 1px, transparent 1px),
-    url("/subpage/series-bg.png");
-  background-size: auto, 56px 56px, 56px 56px, cover;
-  background-position: center, center, center, right center;
-  background-repeat: no-repeat, repeat, repeat, no-repeat;
-  opacity: 0.46;
+    linear-gradient(90deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.08) 42%, rgba(255, 255, 255, 0.16) 100%),
+    linear-gradient(90deg, rgba(15, 34, 61, 0.02) 1px, transparent 1px),
+    linear-gradient(rgba(15, 34, 61, 0.02) 1px, transparent 1px);
+  background-size: auto, 56px 56px, 56px 56px;
+  background-position: center, center, center;
+  background-repeat: no-repeat, repeat, repeat;
 }
 
 .subpageHeroInner {
@@ -223,16 +232,32 @@ select {
 .subpageHero .eyebrow {
   margin-bottom: 2px;
   color: #1d2430;
+  text-shadow:
+    -1px -1px 0 rgba(255, 255, 255, 0.92),
+    1px -1px 0 rgba(255, 255, 255, 0.92),
+    -1px 1px 0 rgba(255, 255, 255, 0.92),
+    1px 1px 0 rgba(255, 255, 255, 0.92);
 }
 
 .subpageHero .sectionTitle {
   max-width: 760px;
   color: #0f57a0;
+  text-shadow:
+    -1px -1px 0 rgba(255, 255, 255, 0.96),
+    1px -1px 0 rgba(255, 255, 255, 0.96),
+    -1px 1px 0 rgba(255, 255, 255, 0.96),
+    1px 1px 0 rgba(255, 255, 255, 0.96),
+    0 4px 12px rgba(255, 255, 255, 0.42);
 }
 
 .subpageHero .sectionLead {
   max-width: 620px;
   color: #1d2430;
+  text-shadow:
+    -1px -1px 0 rgba(255, 255, 255, 0.9),
+    1px -1px 0 rgba(255, 255, 255, 0.9),
+    -1px 1px 0 rgba(255, 255, 255, 0.9),
+    1px 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .twoCol {
@@ -1321,9 +1346,20 @@ select {
 .heroBackdrop {
   position: absolute;
   inset: 0;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.heroBackdropImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.heroBackdrop::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(9, 20, 33, 0.05) 0%, rgba(9, 20, 33, 0.05) 100%);
+  z-index: 1;
 }
 
 .heroBackdrop::after {
@@ -1335,6 +1371,7 @@ select {
     linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   background-size: 56px 56px, 56px 56px;
   opacity: 0.12;
+  z-index: 2;
 }
 
 .heroInner {
@@ -1726,6 +1763,13 @@ select {
   font-size: 18px;
   font-weight: 700;
   line-height: 1;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.productSubnavMore.isVisible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .productSubnavMore.isPrev,
@@ -2148,6 +2192,13 @@ select {
   font-size: 18px;
   font-weight: 700;
   line-height: 1;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.applicationsIndexMore.isVisible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .applicationsIndexMore.isPrev,
@@ -3229,7 +3280,7 @@ td {
 
   .applicationsIndexNo,
   .productDirectoryNo {
-    font-size: 11px;
+    font-size: 25px;
   }
 
   .homeSeriesSlide .seriesCard {

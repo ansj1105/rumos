@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import type { Locale } from "@/lib/site";
 
@@ -20,6 +20,35 @@ export function ProductSubnav({
   activeSlug?: string;
 }) {
   const navRef = useRef<HTMLDivElement | null>(null);
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+
+  useEffect(() => {
+    const nav = navRef.current;
+
+    if (!nav) {
+      return;
+    }
+
+    function updateScrollState() {
+      if (!nav) {
+        return;
+      }
+
+      const maxScrollLeft = nav.scrollWidth - nav.clientWidth;
+      setCanScrollPrev(nav.scrollLeft > 4);
+      setCanScrollNext(maxScrollLeft - nav.scrollLeft > 4);
+    }
+
+    updateScrollState();
+    nav.addEventListener("scroll", updateScrollState, { passive: true });
+    window.addEventListener("resize", updateScrollState);
+
+    return () => {
+      nav.removeEventListener("scroll", updateScrollState);
+      window.removeEventListener("resize", updateScrollState);
+    };
+  }, [products.length]);
 
   function scrollNext() {
     navRef.current?.scrollBy({
@@ -40,9 +69,11 @@ export function ProductSubnav({
       <div className="container productSubnavShell">
         <button
           type="button"
-          className="productSubnavMore isPrev"
+          className={`productSubnavMore isPrev ${canScrollPrev ? "isVisible" : ""}`}
           onClick={scrollPrev}
           aria-label={locale === "ko" ? "이전 제품 보기" : "Previous products"}
+          aria-hidden={!canScrollPrev}
+          tabIndex={canScrollPrev ? 0 : -1}
         >
           &lt;
         </button>
@@ -63,9 +94,11 @@ export function ProductSubnav({
         </div>
         <button
           type="button"
-          className="productSubnavMore isNext"
+          className={`productSubnavMore isNext ${canScrollNext ? "isVisible" : ""}`}
           onClick={scrollNext}
           aria-label={locale === "ko" ? "다음 제품 보기" : "More products"}
+          aria-hidden={!canScrollNext}
+          tabIndex={canScrollNext ? 0 : -1}
         >
           &gt;
         </button>

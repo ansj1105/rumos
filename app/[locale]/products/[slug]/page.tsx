@@ -272,6 +272,7 @@ export default async function ProductDetailPage({
                   src="/products/lum-b/main.png"
                   alt="LUM-B camera"
                   fill
+                  priority
                   sizes="(max-width: 960px) 100vw, 44vw"
                   className="productDetailVisualImage"
                 />
@@ -280,6 +281,7 @@ export default async function ProductDetailPage({
                   src="/products/lum-b-l/main.png"
                   alt="LUM-B-L camera"
                   fill
+                  priority
                   sizes="(max-width: 960px) 100vw, 44vw"
                   className="productDetailVisualImage"
                 />
@@ -288,6 +290,7 @@ export default async function ProductDetailPage({
                   src="/products/lum-f/main.png"
                   alt="LUM-F camera"
                   fill
+                  priority
                   sizes="(max-width: 960px) 100vw, 44vw"
                   className="productDetailVisualImage"
                 />
@@ -296,6 +299,7 @@ export default async function ProductDetailPage({
                   src="/products/lum-z/main.png"
                   alt="LUM-Z camera"
                   fill
+                  priority
                   sizes="(max-width: 960px) 100vw, 44vw"
                   className="productDetailVisualImage"
                 />
@@ -304,6 +308,7 @@ export default async function ProductDetailPage({
                   src="/products/software/main.png"
                   alt="Lumosity software interface"
                   fill
+                  priority
                   sizes="(max-width: 960px) 100vw, 44vw"
                   className="productDetailVisualImage isSoftware"
                 />
@@ -382,6 +387,7 @@ export default async function ProductDetailPage({
                   }
                   width={1066}
                   height={isLumBSeries ? 656 : isLumBLSeries ? 598 : 661}
+                  sizes="(max-width: 960px) 100vw, 74vw"
                   className="productFeatureVisualImage"
                 />
               </div>
@@ -521,6 +527,7 @@ export default async function ProductDetailPage({
                   alt="LUM-Z measurement view"
                   width={963}
                   height={646}
+                  sizes="(max-width: 960px) 100vw, 74vw"
                   className="productFeatureVisualImage"
                 />
               </div>

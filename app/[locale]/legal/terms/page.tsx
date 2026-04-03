@@ -19,6 +19,8 @@ export default async function TermsPage({
             : "This page outlines the basic terms and responsibilities for using the Lumos website."
         }
         tone="resources"
+        backgroundImageUrl="/subpage-contact-bg.png"
+        backgroundOpacity={0.6}
       />
       <div className="container subpageContent">
         <div className="resourceDetailBody">
