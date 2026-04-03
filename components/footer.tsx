@@ -12,12 +12,12 @@ export function Footer({ locale }: { locale: Locale }) {
   const footerLabels =
     locale === "ko"
       ? {
-          heading: "본사",
+          heading: "Headquarter",
           product: "Product",
           quickLink: "Quick Link",
           legal: "Legal",
-          application: "Application",
-          contactUs: "Contact Us",
+          application: "어플리케이션",
+          contactUs: "문의하기",
           telFaxPrefix: "Tel.",
           copyright: "Copyright 2026 Lumos. All Rights Reserved.",
         }
