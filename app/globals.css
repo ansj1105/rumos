@@ -1623,6 +1623,9 @@ select {
   width: 80%;
   height: 62%;
   transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #ffffff;
 }
 
@@ -1637,9 +1640,11 @@ select {
 }
 
 .seriesCardImage {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   object-position: center center;
-  padding: 8px 10px;
+  padding: 6px 8px;
   --series-image-scale: 1;
   --series-image-hover-scale: 1.05;
   transform: scale(var(--series-image-scale));
@@ -2479,16 +2484,16 @@ td {
   }
 
   .homeSeriesSlide .seriesCard {
-    min-height: 276px;
+    min-height: 258px;
   }
 
   .seriesCardMedia {
-    aspect-ratio: 1.32 / 1;
+    aspect-ratio: 1.42 / 1;
   }
 
   .seriesCardMediaFrame {
-    width: 72%;
-    height: 64%;
+    width: 68%;
+    height: 60%;
   }
 
   .homeSeriesSliderControls {
@@ -2817,11 +2822,16 @@ td {
   }
 
   .homeSeriesSlide .seriesCard {
-    min-height: 258px;
+    min-height: 244px;
   }
 
   .seriesCardMedia {
-    aspect-ratio: 1.38 / 1;
+    aspect-ratio: 1.52 / 1;
+  }
+
+  .seriesCardMediaFrame {
+    width: 66%;
+    height: 58%;
   }
 
   .seriesCardText strong {
@@ -3048,16 +3058,16 @@ td {
   }
 
   .homeSeriesSlide .seriesCard {
-    min-height: 240px;
+    min-height: 226px;
   }
 
   .seriesCardMedia {
-    aspect-ratio: 1.48 / 1;
+    aspect-ratio: 1.66 / 1;
   }
 
   .seriesCardMediaFrame {
-    width: 70%;
-    height: 62%;
+    width: 64%;
+    height: 56%;
   }
 
   .seriesCardBody {

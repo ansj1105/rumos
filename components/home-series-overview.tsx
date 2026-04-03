@@ -172,7 +172,8 @@ function SeriesCard({
           <Image
             src={item.imageUrl}
             alt={item.name}
-            fill
+            width={1200}
+            height={900}
             sizes="(max-width: 960px) 84vw, (max-width: 1180px) 32vw, 20vw"
             className={`seriesCardImage ${item.imageClassName}`}
           />
