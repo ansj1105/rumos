@@ -1545,6 +1545,10 @@ select {
   gap: 18px;
 }
 
+.homeSeriesSlider {
+  display: none;
+}
+
 .seriesCard {
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto;
@@ -1571,7 +1575,8 @@ select {
 }
 
 .seriesCardImage {
-  object-fit: cover;
+  object-fit: contain;
+  padding: 18px;
   transition: transform 320ms ease;
 }
 
@@ -1768,6 +1773,15 @@ select {
   font-weight: 700;
   font-size: 28px;
   letter-spacing: -0.02em;
+}
+
+.productSeriesTitleImage {
+  width: min(100%, 520px);
+  height: auto;
+}
+
+.productSeriesTitleImage.isSoftware {
+  width: min(100%, 720px);
 }
 
 .productDetailVisualPanel {
@@ -2316,22 +2330,69 @@ td {
   }
 
   .homeSeriesRail {
-    display: flex;
-    gap: 14px;
-    overflow-x: auto;
-    padding-bottom: 8px;
-    scroll-snap-type: x proximity;
+    display: none;
   }
 
-  .seriesCard {
-    min-width: 280px;
+  .homeSeriesSlider {
+    display: grid;
+    gap: 16px;
+  }
+
+  .homeSeriesSliderTrack {
+    display: flex;
+    transition: transform 280ms ease;
+  }
+
+  .homeSeriesSlide {
+    width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .homeSeriesSlide .seriesCard {
     min-height: 380px;
-    flex: 0 0 280px;
-    scroll-snap-align: start;
   }
 
   .seriesCardMedia {
     min-height: 280px;
+  }
+
+  .homeSeriesSliderControls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .homeSeriesSliderButton {
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(15, 34, 61, 0.12);
+    background: #ffffff;
+    color: var(--blue-deep);
+    font-size: 24px;
+    line-height: 1;
+  }
+
+  .homeSeriesSliderDots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .homeSeriesSliderDot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(15, 34, 61, 0.18);
+  }
+
+  .homeSeriesSliderDot.isActive {
+    width: 26px;
+    background: var(--blue);
   }
 
   .subpageHeroInner {
@@ -2621,10 +2682,8 @@ td {
     gap: 22px;
   }
 
-  .seriesCard {
-    min-width: 240px;
+  .homeSeriesSlide .seriesCard {
     min-height: 338px;
-    flex-basis: 240px;
   }
 
   .seriesCardMedia {
@@ -2854,10 +2913,8 @@ td {
     font-size: 11px;
   }
 
-  .seriesCard {
-    min-width: 220px;
+  .homeSeriesSlide .seriesCard {
     min-height: 318px;
-    flex-basis: 220px;
   }
 
   .seriesCardMedia {

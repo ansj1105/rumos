@@ -70,6 +70,56 @@ const lumBAccessoryRows = [
   },
 ] as const;
 
+const lumBLTechnicalRows = [
+  { label: "Wavelength [nm]", value: "400 - 1064" },
+  { label: "Resolution [pixels]", value: "8424 X 6032 [51 MP]" },
+  { label: "Pixel Size [µm]", value: "4.6 X 4.6" },
+  { label: "Sensor Size [mm]", value: "38.75 X 27.75" },
+  { label: "Minimum Measurable Spot Size", value: "Ø 92 µm" },
+  { label: "Sensor Type [Shutter]", value: "CMOS [Global Shutter]" },
+  { label: "Electrical Data", value: "10-28 V / Gigabit Ethernet" },
+] as const;
+
+const lumBLAccessoryRows = [
+  { label: "Data", value: "5 m / 10 m / 15 m" },
+  { label: "Power (Trigger) (with AC Adapter)", value: "5 m / 10 m / 15 m" },
+  { label: "USB", value: "Include Operation Program / Manual / Certificate" },
+] as const;
+
+const lumFTechnicalRows = [
+  { label: "Wavelength [nm]", values: ["240 - 355", "343 - 355", "485 - 570", "980 - 1064"] },
+  {
+    label: "Resolution [Pixels]",
+    groups: [
+      { value: "2848 X 2848 [8.1 MP]", span: 2 },
+      { value: "2856 X 2848 [8.1 MP]", span: 2 },
+    ],
+  },
+  { label: "Pixel Size [µm]", value: "2.74 X 2.74" },
+  { label: "Sensor Size [mm]", value: "7.8 X 7.8" },
+  { label: "Magnification", values: ["X20", "X10", "X05"] },
+  { label: "Minimum Measurable Spot Size", values: ["Ø 3 µm", "Ø 6 µm", "Ø 14 µm"] },
+  { label: "Sensor Type [Shutter]", value: "CMOS [Global Shutter]" },
+  { label: "Electrical Data", value: "10-28 V / Gigabit Ethernet, POE" },
+] as const;
+
+const lumFAccessoryRows = [
+  { label: "Data", value: "5 m / 10 m / 15 m" },
+  { label: "Power (Trigger)", value: "5 m / 10 m / 15 m" },
+  { label: "Adapter", value: "1.5 m (CEE 7/4 > IEC C13)" },
+  { label: "Power Adapter", value: "100-240 VAC(50/60Hz), 1.5A > 24 VDC, 3.0A" },
+  { label: "USB", value: "Include Operation Program / Manual / Certificate" },
+] as const;
+
+const lumZSpecRows = [
+  { label: "LUM-Z Stroke", value: "10mm" },
+  { label: "Min. Scan Step", value: "10um" },
+  { label: "Max. Scan Time", value: "<200sec/1mm" },
+  { label: "Min. beam Size.", value: ">3um" },
+  { label: "Wavelength", value: "343~1064nm (Selection)" },
+  { label: "Power", value: "<1W" },
+] as const;
+
 export async function generateMetadata({
   params,
 }: {
@@ -139,6 +189,11 @@ export default async function ProductDetailPage({
         .filter((item): item is { label: string; value: string } => Boolean(item))
     : reference.specs;
   const isLumBSeries = slug === "lum-b";
+  const isLumBLSeries = slug === "lum-b-l";
+  const isLumFSeries = slug === "lum-f";
+  const isLumZSeries = slug === "lum-z";
+  const isSoftwareSeries = slug === "software";
+  const isCustomSeries = isLumBSeries || isLumBLSeries || isLumFSeries;
 
   return (
     <div className="productsPage">
@@ -152,9 +207,43 @@ export default async function ProductDetailPage({
       <div className="productDetailHero">
         <div className="container productDetailHeroInner">
           <div className="productDetailCopy">
-            <div className="productMetaLine">
-              <span>{`LUMOS ${locale === "ko" ? product.nameKo : product.nameEn} Series`}</span>
-            </div>
+            {isLumBLSeries ? (
+              <Image
+                src="/products/lum-b-l/title.png"
+                alt="LUM-B-L title"
+                width={756}
+                height={202}
+                className="productSeriesTitleImage"
+              />
+            ) : isLumFSeries ? (
+              <Image
+                src="/products/lum-f/title.png"
+                alt="LUM-F title"
+                width={768}
+                height={244}
+                className="productSeriesTitleImage"
+              />
+            ) : isLumZSeries ? (
+              <Image
+                src="/products/lum-z/title.png"
+                alt="LUM-Z title"
+                width={760}
+                height={225}
+                className="productSeriesTitleImage"
+              />
+            ) : isSoftwareSeries ? (
+              <Image
+                src="/products/software/title.png"
+                alt="Software Lumosity title"
+                width={1104}
+                height={280}
+                className="productSeriesTitleImage isSoftware"
+              />
+            ) : (
+              <div className="productMetaLine">
+                <span>{`LUMOS ${locale === "ko" ? product.nameKo : product.nameEn} Series`}</span>
+              </div>
+            )}
           </div>
           <div className="productDetailVisual">
             <div className="productDetailVisualPanel">
@@ -162,6 +251,38 @@ export default async function ProductDetailPage({
                 <Image
                   src="/products/lum-b/main.png"
                   alt="LUM-B camera"
+                  fill
+                  sizes="(max-width: 960px) 100vw, 44vw"
+                  className="productDetailVisualImage"
+                />
+              ) : isLumBLSeries ? (
+                <Image
+                  src="/products/lum-b-l/main.png"
+                  alt="LUM-B-L camera"
+                  fill
+                  sizes="(max-width: 960px) 100vw, 44vw"
+                  className="productDetailVisualImage"
+                />
+              ) : isLumFSeries ? (
+                <Image
+                  src="/products/lum-f/main.png"
+                  alt="LUM-F camera"
+                  fill
+                  sizes="(max-width: 960px) 100vw, 44vw"
+                  className="productDetailVisualImage"
+                />
+              ) : isLumZSeries ? (
+                <Image
+                  src="/products/lum-z/main.png"
+                  alt="LUM-Z camera"
+                  fill
+                  sizes="(max-width: 960px) 100vw, 44vw"
+                  className="productDetailVisualImage"
+                />
+              ) : isSoftwareSeries ? (
+                <Image
+                  src="/products/software/main.png"
+                  alt="Lumosity software"
                   fill
                   sizes="(max-width: 960px) 100vw, 44vw"
                   className="productDetailVisualImage"
@@ -180,18 +301,40 @@ export default async function ProductDetailPage({
       </div>
 
       <div className="container subpageContent">
-        {isLumBSeries ? (
+        {isCustomSeries ? (
           <>
             <section className="productSection">
               <div className="productSectionHead">
                 <span className="eyebrow">Overview</span>
-                <h2 className="sectionTitle">LUM-B Series Overview</h2>
+                <h2 className="sectionTitle">
+                  {isLumBSeries
+                    ? "LUM-B Series Overview"
+                    : isLumBLSeries
+                      ? "LUM-B-L Series Overview"
+                      : "LUM-F Series Overview"}
+                </h2>
               </div>
               <div className="productOverviewBody">
                 <p style={{ margin: 0, lineHeight: 1.9 }}>
-                  {locale === "ko"
-                    ? "LUM-B 시리즈는 Raw Laser Beam Profiling과 분석을 위한 카메라 기반 측정 장비로, 다양한 필터 옵션과 해상도 구성을 통해 산업용 광학 계측 환경에 대응합니다."
-                    : "The LUM-B Series is a camera-based measurement platform for raw laser beam profiling and analysis, offering multiple filter and resolution options for industrial optical metrology environments."}
+                  {isLumBSeries
+                    ? (
+                      locale === "ko"
+                        ? "LUM-B 시리즈는 Raw Laser Beam Profiling과 분석을 위한 카메라 기반 측정 장비로, 다양한 필터 옵션과 해상도 구성을 통해 산업용 광학 계측 환경에 대응합니다."
+                        : "The LUM-B Series is a camera-based measurement platform for raw laser beam profiling and analysis, offering multiple filter and resolution options for industrial optical metrology environments."
+                    )
+                    : (
+                      isLumBLSeries
+                        ? (
+                          locale === "ko"
+                            ? "LUM-B-L 시리즈는 대면적 레이저 빔 프로파일링을 위한 고해상도 측정 플랫폼으로, 대형 센서와 넓은 유효 개구를 통해 확장된 계측 환경에 대응합니다."
+                            : "The LUM-B-L Series is a high-resolution platform for large-area laser beam profiling, combining a large sensor and wide clear aperture for expanded measurement environments."
+                        )
+                        : (
+                          locale === "ko"
+                            ? "LUM-F 시리즈는 고배율 초점 빔 프로파일링을 위한 측정 플랫폼으로, 파장별 렌즈 유닛과 필터 구성을 통해 미세 스폿 계측 환경에 대응합니다."
+                            : "The LUM-F Series is a focused beam profiling platform built for fine spot measurement, combining wavelength-specific objective units and filter configurations."
+                        )
+                    )}
                 </p>
               </div>
             </section>
@@ -203,10 +346,22 @@ export default async function ProductDetailPage({
               </div>
               <div className="productFeatureVisualPanel">
                 <Image
-                  src="/products/lum-b/filter.png"
-                  alt="LUM-B filter configuration"
+                  src={
+                    isLumBSeries
+                      ? "/products/lum-b/filter.png"
+                      : isLumBLSeries
+                        ? "/products/lum-b-l/filter.png"
+                        : "/products/lum-f/filter.png"
+                  }
+                  alt={
+                    isLumBSeries
+                      ? "LUM-B filter configuration"
+                      : isLumBLSeries
+                        ? "LUM-B-L filter configuration"
+                        : "LUM-F filter configuration"
+                  }
                   width={1066}
-                  height={656}
+                  height={isLumBSeries ? 656 : isLumBLSeries ? 598 : 661}
                   className="productFeatureVisualImage"
                 />
               </div>
@@ -223,26 +378,79 @@ export default async function ProductDetailPage({
                   <thead>
                     <tr>
                       <th>Technical Data</th>
-                      <th>LUM-B-D</th>
-                      <th>LUM-B-N</th>
-                      <th>LUM-B-M</th>
+                      {isLumBSeries ? (
+                        <>
+                          <th>LUM-B-D</th>
+                          <th>LUM-B-N</th>
+                          <th>LUM-B-M</th>
+                        </>
+                      ) : isLumBLSeries ? (
+                        <th colSpan={3}>LUM-B-L</th>
+                      ) : (
+                        <>
+                          <th>LUM-F-DUV</th>
+                          <th>LUM-F-UV</th>
+                          <th>LUM-F-VIS</th>
+                          <th>LUM-F-NIR</th>
+                        </>
+                      )}
                     </tr>
                   </thead>
                   <tbody>
-                    {lumBTechnicalRows.map((row) => (
-                      <tr key={row.label}>
-                        <th>{row.label}</th>
-                        {row.values.map((value) => (
-                          <td key={`${row.label}-${value}`}>{value}</td>
-                        ))}
-                      </tr>
-                    ))}
-                    {lumBSharedRows.map((row) => (
-                      <tr key={row.label}>
-                        <th>{row.label}</th>
-                        <td colSpan={3}>{row.value}</td>
-                      </tr>
-                    ))}
+                    {isLumBSeries
+                      ? (
+                        <>
+                          {lumBTechnicalRows.map((row) => (
+                            <tr key={row.label}>
+                              <th>{row.label}</th>
+                              {row.values.map((value) => (
+                                <td key={`${row.label}-${value}`}>{value}</td>
+                              ))}
+                            </tr>
+                          ))}
+                          {lumBSharedRows.map((row) => (
+                            <tr key={row.label}>
+                              <th>{row.label}</th>
+                              <td colSpan={3}>{row.value}</td>
+                            </tr>
+                          ))}
+                        </>
+                      ) : isLumBLSeries ? (
+                        <>
+                          {lumBLTechnicalRows.map((row) => (
+                            <tr key={row.label}>
+                              <th>{row.label}</th>
+                              <td colSpan={3}>{row.value}</td>
+                            </tr>
+                          ))}
+                        </>
+                      ) : (
+                        <>
+                          {lumFTechnicalRows.map((row) => (
+                            <tr key={row.label}>
+                              <th>{row.label}</th>
+                              {"groups" in row ? (
+                                row.groups.map((group, index) => (
+                                  <td key={`${row.label}-${index}`} colSpan={group.span}>
+                                    {group.value}
+                                  </td>
+                                ))
+                              ) : "values" in row ? (
+                                row.values.map((value, index) => (
+                                  <td
+                                    key={`${row.label}-${value}`}
+                                    colSpan={row.values.length === 3 && index === 0 ? 2 : 1}
+                                  >
+                                    {value}
+                                  </td>
+                                ))
+                              ) : (
+                                <td colSpan={4}>{row.value}</td>
+                              )}
+                            </tr>
+                          ))}
+                        </>
+                      )}
                   </tbody>
                 </table>
               </div>
@@ -251,7 +459,11 @@ export default async function ProductDetailPage({
                 <div className="productAccessoryHeading">Information for Accessories</div>
                 <table className="productAccessoryTable">
                   <tbody>
-                    {lumBAccessoryRows.map((row) => (
+                    {(isLumBSeries
+                      ? lumBAccessoryRows
+                      : isLumBLSeries
+                        ? lumBLAccessoryRows
+                        : lumFAccessoryRows).map((row) => (
                       <tr key={row.label}>
                         <th>{row.label}</th>
                         <td>{row.value}</td>
@@ -259,6 +471,111 @@ export default async function ProductDetailPage({
                     ))}
                   </tbody>
                 </table>
+              </div>
+            </section>
+          </>
+        ) : isLumZSeries ? (
+          <>
+            <section className="productSection">
+              <div className="productSectionHead">
+                <span className="eyebrow">Overview</span>
+                <h2 className="sectionTitle">LUM-Z Series Overview</h2>
+              </div>
+              <div className="productOverviewBody">
+                <p style={{ margin: 0, lineHeight: 1.9 }}>
+                  {locale === "ko"
+                    ? "LUM-Z 시리즈는 빔 전파축 방향의 형상을 스캔하고 분석하기 위한 3D 빔 프로파일링 플랫폼으로, 정밀 스텝 제어와 다양한 파장 선택 환경에 대응합니다."
+                    : "The LUM-Z Series is a 3D beam profiling platform for scanning and analyzing beam propagation, built for precision step control and selectable wavelength environments."}
+                </p>
+              </div>
+            </section>
+
+            <section className="productSection productFeatureVisualSection">
+              <div className="productSectionHead">
+                <span className="eyebrow">Measurement View</span>
+                <h2 className="sectionTitle">Scan Analysis Interface</h2>
+              </div>
+              <div className="productFeatureVisualPanel">
+                <Image
+                  src="/products/lum-z/feature.png"
+                  alt="LUM-Z measurement view"
+                  width={963}
+                  height={646}
+                  className="productFeatureVisualImage"
+                />
+              </div>
+            </section>
+
+            <section className="productSection">
+              <div className="productSectionHead">
+                <span className="eyebrow">Specification</span>
+                <h2 className="sectionTitle">Z Axis Scan Spec</h2>
+              </div>
+              <div className="productSpecBlock">
+                <table className="productTechTable">
+                  <thead>
+                    <tr>
+                      <th />
+                      <th>Spec</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {lumZSpecRows.map((row) => (
+                      <tr key={row.label}>
+                        <th>{row.label}</th>
+                        <td>{row.value}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </>
+        ) : isSoftwareSeries ? (
+          <>
+            <section className="productSection">
+              <div className="productSectionHead">
+                <span className="eyebrow">Overview</span>
+                <h2 className="sectionTitle">Lumosity Software Overview</h2>
+              </div>
+              <div className="productOverviewBody">
+                <p style={{ margin: 0, lineHeight: 1.9 }}>
+                  {locale === "ko"
+                    ? "Lumosity는 빔 프로파일링 장비 제어, 측정 데이터 시각화, 분석, 로깅을 통합한 운영 소프트웨어로 생산 라인과 외부 시스템 연동까지 고려한 환경을 제공합니다."
+                    : "Lumosity is an operational software suite that combines device control, measurement visualization, analysis, and logging, with support for production line integration and external systems."}
+                </p>
+              </div>
+            </section>
+
+            <section className="productSection productFeatureVisualSection">
+              <div className="productSectionHead">
+                <span className="eyebrow">Software</span>
+                <h2 className="sectionTitle">Core Software Functions</h2>
+              </div>
+              <div className="productFeatureVisualPanel">
+                <Image
+                  src="/products/software/software.png"
+                  alt="Lumosity software functions"
+                  width={1024}
+                  height={660}
+                  className="productFeatureVisualImage"
+                />
+              </div>
+            </section>
+
+            <section className="productSection productFeatureVisualSection">
+              <div className="productSectionHead">
+                <span className="eyebrow">Feature</span>
+                <h2 className="sectionTitle">Beam Analysis Features</h2>
+              </div>
+              <div className="productFeatureVisualPanel">
+                <Image
+                  src="/products/software/feature.png"
+                  alt="Lumosity beam analysis features"
+                  width={980}
+                  height={726}
+                  className="productFeatureVisualImage"
+                />
               </div>
             </section>
           </>

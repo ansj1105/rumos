@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 import type { Locale } from "@/lib/site";
 
@@ -9,39 +12,41 @@ const seriesItems = [
     name: "LUM-B",
     taglineKo: "Raw Beam Profiler",
     taglineEn: "Raw Beam Profiler",
-    imageUrl: "/home-series/lum-b.png",
+    imageUrl: "/products/lum-b/main.png",
   },
   {
     slug: "lum-b-l",
     name: "LUM-B-L",
     taglineKo: "Large Beam Profiler",
     taglineEn: "Large Beam Profiler",
-    imageUrl: "/home-series/lum-b-l.png",
+    imageUrl: "/products/lum-b-l/main.png",
   },
   {
     slug: "lum-f",
     name: "LUM-F",
     taglineKo: "Focus Beam Profiler",
     taglineEn: "Focus Beam Profiler",
-    imageUrl: "/home-series/lum-f.png",
+    imageUrl: "/products/lum-f/main.png",
   },
   {
     slug: "lum-z",
     name: "LUM-Z",
     taglineKo: "3D Beam Profiler",
     taglineEn: "3D Beam Profiler",
-    imageUrl: "/home-series/lum-z.png",
+    imageUrl: "/products/lum-z/main.png",
   },
   {
     slug: "software",
     name: "Software",
-    taglineKo: "Inspection Control Suite",
-    taglineEn: "Inspection Control Suite",
-    imageUrl: null,
+    taglineKo: "Lumosity Software",
+    taglineEn: "Lumosity Software",
+    imageUrl: "/products/software/main.png",
   },
 ] as const;
 
 export function HomeSeriesOverview({ locale }: { locale: Locale }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   return (
     <section className="homeSeriesSection">
       <div className="container homeSeriesInner">
@@ -54,49 +59,94 @@ export function HomeSeriesOverview({ locale }: { locale: Locale }) {
           </p>
         </div>
 
-        <div className="homeSeriesRail">
-          {seriesItems.map((item) => {
-            const href = `/${locale}/products/${item.slug}`;
+        <div className="homeSeriesRailDesktop">
+          <div className="homeSeriesRail">
+            {seriesItems.map((item) => (
+              <SeriesCard key={item.slug} item={item} locale={locale} />
+            ))}
+          </div>
+        </div>
 
-            return (
-              <Link key={item.slug} href={href} className="seriesCard">
-                <div className="seriesCardMedia">
-                  {item.imageUrl ? (
-                    <Image
-                      src={item.imageUrl}
-                      alt={item.name}
-                      fill
-                      sizes="(max-width: 720px) 80vw, (max-width: 1180px) 32vw, 20vw"
-                      className="seriesCardImage"
-                    />
-                  ) : (
-                    <div className="seriesCardSoftwareVisual" aria-hidden="true">
-                      <div className="seriesCardSoftwareGrid" />
-                      <div className="seriesCardSoftwarePanel">
-                        <span className="seriesCardSoftwareChip">LUMOS UI</span>
-                        <strong>Control</strong>
-                        <span>Logging</span>
-                        <span>Report</span>
-                      </div>
-                    </div>
-                  )}
-                  <div className="seriesCardOverlay" />
-                </div>
+        <div className="homeSeriesSlider">
+          <div
+            className="homeSeriesSliderTrack"
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          >
+            {seriesItems.map((item) => (
+              <div key={item.slug} className="homeSeriesSlide">
+                <SeriesCard item={item} locale={locale} />
+              </div>
+            ))}
+          </div>
 
-                <div className="seriesCardBody">
-                  <div className="seriesCardText">
-                    <strong>{item.name}</strong>
-                    <span>{locale === "ko" ? item.taglineKo : item.taglineEn}</span>
-                  </div>
-                  <span className="seriesCardArrow" aria-hidden="true">
-                    ↗
-                  </span>
-                </div>
-              </Link>
-            );
-          })}
+          <div className="homeSeriesSliderControls">
+            <button
+              type="button"
+              className="homeSeriesSliderButton"
+              onClick={() =>
+                setCurrentIndex((index) => (index === 0 ? seriesItems.length - 1 : index - 1))
+              }
+              aria-label="Previous product"
+            >
+              ‹
+            </button>
+
+            <div className="homeSeriesSliderDots">
+              {seriesItems.map((item, index) => (
+                <button
+                  key={item.slug}
+                  type="button"
+                  className={`homeSeriesSliderDot ${index === currentIndex ? "isActive" : ""}`}
+                  onClick={() => setCurrentIndex(index)}
+                  aria-label={`Go to ${item.name}`}
+                />
+              ))}
+            </div>
+
+            <button
+              type="button"
+              className="homeSeriesSliderButton"
+              onClick={() => setCurrentIndex((index) => (index + 1) % seriesItems.length)}
+              aria-label="Next product"
+            >
+              ›
+            </button>
+          </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function SeriesCard({
+  item,
+  locale,
+}: {
+  item: (typeof seriesItems)[number];
+  locale: Locale;
+}) {
+  return (
+    <Link href={`/${locale}/products/${item.slug}`} className="seriesCard">
+      <div className="seriesCardMedia">
+        <Image
+          src={item.imageUrl}
+          alt={item.name}
+          fill
+          sizes="(max-width: 960px) 84vw, (max-width: 1180px) 32vw, 20vw"
+          className="seriesCardImage"
+        />
+        <div className="seriesCardOverlay" />
+      </div>
+
+      <div className="seriesCardBody">
+        <div className="seriesCardText">
+          <strong>{item.name}</strong>
+          <span>{locale === "ko" ? item.taglineKo : item.taglineEn}</span>
+        </div>
+        <span className="seriesCardArrow" aria-hidden="true">
+          ↗
+        </span>
+      </div>
+    </Link>
   );
 }
