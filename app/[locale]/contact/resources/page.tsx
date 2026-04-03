@@ -12,13 +12,19 @@ export default async function ResourceListPage({
 }) {
   const { locale } = await params;
   const resources = await getResources();
+  const eyebrow = locale === "ko" ? "자료실" : "Resources";
+  const title = locale === "ko" ? "자료실" : "Resource Library";
+  const description =
+    locale === "ko"
+      ? "자료실 게시물과 다운로드 자료를 제공합니다."
+      : "Browse resource posts and downloadable reference materials.";
 
   return (
     <div className="resourcesPage">
       <SubpageHero
-        eyebrow="Resources"
-        title="Resource Library"
-        description="자료실 게시물과 다운로드 자료를 제공합니다."
+        eyebrow={eyebrow}
+        title={title}
+        description={description}
         tone="resources"
         backgroundImageUrl="/subpage-contact-bg.png"
         lightText
@@ -28,8 +34,8 @@ export default async function ResourceListPage({
         <div className="resourcesTableWrap">
           <div className="resourcesTableHead">
             <span>No.</span>
-            <span>Title</span>
-            <span>Date</span>
+            <span>{locale === "ko" ? "제목" : "Title"}</span>
+            <span>{locale === "ko" ? "등록일" : "Date"}</span>
           </div>
           <div className="resourcesTableBody">
             {resources.map((resource) => (

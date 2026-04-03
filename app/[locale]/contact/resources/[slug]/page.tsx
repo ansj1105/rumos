@@ -52,7 +52,7 @@ export default async function ResourceDetailPage({
   return (
     <div className="resourcesPage">
       <SubpageHero
-        eyebrow="Resource Detail"
+        eyebrow={locale === "ko" ? "자료 상세" : "Resource Detail"}
         title={locale === "ko" ? resource.titleKo : resource.titleEn}
         description={locale === "ko" ? resource.excerptKo : resource.excerptEn}
         tone="resources"
@@ -65,7 +65,7 @@ export default async function ResourceDetailPage({
           <span>{new Date(resource.createdAt).toLocaleDateString(locale === "ko" ? "ko-KR" : "en-US")}</span>
           {resource.fileUrl ? (
             <a href={resource.fileUrl} target="_blank" rel="noreferrer" className="button secondary">
-              Download
+              {locale === "ko" ? "다운로드" : "Download"}
             </a>
           ) : null}
         </div>
