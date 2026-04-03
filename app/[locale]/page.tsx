@@ -38,7 +38,7 @@ export default async function HomePage({
         <div className="container storyInner">
           <div className="storyLeadBlock">
             <h2 className="storyDisplayTitle">
-              {locale === "ko" ? "LUMOS :\n브랜드 어원" : "The Origin\nof LUMOS"}
+              {locale === "ko" ? "LUMOS : 브랜드 어원" : "The Origin of LUMOS"}
             </h2>
           </div>
           <div className="storyContent">

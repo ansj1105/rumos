@@ -1413,15 +1413,16 @@ select {
 .storyLeadBlock {
   position: sticky;
   top: 132px;
+  padding-left: 28px;
 }
 
 .storyDisplayTitle {
   margin: 0;
   color: #1f4f96;
-  font-size: clamp(64px, 7vw, 112px);
-  line-height: 0.94;
+  font-size: clamp(44px, 4vw, 72px);
+  line-height: 1.02;
   letter-spacing: -0.05em;
-  white-space: pre-line;
+  white-space: normal;
 }
 
 .storyContent {
@@ -2247,6 +2248,14 @@ select {
   display: grid;
   gap: 14px;
   min-width: 0;
+}
+
+.applicationShowcaseRow:nth-child(even) .applicationShowcaseMedia {
+  order: 2;
+}
+
+.applicationShowcaseRow:nth-child(even) .applicationShowcaseBody {
+  order: 1;
 }
 
 .applicationShowcaseTitle {
