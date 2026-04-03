@@ -264,7 +264,7 @@ select {
 
 .field textarea {
   min-height: 160px;
-  resize: vertical;
+  resize: none;
 }
 
 .stack {

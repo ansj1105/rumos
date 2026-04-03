@@ -51,11 +51,6 @@ export function Header({ locale }: HeaderProps) {
               setOpenNavHref(null);
               setSuppressNavHover(false);
             }}
-            onMouseMove={() => {
-              if (suppressNavHover) {
-                setSuppressNavHover(false);
-              }
-            }}
           >
             {dict.nav.map((item) => (
               <div
