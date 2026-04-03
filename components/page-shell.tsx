@@ -1,5 +1,6 @@
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { ScrollTopButton } from "@/components/scroll-top-button";
 import { VisitTracker } from "@/components/visit-tracker";
 import type { Locale } from "@/lib/site";
 
@@ -15,6 +16,7 @@ export function PageShell({
       <VisitTracker locale={locale} />
       <Header locale={locale} />
       <main>{children}</main>
+      <ScrollTopButton />
       <Footer locale={locale} />
     </div>
   );

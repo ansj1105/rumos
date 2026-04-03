@@ -204,8 +204,8 @@ select {
 }
 
 .subpageContent {
-  padding-top: 24px;
-  padding-bottom: 72px;
+  padding-top: 56px;
+  padding-bottom: 56px;
 }
 
 .subpageHero-default,
@@ -1246,6 +1246,43 @@ select {
   color: rgba(255, 255, 255, 0.82);
 }
 
+.scrollTopButton {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid rgba(15, 34, 61, 0.12);
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--blue-deep);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.scrollTopButton.isVisible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.scrollTopButton:hover {
+  border-color: rgba(13, 91, 215, 0.24);
+  background: #ffffff;
+}
+
 .heroSection {
   position: relative;
   overflow: hidden;
@@ -2279,6 +2316,7 @@ select {
 .resourcesTableWrap {
   border-top: 2px solid var(--text);
   min-height: 420px;
+  background: #ffffff;
 }
 
 .resourcesTableHead,
@@ -2440,7 +2478,16 @@ td {
   }
 
   .homeSeriesSlide .seriesCard {
-    min-height: 336px;
+    min-height: 298px;
+  }
+
+  .seriesCardMedia {
+    aspect-ratio: 1.18 / 1;
+  }
+
+  .seriesCardMediaFrame {
+    width: 76%;
+    height: 68%;
   }
 
   .homeSeriesSliderControls {
@@ -2494,7 +2541,8 @@ td {
   }
 
   .subpageContent {
-    padding-bottom: 56px;
+    padding-top: 48px;
+    padding-bottom: 48px;
   }
 
   .heroVisual {
@@ -2639,7 +2687,8 @@ td {
   }
 
   .subpageContent {
-    padding-top: 24px;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 }
 
@@ -2767,7 +2816,11 @@ td {
   }
 
   .homeSeriesSlide .seriesCard {
-    min-height: 322px;
+    min-height: 286px;
+  }
+
+  .seriesCardMedia {
+    aspect-ratio: 1.22 / 1;
   }
 
   .seriesCardText strong {
@@ -2809,8 +2862,8 @@ td {
   }
 
   .subpageContent {
-    padding-top: 20px;
-    padding-bottom: 48px;
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
 
   .applicationsHeroMetaWrap {
@@ -2994,7 +3047,16 @@ td {
   }
 
   .homeSeriesSlide .seriesCard {
-    min-height: 304px;
+    min-height: 272px;
+  }
+
+  .seriesCardMedia {
+    aspect-ratio: 1.28 / 1;
+  }
+
+  .seriesCardMediaFrame {
+    width: 74%;
+    height: 66%;
   }
 
   .seriesCardBody {
@@ -3030,6 +3092,15 @@ td {
 
   .resourcesTableWrap {
     min-height: 340px;
+  }
+
+  .scrollTopButton {
+    right: 16px;
+    bottom: 16px;
+    min-height: 40px;
+    padding: 0 12px;
+    gap: 6px;
+    font-size: 11px;
   }
 }
 .shell main {
