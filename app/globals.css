@@ -2300,14 +2300,6 @@ select {
   min-width: 0;
 }
 
-.applicationShowcaseRow:nth-child(even) .applicationShowcaseMedia {
-  order: 2;
-}
-
-.applicationShowcaseRow:nth-child(even) .applicationShowcaseBody {
-  order: 1;
-}
-
 .applicationShowcaseTitle {
   margin: 0;
   font-size: 18px;

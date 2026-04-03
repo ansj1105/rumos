@@ -103,7 +103,7 @@ export const defaultProducts = [
   heroLeadKo: null,
   heroLeadEn: null,
   heroBgImageUrl: null,
-  heroBgOpacity: 0.2,
+  heroBgOpacity: 0.9,
   summaryKo: `${item.name} 제품 개요와 핵심 사양을 소개합니다.`,
   summaryEn: `Overview and key specifications for ${item.name}.`,
   contentKo: `${item.name}는 공정 조건에 따른 광학 검사 요구에 대응하도록 설계된 루모스 제품군입니다.`,

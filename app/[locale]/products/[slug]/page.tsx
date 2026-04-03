@@ -246,7 +246,7 @@ export default async function ProductDetailPage({
             : slug === "software"
               ? "/subpage-software-bg.png"
         : null);
-  const productHeroBgOpacity = product.heroBgOpacity ?? 0.95;
+  const productHeroBgOpacity = product.heroBgOpacity ?? 0.9;
 
   return (
     <div className="productsPage">

@@ -208,7 +208,7 @@ export async function saveProduct(formData: FormData) {
     heroLeadKo: String(formData.get("heroLeadKo") ?? "").trim() || null,
     heroLeadEn: String(formData.get("heroLeadEn") ?? "").trim() || null,
     heroBgImageUrl: String(formData.get("heroBgImageUrl") ?? "").trim() || null,
-    heroBgOpacity: parseOptionalNumber(formData.get("heroBgOpacity"), 0.2),
+    heroBgOpacity: parseOptionalNumber(formData.get("heroBgOpacity"), 0.9),
     summaryKo: String(formData.get("summaryKo") ?? ""),
     summaryEn: String(formData.get("summaryEn") ?? ""),
     contentKo: String(formData.get("contentKo") ?? ""),
