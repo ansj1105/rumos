@@ -7,7 +7,30 @@ import type { Locale } from "@/lib/site";
 export function Footer({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale);
   const productNav = dict.nav.find((item) => item.href === "/products");
-  const quickNav = dict.nav.filter((item) => item.href !== "/products");
+  const applicationNav = dict.nav.find((item) => item.href === "/applications");
+  const contactNav = dict.nav.find((item) => item.href === "/contact");
+  const footerLabels =
+    locale === "ko"
+      ? {
+          heading: "본사",
+          product: "Product",
+          quickLink: "Quick Link",
+          legal: "Legal",
+          application: "Application",
+          contactUs: "Contact Us",
+          telFaxPrefix: "Tel.",
+          copyright: "Copyright 2026 Lumos. All Rights Reserved.",
+        }
+      : {
+          heading: "Headquarter",
+          product: "Product",
+          quickLink: "Quick Link",
+          legal: "Legal",
+          application: "Application",
+          contactUs: "Contact Us",
+          telFaxPrefix: "Tel.",
+          copyright: "Copyright 2026 Lumos. All Rights Reserved.",
+        };
 
   return (
     <footer className="siteFooter">
@@ -26,17 +49,19 @@ export function Footer({ locale }: { locale: Locale }) {
           </div>
 
           <div className="footerBlock">
-            <strong>{dict.footer.heading}</strong>
+            <strong>{footerLabels.heading}</strong>
             <span>{dict.footer.company}</span>
             {dict.footer.companyLine2 ? <span>{dict.footer.companyLine2}</span> : null}
-            <span>Tel. {dict.footer.phone} | Fax. {dict.footer.fax}</span>
-            <a href={`mailto:${dict.footer.email}`} className="footerEmail">
+            <span>
+              {footerLabels.telFaxPrefix} {dict.footer.phone} | Fax. {dict.footer.fax}
+            </span>
+            <span className="footerEmail">
               {dict.footer.email}
-            </a>
+            </span>
           </div>
 
           <div className="footerBlock">
-            <strong>{locale === "ko" ? "product" : "product"}</strong>
+            <strong>{footerLabels.product}</strong>
             {productNav?.children?.map((item) => (
               <Link key={item.href} href={`/${locale}${item.href}`}>
                 {item.label}
@@ -45,23 +70,14 @@ export function Footer({ locale }: { locale: Locale }) {
           </div>
 
           <div className="footerBlock">
-            <strong>{locale === "ko" ? "quick link" : "quick link"}</strong>
-            {quickNav.map((item) => (
-              <div key={item.href} className="footerLinkGroup">
-                <Link href={`/${locale}${item.href}`} className="footerGroupTitle">
-                  {item.label}
-                </Link>
-                {item.children?.map((child) => (
-                  <Link key={child.href} href={`/${locale}${child.href}`} className="footerSubLink">
-                    {child.label}
-                  </Link>
-                ))}
-              </div>
-            ))}
+            <strong>{footerLabels.quickLink}</strong>
+            {applicationNav ? <Link href={`/${locale}${applicationNav.href}`}>{footerLabels.application}</Link> : null}
+            {contactNav ? <Link href={`/${locale}${contactNav.href}`}>{footerLabels.contactUs}</Link> : null}
+            {productNav ? <Link href={`/${locale}${productNav.href}`}>{footerLabels.product}</Link> : null}
           </div>
 
           <div className="footerBlock">
-            <strong>{locale === "ko" ? "legal" : "legal"}</strong>
+            <strong>{footerLabels.legal}</strong>
             {dict.footer.legal.map((item) => (
               <Link key={item.href} href={`/${locale}${item.href}`}>
                 {item.label}
@@ -70,12 +86,7 @@ export function Footer({ locale }: { locale: Locale }) {
           </div>
         </div>
         <div className="footerBottom">
-          <span>{dict.brand}</span>
-          <span style={{ color: "var(--muted)" }}>
-            {locale === "ko"
-              ? "Copyright 2026 Lumos. All Rights Reserved."
-              : "Copyright 2026 Lumos. All Rights Reserved."}
-          </span>
+          <span style={{ color: "var(--muted)" }}>{footerLabels.copyright}</span>
         </div>
       </div>
     </footer>

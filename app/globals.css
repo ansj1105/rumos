@@ -1238,9 +1238,7 @@ select {
 }
 
 .footerEmail {
-  color: #56a5ff;
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .footerContactLine {
@@ -1342,8 +1340,8 @@ select {
 .heroInner {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
-  gap: 36px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
   align-items: center;
   min-height: 560px;
 }
@@ -1353,109 +1351,11 @@ select {
   z-index: 1;
   max-width: 720px;
   color: #ffffff;
+  padding: 24px 0;
 }
 
-.heroVisual {
-  position: relative;
-  min-height: 420px;
-}
-
-.heroVisualPanel {
-  position: relative;
-  height: 100%;
-  min-height: 420px;
-  overflow: visible;
-}
-
-.heroWheelWrap {
-  position: absolute;
-  right: 34px;
-  bottom: 24px;
-  z-index: 3;
-  width: 180px;
-  height: 180px;
-  opacity: 0.78;
-}
-
-.heroWheel {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-}
-
-.heroWheelOuter {
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background:
-    repeating-conic-gradient(
-      from 0deg,
-      rgba(255, 255, 255, 0.14) 0deg 11deg,
-      rgba(255, 255, 255, 0.03) 11deg 22deg
-    );
-  animation: heroWheelRotate 26s linear infinite;
-}
-
-.heroWheelMiddle {
-  inset: 26px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background:
-    radial-gradient(circle at center, rgba(78, 163, 255, 0.16), transparent 58%),
-    repeating-conic-gradient(
-      from 0deg,
-      rgba(255, 255, 255, 0.1) 0deg 18deg,
-      rgba(255, 255, 255, 0.02) 18deg 36deg
-    );
-  animation: heroWheelRotateReverse 18s linear infinite;
-}
-
-.heroWheelInner {
-  inset: 62px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background:
-    radial-gradient(circle at center, rgba(170, 215, 255, 0.14), transparent 60%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.01));
-}
-
-.heroWheelCenter {
-  position: absolute;
-  inset: 92px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  background: rgba(8, 21, 36, 0.86);
+.heroCopy .subhead {
   color: rgba(255, 255, 255, 0.92);
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.22em;
-}
-
-.heroVisualCaption {
-  position: absolute;
-  right: 0;
-  bottom: 228px;
-  z-index: 3;
-  max-width: 260px;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 13px;
-  line-height: 1.7;
-}
-
-@keyframes heroWheelRotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes heroWheelRotateReverse {
-  from {
-    transform: rotate(360deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
 }
 
 .storySection {
@@ -1620,11 +1520,13 @@ select {
 .seriesCardImage.isLumB {
   --series-image-scale: 1.1;
   --series-image-hover-scale: 1.15;
+  --series-image-shift-x: 20%;
 }
 
 .seriesCardImage.isLumBL {
   --series-image-scale: 1.13;
   --series-image-hover-scale: 1.18;
+  --series-image-shift-x: 20%;
 }
 
 .seriesCardImage.isLumF {
@@ -3274,7 +3176,24 @@ td {
     height: 100%;
     margin: 0;
     padding: 0;
-    --series-image-shift-x: -5%;
+    --series-image-shift-x: 0%;
+  }
+
+  .seriesCardImage.isLumB,
+  .seriesCardImage.isLumBL {
+    --series-image-shift-x: 20%;
+  }
+
+  .seriesCardImage.isLumF {
+    --series-image-shift-x: 10%;
+  }
+
+  .seriesCardImage.isLumZ {
+    --series-image-shift-x: 40%;
+  }
+
+  .seriesCardImage.isSoftware {
+    --series-image-shift-x: 35%;
   }
 
   .seriesCardText strong {

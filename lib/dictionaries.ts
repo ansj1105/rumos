@@ -60,7 +60,6 @@ type Dictionary = {
     email: string;
     phone: string;
     fax: string;
-    website: string;
     legal: Array<{ label: string; href: string }>;
   };
   admin: {
@@ -152,11 +151,10 @@ export const dictionaries: Record<Locale, Dictionary> = {
     },
     footer: {
       heading: "Headquarter",
-      company: "#1306 Daerung Techno Town-18, 19 Gasan digital 1-ro, Geumcheon-gu, Seoul, 08594, Korea",
+      company: "1306 Daerung Techno Town-18, 19 Gasan digital 1-ro, Geumcheon-gu, Seoul, 08594, Korea",
       email: "sales@lumosity.co.kr",
       phone: "+82 (0)2 852-0533",
       fax: "+82 (0)2 853-0537",
-      website: "www.Lumosity.co.kr",
       legal: [
         { label: "개인정보처리방침", href: "/legal/privacy" },
         { label: "이용약관", href: "/legal/terms" },
@@ -250,11 +248,10 @@ export const dictionaries: Record<Locale, Dictionary> = {
     footer: {
       heading: "Headquarter",
       company:
-        "#1306 Daerung Techno Town-18, 19 Gasan digital 1-ro, Geumcheon-gu, Seoul, 08594, Korea",
+        "1306 Daerung Techno Town-18, 19 Gasan digital 1-ro, Geumcheon-gu, Seoul, 08594, Korea",
       email: "sales@lumosity.co.kr",
       phone: "+82 (0)2 852-0533",
       fax: "+82 (0)2 853-0537",
-      website: "www.Lumosity.co.kr",
       legal: [
         { label: "Privacy Policy", href: "/legal/privacy" },
         { label: "Terms of Service", href: "/legal/terms" },

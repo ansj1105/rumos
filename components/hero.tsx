@@ -28,7 +28,7 @@ export function Hero({
         style={
           backgroundImageUrl
             ? {
-                backgroundImage: `linear-gradient(90deg, rgba(9, 20, 33, 0.82) 0%, rgba(9, 20, 33, 0.64) 34%, rgba(9, 20, 33, 0.28) 62%, rgba(9, 20, 33, 0.18) 100%), url(${backgroundImageUrl})`,
+                backgroundImage: `linear-gradient(90deg, rgba(9, 20, 33, 0.05) 0%, rgba(9, 20, 33, 0.05) 100%), url(${backgroundImageUrl})`,
               }
             : undefined
         }
@@ -46,23 +46,6 @@ export function Hero({
             <Link href={`/${locale}/contact`} className="button secondary">
               {dict.hero.ctaSecondary}
             </Link>
-          </div>
-        </div>
-        <div className="heroVisual" aria-hidden="true">
-          <div className="heroVisualPanel">
-            <div className="heroWheelWrap">
-              <div className="heroWheel heroWheelOuter" />
-              <div className="heroWheel heroWheelMiddle" />
-              <div className="heroWheel heroWheelInner" />
-              <div className="heroWheelCenter">
-                <span>LUMOS</span>
-              </div>
-            </div>
-            <div className="heroVisualCaption">
-              {locale === "ko"
-                ? "정밀 측정과 빔 분석이 수행되는 실제 광학 검사 환경"
-                : "A real optical inspection environment for precision measurement and beam analysis"}
-            </div>
           </div>
         </div>
       </div>
