@@ -488,9 +488,9 @@ select {
   width: 46px;
   height: 46px;
   padding: 0;
-  border: 1px solid var(--line);
+  border: 0;
   border-radius: 4px;
-  background: #ffffff;
+  background: transparent;
 }
 
 .mobileMenuButton span {
@@ -514,6 +514,15 @@ select {
 .mobileMenuSection {
   display: grid;
   gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(15, 34, 61, 0.08);
+}
+
+.mobileMenuTitleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 
 .mobileMenuTitle {
@@ -523,8 +532,41 @@ select {
 }
 
 .mobileMenuLinks {
-  display: grid;
+  display: none;
   gap: 8px;
+  padding: 2px 0 0 6px;
+}
+
+.mobileMenuLinks.isOpen {
+  display: grid;
+}
+
+.mobileMenuToggle {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--text);
+}
+
+.mobileMenuToggle span {
+  position: absolute;
+  top: 13px;
+  left: 6px;
+  width: 16px;
+  height: 1.5px;
+  background: currentColor;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.mobileMenuToggle span:last-child {
+  transform: rotate(90deg);
+}
+
+.mobileMenuToggle.isOpen span:last-child {
+  transform: rotate(0deg);
 }
 
 .lumosAdminLayout {

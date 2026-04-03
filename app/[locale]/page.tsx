@@ -27,9 +27,8 @@ export default async function HomePage({
       <section className="storySection">
         <div className="container storyInner">
           <div className="storyLeadBlock">
-            <span className="eyebrow">Section 2</span>
             <h2 className="sectionTitle">
-              {locale === "ko" ? config?.storyTitleKo : config?.storyTitleEn ?? dict.story.title}
+              {locale === "ko" ? "LUMOS 이름 어원" : "Origin of the name LUMOS"}
             </h2>
           </div>
           <div className="storyContent">

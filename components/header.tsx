@@ -15,6 +15,7 @@ type HeaderProps = {
 export function Header({ locale }: HeaderProps) {
   const dict = getDictionary(locale);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [openMobileSection, setOpenMobileSection] = useState<string | null>(null);
   const [localeOpen, setLocaleOpen] = useState(false);
   const [openNavHref, setOpenNavHref] = useState<string | null>(null);
   const [suppressNavHover, setSuppressNavHover] = useState(false);
@@ -22,6 +23,7 @@ export function Header({ locale }: HeaderProps) {
 
   useEffect(() => {
     setOpenNavHref(null);
+    setOpenMobileSection(null);
     setLocaleOpen(false);
     setMobileOpen(false);
     setSuppressNavHover(true);
@@ -150,21 +152,51 @@ export function Header({ locale }: HeaderProps) {
         <div className="container mobileMenuInner">
           {dict.nav.map((item) => (
             <div key={item.href} className="mobileMenuSection">
-              <Link href={`/${locale}${item.href}`} className="mobileMenuTitle">
-                {item.label}
-              </Link>
-              <div className="mobileMenuLinks">
-                {item.children?.map((child) => (
-                  <Link
-                    key={child.href}
-                    href={`/${locale}${child.href}`}
-                    className="mobileMenuLink"
-                    onClick={() => setMobileOpen(false)}
+              <div className="mobileMenuTitleRow">
+                <Link
+                  href={`/${locale}${item.href}`}
+                  className="mobileMenuTitle"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {item.label}
+                </Link>
+                {item.children?.length ? (
+                  <button
+                    type="button"
+                    className={`mobileMenuToggle ${
+                      openMobileSection === item.href ? "isOpen" : ""
+                    }`}
+                    aria-expanded={openMobileSection === item.href}
+                    aria-label={`${item.label} submenu`}
+                    onClick={() =>
+                      setOpenMobileSection((value) =>
+                        value === item.href ? null : item.href,
+                      )
+                    }
                   >
-                    {child.label}
-                  </Link>
-                ))}
+                    <span />
+                    <span />
+                  </button>
+                ) : null}
               </div>
+              {item.children?.length ? (
+                <div
+                  className={`mobileMenuLinks ${
+                    openMobileSection === item.href ? "isOpen" : ""
+                  }`}
+                >
+                  {item.children.map((child) => (
+                    <Link
+                      key={child.href}
+                      href={`/${locale}${child.href}`}
+                      className="mobileMenuLink"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {child.label}
+                    </Link>
+                  ))}
+                </div>
+              ) : null}
             </div>
           ))}
         </div>

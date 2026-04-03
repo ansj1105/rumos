@@ -8,8 +8,8 @@ export const defaultSiteConfig = {
     "Lumos delivers industrial optical hardware and software for production inspection workflows.",
   heroImageUrl: "/hero-semiconductor-bg.jpg",
   heroFontSize: 52,
-  storyTitleKo: "산업 현장과 공정 목적에 맞춘 광학 설계",
-  storyTitleEn: "Optical engineering aligned with industrial processes",
+  storyTitleKo: "LUMOS 이름 어원",
+  storyTitleEn: "Origin of the name LUMOS",
   storyBodyKo:
     "Lumos는 빛을 뜻하는 어원을 기반으로 공정 품질을 선명하게 드러내는 광학 기술 브랜드를 지향합니다.",
   storyBodyEn:
