@@ -1781,6 +1781,10 @@ select {
   background: var(--bg);
 }
 
+.productsPage .subpageContent {
+  padding-top: 0;
+}
+
 .productSubnav {
   position: sticky;
   top: 86px;
@@ -1832,6 +1836,11 @@ select {
   font-size: 18px;
   font-weight: 700;
   line-height: 1;
+}
+
+.productSubnavMore.isPrev,
+.productSubnavMore.isNext {
+  flex-shrink: 0;
 }
 
 .productsDirectory {
@@ -2574,6 +2583,10 @@ td {
     padding-bottom: 48px;
   }
 
+  .productsPage .subpageContent {
+    padding-top: 0;
+  }
+
   .heroVisual {
     min-height: 320px;
   }
@@ -2899,6 +2912,10 @@ td {
   .subpageContent {
     padding-top: 32px;
     padding-bottom: 32px;
+  }
+
+  .productsPage .subpageContent {
+    padding-top: 0;
   }
 
   .applicationsHeroMetaWrap {

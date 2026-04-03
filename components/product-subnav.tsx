@@ -28,9 +28,19 @@ export function ProductSubnav({
     });
   }
 
+  function scrollPrev() {
+    navRef.current?.scrollBy({
+      left: -180,
+      behavior: "smooth",
+    });
+  }
+
   return (
     <div className="productSubnav">
       <div className="container productSubnavShell">
+        <button type="button" className="productSubnavMore isPrev" onClick={scrollPrev} aria-label="Previous products">
+          &lt;
+        </button>
         <div ref={navRef} className="productSubnavInner">
           <Link href={`/${locale}/products`} className={`productSubnavLink ${!activeSlug ? "isActive" : ""}`}>
             All Products
@@ -45,7 +55,7 @@ export function ProductSubnav({
             </Link>
           ))}
         </div>
-        <button type="button" className="productSubnavMore" onClick={scrollNext} aria-label="More products">
+        <button type="button" className="productSubnavMore isNext" onClick={scrollNext} aria-label="More products">
           &gt;
         </button>
       </div>
