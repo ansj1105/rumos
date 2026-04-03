@@ -20,7 +20,7 @@ export default async function DistributorsPage({
             : "Find information about Lumos distribution and partner channels."}
         tone="contact"
         backgroundImageUrl="/subpage-contact-bg.png"
-        backgroundOpacity={0.6}
+        lightText
       />
       <ContactSubnav locale={locale} activeHref="/contact/distributors" />
       <div className="container subpageContent">

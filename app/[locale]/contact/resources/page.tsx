@@ -21,7 +21,7 @@ export default async function ResourceListPage({
         description="자료실 게시물과 다운로드 자료를 제공합니다."
         tone="resources"
         backgroundImageUrl="/subpage-contact-bg.png"
-        backgroundOpacity={0.6}
+        lightText
       />
       <ContactSubnav locale={locale} activeHref="/contact/resources" />
       <div className="container subpageContent">

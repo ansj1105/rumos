@@ -22,7 +22,7 @@ export default async function QuotePage({
         }
         tone="contact"
         backgroundImageUrl="/subpage-contact-bg.png"
-        backgroundOpacity={0.6}
+        lightText
       />
       <ContactSubnav locale={locale} activeHref="/contact/quote" />
       <div className="container subpageContent">
