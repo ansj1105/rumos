@@ -38,12 +38,12 @@ export default async function HomePage({
         <div className="container storyInner">
           <div className="storyLeadBlock">
             <h2 className="storyDisplayTitle">
-              {locale === "ko" ? "The Origin\nof LUMOS" : "The Origin\nof LUMOS"}
+              {locale === "ko" ? "LUMOS의\n이름 어원" : "The Origin\nof LUMOS"}
             </h2>
           </div>
           <div className="storyContent">
             <span className="storyEyebrow">
-              {locale === "ko" ? "Brand Origin: LUMOS" : "Brand Origin: LUMOS"}
+              {locale === "ko" ? "Brand Origin | LUMOS" : "Brand Origin | LUMOS"}
             </span>
             <div className="storyParagraphs">
               {storyParagraphs.map((paragraph, index) => (

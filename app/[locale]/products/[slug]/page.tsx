@@ -194,10 +194,36 @@ export default async function ProductDetailPage({
   const isLumZSeries = slug === "lum-z";
   const isSoftwareSeries = slug === "software";
   const isCustomSeries = isLumBSeries || isLumBLSeries || isLumFSeries;
+  const ui = {
+    productDetail: locale === "ko" ? "Product Detail" : "Product Detail",
+    overview: locale === "ko" ? "Overview" : "Overview",
+    specification: locale === "ko" ? "Specification" : "Specification",
+    features: locale === "ko" ? "Features" : "Features",
+    applications: locale === "ko" ? "Applications" : "Applications",
+    filterOptions: locale === "ko" ? "Filter Options" : "Filter Options",
+    measurementView: locale === "ko" ? "Measurement View" : "Measurement View",
+    software: locale === "ko" ? "Software" : "Software",
+    feature: locale === "ko" ? "Feature" : "Feature",
+    integration: locale === "ko" ? "Integration" : "Integration",
+    technicalData: locale === "ko" ? "Technical Data" : "Technical Data",
+    accessoryInfo: locale === "ko" ? "Information for Accessories" : "Information for Accessories",
+    productOverview: locale === "ko" ? "Product Overview" : "Product Overview",
+    keyFeatures: locale === "ko" ? "Key Features" : "Key Features",
+    targetApplications: locale === "ko" ? "Target Applications" : "Target Applications",
+    quickSpecs: locale === "ko" ? "Quick Specs" : "Quick Specs",
+    filterTitle: locale === "ko" ? "Neutral Density Filter Configuration" : "Neutral Density Filter Configuration",
+    zOverview: locale === "ko" ? "LUM-Z Series Overview" : "LUM-Z Series Overview",
+    zSpec: locale === "ko" ? "Z Axis Scan Spec" : "Z Axis Scan Spec",
+    scanAnalysis: locale === "ko" ? "Scan Analysis Interface" : "Scan Analysis Interface",
+    softwareOverview: locale === "ko" ? "Lumosity Software Overview" : "Lumosity Software Overview",
+    softwareCore: locale === "ko" ? "Core Software Functions" : "Core Software Functions",
+    softwareAnalysis: locale === "ko" ? "Beam Analysis Features" : "Beam Analysis Features",
+    softwareInterface: locale === "ko" ? "Operation & Interface" : "Operation & Interface",
+  };
   const productHeroEyebrow =
     locale === "ko"
-      ? product.heroEyebrowKo ?? "Product Detail"
-      : product.heroEyebrowEn ?? "Product Detail";
+      ? product.heroEyebrowKo ?? ui.productDetail
+      : product.heroEyebrowEn ?? ui.productDetail;
   const productHeroTitle =
     locale === "ko"
       ? product.heroTitleKo ?? `${product.nameKo} Series`
@@ -299,7 +325,7 @@ export default async function ProductDetailPage({
           <>
             <section className="productSection">
               <div className="productSectionHead">
-                <span className="eyebrow">Overview</span>
+                <span className="eyebrow">{ui.overview}</span>
                 <h2 className="sectionTitle">
                   {isLumBSeries
                     ? "LUM-B Series Overview"
@@ -335,8 +361,8 @@ export default async function ProductDetailPage({
 
             <section className="productSection productFeatureVisualSection">
               <div className="productSectionHead">
-                <span className="eyebrow">Filter Options</span>
-                <h2 className="sectionTitle">Neutral Density Filter Configuration</h2>
+                <span className="eyebrow">{ui.filterOptions}</span>
+                <h2 className="sectionTitle">{ui.filterTitle}</h2>
               </div>
               <div className="productFeatureVisualPanel">
                 <Image
@@ -363,15 +389,15 @@ export default async function ProductDetailPage({
 
             <section className="productSection">
               <div className="productSectionHead">
-                <span className="eyebrow">Specification</span>
-                <h2 className="sectionTitle">Technical Data</h2>
+                <span className="eyebrow">{ui.specification}</span>
+                <h2 className="sectionTitle">{ui.technicalData}</h2>
               </div>
 
               <div className="productSpecBlock">
                 <table className="productTechTable">
                   <thead>
                     <tr>
-                      <th>Technical Data</th>
+                      <th>{ui.technicalData}</th>
                       {isLumBSeries ? (
                         <>
                           <th>LUM-B-D</th>
@@ -450,7 +476,7 @@ export default async function ProductDetailPage({
               </div>
 
               <div className="productAccessoryBlock">
-                <div className="productAccessoryHeading">Information for Accessories</div>
+                <div className="productAccessoryHeading">{ui.accessoryInfo}</div>
                 <table className="productAccessoryTable">
                   <tbody>
                     {(isLumBSeries
@@ -472,8 +498,8 @@ export default async function ProductDetailPage({
           <>
             <section className="productSection">
               <div className="productSectionHead">
-                <span className="eyebrow">Overview</span>
-                <h2 className="sectionTitle">LUM-Z Series Overview</h2>
+                <span className="eyebrow">{ui.overview}</span>
+                <h2 className="sectionTitle">{ui.zOverview}</h2>
               </div>
               <div className="productOverviewBody">
                 <p style={{ margin: 0, lineHeight: 1.9 }}>
@@ -486,8 +512,8 @@ export default async function ProductDetailPage({
 
             <section className="productSection productFeatureVisualSection">
               <div className="productSectionHead">
-                <span className="eyebrow">Measurement View</span>
-                <h2 className="sectionTitle">Scan Analysis Interface</h2>
+                <span className="eyebrow">{ui.measurementView}</span>
+                <h2 className="sectionTitle">{ui.scanAnalysis}</h2>
               </div>
               <div className="productFeatureVisualPanel">
                 <Image
@@ -502,8 +528,8 @@ export default async function ProductDetailPage({
 
             <section className="productSection">
               <div className="productSectionHead">
-                <span className="eyebrow">Specification</span>
-                <h2 className="sectionTitle">Z Axis Scan Spec</h2>
+                <span className="eyebrow">{ui.specification}</span>
+                <h2 className="sectionTitle">{ui.zSpec}</h2>
               </div>
               <div className="productSpecBlock">
                 <table className="productTechTable">
@@ -529,8 +555,8 @@ export default async function ProductDetailPage({
           <>
             <section className="productSection">
               <div className="productSectionHead">
-                <span className="eyebrow">Overview</span>
-                <h2 className="sectionTitle">Lumosity Software Overview</h2>
+                <span className="eyebrow">{ui.overview}</span>
+                <h2 className="sectionTitle">{ui.softwareOverview}</h2>
               </div>
               <div className="productOverviewBody">
                 <p style={{ margin: 0, lineHeight: 1.9 }}>
@@ -543,8 +569,8 @@ export default async function ProductDetailPage({
 
             <section className="productSection productFeatureVisualSection">
               <div className="productSectionHead">
-                <span className="eyebrow">Software</span>
-                <h2 className="sectionTitle">Core Software Functions</h2>
+                <span className="eyebrow">{ui.software}</span>
+                <h2 className="sectionTitle">{ui.softwareCore}</h2>
               </div>
               <div className="softwareFeatureGrid">
                 {(locale === "ko"
@@ -570,8 +596,8 @@ export default async function ProductDetailPage({
 
             <section className="productSection productFeatureVisualSection">
               <div className="productSectionHead">
-                <span className="eyebrow">Feature</span>
-                <h2 className="sectionTitle">Beam Analysis Features</h2>
+                <span className="eyebrow">{ui.feature}</span>
+                <h2 className="sectionTitle">{ui.softwareAnalysis}</h2>
               </div>
               <div className="softwareFeatureGrid">
                 {(locale === "ko"
@@ -597,8 +623,8 @@ export default async function ProductDetailPage({
 
             <section className="productSection">
               <div className="productSectionHead">
-                <span className="eyebrow">Integration</span>
-                <h2 className="sectionTitle">Operation & Interface</h2>
+                <span className="eyebrow">{ui.integration}</span>
+                <h2 className="sectionTitle">{ui.softwareInterface}</h2>
               </div>
               <div className="softwareInterfaceList">
                 {(locale === "ko"
@@ -626,8 +652,8 @@ export default async function ProductDetailPage({
           <>
         <section className="productSection">
           <div className="productSectionHead">
-            <span className="eyebrow">Overview</span>
-            <h2 className="sectionTitle">Product Overview</h2>
+            <span className="eyebrow">{ui.overview}</span>
+            <h2 className="sectionTitle">{ui.productOverview}</h2>
           </div>
           <div className="productOverviewBody">
             <p style={{ margin: 0, lineHeight: 1.9 }}>
@@ -638,8 +664,8 @@ export default async function ProductDetailPage({
 
         <section className="productSection">
           <div className="productSectionHead">
-            <span className="eyebrow">Features</span>
-            <h2 className="sectionTitle">Key Features</h2>
+            <span className="eyebrow">{ui.features}</span>
+            <h2 className="sectionTitle">{ui.keyFeatures}</h2>
           </div>
           <div className="productFeatureList">
             {features.map((feature) => (
@@ -654,8 +680,8 @@ export default async function ProductDetailPage({
         <section className="productSection productSectionSplit">
           <div>
             <div className="productSectionHead">
-              <span className="eyebrow">Applications</span>
-              <h2 className="sectionTitle">Target Applications</h2>
+              <span className="eyebrow">{ui.applications}</span>
+              <h2 className="sectionTitle">{ui.targetApplications}</h2>
             </div>
             <div className="productApplicationList">
               {applications.map((item) => (
@@ -667,8 +693,8 @@ export default async function ProductDetailPage({
           </div>
           <div>
             <div className="productSectionHead">
-              <span className="eyebrow">Specification</span>
-              <h2 className="sectionTitle">Quick Specs</h2>
+              <span className="eyebrow">{ui.specification}</span>
+              <h2 className="sectionTitle">{ui.quickSpecs}</h2>
             </div>
             <div className="productSpecTable">
               {specs.map((spec) => (

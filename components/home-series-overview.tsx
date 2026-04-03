@@ -73,7 +73,9 @@ export function HomeSeriesOverview({ locale }: { locale: Locale }) {
     <section id="homeSeriesSection" className="homeSeriesSection">
       <div className="container homeSeriesInner">
         <div className="homeSeriesHead">
-          <h2 className="sectionTitle">LUMOS series overview</h2>
+          <h2 className="sectionTitle">
+            {locale === "ko" ? "LUMOS series overview" : "LUMOS series overview"}
+          </h2>
           <p className="sectionLead">
             {locale === "ko"
               ? "빔 프로파일러와 운용 소프트웨어 라인업을 한 번에 확인할 수 있습니다."

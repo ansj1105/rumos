@@ -26,17 +26,17 @@ export function Footer({ locale }: { locale: Locale }) {
           </div>
 
           <div className="footerBlock">
-            <strong>contact us</strong>
+            <strong>{dict.footer.heading}</strong>
             <span>{dict.footer.company}</span>
-            <span>T. {dict.footer.phone}</span>
-            <span>F. {dict.footer.fax}</span>
+            {dict.footer.companyLine2 ? <span>{dict.footer.companyLine2}</span> : null}
+            <span>Tel. {dict.footer.phone} | Fax. {dict.footer.fax}</span>
             <a href={`mailto:${dict.footer.email}`} className="footerEmail">
               {dict.footer.email}
             </a>
           </div>
 
           <div className="footerBlock">
-            <strong>Product</strong>
+            <strong>{locale === "ko" ? "product" : "product"}</strong>
             {productNav?.children?.map((item) => (
               <Link key={item.href} href={`/${locale}${item.href}`}>
                 {item.label}
@@ -45,7 +45,7 @@ export function Footer({ locale }: { locale: Locale }) {
           </div>
 
           <div className="footerBlock">
-            <strong>quick link</strong>
+            <strong>{locale === "ko" ? "quick link" : "quick link"}</strong>
             {quickNav.map((item) => (
               <div key={item.href} className="footerLinkGroup">
                 <Link href={`/${locale}${item.href}`} className="footerGroupTitle">
@@ -61,7 +61,7 @@ export function Footer({ locale }: { locale: Locale }) {
           </div>
 
           <div className="footerBlock">
-            <strong>legal</strong>
+            <strong>{locale === "ko" ? "legal" : "legal"}</strong>
             {dict.footer.legal.map((item) => (
               <Link key={item.href} href={`/${locale}${item.href}`}>
                 {item.label}
@@ -72,7 +72,9 @@ export function Footer({ locale }: { locale: Locale }) {
         <div className="footerBottom">
           <span>{dict.brand}</span>
           <span style={{ color: "var(--muted)" }}>
-              Copyright 2026 Lumos. All Rights Reserved.
+            {locale === "ko"
+              ? "Copyright 2026 Lumos. All Rights Reserved."
+              : "Copyright 2026 Lumos. All Rights Reserved."}
           </span>
         </div>
       </div>

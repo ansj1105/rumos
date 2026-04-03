@@ -27,6 +27,9 @@ export function Header({ locale }: HeaderProps) {
     setLocaleOpen(false);
     setMobileOpen(false);
     setSuppressNavHover(true);
+    if (typeof document !== "undefined" && document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
   }, [pathname]);
 
   return (

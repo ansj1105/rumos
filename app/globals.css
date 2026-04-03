@@ -305,7 +305,7 @@ select {
 
 .brandLogo {
   width: auto;
-  height: 44px;
+  height: 52px;
   object-fit: contain;
 }
 
@@ -358,15 +358,13 @@ select {
   transition: transform 180ms ease;
 }
 
-.navItem.isOpen .desktopNavLink,
-.navItem:focus-within .desktopNavLink {
+.navItem.isOpen .desktopNavLink {
   color: var(--blue-deep);
 }
 
 .desktopNavLink:hover::after,
 .desktopNavLink:focus-visible::after,
-.navItem.isOpen .desktopNavLink::after,
-.navItem:focus-within .desktopNavLink::after {
+.navItem.isOpen .desktopNavLink::after {
   transform: scaleX(1);
 }
 
@@ -383,8 +381,7 @@ select {
   box-shadow: none;
 }
 
-.navItem.isOpen .navDropdown,
-.navItem:focus-within .navDropdown {
+.navItem.isOpen .navDropdown {
   display: grid;
 }
 
@@ -1236,7 +1233,7 @@ select {
 
 .footerBrandLogo {
   width: auto;
-  height: 74px;
+  height: 108px;
   object-fit: contain;
 }
 
@@ -1244,6 +1241,13 @@ select {
   color: #56a5ff;
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+
+.footerContactLine {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
 }
 
 .footerLinkGroup {
@@ -2818,7 +2822,7 @@ td {
   }
 
   .footerBrandLogo {
-    height: 56px;
+    height: 72px;
   }
 
   .heroSection {

@@ -38,12 +38,17 @@ export function ProductSubnav({
   return (
     <div className="productSubnav">
       <div className="container productSubnavShell">
-        <button type="button" className="productSubnavMore isPrev" onClick={scrollPrev} aria-label="Previous products">
+        <button
+          type="button"
+          className="productSubnavMore isPrev"
+          onClick={scrollPrev}
+          aria-label={locale === "ko" ? "이전 제품 보기" : "Previous products"}
+        >
           &lt;
         </button>
         <div ref={navRef} className="productSubnavInner">
           <Link href={`/${locale}/products`} className={`productSubnavLink ${!activeSlug ? "isActive" : ""}`}>
-            All Products
+            {locale === "ko" ? "전체 제품" : "All Products"}
           </Link>
           {products.map((product) => (
             <Link
@@ -55,7 +60,12 @@ export function ProductSubnav({
             </Link>
           ))}
         </div>
-        <button type="button" className="productSubnavMore isNext" onClick={scrollNext} aria-label="More products">
+        <button
+          type="button"
+          className="productSubnavMore isNext"
+          onClick={scrollNext}
+          aria-label={locale === "ko" ? "다음 제품 보기" : "More products"}
+        >
           &gt;
         </button>
       </div>

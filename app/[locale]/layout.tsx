@@ -39,6 +39,20 @@ export async function generateMetadata({
       description: dict.meta.description,
       type: "website",
       url: `${siteUrl}/${locale}`,
+      images: [
+        {
+          url: `${siteUrl}/opengraph-image`,
+          width: 1200,
+          height: 630,
+          alt: "Lumos industrial optical solutions",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: dict.meta.title,
+      description: dict.meta.description,
+      images: [`${siteUrl}/opengraph-image`],
     },
   };
 }

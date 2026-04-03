@@ -54,10 +54,13 @@ type Dictionary = {
     resourceTitle: string;
   };
   footer: {
+    heading: string;
     company: string;
+    companyLine2?: string;
     email: string;
     phone: string;
     fax: string;
+    website: string;
     legal: Array<{ label: string; href: string }>;
   };
   admin: {
@@ -148,10 +151,12 @@ export const dictionaries: Record<Locale, Dictionary> = {
       resourceTitle: "자료실",
     },
     footer: {
-      company: "서울특별시 금천구 가산디지털 1로 19 대륭테크노타운 18차 1306호",
-      email: "Sales@lumosity.co.kr",
-      phone: "+82-2-852-0533",
-      fax: "+82-2-853-0537",
+      heading: "Headquarter",
+      company: "#1306 Daerung Techno Town-18, 19 Gasan digital 1-ro, Geumcheon-gu, Seoul, 08594, Korea",
+      email: "sales@lumosity.co.kr",
+      phone: "+82 (0)2 852-0533",
+      fax: "+82 (0)2 853-0537",
+      website: "www.Lumosity.co.kr",
       legal: [
         { label: "개인정보처리방침", href: "/legal/privacy" },
         { label: "이용약관", href: "/legal/terms" },
@@ -243,11 +248,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
       resourceTitle: "Resources",
     },
     footer: {
+      heading: "Headquarter",
       company:
-        "1306, Daeryung Technotown 18-cha, 19 Gasan digital 1-ro, Geumcheon-gu, Seoul, Korea",
-      email: "Sales@lumosity.co.kr",
-      phone: "+82-2-852-0533",
-      fax: "+82-2-853-0537",
+        "#1306 Daerung Techno Town-18, 19 Gasan digital 1-ro, Geumcheon-gu, Seoul, 08594, Korea",
+      email: "sales@lumosity.co.kr",
+      phone: "+82 (0)2 852-0533",
+      fax: "+82 (0)2 853-0537",
+      website: "www.Lumosity.co.kr",
       legal: [
         { label: "Privacy Policy", href: "/legal/privacy" },
         { label: "Terms of Service", href: "/legal/terms" },
