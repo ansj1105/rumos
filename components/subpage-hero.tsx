@@ -24,15 +24,25 @@ export function SubpageHero({
     <section className={`subpageHero subpageHero-${tone}`}>
       <div className="subpageHeroBg">
         {backgroundImageUrl ? (
-          <FadeImage
-            src={backgroundImageUrl}
-            alt=""
-            fill
-            sizes="100vw"
-            className="subpageHeroBgImage"
-            skeletonClassName="subpageHeroBgSkeleton"
-            style={{ opacity: resolvedOpacity }}
-          />
+          <>
+            <FadeImage
+              src={backgroundImageUrl}
+              alt=""
+              fill
+              sizes="100vw"
+              className="subpageHeroBgBackdrop"
+              skeletonClassName="subpageHeroBgSkeleton"
+              style={{ opacity: Math.min(resolvedOpacity, 0.72) }}
+            />
+            <FadeImage
+              src={backgroundImageUrl}
+              alt=""
+              fill
+              sizes="100vw"
+              className="subpageHeroBgImage"
+              style={{ opacity: resolvedOpacity }}
+            />
+          </>
         ) : null}
         <div className={`subpageHeroBgOverlay is-${tone}`} />
       </div>
