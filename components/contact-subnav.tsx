@@ -22,12 +22,6 @@ export function ContactSubnav({
   return (
     <section className="contactSubnav">
       <div className="container contactSubnavInner">
-        <Link
-          href={`/${locale}${contactNav.href}`}
-          className={`contactSubnavLink ${activeHref === contactNav.href ? "isActive" : ""}`}
-        >
-          {contactNav.label}
-        </Link>
         {contactNav.children?.map((item) => (
           <Link
             key={item.href}

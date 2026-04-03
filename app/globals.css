@@ -232,7 +232,7 @@ select {
 
 .subpageHero .sectionLead {
   max-width: 620px;
-  color: #1a96dd;
+  color: #1d2430;
 }
 
 .twoCol {
@@ -1678,13 +1678,40 @@ select {
 }
 
 .productSubnavLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   white-space: nowrap;
   color: var(--muted);
   font-weight: 700;
+  padding-right: 18px;
+}
+
+.productSubnavIndex {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(15, 34, 61, 0.54);
+}
+
+.productSubnavLink::after {
+  content: "|";
+  position: absolute;
+  right: 0;
+  color: rgba(15, 34, 61, 0.24);
 }
 
 .productSubnavLink.isActive {
   color: var(--blue-deep);
+}
+
+.productSubnavLink.isActive .productSubnavIndex {
+  color: rgba(15, 34, 61, 0.72);
+}
+
+.productSubnavInner > .productSubnavLink:last-child::after {
+  display: none;
 }
 
 .productSubnavMore {
@@ -2021,7 +2048,14 @@ select {
   border-bottom: 1px solid rgba(15, 34, 61, 0.06);
 }
 
+.applicationsIndexShell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .applicationsIndexInner {
+  flex: 1;
   display: flex;
   gap: 18px;
   overflow-x: auto;
@@ -2050,30 +2084,75 @@ select {
 }
 
 .contactSubnavLink {
+  position: relative;
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
   color: var(--muted);
   font-weight: 700;
+  padding-right: 18px;
+}
+
+.contactSubnavLink::after {
+  content: "|";
+  position: absolute;
+  right: 0;
+  color: rgba(15, 34, 61, 0.24);
 }
 
 .contactSubnavLink.isActive {
   color: var(--blue-deep);
 }
 
+.contactSubnavInner > .contactSubnavLink:last-child::after {
+  display: none;
+}
+
 .applicationsIndexLink {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 10px;
   white-space: nowrap;
   color: var(--muted);
   font-weight: 700;
+  padding-right: 18px;
+}
+
+.applicationsIndexLink::after {
+  content: "|";
+  position: absolute;
+  right: 0;
+  color: rgba(15, 34, 61, 0.24);
 }
 
 .applicationsIndexNo {
   color: var(--blue);
   font-size: 12px;
   letter-spacing: 0.14em;
+}
+
+.applicationsIndexInner > .applicationsIndexLink:last-child::after {
+  display: none;
+}
+
+.applicationsIndexMore {
+  display: none;
+  width: 28px;
+  min-width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--blue-deep);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.applicationsIndexMore.isPrev,
+.applicationsIndexMore.isNext {
+  flex-shrink: 0;
 }
 
 .applicationsBody {
@@ -2933,6 +3012,16 @@ td {
   .productSubnavInner {
     gap: 14px;
     padding: 10px 0;
+  }
+
+  .applicationsIndexShell {
+    gap: 8px;
+  }
+
+  .applicationsIndexMore {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .applicationsShowcase {

@@ -50,12 +50,13 @@ export function ProductSubnav({
           <Link href={`/${locale}/products`} className={`productSubnavLink ${!activeSlug ? "isActive" : ""}`}>
             {locale === "ko" ? "전체 제품" : "All Products"}
           </Link>
-          {products.map((product) => (
+          {products.map((product, index) => (
             <Link
               key={product.slug}
               href={`/${locale}/products/${product.slug}`}
               className={`productSubnavLink ${activeSlug === product.slug ? "isActive" : ""}`}
             >
+              <span className="productSubnavIndex">{String(index + 1).padStart(2, "0")}</span>
               {product.label}
             </Link>
           ))}

@@ -21,6 +21,8 @@ export default async function QuotePage({
             : "Share the product line, process conditions, and requirements for a tailored quotation."
         }
         tone="contact"
+        backgroundImageUrl="/subpage-contact-bg.png"
+        backgroundOpacity={0.9}
       />
       <ContactSubnav locale={locale} activeHref="/contact/quote" />
       <div className="container subpageContent">

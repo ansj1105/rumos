@@ -56,6 +56,8 @@ export default async function ResourceDetailPage({
         title={locale === "ko" ? resource.titleKo : resource.titleEn}
         description={locale === "ko" ? resource.excerptKo : resource.excerptEn}
         tone="resources"
+        backgroundImageUrl="/subpage-contact-bg.png"
+        backgroundOpacity={0.9}
       />
       <ContactSubnav locale={locale} activeHref="/contact/resources" />
       <div className="container subpageContent">

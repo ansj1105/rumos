@@ -19,6 +19,8 @@ export default async function ContactDirectionsPage({
         title={dict.directions.title}
         description={dict.directions.body}
         tone="directions"
+        backgroundImageUrl="/subpage-contact-bg.png"
+        backgroundOpacity={0.9}
       />
       <ContactSubnav locale={locale} activeHref="/contact/directions" />
       <div className="container subpageContent">

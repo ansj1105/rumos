@@ -19,6 +19,8 @@ export default async function DistributorsPage({
             ? "Lumos 제품의 국내외 공급 및 협력 파트너 구성을 안내드립니다."
             : "Find information about Lumos distribution and partner channels."}
         tone="contact"
+        backgroundImageUrl="/subpage-contact-bg.png"
+        backgroundOpacity={0.9}
       />
       <ContactSubnav locale={locale} activeHref="/contact/distributors" />
       <div className="container subpageContent">

@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { ApplicationsIndexNav } from "@/components/applications-index-nav";
 import { SubpageHero } from "@/components/subpage-hero";
 import { getDictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/site";
@@ -83,17 +84,7 @@ export default async function ApplicationsPage({
         description={dict.applications.lead}
         tone="applications"
       />
-
-      <section className="applicationsIndex">
-        <div className="container applicationsIndexInner">
-          {applicationEntries.map((entry, index) => (
-            <a key={entry.slug} href={`#${entry.slug}`} className="applicationsIndexLink">
-              <span className="applicationsIndexNo">{String(index + 1).padStart(2, "0")}</span>
-              <span>{locale === "ko" ? entry.titleKo : entry.titleEn}</span>
-            </a>
-          ))}
-        </div>
-      </section>
+      <ApplicationsIndexNav locale={locale} items={applicationEntries} />
 
       <div className="applicationsBody applicationsBodyShowcase">
         <div className="container applicationsShowcase">
