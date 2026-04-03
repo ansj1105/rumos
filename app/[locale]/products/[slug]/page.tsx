@@ -232,13 +232,9 @@ export default async function ProductDetailPage({
                 className="productSeriesTitleImage"
               />
             ) : isSoftwareSeries ? (
-              <Image
-                src="/products/software/title.png"
-                alt="Software Lumosity title"
-                width={1104}
-                height={280}
-                className="productSeriesTitleImage isSoftware"
-              />
+              <div className="productMetaLine">
+                <span>LUMOS Software Series</span>
+              </div>
             ) : (
               <div className="productMetaLine">
                 <span>{`LUMOS ${locale === "ko" ? product.nameKo : product.nameEn} Series`}</span>
@@ -280,13 +276,18 @@ export default async function ProductDetailPage({
                   className="productDetailVisualImage"
                 />
               ) : isSoftwareSeries ? (
-                <Image
-                  src="/products/software/main.png"
-                  alt="Lumosity software"
-                  fill
-                  sizes="(max-width: 960px) 100vw, 44vw"
-                  className="productDetailVisualImage"
-                />
+                <>
+                  <div className="productDetailVisualMark">LUMOS SOFTWARE</div>
+                  <div className="productDetailVisualGrid" />
+                  <div className="softwareVisualPanel">
+                    <strong>{locale === "ko" ? "통합 제어 및 분석" : "Integrated Control & Analysis"}</strong>
+                    <p>
+                      {locale === "ko"
+                        ? "장비 제어, 실시간 시각화, 분석, 저장, 외부 시스템 연동을 하나의 운영 환경에서 제공합니다."
+                        : "Control, live visualization, analysis, logging, and external system integration are handled in one operational workspace."}
+                    </p>
+                  </div>
+                </>
               ) : (
                 <>
                   <div className="productDetailVisualMark">
@@ -552,14 +553,25 @@ export default async function ProductDetailPage({
                 <span className="eyebrow">Software</span>
                 <h2 className="sectionTitle">Core Software Functions</h2>
               </div>
-              <div className="productFeatureVisualPanel">
-                <Image
-                  src="/products/software/software.png"
-                  alt="Lumosity software functions"
-                  width={1024}
-                  height={660}
-                  className="productFeatureVisualImage"
-                />
+              <div className="softwareFeatureGrid">
+                {(locale === "ko"
+                  ? [
+                      ["장비 제어", "측정 장비 연결, 동작 조건 설정, 계측 시퀀스 실행"],
+                      ["실시간 시각화", "빔 형상, 강도 분포, 프로파일 결과를 실시간으로 표시"],
+                      ["측정 데이터 저장", "조건별 측정 결과와 이미지, 이력 데이터를 프로젝트 단위로 보관"],
+                      ["리포트 출력", "분석 결과를 운영 문서나 품질 보고 형식으로 정리"],
+                    ]
+                  : [
+                      ["Device Control", "Connect instruments, configure test conditions, and run measurement sequences."],
+                      ["Live Visualization", "Display beam shape, intensity distribution, and profile output in real time."],
+                      ["Measurement Logging", "Store result sets, captured images, and run history by project."],
+                      ["Report Output", "Organize analysis results into operational or quality-report formats."],
+                    ]).map(([title, body]) => (
+                  <div key={title} className="softwareFeatureCard">
+                    <strong>{title}</strong>
+                    <p>{body}</p>
+                  </div>
+                ))}
               </div>
             </section>
 
@@ -568,14 +580,52 @@ export default async function ProductDetailPage({
                 <span className="eyebrow">Feature</span>
                 <h2 className="sectionTitle">Beam Analysis Features</h2>
               </div>
-              <div className="productFeatureVisualPanel">
-                <Image
-                  src="/products/software/feature.png"
-                  alt="Lumosity beam analysis features"
-                  width={980}
-                  height={726}
-                  className="productFeatureVisualImage"
-                />
+              <div className="softwareFeatureGrid">
+                {(locale === "ko"
+                  ? [
+                      ["빔 크기 분석", "가우시안 기반 직경, FWHM, 1/e² 크기를 비교 분석합니다."],
+                      ["센터 및 정렬 확인", "빔 중심 좌표와 위치 편차를 확인해 정렬 상태를 점검합니다."],
+                      ["에너지 분포 확인", "2D/3D 분포와 라인 프로파일로 강도 변화를 확인합니다."],
+                      ["공정 이력 비교", "배치별 측정값을 누적해 추세 변화와 이상 여부를 비교합니다."],
+                    ]
+                  : [
+                      ["Beam Size Analysis", "Compare Gaussian diameter, FWHM, and 1/e² beam size metrics."],
+                      ["Center & Alignment", "Check beam center coordinates and positional deviation for alignment review."],
+                      ["Energy Distribution", "Review intensity changes through 2D/3D distribution and line profiles."],
+                      ["Process History", "Compare accumulated measurement results across batches and operating conditions."],
+                    ]).map(([title, body]) => (
+                  <div key={title} className="softwareFeatureCard">
+                    <strong>{title}</strong>
+                    <p>{body}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section className="productSection">
+              <div className="productSectionHead">
+                <span className="eyebrow">Integration</span>
+                <h2 className="sectionTitle">Operation & Interface</h2>
+              </div>
+              <div className="softwareInterfaceList">
+                {(locale === "ko"
+                  ? [
+                      "프로젝트 단위 장비 설정과 측정 조건 저장",
+                      "현장 운용을 위한 측정 결과 내보내기 및 로그 관리",
+                      "생산 라인 또는 외부 소프트웨어 연동을 고려한 데이터 구조",
+                      "작업자 중심 화면 구성으로 반복 측정 업무에 대응",
+                    ]
+                  : [
+                      "Save instrument configuration and measurement conditions by project.",
+                      "Export results and manage operational logs for production use.",
+                      "Structured data flow for line-side systems or external software integration.",
+                      "Operator-oriented screens for repeated measurement workflows.",
+                    ]).map((item) => (
+                  <div key={item} className="softwareInterfaceItem">
+                    <span className="productFeatureMark" />
+                    <span>{item}</span>
+                  </div>
+                ))}
               </div>
             </section>
           </>

@@ -13,6 +13,7 @@ const seriesItems = [
     taglineKo: "Raw Beam Profiler",
     taglineEn: "Raw Beam Profiler",
     imageUrl: "/products/lum-b/main.png",
+    imageClassName: "isLumB",
   },
   {
     slug: "lum-b-l",
@@ -20,6 +21,7 @@ const seriesItems = [
     taglineKo: "Large Beam Profiler",
     taglineEn: "Large Beam Profiler",
     imageUrl: "/products/lum-b-l/main.png",
+    imageClassName: "isLumBL",
   },
   {
     slug: "lum-f",
@@ -27,6 +29,7 @@ const seriesItems = [
     taglineKo: "Focus Beam Profiler",
     taglineEn: "Focus Beam Profiler",
     imageUrl: "/products/lum-f/main.png",
+    imageClassName: "isLumF",
   },
   {
     slug: "lum-z",
@@ -34,6 +37,7 @@ const seriesItems = [
     taglineKo: "3D Beam Profiler",
     taglineEn: "3D Beam Profiler",
     imageUrl: "/products/lum-z/main.png",
+    imageClassName: "isLumZ",
   },
   {
     slug: "software",
@@ -41,6 +45,7 @@ const seriesItems = [
     taglineKo: "Lumosity Software",
     taglineEn: "Lumosity Software",
     imageUrl: "/products/software/main.png",
+    imageClassName: "isSoftware",
   },
 ] as const;
 
@@ -59,7 +64,7 @@ export function HomeSeriesOverview({ locale }: { locale: Locale }) {
   useEffect(() => {
     const timer = window.setInterval(() => {
       setCurrentIndex((index) => (index + 1) % seriesItems.length);
-    }, 3000);
+    }, 5000);
 
     return () => window.clearInterval(timer);
   }, []);
@@ -163,14 +168,15 @@ function SeriesCard({
   return (
     <Link href={`/${locale}/products/${item.slug}`} className="seriesCard">
       <div className="seriesCardMedia">
-        <Image
-          src={item.imageUrl}
-          alt={item.name}
-          fill
-          sizes="(max-width: 960px) 84vw, (max-width: 1180px) 32vw, 20vw"
-          className="seriesCardImage"
-        />
-        <div className="seriesCardOverlay" />
+        <div className={`seriesCardMediaFrame ${item.imageClassName}`}>
+          <Image
+            src={item.imageUrl}
+            alt={item.name}
+            fill
+            sizes="(max-width: 960px) 84vw, (max-width: 1180px) 32vw, 20vw"
+            className={`seriesCardImage ${item.imageClassName}`}
+          />
+        </div>
       </div>
 
       <div className="seriesCardBody">

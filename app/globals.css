@@ -1556,7 +1556,7 @@ select {
 .seriesCard {
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto;
-  min-height: 420px;
+  min-height: 344px;
   border: 1px solid rgba(15, 34, 61, 0.12);
   background: #ffffff;
   transition:
@@ -1574,26 +1574,67 @@ select {
 .seriesCardMedia {
   position: relative;
   overflow: hidden;
-  min-height: 284px;
-  background: linear-gradient(180deg, #eef3f7 0%, #e5edf6 100%);
+  aspect-ratio: 1 / 1;
+  background: #eef2f6;
+}
+
+.seriesCardMediaFrame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 62%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+}
+
+.seriesCardMediaFrame.isLumZ {
+  width: 82%;
+  height: 60%;
+}
+
+.seriesCardMediaFrame.isSoftware {
+  width: 86%;
+  height: 56%;
 }
 
 .seriesCardImage {
   object-fit: contain;
-  padding: 10px 14px;
+  object-position: center center;
+  padding: 8px 10px;
+  --series-image-scale: 1;
+  --series-image-hover-scale: 1.05;
+  transform: scale(var(--series-image-scale));
   transition: transform 320ms ease;
 }
 
 .seriesCard:hover .seriesCardImage {
-  transform: scale(1.05);
+  transform: scale(var(--series-image-hover-scale));
 }
 
-.seriesCardOverlay {
-  position: absolute;
-  inset: auto 0 0;
-  height: 44%;
-  background: linear-gradient(180deg, rgba(15, 34, 61, 0), rgba(15, 34, 61, 0.12));
-  pointer-events: none;
+.seriesCardImage.isLumB {
+  --series-image-scale: 1.1;
+  --series-image-hover-scale: 1.15;
+}
+
+.seriesCardImage.isLumBL {
+  --series-image-scale: 1.13;
+  --series-image-hover-scale: 1.18;
+}
+
+.seriesCardImage.isLumF {
+  --series-image-scale: 1.08;
+  --series-image-hover-scale: 1.13;
+}
+
+.seriesCardImage.isLumZ {
+  --series-image-scale: 1.22;
+  --series-image-hover-scale: 1.27;
+}
+
+.seriesCardImage.isSoftware {
+  --series-image-scale: 1.06;
+  --series-image-hover-scale: 1.1;
 }
 
 .seriesCardSoftwareVisual {
@@ -1648,7 +1689,7 @@ select {
   align-items: flex-end;
   justify-content: space-between;
   gap: 16px;
-  padding: 18px 18px 20px;
+  padding: 16px 18px 18px;
 }
 
 .seriesCardText {
@@ -1822,6 +1863,30 @@ select {
   background-size: 36px 36px;
 }
 
+.softwareVisualPanel {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  left: 24px;
+  display: grid;
+  gap: 10px;
+  padding: 22px 24px;
+  border: 1px solid rgba(15, 34, 61, 0.1);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.softwareVisualPanel strong {
+  color: var(--blue-deep);
+  font-size: 26px;
+  letter-spacing: -0.03em;
+}
+
+.softwareVisualPanel p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
 .productSection {
   padding: 48px 0;
   border-bottom: 1px solid rgba(15, 34, 61, 0.08);
@@ -1868,6 +1933,45 @@ select {
 .productFeatureItem {
   display: flex;
   gap: 12px;
+  line-height: 1.8;
+}
+
+.softwareFeatureGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.softwareFeatureCard {
+  display: grid;
+  gap: 10px;
+  padding: 24px;
+  border: 1px solid rgba(15, 34, 61, 0.08);
+  background: #ffffff;
+}
+
+.softwareFeatureCard strong {
+  color: var(--blue-deep);
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+
+.softwareFeatureCard p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.softwareInterfaceList {
+  display: grid;
+  gap: 14px;
+}
+
+.softwareInterfaceItem {
+  display: flex;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(15, 34, 61, 0.08);
   line-height: 1.8;
 }
 
@@ -2312,8 +2416,16 @@ td {
   .contactFormGrid,
   .productDetailHeroInner,
   .productSectionSplit,
-  .productFeatureList {
+  .productFeatureList,
+  .softwareFeatureGrid {
     grid-template-columns: 1fr;
+  }
+
+  .softwareVisualPanel {
+    right: 18px;
+    bottom: 18px;
+    left: 18px;
+    padding: 18px;
   }
 
   .footerBottom {
@@ -2358,11 +2470,7 @@ td {
   }
 
   .homeSeriesSlide .seriesCard {
-    min-height: 380px;
-  }
-
-  .seriesCardMedia {
-    min-height: 252px;
+    min-height: 336px;
   }
 
   .homeSeriesSliderControls {
@@ -2689,11 +2797,7 @@ td {
   }
 
   .homeSeriesSlide .seriesCard {
-    min-height: 338px;
-  }
-
-  .seriesCardMedia {
-    min-height: 220px;
+    min-height: 322px;
   }
 
   .seriesCardText strong {
@@ -2920,11 +3024,7 @@ td {
   }
 
   .homeSeriesSlide .seriesCard {
-    min-height: 318px;
-  }
-
-  .seriesCardMedia {
-    min-height: 198px;
+    min-height: 304px;
   }
 
   .seriesCardBody {

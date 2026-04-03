@@ -14,7 +14,7 @@ export function Footer({ locale }: { locale: Locale }) {
           <div className="footerBlock">
             <strong className="footerBrand">
               <Image
-                src="/lumos-logo.png"
+                src="/lumos-logo-footer.png"
                 alt={dict.brand}
                 width={318}
                 height={86}
