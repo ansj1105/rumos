@@ -23,7 +23,7 @@ html {
 
 body {
   margin: 0;
-  background: #ffffff;
+  background: var(--bg);
   color: var(--text);
   font-family: "Helvetica Neue", "Noto Sans KR", sans-serif;
 }
@@ -50,6 +50,7 @@ select {
   overflow-x: clip;
   display: flex;
   flex-direction: column;
+  background: var(--bg);
 }
 
 .container {
@@ -163,7 +164,7 @@ select {
 }
 
 .subpageShell {
-  background: #ffffff;
+  background: var(--bg);
 }
 
 .subpageHero {
@@ -1249,7 +1250,7 @@ select {
   position: relative;
   overflow: hidden;
   padding: 88px 0 110px;
-  background: linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%);
+  background: linear-gradient(180deg, #f8fafc 0%, #eef3f7 100%);
   border-bottom: 1px solid rgba(15, 34, 61, 0.1);
 }
 
@@ -1258,7 +1259,7 @@ select {
   inset: 0;
   background:
     radial-gradient(circle at 74% 30%, rgba(199, 216, 235, 0.38), transparent 28%),
-    linear-gradient(135deg, #ffffff 0%, #f5f8fb 58%, #eef3f7 100%);
+    linear-gradient(135deg, #f8fafc 0%, #f1f5f9 58%, #e8eef5 100%);
 }
 
 .heroInner {
@@ -1730,11 +1731,11 @@ select {
 }
 
 .applicationsPage {
-  background: #ffffff;
+  background: var(--bg);
 }
 
 .productsPage {
-  background: #ffffff;
+  background: var(--bg);
 }
 
 .productSubnav {
@@ -1799,7 +1800,7 @@ select {
 
 .productDetailHero {
   padding: 18px 0 42px;
-  background: #ffffff;
+  background: var(--bg);
 }
 
 .productDetailHeroInner {
@@ -1861,30 +1862,6 @@ select {
     linear-gradient(rgba(15, 34, 61, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(15, 34, 61, 0.05) 1px, transparent 1px);
   background-size: 36px 36px;
-}
-
-.softwareVisualPanel {
-  position: absolute;
-  right: 24px;
-  bottom: 24px;
-  left: 24px;
-  display: grid;
-  gap: 10px;
-  padding: 22px 24px;
-  border: 1px solid rgba(15, 34, 61, 0.1);
-  background: rgba(255, 255, 255, 0.9);
-}
-
-.softwareVisualPanel strong {
-  color: var(--blue-deep);
-  font-size: 26px;
-  letter-spacing: -0.03em;
-}
-
-.softwareVisualPanel p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.75;
 }
 
 .productSection {
@@ -2259,7 +2236,7 @@ select {
 
 .contactPage,
 .resourcesPage {
-  background: #ffffff;
+  background: var(--bg);
 }
 
 .contactIntro {
@@ -2419,13 +2396,6 @@ td {
   .productFeatureList,
   .softwareFeatureGrid {
     grid-template-columns: 1fr;
-  }
-
-  .softwareVisualPanel {
-    right: 18px;
-    bottom: 18px;
-    left: 18px;
-    padding: 18px;
   }
 
   .footerBottom {

@@ -276,18 +276,13 @@ export default async function ProductDetailPage({
                   className="productDetailVisualImage"
                 />
               ) : isSoftwareSeries ? (
-                <>
-                  <div className="productDetailVisualMark">LUMOS SOFTWARE</div>
-                  <div className="productDetailVisualGrid" />
-                  <div className="softwareVisualPanel">
-                    <strong>{locale === "ko" ? "통합 제어 및 분석" : "Integrated Control & Analysis"}</strong>
-                    <p>
-                      {locale === "ko"
-                        ? "장비 제어, 실시간 시각화, 분석, 저장, 외부 시스템 연동을 하나의 운영 환경에서 제공합니다."
-                        : "Control, live visualization, analysis, logging, and external system integration are handled in one operational workspace."}
-                    </p>
-                  </div>
-                </>
+                <Image
+                  src="/products/software/main.png"
+                  alt="Lumosity software interface"
+                  fill
+                  sizes="(max-width: 960px) 100vw, 44vw"
+                  className="productDetailVisualImage isSoftware"
+                />
               ) : (
                 <>
                   <div className="productDetailVisualMark">
