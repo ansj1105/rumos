@@ -21,6 +21,8 @@ export default async function ProductsPage({
         title={dict.products.title}
         description={dict.products.lead}
         tone="products"
+        backgroundImageUrl="/subpage-lum-b-bg.png"
+        backgroundOpacity={0.9}
       />
       <div className="container subpageContent">
         <div className="productsDirectory">
