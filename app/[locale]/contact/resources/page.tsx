@@ -1,3 +1,4 @@
+import { ContactSubnav } from "@/components/contact-subnav";
 import Link from "next/link";
 
 import { SubpageHero } from "@/components/subpage-hero";
@@ -20,6 +21,7 @@ export default async function ResourceListPage({
         description="자료실 게시물과 다운로드 자료를 제공합니다."
         tone="resources"
       />
+      <ContactSubnav locale={locale} activeHref="/contact/resources" />
       <div className="container subpageContent">
         <div className="resourcesTableWrap">
           <div className="resourcesTableHead">

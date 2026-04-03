@@ -1,3 +1,4 @@
+import { ContactSubnav } from "@/components/contact-subnav";
 import { ContactForm } from "@/components/forms/contact-form";
 import { SubpageHero } from "@/components/subpage-hero";
 import type { Locale } from "@/lib/site";
@@ -21,6 +22,7 @@ export default async function QuotePage({
         }
         tone="contact"
       />
+      <ContactSubnav locale={locale} activeHref="/contact/quote" />
       <div className="container subpageContent">
         <div className="contactIntro">
           <div className="contactInfoRow">

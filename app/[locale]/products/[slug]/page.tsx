@@ -249,7 +249,6 @@ export default async function ProductDetailPage({
 
   return (
     <div className="productsPage">
-      <ProductSubnav locale={locale} products={navItems} activeSlug={slug} />
       <SubpageHero
         eyebrow={productHeroEyebrow}
         title={productHeroTitle}
@@ -258,6 +257,7 @@ export default async function ProductDetailPage({
         backgroundImageUrl={productHeroBgImageUrl}
         backgroundOpacity={productHeroBgOpacity}
       />
+      <ProductSubnav locale={locale} products={navItems} activeSlug={slug} />
       <div className="productDetailHero">
         <div className="container productDetailHeroInner">
           <div className="productDetailCopy">

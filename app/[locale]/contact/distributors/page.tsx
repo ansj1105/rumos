@@ -1,3 +1,4 @@
+import { ContactSubnav } from "@/components/contact-subnav";
 import { SubpageHero } from "@/components/subpage-hero";
 import type { Locale } from "@/lib/site";
 
@@ -19,6 +20,7 @@ export default async function DistributorsPage({
             : "Find information about Lumos distribution and partner channels."}
         tone="contact"
       />
+      <ContactSubnav locale={locale} activeHref="/contact/distributors" />
       <div className="container subpageContent">
         <div className="pageBody">
           <div className="contactIntro">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { ContactSubnav } from "@/components/contact-subnav";
 import { SubpageHero } from "@/components/subpage-hero";
 import { getResourceBySlug } from "@/lib/content";
 import type { Locale } from "@/lib/site";
@@ -56,6 +57,7 @@ export default async function ResourceDetailPage({
         description={locale === "ko" ? resource.excerptKo : resource.excerptEn}
         tone="resources"
       />
+      <ContactSubnav locale={locale} activeHref="/contact/resources" />
       <div className="container subpageContent">
         <div className="resourceDetailHead">
           <span>{new Date(resource.createdAt).toLocaleDateString(locale === "ko" ? "ko-KR" : "en-US")}</span>

@@ -16,11 +16,11 @@ export function SubpageHero({
   const heroBgStyle =
     backgroundImageUrl
       ? {
-          backgroundImage: `linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.8) 42%, rgba(255,255,255,0.88) 100%), linear-gradient(90deg, rgba(15, 34, 61, 0.035) 1px, transparent 1px), linear-gradient(rgba(15, 34, 61, 0.035) 1px, transparent 1px), url("${backgroundImageUrl}")`,
+          backgroundImage: `linear-gradient(90deg, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.48) 42%, rgba(255,255,255,0.62) 100%), linear-gradient(90deg, rgba(15, 34, 61, 0.035) 1px, transparent 1px), linear-gradient(rgba(15, 34, 61, 0.035) 1px, transparent 1px), url("${backgroundImageUrl}")`,
           backgroundSize: "auto, 56px 56px, 56px 56px, cover",
           backgroundPosition: "center, center, center, center",
           backgroundRepeat: "no-repeat, repeat, repeat, no-repeat",
-          opacity: String(backgroundOpacity ?? 0.3),
+          opacity: String(backgroundOpacity ?? 0.48),
         }
       : undefined;
 

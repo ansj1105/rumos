@@ -1,3 +1,4 @@
+import { ContactSubnav } from "@/components/contact-subnav";
 import { DirectionsContent } from "@/components/directions-content";
 import { getDictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/site";
@@ -19,6 +20,7 @@ export default async function ContactDirectionsPage({
         description={dict.directions.body}
         tone="directions"
       />
+      <ContactSubnav locale={locale} activeHref="/contact/directions" />
       <div className="container subpageContent">
         <DirectionsContent locale={locale} />
       </div>

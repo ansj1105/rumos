@@ -1,3 +1,4 @@
+import { ContactSubnav } from "@/components/contact-subnav";
 import { ContactForm } from "@/components/forms/contact-form";
 import { SubpageHero } from "@/components/subpage-hero";
 import { getDictionary } from "@/lib/dictionaries";
@@ -23,6 +24,7 @@ export default async function ContactPage({
         }
         tone="contact"
       />
+      <ContactSubnav locale={locale} activeHref="/contact" />
       <div className="container subpageContent">
         <div className="contactIntro">
           <div className="contactInfoRow">
