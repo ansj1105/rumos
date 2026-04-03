@@ -1785,6 +1785,7 @@ select {
   position: sticky;
   top: 86px;
   z-index: 15;
+  border-top: 1px solid rgba(15, 34, 61, 0.08);
   border-bottom: 1px solid rgba(15, 34, 61, 0.08);
   background: rgba(255, 255, 255, 0.98);
 }
@@ -1793,7 +1794,7 @@ select {
   display: flex;
   gap: 18px;
   overflow-x: auto;
-  padding: 14px 0;
+  padding: 10px 0;
   scrollbar-width: none;
 }
 
@@ -2475,7 +2476,8 @@ td {
 
   .homeSeriesSliderTrack {
     display: flex;
-    transition: transform 280ms ease;
+    will-change: transform;
+    transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .homeSeriesSlide {
@@ -2484,16 +2486,16 @@ td {
   }
 
   .homeSeriesSlide .seriesCard {
-    min-height: 258px;
+    min-height: 242px;
   }
 
   .seriesCardMedia {
-    aspect-ratio: 1.42 / 1;
+    aspect-ratio: 1.56 / 1;
   }
 
   .seriesCardMediaFrame {
-    width: 68%;
-    height: 60%;
+    width: 64%;
+    height: 56%;
   }
 
   .homeSeriesSliderControls {
@@ -2822,16 +2824,16 @@ td {
   }
 
   .homeSeriesSlide .seriesCard {
-    min-height: 244px;
+    min-height: 228px;
   }
 
   .seriesCardMedia {
-    aspect-ratio: 1.52 / 1;
+    aspect-ratio: 1.7 / 1;
   }
 
   .seriesCardMediaFrame {
-    width: 66%;
-    height: 58%;
+    width: 62%;
+    height: 54%;
   }
 
   .seriesCardText strong {
@@ -2897,7 +2899,7 @@ td {
   .applicationsIndexInner,
   .productSubnavInner {
     gap: 14px;
-    padding: 12px 0;
+    padding: 10px 0;
   }
 
   .applicationVisualPanel {
@@ -3006,11 +3008,11 @@ td {
   }
 
   .brandLink {
-    min-height: 30px;
+    min-height: 34px;
   }
 
   .brandLogo {
-    height: 25px;
+    height: 32px;
   }
 
   .mobileMenuTitle {
@@ -3058,16 +3060,16 @@ td {
   }
 
   .homeSeriesSlide .seriesCard {
-    min-height: 226px;
+    min-height: 214px;
   }
 
   .seriesCardMedia {
-    aspect-ratio: 1.66 / 1;
+    aspect-ratio: 1.82 / 1;
   }
 
   .seriesCardMediaFrame {
-    width: 64%;
-    height: 56%;
+    width: 60%;
+    height: 52%;
   }
 
   .seriesCardBody {

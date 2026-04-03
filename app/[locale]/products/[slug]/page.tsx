@@ -207,39 +207,9 @@ export default async function ProductDetailPage({
       <div className="productDetailHero">
         <div className="container productDetailHeroInner">
           <div className="productDetailCopy">
-            {isLumBLSeries ? (
-              <Image
-                src="/products/lum-b-l/title.png"
-                alt="LUM-B-L title"
-                width={756}
-                height={202}
-                className="productSeriesTitleImage"
-              />
-            ) : isLumFSeries ? (
-              <Image
-                src="/products/lum-f/title.png"
-                alt="LUM-F title"
-                width={768}
-                height={244}
-                className="productSeriesTitleImage"
-              />
-            ) : isLumZSeries ? (
-              <Image
-                src="/products/lum-z/title.png"
-                alt="LUM-Z title"
-                width={760}
-                height={225}
-                className="productSeriesTitleImage"
-              />
-            ) : isSoftwareSeries ? (
-              <div className="productMetaLine">
-                <span>LUMOS Software Series</span>
-              </div>
-            ) : (
-              <div className="productMetaLine">
-                <span>{`LUMOS ${locale === "ko" ? product.nameKo : product.nameEn} Series`}</span>
-              </div>
-            )}
+            <div className="productMetaLine">
+              <span>{`LUMOS ${locale === "ko" ? product.nameKo : product.nameEn} Series`}</span>
+            </div>
           </div>
           <div className="productDetailVisual">
             <div className="productDetailVisualPanel">
