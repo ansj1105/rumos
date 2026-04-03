@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { FadeImage } from "@/components/fade-image";
 import { ProductSubnav } from "@/components/product-subnav";
 import { SubpageHero } from "@/components/subpage-hero";
 import { getProductBySlug, getProducts } from "@/lib/content";
@@ -245,7 +246,7 @@ export default async function ProductDetailPage({
             : slug === "software"
               ? "/subpage-software-bg.png"
         : null);
-  const productHeroBgOpacity = product.heroBgOpacity ?? 0.9;
+  const productHeroBgOpacity = product.heroBgOpacity ?? 0.95;
 
   return (
     <div className="productsPage">
@@ -268,49 +269,49 @@ export default async function ProductDetailPage({
           <div className="productDetailVisual">
             <div className="productDetailVisualPanel">
               {isLumBSeries ? (
-                <Image
+                <FadeImage
                   src="/products/lum-b/main.png"
                   alt="LUM-B camera"
                   fill
-                  priority
                   sizes="(max-width: 960px) 100vw, 44vw"
                   className="productDetailVisualImage"
+                  skeletonClassName="productDetailVisualSkeleton"
                 />
               ) : isLumBLSeries ? (
-                <Image
+                <FadeImage
                   src="/products/lum-b-l/main.png"
                   alt="LUM-B-L camera"
                   fill
-                  priority
                   sizes="(max-width: 960px) 100vw, 44vw"
                   className="productDetailVisualImage"
+                  skeletonClassName="productDetailVisualSkeleton"
                 />
               ) : isLumFSeries ? (
-                <Image
+                <FadeImage
                   src="/products/lum-f/main.png"
                   alt="LUM-F camera"
                   fill
-                  priority
                   sizes="(max-width: 960px) 100vw, 44vw"
                   className="productDetailVisualImage"
+                  skeletonClassName="productDetailVisualSkeleton"
                 />
               ) : isLumZSeries ? (
-                <Image
+                <FadeImage
                   src="/products/lum-z/main.png"
                   alt="LUM-Z camera"
                   fill
-                  priority
                   sizes="(max-width: 960px) 100vw, 44vw"
                   className="productDetailVisualImage"
+                  skeletonClassName="productDetailVisualSkeleton"
                 />
               ) : isSoftwareSeries ? (
-                <Image
+                <FadeImage
                   src="/products/software/main.png"
                   alt="Lumosity software interface"
                   fill
-                  priority
                   sizes="(max-width: 960px) 100vw, 44vw"
                   className="productDetailVisualImage isSoftware"
+                  skeletonClassName="productDetailVisualSkeleton"
                 />
               ) : (
                 <>

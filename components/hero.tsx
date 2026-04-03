@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 
+import { FadeImage } from "@/components/fade-image";
 import { getDictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/site";
 
@@ -26,13 +26,14 @@ export function Hero({
     <section className="heroSection">
       <div className={`heroBackdrop ${backgroundImageUrl ? "hasImage" : ""}`}>
         {backgroundImageUrl ? (
-          <Image
+          <FadeImage
             src={backgroundImageUrl}
             alt=""
             fill
             priority
             sizes="100vw"
             className="heroBackdropImage"
+            skeletonClassName="heroBackdropSkeleton"
           />
         ) : null}
       </div>

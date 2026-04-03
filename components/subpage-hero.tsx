@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { FadeImage } from "@/components/fade-image";
 
 export function SubpageHero({
   eyebrow,
@@ -24,13 +24,13 @@ export function SubpageHero({
     <section className={`subpageHero subpageHero-${tone}`}>
       <div className="subpageHeroBg">
         {backgroundImageUrl ? (
-          <Image
+          <FadeImage
             src={backgroundImageUrl}
             alt=""
             fill
-            priority
             sizes="100vw"
             className="subpageHeroBgImage"
+            skeletonClassName="subpageHeroBgSkeleton"
             style={{ opacity: resolvedOpacity }}
           />
         ) : null}

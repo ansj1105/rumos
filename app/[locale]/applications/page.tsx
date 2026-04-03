@@ -1,6 +1,5 @@
-import Image from "next/image";
-
 import { ApplicationsIndexNav } from "@/components/applications-index-nav";
+import { FadeImage } from "@/components/fade-image";
 import { SubpageHero } from "@/components/subpage-hero";
 import { getDictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/site";
@@ -93,13 +92,14 @@ export default async function ApplicationsPage({
           {applicationEntries.map((entry) => (
             <section key={entry.slug} id={entry.slug} className="applicationShowcaseRow">
               <div className="applicationShowcaseMedia">
-                <Image
+                <FadeImage
                   src={entry.imageUrl}
                   alt={locale === "ko" ? entry.titleKo : entry.titleEn}
                   width={960}
                   height={720}
                   sizes="(max-width: 960px) 100vw, 46vw"
                   className="applicationShowcaseImage"
+                  skeletonClassName="applicationShowcaseSkeleton"
                 />
               </div>
               <div className="applicationShowcaseBody">

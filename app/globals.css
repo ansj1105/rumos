@@ -11,6 +11,7 @@
   --blue-fog: #edf4ff;
   --radius: 6px;
   --shadow: 0 6px 14px rgba(16, 32, 56, 0.05);
+  --subnav-sticky-top: 85px;
 }
 
 * {
@@ -155,6 +156,34 @@ select {
   line-height: 1.7;
 }
 
+.imageLoadSkeleton {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(110deg, rgba(255, 255, 255, 0.08) 20%, rgba(255, 255, 255, 0.28) 35%, rgba(255, 255, 255, 0.08) 50%),
+    linear-gradient(180deg, #dde5ee 0%, #eff4f8 100%);
+  background-size: 220% 100%, 100% 100%;
+  animation: imageSkeletonShimmer 1.4s ease-in-out infinite;
+}
+
+.fadeImage {
+  opacity: 0;
+  transition: opacity 320ms ease;
+}
+
+.fadeImage.isLoaded {
+  opacity: 1;
+}
+
+@keyframes imageSkeletonShimmer {
+  0% {
+    background-position: 120% 0, 0 0;
+  }
+  100% {
+    background-position: -120% 0, 0 0;
+  }
+}
+
 .pageHeader {
   padding: 72px 0 36px;
 }
@@ -185,6 +214,12 @@ select {
 .subpageHeroBgImage {
   object-fit: cover;
   object-position: center;
+}
+
+.subpageHeroBgSkeleton {
+  background:
+    linear-gradient(110deg, rgba(255, 255, 255, 0.04) 18%, rgba(255, 255, 255, 0.16) 32%, rgba(255, 255, 255, 0.04) 46%),
+    linear-gradient(180deg, #18304e 0%, #274668 100%);
 }
 
 .subpageHeroBgOverlay {
@@ -1391,6 +1426,12 @@ select {
   color: rgba(255, 255, 255, 0.92);
 }
 
+.heroBackdropSkeleton {
+  background:
+    linear-gradient(110deg, rgba(255, 255, 255, 0.03) 18%, rgba(255, 255, 255, 0.12) 32%, rgba(255, 255, 255, 0.03) 46%),
+    linear-gradient(180deg, #112338 0%, #1f3b59 100%);
+}
+
 .storySection {
   width: 100%;
   padding: 92px 0 110px;
@@ -1685,7 +1726,7 @@ select {
 
 .productSubnav {
   position: sticky;
-  top: 85px;
+  top: var(--subnav-sticky-top);
   z-index: 15;
   border-bottom: 1px solid rgba(15, 34, 61, 0.08);
   background: rgba(255, 255, 255, 0.98);
@@ -1847,6 +1888,13 @@ select {
 .productDetailVisualImage {
   object-fit: contain;
   padding: 28px;
+}
+
+.productDetailVisualSkeleton {
+  border-radius: 4px;
+  background:
+    linear-gradient(110deg, rgba(255, 255, 255, 0.12) 20%, rgba(255, 255, 255, 0.44) 36%, rgba(255, 255, 255, 0.12) 52%),
+    linear-gradient(180deg, #eef3f7 0%, #dde7f0 100%);
 }
 
 .productDetailVisualMark {
@@ -2082,7 +2130,7 @@ select {
 
 .applicationsIndex {
   position: sticky;
-  top: 86px;
+  top: var(--subnav-sticky-top);
   z-index: 15;
   background: rgba(255, 255, 255, 0.98);
   backdrop-filter: none;
@@ -2106,7 +2154,7 @@ select {
 
 .contactSubnav {
   position: sticky;
-  top: 86px;
+  top: var(--subnav-sticky-top);
   z-index: 15;
   background: rgba(255, 255, 255, 0.98);
   border-bottom: 1px solid rgba(15, 34, 61, 0.06);
@@ -2238,6 +2286,12 @@ select {
   width: 100%;
   height: 156px;
   object-fit: cover;
+}
+
+.applicationShowcaseSkeleton {
+  background:
+    linear-gradient(110deg, rgba(255, 255, 255, 0.14) 20%, rgba(255, 255, 255, 0.4) 36%, rgba(255, 255, 255, 0.14) 52%),
+    linear-gradient(180deg, #dde8f1 0%, #eef4f8 100%);
 }
 
 .applicationShowcaseBody {
@@ -2498,6 +2552,10 @@ td {
 }
 
 @media (max-width: 960px) {
+  :root {
+    --subnav-sticky-top: 71px;
+  }
+
   .headerInner {
     grid-template-columns: auto 1fr auto;
     min-height: 72px;
@@ -2753,16 +2811,7 @@ td {
     padding-top: 0;
   }
 
-  .applicationsIndex {
-    top: 72px;
-  }
-
-  .contactSubnav {
-    top: 72px;
-  }
-
   .productSubnav {
-    top: 69px;
     border-top: 0;
   }
 
@@ -2851,6 +2900,10 @@ td {
 }
 
 @media (max-width: 720px) {
+  :root {
+    --subnav-sticky-top: 67px;
+  }
+
   .container {
     width: min(100% - 24px, 1180px);
   }
