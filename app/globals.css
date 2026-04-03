@@ -1556,13 +1556,13 @@ select {
 .seriesCardImage.isLumB {
   --series-image-scale: 1.1;
   --series-image-hover-scale: 1.15;
-  --series-image-shift-x: 20%;
+  --series-image-shift-x: 0%;
 }
 
 .seriesCardImage.isLumBL {
   --series-image-scale: 1.13;
   --series-image-hover-scale: 1.18;
-  --series-image-shift-x: 20%;
+  --series-image-shift-x: 0%;
 }
 
 .seriesCardImage.isLumF {
