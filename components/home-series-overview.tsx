@@ -46,6 +46,15 @@ const seriesItems = [
 
 export function HomeSeriesOverview({ locale }: { locale: Locale }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+
+  function goToPrev() {
+    setCurrentIndex((index) => (index === 0 ? seriesItems.length - 1 : index - 1));
+  }
+
+  function goToNext() {
+    setCurrentIndex((index) => (index + 1) % seriesItems.length);
+  }
 
   return (
     <section className="homeSeriesSection">
@@ -71,6 +80,25 @@ export function HomeSeriesOverview({ locale }: { locale: Locale }) {
           <div
             className="homeSeriesSliderTrack"
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            onTouchStart={(event) => setTouchStartX(event.touches[0]?.clientX ?? null)}
+            onTouchEnd={(event) => {
+              if (touchStartX === null) {
+                return;
+              }
+
+              const touchEndX = event.changedTouches[0]?.clientX ?? touchStartX;
+              const delta = touchStartX - touchEndX;
+
+              if (Math.abs(delta) > 40) {
+                if (delta > 0) {
+                  goToNext();
+                } else {
+                  goToPrev();
+                }
+              }
+
+              setTouchStartX(null);
+            }}
           >
             {seriesItems.map((item) => (
               <div key={item.slug} className="homeSeriesSlide">
@@ -83,9 +111,7 @@ export function HomeSeriesOverview({ locale }: { locale: Locale }) {
             <button
               type="button"
               className="homeSeriesSliderButton"
-              onClick={() =>
-                setCurrentIndex((index) => (index === 0 ? seriesItems.length - 1 : index - 1))
-              }
+              onClick={goToPrev}
               aria-label="Previous product"
             >
               ‹
@@ -106,7 +132,7 @@ export function HomeSeriesOverview({ locale }: { locale: Locale }) {
             <button
               type="button"
               className="homeSeriesSliderButton"
-              onClick={() => setCurrentIndex((index) => (index + 1) % seriesItems.length)}
+              onClick={goToNext}
               aria-label="Next product"
             >
               ›

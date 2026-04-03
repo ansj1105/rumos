@@ -1545,6 +1545,10 @@ select {
   gap: 18px;
 }
 
+.homeSeriesRailDesktop {
+  display: block;
+}
+
 .homeSeriesSlider {
   display: none;
 }
@@ -2333,9 +2337,14 @@ td {
     display: none;
   }
 
+  .homeSeriesRailDesktop {
+    display: none;
+  }
+
   .homeSeriesSlider {
     display: grid;
     gap: 16px;
+    overflow: hidden;
   }
 
   .homeSeriesSliderTrack {
