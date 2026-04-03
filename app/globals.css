@@ -209,11 +209,12 @@ select {
   position: absolute;
   inset: 0;
   overflow: hidden;
+  background: linear-gradient(180deg, #edf3f8 0%, #e4ecf4 100%);
 }
 
 .subpageHeroBgImage {
-  object-fit: cover;
-  object-position: center;
+  object-fit: contain;
+  object-position: center right;
 }
 
 .subpageHeroBgSkeleton {
@@ -2720,6 +2721,10 @@ td {
     opacity: 0.26;
   }
 
+  .subpageHeroBgImage {
+    object-position: center right;
+  }
+
   .subpageHeroCopy {
     padding-left: 30px;
   }
@@ -3073,6 +3078,11 @@ td {
     background-size: auto, 40px 40px, 40px 40px, auto 82%;
     background-position: center, center, center, right -34px center;
     opacity: 0.38;
+  }
+
+  .subpageHeroBgImage {
+    object-fit: cover;
+    object-position: center;
   }
 
   .subpageHeroInner {
