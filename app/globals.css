@@ -2479,16 +2479,16 @@ td {
   }
 
   .homeSeriesSlide .seriesCard {
-    min-height: 298px;
+    min-height: 276px;
   }
 
   .seriesCardMedia {
-    aspect-ratio: 1.18 / 1;
+    aspect-ratio: 1.32 / 1;
   }
 
   .seriesCardMediaFrame {
-    width: 76%;
-    height: 68%;
+    width: 72%;
+    height: 64%;
   }
 
   .homeSeriesSliderControls {
@@ -2731,7 +2731,7 @@ td {
   }
 
   .brandLogo {
-    height: 36px;
+    height: 31px;
   }
 
   .footerBrandLogo {
@@ -2817,11 +2817,11 @@ td {
   }
 
   .homeSeriesSlide .seriesCard {
-    min-height: 286px;
+    min-height: 258px;
   }
 
   .seriesCardMedia {
-    aspect-ratio: 1.22 / 1;
+    aspect-ratio: 1.38 / 1;
   }
 
   .seriesCardText strong {
@@ -2996,11 +2996,11 @@ td {
   }
 
   .brandLink {
-    min-height: 34px;
+    min-height: 30px;
   }
 
   .brandLogo {
-    height: 30px;
+    height: 25px;
   }
 
   .mobileMenuTitle {
@@ -3048,16 +3048,16 @@ td {
   }
 
   .homeSeriesSlide .seriesCard {
-    min-height: 272px;
+    min-height: 240px;
   }
 
   .seriesCardMedia {
-    aspect-ratio: 1.28 / 1;
+    aspect-ratio: 1.48 / 1;
   }
 
   .seriesCardMediaFrame {
-    width: 74%;
-    height: 66%;
+    width: 70%;
+    height: 62%;
   }
 
   .seriesCardBody {
