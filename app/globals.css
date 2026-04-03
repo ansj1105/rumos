@@ -1516,6 +1516,163 @@ select {
   font-size: 18px;
 }
 
+.homeSeriesSection {
+  width: 100%;
+  padding: 92px 0 110px;
+  background:
+    linear-gradient(180deg, #f7f9fb 0%, #eef3f7 100%);
+  border-top: 1px solid rgba(15, 34, 61, 0.08);
+}
+
+.homeSeriesInner {
+  display: grid;
+  gap: 34px;
+}
+
+.homeSeriesHead {
+  max-width: 620px;
+}
+
+.homeSeriesRail {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.seriesCard {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  min-height: 420px;
+  border: 1px solid rgba(15, 34, 61, 0.12);
+  background: #ffffff;
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.seriesCard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(13, 91, 215, 0.28);
+  box-shadow: 0 18px 34px rgba(15, 34, 61, 0.08);
+}
+
+.seriesCardMedia {
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  background: linear-gradient(180deg, #eef3f7 0%, #e5edf6 100%);
+}
+
+.seriesCardImage {
+  object-fit: cover;
+  transition: transform 320ms ease;
+}
+
+.seriesCard:hover .seriesCardImage {
+  transform: scale(1.05);
+}
+
+.seriesCardOverlay {
+  position: absolute;
+  inset: auto 0 0;
+  height: 44%;
+  background: linear-gradient(180deg, rgba(15, 34, 61, 0), rgba(15, 34, 61, 0.12));
+  pointer-events: none;
+}
+
+.seriesCardSoftwareVisual {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 72% 26%, rgba(118, 173, 255, 0.18), transparent 24%),
+    linear-gradient(145deg, rgba(8, 22, 40, 0.98), rgba(19, 46, 76, 0.96));
+}
+
+.seriesCardSoftwareGrid {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 36px 36px, 36px 36px;
+  opacity: 0.5;
+}
+
+.seriesCardSoftwarePanel {
+  position: absolute;
+  right: 22px;
+  bottom: 24px;
+  left: 22px;
+  display: grid;
+  gap: 8px;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.seriesCardSoftwarePanel strong {
+  font-size: 24px;
+  letter-spacing: -0.02em;
+}
+
+.seriesCardSoftwareChip {
+  display: inline-flex;
+  width: fit-content;
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.seriesCardBody {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 18px 20px;
+}
+
+.seriesCardText {
+  display: grid;
+  gap: 6px;
+}
+
+.seriesCardText strong {
+  font-size: 24px;
+  letter-spacing: -0.03em;
+}
+
+.seriesCardText span {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.seriesCardArrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(15, 34, 61, 0.12);
+  color: var(--blue-deep);
+  font-size: 18px;
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background-color 220ms ease;
+}
+
+.seriesCard:hover .seriesCardArrow {
+  transform: translate(2px, -2px);
+  border-color: rgba(13, 91, 215, 0.2);
+  background: rgba(13, 91, 215, 0.04);
+}
+
 .applicationsPage {
   background: #ffffff;
 }
@@ -2051,6 +2208,33 @@ td {
     padding: 54px 0 72px;
   }
 
+  .homeSeriesSection {
+    padding: 68px 0 78px;
+  }
+
+  .homeSeriesInner {
+    gap: 28px;
+  }
+
+  .homeSeriesRail {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scroll-snap-type: x proximity;
+  }
+
+  .seriesCard {
+    min-width: 280px;
+    min-height: 380px;
+    flex: 0 0 280px;
+    scroll-snap-align: start;
+  }
+
+  .seriesCardMedia {
+    min-height: 280px;
+  }
+
   .subpageHeroInner {
     padding: 84px 0 30px;
   }
@@ -2324,6 +2508,35 @@ td {
     padding: 52px 0 56px;
   }
 
+  .homeSeriesSection {
+    padding: 54px 0 60px;
+  }
+
+  .homeSeriesInner {
+    gap: 22px;
+  }
+
+  .seriesCard {
+    min-width: 240px;
+    min-height: 338px;
+    flex-basis: 240px;
+  }
+
+  .seriesCardMedia {
+    min-height: 236px;
+  }
+
+  .seriesCardText strong {
+    font-size: 21px;
+  }
+
+  .seriesCardSoftwarePanel {
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+    padding: 16px;
+  }
+
   .storyContent {
     gap: 22px;
   }
@@ -2514,6 +2727,28 @@ td {
   .applicationsIndexNo,
   .productDirectoryNo {
     font-size: 11px;
+  }
+
+  .seriesCard {
+    min-width: 220px;
+    min-height: 318px;
+    flex-basis: 220px;
+  }
+
+  .seriesCardMedia {
+    min-height: 214px;
+  }
+
+  .seriesCardBody {
+    padding: 16px;
+  }
+
+  .seriesCardText strong {
+    font-size: 19px;
+  }
+
+  .seriesCardText span {
+    font-size: 13px;
   }
 
   .resourcesTableWrap {

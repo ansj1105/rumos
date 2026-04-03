@@ -1,3 +1,4 @@
+import { HomeSeriesOverview } from "@/components/home-series-overview";
 import { Hero } from "@/components/hero";
 import { getSiteConfig } from "@/lib/content";
 import { getDictionary } from "@/lib/dictionaries";
@@ -59,6 +60,8 @@ export default async function HomePage({
           </div>
         </div>
       </section>
+
+      <HomeSeriesOverview locale={locale} />
     </>
   );
 }
