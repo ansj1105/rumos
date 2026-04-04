@@ -2480,6 +2480,130 @@ select {
   gap: 18px 22px;
 }
 
+.distributorLayout {
+  display: grid;
+  gap: 28px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.distributorSection {
+  padding: 28px 30px;
+  border: 1px solid rgba(15, 34, 61, 0.08);
+  background: #ffffff;
+}
+
+.distributorSectionHead {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.distributorSectionHead h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.distributorSectionHead p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.distributorOverviewGrid,
+.distributorDirectory {
+  display: grid;
+  gap: 16px;
+}
+
+.distributorOverviewGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.distributorOverviewCard,
+.distributorDirectoryCard,
+.distributorContactBox {
+  padding: 20px 22px;
+  border: 1px solid rgba(15, 34, 61, 0.08);
+  background: #f8fbfe;
+}
+
+.distributorOverviewCard {
+  display: grid;
+  gap: 10px;
+}
+
+.distributorOverviewCard strong,
+.distributorDirectoryMeta strong {
+  font-size: 18px;
+}
+
+.distributorOverviewCard p,
+.distributorDirectoryCard p,
+.distributorContactBox p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.distributorBulletList {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.distributorBulletList li {
+  position: relative;
+  padding-left: 18px;
+  line-height: 1.8;
+}
+
+.distributorBulletList li::before {
+  content: "";
+  position: absolute;
+  top: 13px;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--blue);
+}
+
+.distributorDirectoryCard {
+  display: grid;
+  gap: 10px;
+}
+
+.distributorDirectoryMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.distributorDirectoryMeta span {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.distributorContactBox {
+  display: grid;
+  gap: 14px;
+}
+
+.distributorContactMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  color: var(--text);
+  font-weight: 700;
+}
+
 .resourcesTableWrap {
   border-top: 2px solid var(--text);
   min-height: 420px;
@@ -2516,20 +2640,64 @@ select {
   color: var(--blue-deep);
 }
 
-.resourceDetailHead {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.resourceDetailLayout {
+  display: grid;
+  gap: 20px;
+}
+
+.resourceDetailSummary,
+.resourceDetailContentCard {
+  border: 1px solid rgba(15, 34, 61, 0.08);
+  background: #ffffff;
+}
+
+.resourceDetailSummary {
+  padding: 24px 28px;
+}
+
+.resourceDetailMetaGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
-  padding: 16px 0;
-  border-top: 2px solid var(--text);
-  border-bottom: 1px solid rgba(15, 34, 61, 0.08);
+}
+
+.resourceMetaItem {
+  display: grid;
+  gap: 8px;
+}
+
+.resourceMetaItem strong,
+.resourceDetailSectionHead strong {
+  font-size: 14px;
   color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+.resourceMetaItem span {
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.resourceDetailContentCard {
+  padding: 24px 28px 28px;
+}
+
+.resourceDetailSectionHead {
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(15, 34, 61, 0.08);
 }
 
 .resourceDetailBody {
-  padding-top: 30px;
+  padding-top: 22px;
   max-width: 920px;
+}
+
+.resourceAttachmentBox {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 20px;
+  color: var(--muted);
 }
 
 table {
@@ -2846,6 +3014,10 @@ td {
     gap: 10px;
   }
 
+  .distributorOverviewGrid {
+    grid-template-columns: 1fr;
+  }
+
   .productDirectoryRow {
     grid-template-columns: 54px 1fr;
     gap: 10px 16px;
@@ -2861,9 +3033,8 @@ td {
     grid-template-columns: 1fr;
   }
 
-  .resourceDetailHead {
-    flex-direction: column;
-    align-items: flex-start;
+  .resourceDetailMetaGrid {
+    grid-template-columns: 1fr;
   }
 
   .twoCol,
@@ -3087,6 +3258,14 @@ td {
   .subpageContent {
     padding-top: 32px;
     padding-bottom: 32px;
+  }
+
+  .distributorSection {
+    padding: 22px 18px;
+  }
+
+  .distributorSectionHead h2 {
+    font-size: 24px;
   }
 
   .productsPage .subpageContent {

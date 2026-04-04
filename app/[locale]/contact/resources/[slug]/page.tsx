@@ -44,35 +44,71 @@ export default async function ResourceDetailPage({
 }) {
   const { locale, slug } = await params;
   const resource = await getResourceBySlug(slug);
+  const isKo = locale === "ko";
 
   if (!resource || !resource.published) {
     notFound();
   }
 
+  const title = isKo ? resource.titleKo : resource.titleEn;
+  const excerpt = isKo ? resource.excerptKo : resource.excerptEn;
+  const body = isKo ? resource.bodyKo : resource.bodyEn;
+  const createdAtLabel = new Date(resource.createdAt).toLocaleDateString(isKo ? "ko-KR" : "en-US");
+  const authorLabel = isKo ? "LUMOS" : "LUMOS";
+
   return (
     <div className="resourcesPage">
       <SubpageHero
-        eyebrow={locale === "ko" ? "자료 상세" : "Resource Detail"}
-        title={locale === "ko" ? resource.titleKo : resource.titleEn}
-        description={locale === "ko" ? resource.excerptKo : resource.excerptEn}
+        eyebrow={isKo ? "자료 상세" : "Resource Detail"}
+        title={title}
+        description={excerpt}
         tone="resources"
         backgroundImageUrl="/subpage-contact-bg.png"
         lightText
       />
       <ContactSubnav locale={locale} activeHref="/contact/resources" />
       <div className="container subpageContent">
-        <div className="resourceDetailHead">
-          <span>{new Date(resource.createdAt).toLocaleDateString(locale === "ko" ? "ko-KR" : "en-US")}</span>
-          {resource.fileUrl ? (
-            <a href={resource.fileUrl} target="_blank" rel="noreferrer" className="button secondary">
-              {locale === "ko" ? "다운로드" : "Download"}
-            </a>
-          ) : null}
-        </div>
-        <div className="resourceDetailBody pageBody">
-          <p style={{ margin: 0, lineHeight: 1.9 }}>
-            {locale === "ko" ? resource.bodyKo : resource.bodyEn}
-          </p>
+        <div className="resourceDetailLayout pageBody">
+          <section className="resourceDetailSummary">
+            <div className="resourceDetailMetaGrid">
+              <div className="resourceMetaItem">
+                <strong>{isKo ? "제목" : "Title"}</strong>
+                <span>{title}</span>
+              </div>
+              <div className="resourceMetaItem">
+                <strong>{isKo ? "일시" : "Date"}</strong>
+                <span>{createdAtLabel}</span>
+              </div>
+              <div className="resourceMetaItem">
+                <strong>{isKo ? "작성자" : "Author"}</strong>
+                <span>{authorLabel}</span>
+              </div>
+            </div>
+          </section>
+
+          <section className="resourceDetailContentCard">
+            <div className="resourceDetailSectionHead">
+              <strong>{isKo ? "내용" : "Content"}</strong>
+            </div>
+            <div className="resourceDetailBody">
+              <p style={{ margin: 0, lineHeight: 1.9 }}>{body}</p>
+            </div>
+          </section>
+
+          <section className="resourceDetailContentCard">
+            <div className="resourceDetailSectionHead">
+              <strong>{isKo ? "첨부파일" : "Attachment"}</strong>
+            </div>
+            <div className="resourceAttachmentBox">
+              {resource.fileUrl ? (
+                <a href={resource.fileUrl} target="_blank" rel="noreferrer" className="button secondary">
+                  {isKo ? "파일 다운로드" : "Download File"}
+                </a>
+              ) : (
+                <span>{isKo ? "첨부된 파일이 없습니다." : "No file attached."}</span>
+              )}
+            </div>
+          </section>
         </div>
       </div>
     </div>
