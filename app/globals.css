@@ -963,6 +963,25 @@ select {
   text-align: center;
 }
 
+.lumosAdminClientPreview {
+  display: grid;
+  gap: 12px;
+}
+
+.lumosAdminClientPreviewFrame {
+  border: 1px solid var(--admin-border);
+  background: var(--admin-surface-strong);
+  overflow: hidden;
+}
+
+.lumosAdminClientPreviewIframe {
+  display: block;
+  width: 100%;
+  height: 420px;
+  border: 0;
+  background: #ffffff;
+}
+
 .lumosAdminDirectoryList {
   display: grid;
   gap: 12px;

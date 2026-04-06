@@ -240,6 +240,20 @@ export function ApplicationsAdminSection({
                 )}
               </div>
             </div>
+            <div className="lumosAdminClientPreview">
+              <div className="lumosAdminAssetPreviewHead">
+                <strong>Client Page Preview</strong>
+                <span>{`/ko/applications#${application.slug}`}</span>
+              </div>
+              <div className="lumosAdminClientPreviewFrame">
+                <iframe
+                  src={`${siteUrl}/ko/applications#${application.slug}`}
+                  title={`${application.titleKo} preview`}
+                  loading="lazy"
+                  className="lumosAdminClientPreviewIframe"
+                />
+              </div>
+            </div>
             <input type="hidden" name="id" value={application.id} />
             <div className="lumosAdminFormGrid">
               <label className="field">
@@ -414,6 +428,20 @@ export function ProductsAdminSection({
       {products.map((product) => (
         <AdminSectionCard key={product.id} title={product.nameKo} description={product.slug}>
           <form action={saveProduct} className="lumosAdminForm">
+            <div className="lumosAdminClientPreview">
+              <div className="lumosAdminAssetPreviewHead">
+                <strong>Client Page Preview</strong>
+                <span>{`/ko/products/${product.slug}`}</span>
+              </div>
+              <div className="lumosAdminClientPreviewFrame">
+                <iframe
+                  src={`${siteUrl}/ko/products/${product.slug}`}
+                  title={`${product.nameKo} preview`}
+                  loading="lazy"
+                  className="lumosAdminClientPreviewIframe"
+                />
+              </div>
+            </div>
             <input type="hidden" name="id" value={product.id} />
             <div className="lumosAdminFormGrid">
               <label className="field">
