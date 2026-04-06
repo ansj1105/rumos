@@ -109,6 +109,50 @@ function AdminNavIcon({ type }: { type: AdminMenuChild["icon"] }) {
   }
 }
 
+function AdminHeaderActionIcon({ type }: { type: "site" | "theme" | "settings" | "logout" }) {
+  const common = {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.8",
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+  };
+
+  switch (type) {
+    case "site":
+      return (
+        <svg {...common}>
+          <path d="M4 12h16" />
+          <path d="M12 4a15 15 0 0 1 0 16" />
+          <path d="M12 4a15 15 0 0 0 0 16" />
+          <circle cx="12" cy="12" r="9" />
+        </svg>
+      );
+    case "theme":
+      return (
+        <svg {...common}>
+          <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z" />
+        </svg>
+      );
+    case "settings":
+      return (
+        <svg {...common}>
+          <circle cx="12" cy="12" r="3.2" />
+          <path d="M19 12a7 7 0 0 0-.08-1l2.02-1.57-2-3.46-2.45.82a7 7 0 0 0-1.73-1l-.37-2.55h-4l-.37 2.55a7 7 0 0 0-1.73 1l-2.45-.82-2 3.46L5.08 11A7 7 0 0 0 5 12c0 .34.03.67.08 1l-2.02 1.57 2 3.46 2.45-.82c.53.42 1.11.76 1.73 1l.37 2.55h4l.37-2.55c.62-.24 1.2-.58 1.73-1l2.45.82 2-3.46L18.92 13c.05-.33.08-.66.08-1Z" />
+        </svg>
+      );
+    case "logout":
+      return (
+        <svg {...common}>
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+          <path d="M16 17l5-5-5-5" />
+          <path d="M21 12H9" />
+        </svg>
+      );
+  }
+}
+
 export function AdminShell({
   children,
   title,
@@ -242,22 +286,24 @@ export function AdminShell({
             <div className="lumosAdminInquiryBadge" aria-hidden="true">
               {pendingInquiries ?? 0}
             </div>
-            <Link href="/ko" className="lumosAdminGhostButton" target="_blank">
-              사이트 보기
+            <Link href="/ko" className="lumosAdminGhostIconButton" target="_blank" title="사이트 보기" aria-label="사이트 보기">
+              <AdminHeaderActionIcon type="site" />
             </Link>
             <button
               type="button"
-              className="lumosAdminGhostButton"
+              className="lumosAdminGhostIconButton"
               onClick={() => setTheme((value) => (value === "dark" ? "light" : "dark"))}
+              title={theme === "dark" ? "라이트 모드" : "다크 모드"}
+              aria-label={theme === "dark" ? "라이트 모드" : "다크 모드"}
             >
-              {theme === "dark" ? "Light" : "Dark"}
+              <AdminHeaderActionIcon type="theme" />
             </button>
-            <Link href="/asdasddfg/admin/settings" className="lumosAdminGhostButton">
-              설정
+            <Link href="/asdasddfg/admin/settings" className="lumosAdminGhostIconButton" title="설정" aria-label="설정">
+              <AdminHeaderActionIcon type="settings" />
             </Link>
             <form action={logoutAdmin}>
-              <button type="submit" className="lumosAdminGhostButton">
-                로그아웃
+              <button type="submit" className="lumosAdminGhostIconButton" title="로그아웃" aria-label="로그아웃">
+                <AdminHeaderActionIcon type="logout" />
               </button>
             </form>
           </div>

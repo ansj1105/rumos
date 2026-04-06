@@ -223,6 +223,20 @@ export function ApplicationsAdminSection({
       {applications.map((application) => (
         <AdminSectionCard key={application.id} title={application.titleKo} description={application.slug}>
           <form action={saveApplication} className="lumosAdminForm">
+            <div className="lumosAdminAssetPreview">
+              <div className="lumosAdminAssetPreviewHead">
+                <strong>Application Image</strong>
+                <span>{application.imageUrl ? "연결됨" : "미연결"}</span>
+              </div>
+              <div className="lumosAdminAssetPreviewFrame">
+                {application.imageUrl ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={application.imageUrl} alt={application.titleKo} className="lumosAdminAssetPreviewImage" />
+                ) : (
+                  <div className="lumosAdminAssetPreviewEmpty">No image connected</div>
+                )}
+              </div>
+            </div>
             <input type="hidden" name="id" value={application.id} />
             <div className="lumosAdminFormGrid">
               <label className="field">
@@ -281,6 +295,15 @@ export function ApplicationsAdminSection({
 
       <AdminSectionCard title="새 Application 추가">
         <form action={saveApplication} className="lumosAdminForm">
+          <div className="lumosAdminAssetPreview">
+            <div className="lumosAdminAssetPreviewHead">
+              <strong>Application Image</strong>
+              <span>URL 입력 후 생성</span>
+            </div>
+            <div className="lumosAdminAssetPreviewFrame">
+              <div className="lumosAdminAssetPreviewEmpty">Image preview will appear after save</div>
+            </div>
+          </div>
           <div className="lumosAdminFormGrid">
             <label className="field">
               <span>Slug</span>
