@@ -2612,6 +2612,71 @@ select {
   gap: 18px 22px;
 }
 
+.contactDirectSection {
+  max-width: 920px;
+  margin: 0 auto 34px;
+  padding: 28px 30px;
+  border: 1px solid rgba(15, 34, 61, 0.08);
+  background: #ffffff;
+}
+
+.contactDirectHead {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.contactDirectHead strong {
+  font-size: 22px;
+}
+
+.contactDirectHead p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.contactDirectGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.contactDirectCard {
+  display: grid;
+  gap: 8px;
+  padding: 18px 18px 20px;
+  border: 1px solid rgba(15, 34, 61, 0.08);
+  background: #f9fbfd;
+}
+
+.contactDirectCard span {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--blue);
+  text-transform: uppercase;
+}
+
+.contactDirectCard strong {
+  font-size: 20px;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.contactDirectCard p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.contactDirectNotice {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
 .distributorLayout {
   display: grid;
   gap: 28px;
@@ -3564,6 +3629,15 @@ td {
     padding-bottom: 22px;
   }
 
+  .contactDirectSection {
+    margin-bottom: 24px;
+    padding: 22px 20px;
+  }
+
+  .contactDirectGrid {
+    grid-template-columns: 1fr;
+  }
+
   .contactForm {
     gap: 16px;
     padding-top: 28px;
@@ -3590,6 +3664,10 @@ td {
 
   .applicationsBodyShowcase {
     background-size: 92px 92px, 92px 92px;
+  }
+
+  .contactDirectCard strong {
+    font-size: 18px;
   }
 
   .applicationShowcaseImage {
