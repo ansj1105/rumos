@@ -14,7 +14,12 @@ const prisma = new PrismaClient();
 async function main() {
   await prisma.siteConfig.upsert({
     where: { id: 1 },
-    update: {},
+    update: {
+      seriesTitleKo: defaultSiteConfig.seriesTitleKo,
+      seriesTitleEn: defaultSiteConfig.seriesTitleEn,
+      seriesLeadKo: defaultSiteConfig.seriesLeadKo,
+      seriesLeadEn: defaultSiteConfig.seriesLeadEn,
+    },
     create: {
       ...defaultSiteConfig,
     },

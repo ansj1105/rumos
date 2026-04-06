@@ -20,6 +20,10 @@ model SiteConfig {
   storyBodyKo       String             @db.Text
   storyBodyEn       String             @db.Text
   storyFontSize     Int                @default(17)
+  seriesTitleKo     String             @default("LUMOS series overview")
+  seriesTitleEn     String             @default("LUMOS series overview")
+  seriesLeadKo      String             @db.Text @default("빔 프로파일러와 운용 소프트웨어 라인업을 한 번에 확인할 수 있습니다.")
+  seriesLeadEn      String             @db.Text @default("Explore the beam profiler lineup and operational software in one view.")
   seoTitleKo        String
   seoTitleEn        String
   seoDescriptionKo  String             @db.Text

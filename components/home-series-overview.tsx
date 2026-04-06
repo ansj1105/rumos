@@ -49,7 +49,15 @@ const seriesItems = [
   },
 ] as const;
 
-export function HomeSeriesOverview({ locale }: { locale: Locale }) {
+export function HomeSeriesOverview({
+  locale,
+  title,
+  lead,
+}: {
+  locale: Locale;
+  title?: string | null;
+  lead?: string | null;
+}) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [dragStartX, setDragStartX] = useState<number | null>(null);
 
@@ -73,13 +81,12 @@ export function HomeSeriesOverview({ locale }: { locale: Locale }) {
     <section id="homeSeriesSection" className="homeSeriesSection">
       <div className="container homeSeriesInner">
         <div className="homeSeriesHead">
-          <h2 className="sectionTitle">
-            {locale === "ko" ? "LUMOS series overview" : "LUMOS series overview"}
-          </h2>
+          <h2 className="sectionTitle">{title ?? "LUMOS series overview"}</h2>
           <p className="sectionLead">
-            {locale === "ko"
-              ? "빔 프로파일러와 운용 소프트웨어 라인업을 한 번에 확인할 수 있습니다."
-              : "Explore the beam profiler lineup and operational software in one view."}
+            {lead ??
+              (locale === "ko"
+                ? "빔 프로파일러와 운용 소프트웨어 라인업을 한 번에 확인할 수 있습니다."
+                : "Explore the beam profiler lineup and operational software in one view.")}
           </p>
         </div>
 

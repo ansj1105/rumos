@@ -117,6 +117,10 @@ export async function updateSiteConfig(formData: FormData) {
       storyBodyKo: String(formData.get("storyBodyKo") ?? ""),
       storyBodyEn: String(formData.get("storyBodyEn") ?? ""),
       storyFontSize: Number(formData.get("storyFontSize") ?? 18),
+      seriesTitleKo: String(formData.get("seriesTitleKo") ?? ""),
+      seriesTitleEn: String(formData.get("seriesTitleEn") ?? ""),
+      seriesLeadKo: String(formData.get("seriesLeadKo") ?? ""),
+      seriesLeadEn: String(formData.get("seriesLeadEn") ?? ""),
       seoTitleKo: String(formData.get("seoTitleKo") ?? ""),
       seoTitleEn: String(formData.get("seoTitleEn") ?? ""),
       seoDescriptionKo: String(formData.get("seoDescriptionKo") ?? ""),
@@ -135,6 +139,10 @@ export async function updateSiteConfig(formData: FormData) {
       storyBodyKo: String(formData.get("storyBodyKo") ?? ""),
       storyBodyEn: String(formData.get("storyBodyEn") ?? ""),
       storyFontSize: Number(formData.get("storyFontSize") ?? 18),
+      seriesTitleKo: String(formData.get("seriesTitleKo") ?? ""),
+      seriesTitleEn: String(formData.get("seriesTitleEn") ?? ""),
+      seriesLeadKo: String(formData.get("seriesLeadKo") ?? ""),
+      seriesLeadEn: String(formData.get("seriesLeadEn") ?? ""),
       seoTitleKo: String(formData.get("seoTitleKo") ?? ""),
       seoTitleEn: String(formData.get("seoTitleEn") ?? ""),
       seoDescriptionKo: String(formData.get("seoDescriptionKo") ?? ""),
@@ -145,6 +153,127 @@ export async function updateSiteConfig(formData: FormData) {
   if (heroImageUrl && current?.heroImageUrl !== heroImageUrl) {
     await storeHeroHistory(heroImageUrl);
   }
+
+  revalidatePublicPages();
+  revalidateAdminPages();
+}
+
+export async function updateHeroSection(formData: FormData) {
+  const current = await prisma.siteConfig.findUnique({ where: { id: 1 } });
+  const heroImageUrl = String(formData.get("heroImageUrl") ?? "").trim() || null;
+
+  await prisma.siteConfig.upsert({
+    where: { id: 1 },
+    update: {
+      heroTitleKo: String(formData.get("heroTitleKo") ?? ""),
+      heroTitleEn: String(formData.get("heroTitleEn") ?? ""),
+      heroDescriptionKo: String(formData.get("heroDescriptionKo") ?? ""),
+      heroDescriptionEn: String(formData.get("heroDescriptionEn") ?? ""),
+      heroImageUrl,
+      heroFontSize: Number(formData.get("heroFontSize") ?? 52),
+    },
+    create: {
+      id: 1,
+      heroTitleKo: String(formData.get("heroTitleKo") ?? ""),
+      heroTitleEn: String(formData.get("heroTitleEn") ?? ""),
+      heroDescriptionKo: String(formData.get("heroDescriptionKo") ?? ""),
+      heroDescriptionEn: String(formData.get("heroDescriptionEn") ?? ""),
+      heroImageUrl,
+      heroFontSize: Number(formData.get("heroFontSize") ?? 52),
+      storyTitleKo: "",
+      storyTitleEn: "",
+      storyBodyKo: "",
+      storyBodyEn: "",
+      storyFontSize: 18,
+      seriesTitleKo: "LUMOS series overview",
+      seriesTitleEn: "LUMOS series overview",
+      seriesLeadKo: "",
+      seriesLeadEn: "",
+      seoTitleKo: "",
+      seoTitleEn: "",
+      seoDescriptionKo: "",
+      seoDescriptionEn: "",
+    },
+  });
+
+  if (heroImageUrl && current?.heroImageUrl !== heroImageUrl) {
+    await storeHeroHistory(heroImageUrl);
+  }
+
+  revalidatePublicPages();
+  revalidateAdminPages();
+}
+
+export async function updateStorySection(formData: FormData) {
+  await prisma.siteConfig.upsert({
+    where: { id: 1 },
+    update: {
+      storyTitleKo: String(formData.get("storyTitleKo") ?? ""),
+      storyTitleEn: String(formData.get("storyTitleEn") ?? ""),
+      storyBodyKo: String(formData.get("storyBodyKo") ?? ""),
+      storyBodyEn: String(formData.get("storyBodyEn") ?? ""),
+      storyFontSize: Number(formData.get("storyFontSize") ?? 18),
+    },
+    create: {
+      id: 1,
+      heroTitleKo: "",
+      heroTitleEn: "",
+      heroDescriptionKo: "",
+      heroDescriptionEn: "",
+      heroImageUrl: null,
+      heroFontSize: 52,
+      storyTitleKo: String(formData.get("storyTitleKo") ?? ""),
+      storyTitleEn: String(formData.get("storyTitleEn") ?? ""),
+      storyBodyKo: String(formData.get("storyBodyKo") ?? ""),
+      storyBodyEn: String(formData.get("storyBodyEn") ?? ""),
+      storyFontSize: Number(formData.get("storyFontSize") ?? 18),
+      seriesTitleKo: "LUMOS series overview",
+      seriesTitleEn: "LUMOS series overview",
+      seriesLeadKo: "",
+      seriesLeadEn: "",
+      seoTitleKo: "",
+      seoTitleEn: "",
+      seoDescriptionKo: "",
+      seoDescriptionEn: "",
+    },
+  });
+
+  revalidatePublicPages();
+  revalidateAdminPages();
+}
+
+export async function updateSeriesSection(formData: FormData) {
+  await prisma.siteConfig.upsert({
+    where: { id: 1 },
+    update: {
+      seriesTitleKo: String(formData.get("seriesTitleKo") ?? ""),
+      seriesTitleEn: String(formData.get("seriesTitleEn") ?? ""),
+      seriesLeadKo: String(formData.get("seriesLeadKo") ?? ""),
+      seriesLeadEn: String(formData.get("seriesLeadEn") ?? ""),
+    },
+    create: {
+      id: 1,
+      heroTitleKo: "",
+      heroTitleEn: "",
+      heroDescriptionKo: "",
+      heroDescriptionEn: "",
+      heroImageUrl: null,
+      heroFontSize: 52,
+      storyTitleKo: "",
+      storyTitleEn: "",
+      storyBodyKo: "",
+      storyBodyEn: "",
+      storyFontSize: 18,
+      seriesTitleKo: String(formData.get("seriesTitleKo") ?? ""),
+      seriesTitleEn: String(formData.get("seriesTitleEn") ?? ""),
+      seriesLeadKo: String(formData.get("seriesLeadKo") ?? ""),
+      seriesLeadEn: String(formData.get("seriesLeadEn") ?? ""),
+      seoTitleKo: "",
+      seoTitleEn: "",
+      seoDescriptionKo: "",
+      seoDescriptionEn: "",
+    },
+  });
 
   revalidatePublicPages();
   revalidateAdminPages();

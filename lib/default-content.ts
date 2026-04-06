@@ -15,6 +15,10 @@ export const defaultSiteConfig = {
   storyBodyEn:
     "LUMOS comes from the Latin 'Lumen' (Light). It represents our mission to capture the true essence of light through precise measurement and to deliver trusted precision for optics and laser beam analysis.",
   storyFontSize: 18,
+  seriesTitleKo: "LUMOS series overview",
+  seriesTitleEn: "LUMOS series overview",
+  seriesLeadKo: "빔 프로파일러와 운용 소프트웨어 라인업을 한 번에 확인할 수 있습니다.",
+  seriesLeadEn: "Explore the beam profiler lineup and operational software in one view.",
   seoTitleKo: "루모스 | 산업용 광학 솔루션",
   seoTitleEn: "Lumos | Industrial Optical Solutions",
   seoDescriptionKo:

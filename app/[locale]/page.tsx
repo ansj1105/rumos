@@ -34,11 +34,12 @@ export default async function HomePage({
         heroFontSize={config?.heroFontSize}
       />
 
-      <section className="storySection">
+      <section id="storySection" className="storySection">
         <div className="container storyInner">
           <div className="storyLeadBlock">
             <h2 className="storyDisplayTitle">
-              {locale === "ko" ? "LUMOS : 브랜드 어원" : "The Origin of LUMOS"}
+              {(locale === "ko" ? config?.storyTitleKo : config?.storyTitleEn) ??
+                (locale === "ko" ? "LUMOS : 브랜드 어원" : "The Origin of LUMOS")}
             </h2>
           </div>
           <div className="storyContent">
@@ -66,7 +67,11 @@ export default async function HomePage({
         </div>
       </section>
 
-      <HomeSeriesOverview locale={locale} />
+      <HomeSeriesOverview
+        locale={locale}
+        title={locale === "ko" ? config?.seriesTitleKo : config?.seriesTitleEn}
+        lead={locale === "ko" ? config?.seriesLeadKo : config?.seriesLeadEn}
+      />
     </>
   );
 }
