@@ -10,6 +10,7 @@ import {
   updateInquiryStatus,
   updateSiteConfig,
 } from "@/app/admin/actions";
+import { siteUrl } from "@/lib/site";
 
 function textValue(value: unknown) {
   if (Array.isArray(value)) {
@@ -286,9 +287,19 @@ export function ApplicationsAdminSection({
               <input type="checkbox" name="published" defaultChecked={application.published} />
               <span>노출</span>
             </label>
-            <button type="submit" className="lumosAdminPrimaryButton">
-              Application 저장
-            </button>
+            <div className="lumosAdminActionRow">
+              <a
+                href={`${siteUrl}/ko/applications#${application.slug}`}
+                target="_blank"
+                rel="noreferrer"
+                className="lumosAdminGhostButton"
+              >
+                프론트 미리보기
+              </a>
+              <button type="submit" className="lumosAdminPrimaryButton">
+                Application 저장
+              </button>
+            </div>
           </form>
         </AdminSectionCard>
       ))}
@@ -549,6 +560,14 @@ export function ProductsAdminSection({
                 <span>노출</span>
               </label>
               <div className="lumosAdminActionRowEnd">
+                <a
+                  href={`${siteUrl}/ko/products/${product.slug}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="lumosAdminGhostButton"
+                >
+                  프론트 미리보기
+                </a>
                 <button type="submit" className="lumosAdminPrimaryButton">
                   Product 저장
                 </button>
