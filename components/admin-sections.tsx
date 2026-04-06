@@ -44,16 +44,18 @@ function dateValue(value: Date) {
 }
 
 export function AdminSectionCard({
+  id,
   title,
   description,
   children,
 }: {
+  id?: string;
   title: string;
   description?: string;
   children: React.ReactNode;
 }) {
   return (
-    <section className="lumosAdminSectionCard">
+    <section id={id} className="lumosAdminSectionCard">
       <div className="lumosAdminSectionHead">
         <div>
           <h2>{title}</h2>
@@ -752,8 +754,42 @@ export function ResourcesAdminSection({
 }) {
   return (
     <div className="lumosAdminStack">
+      <AdminSectionCard title="자료 목록" description="현재 등록된 자료를 순번 기준으로 빠르게 확인하고 이동할 수 있습니다.">
+        <div className="lumosAdminDirectoryList">
+          {resources.map((resource) => (
+            <div key={resource.id} className="lumosAdminDirectoryItem">
+              <div className="lumosAdminDirectoryPrimary">
+                <strong>{String(resource.displayIndex).padStart(2, "0")}</strong>
+                <div className="lumosAdminDirectoryCopy">
+                  <span>{resource.titleKo}</span>
+                  <small>{resource.slug}</small>
+                </div>
+              </div>
+              <div className="lumosAdminDirectoryActions">
+                <a
+                  href={`${siteUrl}/ko/contact/resources/${resource.slug}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="lumosAdminGhostButton"
+                >
+                  프론트 미리보기
+                </a>
+                <a href={`#resource-editor-${resource.id}`} className="lumosAdminGhostButton">
+                  편집 이동
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </AdminSectionCard>
+
       {resources.map((resource) => (
-        <AdminSectionCard key={resource.id} title={resource.titleKo} description={resource.slug}>
+        <AdminSectionCard
+          key={resource.id}
+          id={`resource-editor-${resource.id}`}
+          title={resource.titleKo}
+          description={resource.slug}
+        >
           <form action={saveResource} className="lumosAdminForm">
             <input type="hidden" name="id" value={resource.id} />
             <div className="lumosAdminFormGrid">
@@ -810,6 +846,14 @@ export function ResourcesAdminSection({
                 <span>노출</span>
               </label>
               <div className="lumosAdminActionRowEnd">
+                <a
+                  href={`${siteUrl}/ko/contact/resources/${resource.slug}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="lumosAdminGhostButton"
+                >
+                  프론트 미리보기
+                </a>
                 <button type="submit" className="lumosAdminPrimaryButton">
                   자료 저장
                 </button>

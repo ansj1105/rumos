@@ -963,6 +963,56 @@ select {
   text-align: center;
 }
 
+.lumosAdminDirectoryList {
+  display: grid;
+  gap: 12px;
+}
+
+.lumosAdminDirectoryItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  border: 1px solid var(--admin-border);
+  background: var(--admin-surface-strong);
+}
+
+.lumosAdminDirectoryPrimary {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.lumosAdminDirectoryPrimary strong {
+  font-size: 18px;
+  color: var(--admin-accent);
+}
+
+.lumosAdminDirectoryCopy {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.lumosAdminDirectoryCopy span {
+  font-weight: 700;
+  color: var(--admin-text);
+}
+
+.lumosAdminDirectoryCopy small {
+  color: var(--admin-muted);
+}
+
+.lumosAdminDirectoryActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
 .lumosAdminPageIntro {
   display: grid;
   gap: 14px;
