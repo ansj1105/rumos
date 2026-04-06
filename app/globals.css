@@ -54,6 +54,10 @@ select {
   background: var(--bg);
 }
 
+.shell.is-en {
+  font-family: Calibri, "Helvetica Neue", Arial, sans-serif;
+}
+
 .container {
   width: min(1180px, calc(100% - 32px));
   margin: 0 auto;

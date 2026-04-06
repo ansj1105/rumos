@@ -12,7 +12,7 @@ export function PageShell({
   children: React.ReactNode;
 }) {
   return (
-    <div className="shell">
+    <div className={`shell ${locale === "en" ? "is-en" : "is-ko"}`} data-locale={locale}>
       <VisitTracker locale={locale} />
       <Header locale={locale} />
       <main>{children}</main>
