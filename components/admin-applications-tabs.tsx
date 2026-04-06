@@ -117,11 +117,11 @@ export function AdminApplicationsTabs({
             </div>
             <div className="lumosAdminFormGrid">
               <label className="field">
-                <span>Summary KO</span>
+                <span>Body KO</span>
                 <textarea name="summaryKo" />
               </label>
               <label className="field">
-                <span>Summary EN</span>
+                <span>Body EN</span>
                 <textarea name="summaryEn" />
               </label>
             </div>
@@ -213,11 +213,11 @@ export function AdminApplicationsTabs({
             </div>
             <div className="lumosAdminFormGrid">
               <label className="field">
-                <span>Summary KO</span>
+                <span>Body KO</span>
                 <textarea name="summaryKo" defaultValue={activeApplication.summaryKo} />
               </label>
               <label className="field">
-                <span>Summary EN</span>
+                <span>Body EN</span>
                 <textarea name="summaryEn" defaultValue={activeApplication.summaryEn} />
               </label>
             </div>

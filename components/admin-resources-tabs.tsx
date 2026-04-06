@@ -110,6 +110,7 @@ export function AdminResourcesTabs({
             </div>
           </div>
           <form action={saveResource} className="lumosAdminForm">
+            <input type="hidden" name="currentFileUrl" value="" />
             <div className="lumosAdminFormGrid">
               <label className="field">
                 <span>Slug</span>
@@ -136,6 +137,10 @@ export function AdminResourcesTabs({
               <label className="field">
                 <span>File URL</span>
                 <input name="fileUrl" />
+              </label>
+              <label className="field">
+                <span>Attachment Upload</span>
+                <input name="attachment" type="file" />
               </label>
             </div>
             <div className="lumosAdminFormGrid">
@@ -192,6 +197,7 @@ export function AdminResourcesTabs({
               </div>
             </div>
             <input type="hidden" name="id" value={activeResource.id} />
+            <input type="hidden" name="currentFileUrl" value={activeResource.fileUrl ?? ""} />
             <div className="lumosAdminFormGrid">
               <label className="field">
                 <span>Slug</span>
@@ -218,6 +224,10 @@ export function AdminResourcesTabs({
               <label className="field">
                 <span>File URL</span>
                 <input name="fileUrl" defaultValue={activeResource.fileUrl ?? ""} />
+              </label>
+              <label className="field">
+                <span>Attachment Upload</span>
+                <input name="attachment" type="file" />
               </label>
             </div>
             <div className="lumosAdminFormGrid">

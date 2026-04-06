@@ -1,5 +1,9 @@
 "use server";
 
+import { randomUUID } from "node:crypto";
+import { mkdir, rm, writeFile } from "node:fs/promises";
+import path from "node:path";
+
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
@@ -43,6 +47,34 @@ function parseSpecArray(value: FormDataEntryValue | null) {
 function parseOptionalNumber(value: FormDataEntryValue | null, fallback: number) {
   const parsed = Number(value);
   return Number.isFinite(parsed) ? parsed : fallback;
+}
+
+function isUploadedFile(value: FormDataEntryValue | null): value is File {
+  return typeof File !== "undefined" && value instanceof File && value.size > 0;
+}
+
+async function storeResourceAttachment(file: File) {
+  const extension = path.extname(file.name || "").toLowerCase();
+  const safeExtension = extension && extension.length <= 10 ? extension : "";
+  const fileName = `${Date.now()}-${randomUUID()}${safeExtension}`;
+  const targetDir = path.join(process.cwd(), "public", "uploads", "resources");
+  const targetPath = path.join(targetDir, fileName);
+
+  await mkdir(targetDir, { recursive: true });
+  const buffer = Buffer.from(await file.arrayBuffer());
+  await writeFile(targetPath, buffer);
+
+  return `/uploads/resources/${fileName}`;
+}
+
+async function removeManagedResourceAttachment(fileUrl: string | null | undefined) {
+  if (!fileUrl || !fileUrl.startsWith("/uploads/resources/")) {
+    return;
+  }
+
+  const relativePath = fileUrl.replace(/^\/+/, "");
+  const targetPath = path.join(process.cwd(), "public", relativePath);
+  await rm(targetPath, { force: true });
 }
 
 function revalidatePublicPages() {
@@ -442,6 +474,23 @@ export async function deleteProduct(formData: FormData) {
 
 export async function saveResource(formData: FormData) {
   const id = Number(formData.get("id") ?? 0);
+  const currentFileUrl = String(formData.get("currentFileUrl") ?? "").trim() || null;
+  const manualFileUrl = String(formData.get("fileUrl") ?? "").trim() || null;
+  const attachment = formData.get("attachment");
+  let resolvedFileUrl = currentFileUrl;
+
+  if (isUploadedFile(attachment)) {
+    resolvedFileUrl = await storeResourceAttachment(attachment);
+    if (currentFileUrl && currentFileUrl !== resolvedFileUrl) {
+      await removeManagedResourceAttachment(currentFileUrl);
+    }
+  } else if (manualFileUrl) {
+    resolvedFileUrl = manualFileUrl;
+    if (currentFileUrl && currentFileUrl !== manualFileUrl) {
+      await removeManagedResourceAttachment(currentFileUrl);
+    }
+  }
+
   const data = {
     slug: String(formData.get("slug") ?? ""),
     displayIndex: Number(formData.get("displayIndex") ?? 1),
@@ -451,7 +500,7 @@ export async function saveResource(formData: FormData) {
     excerptEn: String(formData.get("excerptEn") ?? ""),
     bodyKo: String(formData.get("bodyKo") ?? ""),
     bodyEn: String(formData.get("bodyEn") ?? ""),
-    fileUrl: String(formData.get("fileUrl") ?? "") || null,
+    fileUrl: resolvedFileUrl,
     publishedAt: new Date(String(formData.get("publishedAt") ?? new Date().toISOString())),
     published: parseBoolean(formData.get("published")),
   };

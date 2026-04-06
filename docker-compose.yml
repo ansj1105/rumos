@@ -22,6 +22,8 @@ services:
       - .env
     environment:
       DATABASE_URL: postgresql://rumos:rumos@db:5432/rumos?schema=public
+    volumes:
+      - resource_uploads:/app/public/uploads/resources
     ports:
       - "3000:3000"
 
@@ -39,3 +41,4 @@ services:
 
 volumes:
   postgres_data:
+  resource_uploads:
