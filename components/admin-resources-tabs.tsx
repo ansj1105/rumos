@@ -186,6 +186,7 @@ export function AdminResourcesTabs({
                   src={`${siteUrl}/ko/contact/resources/${activeResource.slug}`}
                   title={`${activeResource.titleKo} preview`}
                   loading="lazy"
+                  scrolling="no"
                   className="lumosAdminClientPreviewIframe"
                 />
               </div>

@@ -5,6 +5,7 @@ import { useState } from "react";
 import {
   restoreHeroImage,
   updateHeroSection,
+  updateSeriesCardImage,
   updateSeriesSection,
   updateSiteConfig,
   updateStorySection,
@@ -49,6 +50,15 @@ type PageHeroConfigData = {
   backgroundOpacity: number;
 };
 
+type SeriesProductData = {
+  id: number;
+  slug: string;
+  nameKo: string;
+  nameEn: string;
+  imageUrl: string | null;
+  displayOrder: number;
+};
+
 const homeTabItems = [
   { key: "hero", label: "Hero" },
   { key: "story", label: "Story" },
@@ -61,12 +71,15 @@ const homeTabItems = [
 export function AdminHomeTabs({
   siteConfig,
   pageHeroConfigs,
+  products,
 }: {
   siteConfig: SiteConfigData;
   pageHeroConfigs: PageHeroConfigData[];
+  products: SeriesProductData[];
 }) {
   const recentHistory = siteConfig.heroImageHistory.slice(0, 5);
   const [activeKey, setActiveKey] = useState<(typeof homeTabItems)[number]["key"]>("hero");
+  const seriesProducts = [...products].sort((a, b) => a.displayOrder - b.displayOrder || a.id - b.id);
 
   return (
     <div className="lumosAdminTabs">
@@ -104,6 +117,7 @@ export function AdminHomeTabs({
                   src={`${siteUrl}/ko`}
                   title="home hero preview"
                   loading="lazy"
+                  scrolling="no"
                   className="lumosAdminClientPreviewIframe"
                 />
               </div>
@@ -162,6 +176,7 @@ export function AdminHomeTabs({
                   src={`${siteUrl}/ko#storySection`}
                   title="story section preview"
                   loading="lazy"
+                  scrolling="no"
                   className="lumosAdminClientPreviewIframe"
                 />
               </div>
@@ -216,6 +231,7 @@ export function AdminHomeTabs({
                   src={`${siteUrl}/ko#homeSeriesSection`}
                   title="home series section preview"
                   loading="lazy"
+                  scrolling="no"
                   className="lumosAdminClientPreviewIframe"
                 />
               </div>
@@ -244,6 +260,53 @@ export function AdminHomeTabs({
               상품 섹션 저장
             </button>
           </form>
+
+          <div className="lumosAdminSeriesManager">
+            <div className="lumosAdminSectionHead">
+              <div>
+                <h3>Series Card Images</h3>
+                <p>메인 섹션 카드 이미지는 여기서 바로 수정하고, 세부 설정은 Products 탭에서 이어서 관리합니다.</p>
+              </div>
+            </div>
+            <div className="lumosAdminSeriesGrid">
+              {seriesProducts.map((product) => (
+                <div key={product.id} className="lumosAdminSeriesCard">
+                  <div className="lumosAdminAssetPreview">
+                    <div className="lumosAdminAssetPreviewHead">
+                      <strong>{product.nameKo}</strong>
+                      <span>{product.slug}</span>
+                    </div>
+                    <div className="lumosAdminAssetPreviewFrame">
+                      {product.imageUrl ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={product.imageUrl} alt={product.nameKo} className="lumosAdminAssetPreviewImage" />
+                      ) : (
+                        <div className="lumosAdminAssetPreviewEmpty">No image connected</div>
+                      )}
+                    </div>
+                  </div>
+                  <form action={updateSeriesCardImage} className="lumosAdminForm">
+                    <input type="hidden" name="id" value={product.id} />
+                    <label className="field">
+                      <span>Series Image URL</span>
+                      <input name="imageUrl" defaultValue={product.imageUrl ?? ""} />
+                    </label>
+                    <div className="lumosAdminActionRow">
+                      <a
+                        href="/asdasddfg/admin/products"
+                        className="lumosAdminGhostButton"
+                      >
+                        Products 관리
+                      </a>
+                      <button type="submit" className="lumosAdminPrimaryButton">
+                        이미지 저장
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
       ) : null}
 

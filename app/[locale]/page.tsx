@@ -1,6 +1,6 @@
 import { HomeSeriesOverview } from "@/components/home-series-overview";
 import { Hero } from "@/components/hero";
-import { getSiteConfig } from "@/lib/content";
+import { getProducts, getSiteConfig } from "@/lib/content";
 import { getDictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/site";
 
@@ -11,7 +11,7 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   const dict = getDictionary(locale);
-  const config = await getSiteConfig();
+  const [config, products] = await Promise.all([getSiteConfig(), getProducts()]);
   const storySource = (locale === "ko" ? config?.storyBodyKo : config?.storyBodyEn) ?? dict.story.body;
   const storyParagraphs = storySource
     .split(/\n{2,}/)
@@ -71,6 +71,7 @@ export default async function HomePage({
         locale={locale}
         title={locale === "ko" ? config?.seriesTitleKo : config?.seriesTitleEn}
         lead={locale === "ko" ? config?.seriesLeadKo : config?.seriesLeadEn}
+        products={products}
       />
     </>
   );

@@ -277,6 +277,7 @@ export function AdminProductsTabs({
                   src={`${siteUrl}/ko/products/${activeProduct.slug}`}
                   title={`${activeProduct.nameKo} preview`}
                   loading="lazy"
+                  scrolling="no"
                   className="lumosAdminClientPreviewIframe"
                 />
               </div>

@@ -279,6 +279,24 @@ export async function updateSeriesSection(formData: FormData) {
   revalidateAdminPages();
 }
 
+export async function updateSeriesCardImage(formData: FormData) {
+  const id = Number(formData.get("id") ?? 0);
+
+  if (!id) {
+    return;
+  }
+
+  await prisma.product.update({
+    where: { id },
+    data: {
+      imageUrl: String(formData.get("imageUrl") ?? "").trim() || null,
+    },
+  });
+
+  revalidatePublicPages();
+  revalidateAdminPages();
+}
+
 export async function restoreHeroImage(formData: FormData) {
   const imageUrl = String(formData.get("imageUrl") ?? "").trim();
 

@@ -984,6 +984,7 @@ select {
   height: 420px;
   border: 0;
   background: #ffffff;
+  pointer-events: none;
 }
 
 .lumosAdminTabs {
@@ -1010,6 +1011,26 @@ select {
   border-color: color-mix(in srgb, var(--admin-accent) 40%, transparent);
   background: color-mix(in srgb, var(--admin-accent) 14%, var(--admin-surface));
   color: var(--admin-text);
+}
+
+.lumosAdminSeriesManager {
+  display: grid;
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.lumosAdminSeriesGrid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.lumosAdminSeriesCard {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid var(--admin-border);
+  background: var(--admin-surface-strong);
 }
 
 .lumosAdminDirectoryList {
@@ -1392,6 +1413,10 @@ select {
   .lumosAdminInquiryMeta,
   .lumosAdminLogHead,
   .lumosAdminLogRow {
+    grid-template-columns: 1fr;
+  }
+
+  .lumosAdminSeriesGrid {
     grid-template-columns: 1fr;
   }
 }

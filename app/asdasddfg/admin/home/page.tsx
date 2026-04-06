@@ -5,7 +5,7 @@ import { prisma } from "@/lib/prisma";
 export const dynamic = "force-dynamic";
 
 export default async function AdminHomePage() {
-  const [siteConfig, pageHeroConfigs] = await Promise.all([
+  const [siteConfig, pageHeroConfigs, products] = await Promise.all([
     prisma.siteConfig.findUnique({
       where: { id: 1 },
       include: {
@@ -16,11 +16,15 @@ export default async function AdminHomePage() {
       },
     }),
     getPageHeroConfigs(),
+    prisma.product.findMany({
+      where: { published: true },
+      orderBy: [{ displayOrder: "asc" }, { createdAt: "asc" }],
+    }),
   ]);
 
   if (!siteConfig) {
     return null;
   }
 
-  return <HomeAdminSection siteConfig={siteConfig} pageHeroConfigs={pageHeroConfigs} />;
+  return <HomeAdminSection siteConfig={siteConfig} pageHeroConfigs={pageHeroConfigs} products={products} />;
 }

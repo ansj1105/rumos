@@ -38,6 +38,7 @@ export function AdminSectionCard({
 export function HomeAdminSection({
   siteConfig,
   pageHeroConfigs,
+  products,
 }: {
   siteConfig: {
     id: number;
@@ -74,8 +75,16 @@ export function HomeAdminSection({
     backgroundImageUrl: string | null;
     backgroundOpacity: number;
   }>;
+  products: Array<{
+    id: number;
+    slug: string;
+    nameKo: string;
+    nameEn: string;
+    imageUrl: string | null;
+    displayOrder: number;
+  }>;
 }) {
-  return <AdminHomeTabs siteConfig={siteConfig} pageHeroConfigs={pageHeroConfigs} />;
+  return <AdminHomeTabs siteConfig={siteConfig} pageHeroConfigs={pageHeroConfigs} products={products} />;
 }
 
 export function ApplicationsAdminSection({

@@ -49,33 +49,56 @@ const seriesItems = [
   },
 ] as const;
 
+type SeriesProductSource = {
+  slug: string;
+  imageUrl: string | null;
+};
+
+type SeriesCardItem = {
+  slug: string;
+  name: string;
+  taglineKo: string;
+  taglineEn: string;
+  imageUrl: string;
+  imageClassName: string;
+};
+
 export function HomeSeriesOverview({
   locale,
   title,
   lead,
+  products,
 }: {
   locale: Locale;
   title?: string | null;
   lead?: string | null;
+  products?: SeriesProductSource[];
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [dragStartX, setDragStartX] = useState<number | null>(null);
+  const mergedSeriesItems = seriesItems.map((item) => {
+    const product = products?.find((candidate) => candidate.slug === item.slug);
+    return {
+      ...item,
+      imageUrl: product?.imageUrl || item.imageUrl,
+    };
+  });
 
   function goToPrev() {
-    setCurrentIndex((index) => (index === 0 ? seriesItems.length - 1 : index - 1));
+    setCurrentIndex((index) => (index === 0 ? mergedSeriesItems.length - 1 : index - 1));
   }
 
   function goToNext() {
-    setCurrentIndex((index) => (index + 1) % seriesItems.length);
+    setCurrentIndex((index) => (index + 1) % mergedSeriesItems.length);
   }
 
   useEffect(() => {
     const timer = window.setInterval(() => {
-      setCurrentIndex((index) => (index + 1) % seriesItems.length);
+      setCurrentIndex((index) => (index + 1) % mergedSeriesItems.length);
     }, 5000);
 
     return () => window.clearInterval(timer);
-  }, []);
+  }, [mergedSeriesItems.length]);
 
   return (
     <section id="homeSeriesSection" className="homeSeriesSection">
@@ -92,7 +115,7 @@ export function HomeSeriesOverview({
 
         <div className="homeSeriesRailDesktop">
           <div className="homeSeriesRail">
-            {seriesItems.map((item) => (
+            {mergedSeriesItems.map((item) => (
               <SeriesCard key={item.slug} item={item} locale={locale} />
             ))}
           </div>
@@ -126,7 +149,7 @@ export function HomeSeriesOverview({
               className="homeSeriesSliderTrack"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
-              {seriesItems.map((item) => (
+              {mergedSeriesItems.map((item) => (
                 <div key={item.slug} className="homeSeriesSlide">
                   <Link href={`/${locale}/products/${item.slug}`} className="seriesCard seriesCardMobile">
                     <div className="seriesCardMedia">
@@ -148,12 +171,12 @@ export function HomeSeriesOverview({
           </div>
 
           <Link
-            href={`/${locale}/products/${seriesItems[currentIndex].slug}`}
+            href={`/${locale}/products/${mergedSeriesItems[currentIndex].slug}`}
             className="seriesCardBody seriesCardBodyMobile"
           >
             <div className="seriesCardText">
-              <strong>{seriesItems[currentIndex].name}</strong>
-              <span>{locale === "ko" ? seriesItems[currentIndex].taglineKo : seriesItems[currentIndex].taglineEn}</span>
+              <strong>{mergedSeriesItems[currentIndex].name}</strong>
+              <span>{locale === "ko" ? mergedSeriesItems[currentIndex].taglineKo : mergedSeriesItems[currentIndex].taglineEn}</span>
             </div>
             <span className="seriesCardArrow" aria-hidden="true">
               ↗
@@ -171,7 +194,7 @@ export function HomeSeriesOverview({
             </button>
 
             <div className="homeSeriesSliderDots">
-              {seriesItems.map((item, index) => (
+              {mergedSeriesItems.map((item, index) => (
                 <button
                   key={item.slug}
                   type="button"
@@ -201,7 +224,7 @@ function SeriesCard({
   item,
   locale,
 }: {
-  item: (typeof seriesItems)[number];
+  item: SeriesCardItem;
   locale: Locale;
 }) {
   return (
