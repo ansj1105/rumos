@@ -1025,6 +1025,12 @@ select {
   padding: 16px 18px;
   border: 1px solid var(--admin-border);
   background: var(--admin-surface-strong);
+  text-align: left;
+}
+
+.lumosAdminDirectoryItem.isActive {
+  border-color: color-mix(in srgb, var(--admin-accent) 40%, transparent);
+  background: color-mix(in srgb, var(--admin-accent) 10%, var(--admin-surface));
 }
 
 .lumosAdminDirectoryPrimary {
@@ -1060,6 +1066,31 @@ select {
   gap: 10px;
   flex-wrap: wrap;
   justify-content: flex-end;
+}
+
+.lumosAdminDirectoryMeta {
+  display: grid;
+  gap: 4px;
+  justify-items: end;
+  color: var(--admin-muted);
+  font-size: 12px;
+}
+
+.lumosAdminEmptyState {
+  display: grid;
+  gap: 10px;
+  padding: 28px;
+  border: 1px dashed var(--admin-border);
+  background: var(--admin-surface-strong);
+}
+
+.lumosAdminEmptyState strong {
+  color: var(--admin-text);
+}
+
+.lumosAdminEmptyState p {
+  color: var(--admin-muted);
+  line-height: 1.7;
 }
 
 .lumosAdminPageIntro {
