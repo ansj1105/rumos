@@ -1,4 +1,5 @@
 import { SubpageHero } from "@/components/subpage-hero";
+import { getPageHeroConfig } from "@/lib/content";
 import type { Locale } from "@/lib/site";
 
 export default async function TermsPage({
@@ -7,20 +8,19 @@ export default async function TermsPage({
   params: Promise<{ locale: Locale }>;
 }) {
   const { locale } = await params;
+  const heroConfig = await getPageHeroConfig("legal-terms");
 
   return (
     <div className="resourcesPage">
       <SubpageHero
-        eyebrow="Legal"
-        title={locale === "ko" ? "이용약관" : "Terms of Service"}
-        description={
-          locale === "ko"
-            ? "Lumos 웹사이트 이용에 관한 기본 조건과 책임 범위를 안내합니다."
-            : "This page outlines the basic terms and responsibilities for using the Lumos website."
-        }
+        eyebrow={locale === "ko" ? heroConfig?.eyebrowKo || "Legal" : heroConfig?.eyebrowEn || "Legal"}
+        title={locale === "ko" ? heroConfig?.titleKo || "이용약관" : heroConfig?.titleEn || "Terms of Service"}
+        description={locale === "ko"
+          ? heroConfig?.descriptionKo || "Lumos 웹사이트 이용에 관한 기본 조건과 책임 범위를 안내합니다."
+          : heroConfig?.descriptionEn || "This page outlines the basic terms and responsibilities for using the Lumos website."}
         tone="resources"
-        backgroundImageUrl="/subpage-contact-bg.png"
-        backgroundOpacity={0.6}
+        backgroundImageUrl={heroConfig?.backgroundImageUrl || "/subpage-contact-bg.png"}
+        backgroundOpacity={heroConfig?.backgroundOpacity ?? 0.6}
       />
       <div className="container subpageContent">
         <div className="resourceDetailBody">

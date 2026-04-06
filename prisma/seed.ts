@@ -3,6 +3,7 @@ import { PrismaClient } from "@prisma/client";
 import { createPasswordHash } from "../lib/password";
 import {
   defaultApplications,
+  defaultPageHeroConfigs,
   defaultProducts,
   defaultResources,
   defaultSiteConfig,
@@ -50,6 +51,14 @@ async function main() {
       create: {
         ...resource,
       },
+    });
+  }
+
+  for (const config of defaultPageHeroConfigs) {
+    await prisma.pageHeroConfig.upsert({
+      where: { pageKey: config.pageKey },
+      update: {},
+      create: config,
     });
   }
 

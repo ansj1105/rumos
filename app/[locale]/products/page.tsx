@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { SubpageHero } from "@/components/subpage-hero";
-import { getProducts } from "@/lib/content";
+import { getPageHeroConfig, getProducts } from "@/lib/content";
 import { getDictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/site";
 
@@ -12,17 +12,17 @@ export default async function ProductsPage({
 }) {
   const { locale } = await params;
   const dict = getDictionary(locale);
-  const products = await getProducts();
+  const [products, heroConfig] = await Promise.all([getProducts(), getPageHeroConfig("products")]);
 
   return (
     <div className="productsPage">
       <SubpageHero
-        eyebrow="Product"
-        title={dict.products.title}
-        description={dict.products.lead}
+        eyebrow={locale === "ko" ? heroConfig?.eyebrowKo || "Product" : heroConfig?.eyebrowEn || "Product"}
+        title={locale === "ko" ? heroConfig?.titleKo || dict.products.title : heroConfig?.titleEn || dict.products.title}
+        description={locale === "ko" ? heroConfig?.descriptionKo || dict.products.lead : heroConfig?.descriptionEn || dict.products.lead}
         tone="products"
-        backgroundImageUrl="/subpage-lum-b-bg.png"
-        backgroundOpacity={0.9}
+        backgroundImageUrl={heroConfig?.backgroundImageUrl || "/subpage-lum-b-bg.png"}
+        backgroundOpacity={heroConfig?.backgroundOpacity ?? 0.9}
       />
       <div className="container subpageContent">
         <div className="productsDirectory">

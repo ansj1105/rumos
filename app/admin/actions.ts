@@ -54,8 +54,18 @@ function revalidatePublicPages() {
   revalidatePath("/en/products");
   revalidatePath("/ko/contact");
   revalidatePath("/en/contact");
+  revalidatePath("/ko/contact/quote");
+  revalidatePath("/en/contact/quote");
+  revalidatePath("/ko/contact/distributors");
+  revalidatePath("/en/contact/distributors");
+  revalidatePath("/ko/contact/directions");
+  revalidatePath("/en/contact/directions");
   revalidatePath("/ko/contact/resources");
   revalidatePath("/en/contact/resources");
+  revalidatePath("/ko/legal/privacy");
+  revalidatePath("/en/legal/privacy");
+  revalidatePath("/ko/legal/terms");
+  revalidatePath("/en/legal/terms");
 }
 
 function revalidateAdminPages() {
@@ -181,6 +191,37 @@ export async function saveApplication(formData: FormData) {
   } else {
     await prisma.application.create({ data });
   }
+
+  revalidatePublicPages();
+  revalidateAdminPages();
+}
+
+export async function savePageHeroConfig(formData: FormData) {
+  const pageKey = String(formData.get("pageKey") ?? "").trim();
+
+  if (!pageKey) {
+    return;
+  }
+
+  const data = {
+    eyebrowKo: String(formData.get("eyebrowKo") ?? "").trim(),
+    eyebrowEn: String(formData.get("eyebrowEn") ?? "").trim(),
+    titleKo: String(formData.get("titleKo") ?? "").trim(),
+    titleEn: String(formData.get("titleEn") ?? "").trim(),
+    descriptionKo: String(formData.get("descriptionKo") ?? "").trim(),
+    descriptionEn: String(formData.get("descriptionEn") ?? "").trim(),
+    backgroundImageUrl: String(formData.get("backgroundImageUrl") ?? "").trim() || null,
+    backgroundOpacity: parseOptionalNumber(formData.get("backgroundOpacity"), 0.6),
+  };
+
+  await prisma.pageHeroConfig.upsert({
+    where: { pageKey },
+    update: data,
+    create: {
+      pageKey,
+      ...data,
+    },
+  });
 
   revalidatePublicPages();
   revalidateAdminPages();

@@ -4,6 +4,7 @@ import {
   restoreHeroImage,
   saveApplication,
   saveInquiryReply,
+  savePageHeroConfig,
   saveProduct,
   saveResource,
   sendInquiryReply,
@@ -69,6 +70,7 @@ export function AdminSectionCard({
 
 export function HomeAdminSection({
   siteConfig,
+  pageHeroConfigs,
 }: {
   siteConfig: {
     id: number;
@@ -89,6 +91,18 @@ export function HomeAdminSection({
     seoDescriptionEn: string;
     heroImageHistory: Array<{ id: number; imageUrl: string; createdAt: Date }>;
   };
+  pageHeroConfigs: Array<{
+    id: number;
+    pageKey: string;
+    eyebrowKo: string;
+    eyebrowEn: string;
+    titleKo: string;
+    titleEn: string;
+    descriptionKo: string;
+    descriptionEn: string;
+    backgroundImageUrl: string | null;
+    backgroundOpacity: number;
+  }>;
 }) {
   const recentHistory = siteConfig.heroImageHistory.slice(0, 5);
 
@@ -197,6 +211,93 @@ export function HomeAdminSection({
                 </button>
               </form>
             </div>
+          ))}
+        </div>
+      </AdminSectionCard>
+
+      <AdminSectionCard
+        title="Sub Hero Settings"
+        description="각 서브페이지 공통 상단 배경 이미지와 문구를 페이지별로 관리합니다."
+      >
+        <div className="lumosAdminStack">
+          {pageHeroConfigs.map((config) => (
+            <form key={config.id} action={savePageHeroConfig} className="lumosAdminForm">
+              <input type="hidden" name="pageKey" value={config.pageKey} />
+              <div className="lumosAdminSectionHead">
+                <div>
+                  <h3>{config.pageKey}</h3>
+                  <p>Sub bg 이미지, 투명도, eyebrow, title, lead를 조정합니다.</p>
+                </div>
+              </div>
+              <div className="lumosAdminAssetPreview">
+                <div className="lumosAdminAssetPreviewHead">
+                  <strong>Sub Hero Background</strong>
+                  <span>{config.backgroundImageUrl ? "연결됨" : "미연결"}</span>
+                </div>
+                <div className="lumosAdminAssetPreviewFrame">
+                  {config.backgroundImageUrl ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={config.backgroundImageUrl}
+                      alt={config.pageKey}
+                      className="lumosAdminAssetPreviewImage"
+                    />
+                  ) : (
+                    <div className="lumosAdminAssetPreviewEmpty">No background connected</div>
+                  )}
+                </div>
+              </div>
+              <div className="lumosAdminFormGrid">
+                <label className="field">
+                  <span>Background Image URL</span>
+                  <input name="backgroundImageUrl" defaultValue={config.backgroundImageUrl ?? ""} />
+                </label>
+                <label className="field">
+                  <span>Background Opacity</span>
+                  <input
+                    name="backgroundOpacity"
+                    type="number"
+                    min={0}
+                    max={1}
+                    step="0.05"
+                    defaultValue={config.backgroundOpacity}
+                  />
+                </label>
+              </div>
+              <div className="lumosAdminFormGrid">
+                <label className="field">
+                  <span>Eyebrow KO</span>
+                  <input name="eyebrowKo" defaultValue={config.eyebrowKo} />
+                </label>
+                <label className="field">
+                  <span>Eyebrow EN</span>
+                  <input name="eyebrowEn" defaultValue={config.eyebrowEn} />
+                </label>
+              </div>
+              <div className="lumosAdminFormGrid">
+                <label className="field">
+                  <span>Title KO</span>
+                  <input name="titleKo" defaultValue={config.titleKo} />
+                </label>
+                <label className="field">
+                  <span>Title EN</span>
+                  <input name="titleEn" defaultValue={config.titleEn} />
+                </label>
+              </div>
+              <div className="lumosAdminFormGrid">
+                <label className="field">
+                  <span>Description KO</span>
+                  <textarea name="descriptionKo" defaultValue={config.descriptionKo} />
+                </label>
+                <label className="field">
+                  <span>Description EN</span>
+                  <textarea name="descriptionEn" defaultValue={config.descriptionEn} />
+                </label>
+              </div>
+              <button type="submit" className="lumosAdminPrimaryButton">
+                {config.pageKey} 저장
+              </button>
+            </form>
           ))}
         </div>
       </AdminSectionCard>

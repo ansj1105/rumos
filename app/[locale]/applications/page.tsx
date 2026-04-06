@@ -1,6 +1,7 @@
 import { ApplicationsIndexNav } from "@/components/applications-index-nav";
 import { FadeImage } from "@/components/fade-image";
 import { SubpageHero } from "@/components/subpage-hero";
+import { getPageHeroConfig } from "@/lib/content";
 import { getDictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/site";
 
@@ -74,16 +75,17 @@ export default async function ApplicationsPage({
 }) {
   const { locale } = await params;
   const dict = getDictionary(locale);
+  const heroConfig = await getPageHeroConfig("applications");
 
   return (
     <div className="applicationsPage">
       <SubpageHero
-        eyebrow="APPLICATION"
-        title={dict.applications.title}
-        description={dict.applications.lead}
+        eyebrow={locale === "ko" ? heroConfig?.eyebrowKo || "APPLICATION" : heroConfig?.eyebrowEn || "APPLICATION"}
+        title={locale === "ko" ? heroConfig?.titleKo || dict.applications.title : heroConfig?.titleEn || dict.applications.title}
+        description={locale === "ko" ? heroConfig?.descriptionKo || dict.applications.lead : heroConfig?.descriptionEn || dict.applications.lead}
         tone="applications"
-        backgroundImageUrl="/subpage-applications-bg.png"
-        backgroundOpacity={0.6}
+        backgroundImageUrl={heroConfig?.backgroundImageUrl || "/subpage-applications-bg.png"}
+        backgroundOpacity={heroConfig?.backgroundOpacity ?? 0.6}
       />
       <ApplicationsIndexNav locale={locale} items={applicationEntries} />
 

@@ -29,6 +29,21 @@ model SiteConfig {
   updatedAt         DateTime           @updatedAt
 }
 
+model PageHeroConfig {
+  id               Int      @id @default(autoincrement())
+  pageKey          String   @unique
+  eyebrowKo        String
+  eyebrowEn        String
+  titleKo          String
+  titleEn          String
+  descriptionKo    String   @db.Text
+  descriptionEn    String   @db.Text
+  backgroundImageUrl String?
+  backgroundOpacity Float   @default(0.6)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
 model HeroImageHistory {
   id           Int        @id @default(autoincrement())
   siteConfigId Int

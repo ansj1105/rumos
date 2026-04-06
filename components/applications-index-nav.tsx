@@ -18,8 +18,10 @@ export function ApplicationsIndexNav({
   items: readonly ApplicationIndexItem[];
 }) {
   const navRef = useRef<HTMLDivElement | null>(null);
+  const linkRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
+  const [activeSlug, setActiveSlug] = useState(items[0]?.slug ?? "");
 
   useEffect(() => {
     const nav = navRef.current;
@@ -47,6 +49,57 @@ export function ApplicationsIndexNav({
       window.removeEventListener("resize", updateScrollState);
     };
   }, [items.length]);
+
+  useEffect(() => {
+    const sections = items
+      .map((item) => document.getElementById(item.slug))
+      .filter((section): section is HTMLElement => Boolean(section));
+
+    if (!sections.length) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visible[0]?.target?.id) {
+          setActiveSlug(visible[0].target.id);
+        }
+      },
+      {
+        rootMargin: "-20% 0px -55% 0px",
+        threshold: [0.2, 0.35, 0.5, 0.65],
+      },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, [items]);
+
+  useEffect(() => {
+    const currentLink = linkRefs.current[activeSlug];
+    const nav = navRef.current;
+
+    if (!currentLink || !nav) {
+      return;
+    }
+
+    const linkLeft = currentLink.offsetLeft;
+    const linkRight = linkLeft + currentLink.offsetWidth;
+    const viewLeft = nav.scrollLeft;
+    const viewRight = viewLeft + nav.clientWidth;
+
+    if (linkLeft < viewLeft || linkRight > viewRight) {
+      nav.scrollTo({
+        left: Math.max(linkLeft - 24, 0),
+        behavior: "smooth",
+      });
+    }
+  }, [activeSlug]);
 
   function scrollNext() {
     navRef.current?.scrollBy({
@@ -78,7 +131,14 @@ export function ApplicationsIndexNav({
 
         <div ref={navRef} className="applicationsIndexInner">
           {items.map((entry, index) => (
-            <a key={entry.slug} href={`#${entry.slug}`} className="applicationsIndexLink">
+            <a
+              key={entry.slug}
+              href={`#${entry.slug}`}
+              className={`applicationsIndexLink ${activeSlug === entry.slug ? "isActive" : ""}`}
+              ref={(node) => {
+                linkRefs.current[entry.slug] = node;
+              }}
+            >
               <span className="applicationsIndexNo">{String(index + 1).padStart(2, "0")}</span>
               <span>{locale === "ko" ? entry.titleKo : entry.titleEn}</span>
             </a>

@@ -2,7 +2,7 @@ import { ContactSubnav } from "@/components/contact-subnav";
 import Link from "next/link";
 
 import { SubpageHero } from "@/components/subpage-hero";
-import { getResources } from "@/lib/content";
+import { getPageHeroConfig, getResources } from "@/lib/content";
 import type { Locale } from "@/lib/site";
 
 export default async function ResourceListPage({
@@ -11,13 +11,15 @@ export default async function ResourceListPage({
   params: Promise<{ locale: Locale }>;
 }) {
   const { locale } = await params;
-  const resources = await getResources();
-  const eyebrow = locale === "ko" ? "자료실" : "Resources";
-  const title = locale === "ko" ? "자료실" : "Resource Library";
-  const description =
-    locale === "ko"
-      ? "자료실 게시물과 다운로드 자료를 제공합니다."
-      : "Browse resource posts and downloadable reference materials.";
+  const [resources, heroConfig] = await Promise.all([
+    getResources(),
+    getPageHeroConfig("contact-resources"),
+  ]);
+  const eyebrow = locale === "ko" ? heroConfig?.eyebrowKo || "자료실" : heroConfig?.eyebrowEn || "Resources";
+  const title = locale === "ko" ? heroConfig?.titleKo || "자료실" : heroConfig?.titleEn || "Resource Library";
+  const description = locale === "ko"
+    ? heroConfig?.descriptionKo || "자료실 게시물과 다운로드 자료를 제공합니다."
+    : heroConfig?.descriptionEn || "Browse resource posts and downloadable reference materials.";
 
   return (
     <div className="resourcesPage">
@@ -26,7 +28,8 @@ export default async function ResourceListPage({
         title={title}
         description={description}
         tone="resources"
-        backgroundImageUrl="/subpage-contact-bg.png"
+        backgroundImageUrl={heroConfig?.backgroundImageUrl || "/subpage-contact-bg.png"}
+        backgroundOpacity={heroConfig?.backgroundOpacity ?? 0.9}
         lightText
       />
       <ContactSubnav locale={locale} activeHref="/contact/resources" />

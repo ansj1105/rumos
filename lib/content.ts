@@ -1,5 +1,6 @@
 import {
   defaultApplications,
+  defaultPageHeroConfigs,
   defaultProducts,
   defaultResources,
   defaultSiteConfig,
@@ -38,6 +39,14 @@ const fallbackResources = defaultResources.map((resource, index) => ({
   ...resource,
   published: true,
   publishedAt: fallbackNow,
+  createdAt: fallbackNow,
+  updatedAt: fallbackNow,
+}));
+
+const fallbackPageHeroConfigs = defaultPageHeroConfigs.map((config, index) => ({
+  id: index + 1,
+  ...config,
+  backgroundImageUrl: config.backgroundImageUrl ?? null,
   createdAt: fallbackNow,
   updatedAt: fallbackNow,
 }));
@@ -121,6 +130,28 @@ export async function getResourceBySlug(slug: string) {
   } catch (error) {
     logFallback(`resource:${slug}`, error);
     return fallbackResources.find((resource) => resource.slug === slug) ?? null;
+  }
+}
+
+export async function getPageHeroConfigs() {
+  try {
+    return await prisma.pageHeroConfig.findMany({
+      orderBy: { pageKey: "asc" },
+    });
+  } catch (error) {
+    logFallback("pageHeroConfigs", error);
+    return fallbackPageHeroConfigs;
+  }
+}
+
+export async function getPageHeroConfig(pageKey: string) {
+  try {
+    return await prisma.pageHeroConfig.findUnique({
+      where: { pageKey },
+    });
+  } catch (error) {
+    logFallback(`pageHeroConfig:${pageKey}`, error);
+    return fallbackPageHeroConfigs.find((config) => config.pageKey === pageKey) ?? null;
   }
 }
 

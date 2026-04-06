@@ -437,6 +437,7 @@ select {
   gap: 4px;
   transform: translateX(-50%);
   background: rgba(255, 255, 255, 0.99);
+  border-radius: 0;
   box-shadow: none;
 }
 
@@ -460,7 +461,7 @@ select {
   display: block;
   width: 100%;
   padding: 13px 14px;
-  border-radius: 4px;
+  border-radius: 0;
   color: var(--text);
   background: transparent;
   border: 1px solid rgba(15, 34, 61, 0);
@@ -869,16 +870,19 @@ select {
 }
 
 .lumosAdminHeaderStats {
-  display: flex;
-  gap: 14px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
   flex: 1;
-  overflow-x: auto;
+  min-width: 0;
 }
 
 .lumosAdminStatItem {
-  min-width: 130px;
   display: grid;
   gap: 4px;
+  padding: 10px 12px;
+  border: 1px solid var(--admin-border);
+  background: var(--admin-surface-strong);
 }
 
 .lumosAdminStatItem span {
@@ -1941,10 +1945,6 @@ select {
   flex-shrink: 0;
 }
 
-.productsDirectory {
-  border-top: 2px solid var(--text);
-}
-
 .productDirectoryRow {
   display: grid;
   grid-template-columns: 72px 220px minmax(0, 1fr);
@@ -2339,6 +2339,14 @@ select {
   position: absolute;
   right: 0;
   color: rgba(15, 34, 61, 0.24);
+}
+
+.applicationsIndexLink.isActive {
+  color: var(--blue-deep);
+}
+
+.applicationsIndexLink.isActive .applicationsIndexNo {
+  color: var(--blue-deep);
 }
 
 .applicationsIndexNo {

@@ -1,5 +1,6 @@
 import { ContactSubnav } from "@/components/contact-subnav";
 import { SubpageHero } from "@/components/subpage-hero";
+import { getPageHeroConfig } from "@/lib/content";
 import type { Locale } from "@/lib/site";
 
 export default async function DistributorsPage({
@@ -9,6 +10,7 @@ export default async function DistributorsPage({
 }) {
   const { locale } = await params;
   const isKo = locale === "ko";
+  const heroConfig = await getPageHeroConfig("contact-distributors");
 
   const overviewItems = isKo
     ? [
@@ -59,14 +61,14 @@ export default async function DistributorsPage({
   return (
     <div className="contactPage">
       <SubpageHero
-        eyebrow={isKo ? "대리점소개" : "Distributors"}
-        title={isKo ? "대리점소개" : "Distributor Information"}
-        description={
-          isKo
-            ? "Lumos 제품의 국내외 공급 및 협력 파트너 구성을 안내드립니다."
-            : "Find information about Lumos distribution channels and partner expansion."}
+        eyebrow={isKo ? heroConfig?.eyebrowKo || "대리점소개" : heroConfig?.eyebrowEn || "Distributors"}
+        title={isKo ? heroConfig?.titleKo || "대리점소개" : heroConfig?.titleEn || "Distributor Information"}
+        description={isKo
+          ? heroConfig?.descriptionKo || "Lumos 제품의 국내외 공급 및 협력 파트너 구성을 안내드립니다."
+          : heroConfig?.descriptionEn || "Find information about Lumos distribution channels and partner expansion."}
         tone="contact"
-        backgroundImageUrl="/subpage-contact-bg.png"
+        backgroundImageUrl={heroConfig?.backgroundImageUrl || "/subpage-contact-bg.png"}
+        backgroundOpacity={heroConfig?.backgroundOpacity ?? 0.9}
         lightText
       />
       <ContactSubnav locale={locale} activeHref="/contact/distributors" />
