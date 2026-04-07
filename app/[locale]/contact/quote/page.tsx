@@ -14,8 +14,6 @@ const inquiryTopics = {
     titleEn: "Request a Consultation",
     descriptionKo: "적용 공정과 목표를 남겨주시면 제품 적합성과 대응 방향을 검토해 드립니다.",
     descriptionEn: "Share your process and objectives, and we will review fit and next steps.",
-    sitemapKo: "Contact > 문의하기 > 상담 요청",
-    sitemapEn: "Contact > Contact Us > Request a Consultation",
   },
   sales: {
     labelKo: "영업 문의",
@@ -24,8 +22,6 @@ const inquiryTopics = {
     titleEn: "Contact Sales",
     descriptionKo: "제품 사양, 수량, 일정, 협업 범위 등 구매 관련 내용을 남겨주세요.",
     descriptionEn: "Use this for product specs, quantity, schedule, and commercial discussions.",
-    sitemapKo: "Contact > 문의하기 > 영업 문의",
-    sitemapEn: "Contact > Contact Us > Contact Sales",
   },
   support: {
     labelKo: "지원 및 RMA",
@@ -34,8 +30,6 @@ const inquiryTopics = {
     titleEn: "Support & RMA Request",
     descriptionKo: "설치, 운용, 장애 대응, 반품 및 RMA 요청과 관련된 내용을 남겨주세요.",
     descriptionEn: "Use this for installation, troubleshooting, service support, and RMA requests.",
-    sitemapKo: "Contact > 문의하기 > 지원 및 RMA",
-    sitemapEn: "Contact > Contact Us > Support & RMA Request",
   },
 } as const;
 
@@ -105,9 +99,15 @@ export default async function QuotePage({
                   <span>{isKo ? topic.labelKo : topic.labelEn}</span>
                   <strong>{isKo ? topic.titleKo : topic.titleEn}</strong>
                   <p>{isKo ? topic.descriptionKo : topic.descriptionEn}</p>
-                  <small className="contactDirectSitemap">
-                    {isKo ? topic.sitemapKo : topic.sitemapEn}
-                  </small>
+                  <span className="contactDirectAction">
+                    {selectedTopic === key
+                      ? isKo
+                        ? "선택됨"
+                        : "Selected"
+                      : isKo
+                        ? "선택하기"
+                        : "Select"}
+                  </span>
                 </Link>
               ))}
             </div>

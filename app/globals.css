@@ -2864,6 +2864,7 @@ select {
     transform 0.2s ease,
     box-shadow 0.2s ease,
     background 0.2s ease;
+  align-content: start;
 }
 
 .contactDirectCard:hover {
@@ -2898,14 +2899,26 @@ select {
   line-height: 1.7;
 }
 
-.contactDirectSitemap {
+.contactDirectAction {
   margin-top: auto;
-  display: block;
-  padding-top: 14px;
-  border-top: 1px solid rgba(15, 34, 61, 0.08);
-  font-size: 12px;
-  line-height: 1.6;
-  color: rgba(15, 34, 61, 0.58);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid rgba(15, 34, 61, 0.12);
+  background: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--blue-deep);
+}
+
+.contactDirectCard.isActive .contactDirectAction {
+  border-color: rgba(20, 74, 132, 0.36);
+  background: var(--blue-deep);
+  color: #ffffff;
 }
 
 .contactDirectNotice {
