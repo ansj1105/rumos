@@ -1,6 +1,7 @@
 import nodemailer from "nodemailer";
 
 type InquiryMail = {
+  inquiryType?: string | null;
   company?: string | null;
   name: string;
   email: string;
@@ -33,8 +34,9 @@ export async function sendInquiryMail(payload: InquiryMail) {
   await transporter.sendMail({
     to: CONTACT_RECEIVER_EMAIL,
     from: SMTP_USER || CONTACT_RECEIVER_EMAIL,
-    subject: `[Lumos] New inquiry from ${payload.name}`,
+    subject: `[Lumos] ${payload.inquiryType ?? "General Inquiry"} from ${payload.name}`,
     text: [
+      `Inquiry Type: ${payload.inquiryType ?? "-"}`,
       `Locale: ${payload.locale}`,
       `Company: ${payload.company ?? "-"}`,
       `Name: ${payload.name}`,

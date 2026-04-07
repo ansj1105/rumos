@@ -79,7 +79,7 @@ export function ProductSubnav({
         </button>
         <div ref={navRef} className="productSubnavInner">
           <Link href={`/${locale}/products`} className={`productSubnavLink ${!activeSlug ? "isActive" : ""}`}>
-            {locale === "ko" ? "전체 제품" : "All Products"}
+            {locale === "ko" ? "전체" : "All"}
           </Link>
           {products.map((product, index) => (
             <Link

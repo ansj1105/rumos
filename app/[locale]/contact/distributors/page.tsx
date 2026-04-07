@@ -20,7 +20,7 @@ export default async function DistributorsPage({
         },
         {
           label: "문의 접수",
-          value: "제품 판매, 기술 협업, 지역 파트너십 문의는 견적문의 페이지를 통해 접수할 수 있습니다.",
+          value: "제품 판매, 기술 협업, 지역 파트너십 문의는 문의하기 페이지를 통해 접수할 수 있습니다.",
         },
       ]
     : [
@@ -133,7 +133,7 @@ export default async function DistributorsPage({
               <div className="distributorContactBox">
                 <p>
                   {isKo
-                    ? "판매 및 기술 협업 문의는 견적문의 페이지를 통해 접수해 주세요. 실제 대리점 정보가 추가되기 전까지는 본사에서 직접 안내드립니다."
+                    ? "판매 및 기술 협업 문의는 문의하기 페이지를 통해 접수해 주세요. 실제 대리점 정보가 추가되기 전까지는 본사에서 직접 안내드립니다."
                     : "Please submit sales and technical collaboration inquiries through the quote page. Until distributor data is added, Lumos headquarters will respond directly."}
                 </p>
                 <div className="distributorContactMeta">

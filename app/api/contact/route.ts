@@ -5,6 +5,7 @@ import { sendInquiryMail } from "@/lib/mailer";
 import { prisma } from "@/lib/prisma";
 
 const inquirySchema = z.object({
+  inquiryType: z.string().optional().nullable(),
   company: z.string().optional().nullable(),
   name: z.string().min(1),
   email: z.string().email(),
@@ -25,6 +26,7 @@ export async function POST(request: Request) {
         phone: body.phone,
         message: body.message,
         locale: body.locale,
+        internalNote: body.inquiryType ? `[Inquiry Type] ${body.inquiryType}` : null,
       },
     });
 

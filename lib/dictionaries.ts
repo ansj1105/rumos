@@ -98,7 +98,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
         label: "Contact Us",
         href: "/contact",
         children: [
-          { label: "견적문의", href: "/contact/quote" },
+          { label: "문의하기", href: "/contact/quote" },
           { label: "대리점소개", href: "/contact/distributors" },
           { label: "찾아오시는길", href: "/contact/directions" },
           { label: "자료실", href: "/contact/resources" },
@@ -194,7 +194,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
         label: "Contact Us",
         href: "/contact",
         children: [
-          { label: "Quote Request", href: "/contact/quote" },
+          { label: "Contact Us", href: "/contact/quote" },
           { label: "Distributors", href: "/contact/distributors" },
           { label: "Directions", href: "/contact/directions" },
           { label: "Resources", href: "/contact/resources" },

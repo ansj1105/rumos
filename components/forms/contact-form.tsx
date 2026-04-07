@@ -2,9 +2,16 @@
 
 import { useState } from "react";
 
-export function ContactForm({ locale }: { locale: string }) {
+export function ContactForm({
+  locale,
+  inquiryType,
+}: {
+  locale: string;
+  inquiryType: string;
+}) {
   const [status, setStatus] = useState<string>("");
   const [submitting, setSubmitting] = useState(false);
+  const isKo = locale === "ko";
 
   async function onSubmit(formData: FormData) {
     setSubmitting(true);
@@ -13,6 +20,7 @@ export function ContactForm({ locale }: { locale: string }) {
     const response = await fetch("/api/contact", {
       method: "POST",
       body: JSON.stringify({
+        inquiryType,
         company: formData.get("company"),
         name: formData.get("name"),
         email: formData.get("email"),
@@ -35,32 +43,36 @@ export function ContactForm({ locale }: { locale: string }) {
       action={onSubmit}
       className="contactForm"
     >
+      <div className="contactFormTypeBanner">
+        <strong>{isKo ? "문의 유형" : "Inquiry Type"}</strong>
+        <span>{inquiryType}</span>
+      </div>
       <div className="contactFormGrid">
-      <div className="field">
-        <label htmlFor="company">Company</label>
-        <input id="company" name="company" />
+        <div className="field">
+          <label htmlFor="company">{isKo ? "회사명" : "Company"}</label>
+          <input id="company" name="company" />
+        </div>
+        <div className="field">
+          <label htmlFor="name">{isKo ? "담당자명" : "Name"}</label>
+          <input id="name" name="name" required />
+        </div>
+        <div className="field">
+          <label htmlFor="email">{isKo ? "이메일" : "Email"}</label>
+          <input id="email" name="email" type="email" required />
+        </div>
+        <div className="field">
+          <label htmlFor="phone">{isKo ? "연락처" : "Phone"}</label>
+          <input id="phone" name="phone" />
+        </div>
       </div>
       <div className="field">
-        <label htmlFor="name">Name</label>
-        <input id="name" name="name" required />
-      </div>
-      <div className="field">
-        <label htmlFor="email">Email</label>
-        <input id="email" name="email" type="email" required />
-      </div>
-      <div className="field">
-        <label htmlFor="phone">Phone</label>
-        <input id="phone" name="phone" />
-      </div>
-      </div>
-      <div className="field">
-        <label htmlFor="message">Message</label>
+        <label htmlFor="message">{isKo ? "문의 내용" : "Message"}</label>
         <textarea id="message" name="message" required />
       </div>
       <button className="button primary" disabled={submitting} type="submit">
-        {submitting ? "Sending..." : "Send Inquiry"}
+        {submitting ? (isKo ? "전송 중..." : "Sending...") : isKo ? "문의 보내기" : "Send Inquiry"}
       </button>
-      {status ? <p style={{ margin: 0, color: "var(--blue-deep)" }}>{status}</p> : null}
+      {status ? <p className="contactFormStatus">{status}</p> : null}
     </form>
   );
 }

@@ -24,6 +24,14 @@ type InquiryItem = {
   createdAt: Date;
 };
 
+function extractInquiryType(internalNote: string | null) {
+  if (!internalNote?.startsWith("[Inquiry Type] ")) {
+    return null;
+  }
+
+  return internalNote.replace("[Inquiry Type] ", "").trim() || null;
+}
+
 function summarizeMessage(message: string) {
   const normalized = message.replace(/\s+/g, " ").trim();
   if (normalized.length <= 96) {
@@ -85,6 +93,7 @@ export function AdminInquiriesTabs({
                 <strong>{String(inquiry.id).padStart(2, "0")}</strong>
                 <div className="lumosAdminDirectoryCopy">
                   <span>{inquiry.name}</span>
+                  <small>{extractInquiryType(inquiry.internalNote) || "General Inquiry"}</small>
                   <small>{inquiry.email}</small>
                   <small>{summarizeMessage(inquiry.message)}</small>
                 </div>
@@ -107,6 +116,10 @@ export function AdminInquiriesTabs({
             </div>
           </div>
           <div className="lumosAdminInquiryMeta">
+            <div>
+              <strong>문의 유형</strong>
+              <span>{extractInquiryType(activeInquiry.internalNote) || "-"}</span>
+            </div>
             <div>
               <strong>회사명</strong>
               <span>{activeInquiry.company || "-"}</span>
