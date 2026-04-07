@@ -64,7 +64,7 @@ select {
 }
 
 .section {
-  padding: 88px 0;
+  padding: clamp(64px, 8vw, 88px) 0;
 }
 
 .grid {
@@ -190,7 +190,7 @@ select {
 }
 
 .pageHeader {
-  padding: 72px 0 36px;
+  padding: clamp(48px, 7vw, 72px) 0 clamp(28px, 3.5vw, 36px);
 }
 
 .pageBody {
@@ -252,7 +252,7 @@ select {
 .subpageHeroInner {
   position: relative;
   width: 100%;
-  padding: 108px 0 28px;
+  padding: clamp(78px, 9vw, 108px) 0 28px;
 }
 
 .subpageHeroCopy {
@@ -263,8 +263,7 @@ select {
 }
 
 .subpageContent {
-  padding-top: 56px;
-  padding-bottom: 56px;
+  padding: clamp(32px, 5vw, 56px) 0;
 }
 
 .subpageHero-default,
@@ -3092,7 +3091,7 @@ select {
 }
 
 .resourcesTableHead {
-  padding: 14px 0;
+  padding: 14px 18px;
   font-size: 14px;
   font-weight: 700;
   color: var(--muted);
@@ -3101,6 +3100,7 @@ select {
 
 .resourcesRow {
   min-height: 74px;
+  padding: 0 18px;
   border-bottom: 1px solid rgba(15, 34, 61, 0.08);
 }
 
