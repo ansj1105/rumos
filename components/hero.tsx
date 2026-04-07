@@ -21,6 +21,8 @@ export function Hero({
 }: HeroProps) {
   const dict = getDictionary(locale);
   const backgroundImageUrl = heroImageUrl ?? "/hero-lab-bg.png";
+  const resolvedHeroTitle = (heroTitle ?? dict.hero.title).replace(/\\n/g, "\n");
+  const resolvedHeroDescription = (heroDescription ?? dict.hero.description).replace(/\\n/g, "\n");
 
   return (
     <section className="heroSection">
@@ -40,9 +42,9 @@ export function Hero({
       <div className="container heroInner">
         <div className="heroCopy">
           <h1 className="headline" style={heroFontSize ? { fontSize: `clamp(32px, 5vw, ${heroFontSize}px)` } : undefined}>
-            {heroTitle ?? dict.hero.title}
+            {resolvedHeroTitle}
           </h1>
-          <p className="subhead">{heroDescription ?? dict.hero.description}</p>
+          <p className="subhead">{resolvedHeroDescription}</p>
           <div className="buttonRow">
             <Link href={`/${locale}#homeSeriesSection`} className="button primary">
               {dict.hero.ctaPrimary}
