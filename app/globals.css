@@ -1711,6 +1711,50 @@ select {
   font-weight: 700;
 }
 
+.storyRelationSection {
+  width: 100%;
+  padding: 0 0 92px;
+  background: #eef3f8;
+}
+
+.storyRelationCard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 28px;
+  align-items: center;
+  padding: 28px 30px;
+  border: 1px solid rgba(15, 34, 61, 0.1);
+  border-top: 2px solid var(--blue-deep);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(239, 245, 251, 0.98) 100%);
+}
+
+.storyRelationCopy {
+  display: grid;
+  gap: 12px;
+}
+
+.storyRelationTitle {
+  margin: 0;
+  font-size: clamp(28px, 2.4vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: #153a69;
+}
+
+.storyRelationBody {
+  margin: 0;
+  max-width: 860px;
+  font-size: 17px;
+  line-height: 1.85;
+  color: #24364b;
+  word-break: keep-all;
+}
+
+.storyRelationLink {
+  min-width: 148px;
+}
+
 .homeSeriesSection {
   width: 100%;
   padding: 92px 0 110px;
@@ -3319,6 +3363,10 @@ td {
     padding: 64px 0 72px;
   }
 
+  .storyRelationSection {
+    padding-bottom: 64px;
+  }
+
   .storyLeadBlock {
     position: static;
   }
@@ -3329,6 +3377,11 @@ td {
 
   .storyContent {
     padding-top: 0;
+  }
+
+  .storyRelationCard {
+    grid-template-columns: 1fr;
+    align-items: start;
   }
 
   .productSubnav {
@@ -3541,6 +3594,10 @@ td {
     padding: 52px 0 56px;
   }
 
+  .storyRelationSection {
+    padding-bottom: 52px;
+  }
+
   .homeSeriesSection {
     padding: 54px 0 60px;
   }
@@ -3592,6 +3649,20 @@ td {
   .storyParagraph {
     font-size: 16px;
     line-height: 1.85;
+  }
+
+  .storyRelationCard {
+    gap: 18px;
+    padding: 22px 20px;
+  }
+
+  .storyRelationTitle {
+    font-size: 26px;
+  }
+
+  .storyRelationBody {
+    font-size: 15px;
+    line-height: 1.8;
   }
 
   .subpageHero {
