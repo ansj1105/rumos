@@ -50,6 +50,33 @@ export function ProductSubnav({
     };
   }, [products.length]);
 
+  useEffect(() => {
+    const nav = navRef.current;
+
+    if (!nav) {
+      return;
+    }
+
+    const activeLink = nav.querySelector<HTMLAnchorElement>(".productSubnavLink.isActive");
+
+    if (!activeLink) {
+      nav.scrollTo({ left: 0, behavior: "auto" });
+      return;
+    }
+
+    const navRect = nav.getBoundingClientRect();
+    const activeRect = activeLink.getBoundingClientRect();
+    const isOutOfView = activeRect.left < navRect.left || activeRect.right > navRect.right;
+
+    if (isOutOfView) {
+      activeLink.scrollIntoView({
+        behavior: "auto",
+        inline: "center",
+        block: "nearest",
+      });
+    }
+  }, [activeSlug, locale, products]);
+
   function scrollNext() {
     navRef.current?.scrollBy({
       left: 180,
