@@ -42,6 +42,14 @@ const productOverviewCopy = {
   },
 } as const;
 
+const productFallbackImages = {
+  "lum-b": "/products/lum-b/main.png",
+  "lum-b-l": "/products/lum-b-l/main.png",
+  "lum-f": "/products/lum-f/main.png",
+  "lum-z": "/products/lum-z/main.png",
+  software: "/products/software/main.png",
+} as const;
+
 export default async function ProductsPage({
   params,
 }: {
@@ -71,7 +79,11 @@ export default async function ProductsPage({
             >
               <div className="productShowcaseMedia">
                 <Image
-                  src={product.imageUrl || "/products/lum-b/main.png"}
+                  src={
+                    product.imageUrl ||
+                    productFallbackImages[product.slug as keyof typeof productFallbackImages] ||
+                    "/products/lum-b/main.png"
+                  }
                   alt={locale === "ko" ? product.nameKo : product.nameEn}
                   width={1200}
                   height={900}
