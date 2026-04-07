@@ -1,6 +1,6 @@
 export const defaultSiteConfig = {
   id: 1,
-  heroTitleKo: "정밀 공정에 맞는 신뢰 가능한 광학 솔루션",
+  heroTitleKo: "정밀 공정에 맞는\n신뢰 가능한 광학 솔루션",
   heroTitleEn: "Reliable optical solutions for precision manufacturing",
   heroDescriptionKo:
     "루모스는 산업용 검사 환경에 맞춘 광학 장비와 소프트웨어를 공급합니다.",

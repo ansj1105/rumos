@@ -107,7 +107,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
     ],
     hero: {
       eyebrow: "OPTICAL INSPECTION PLATFORM",
-      title: "정밀 공정에 맞는 신뢰 가능한 광학 솔루션",
+      title: "정밀 공정에 맞는\n신뢰 가능한 광학 솔루션",
       description:
         "루모스는 산업용 검사 환경에 맞춘 광학 장비와 소프트웨어를 공급합니다.",
       ctaPrimary: "제품 보기",
