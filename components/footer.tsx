@@ -6,6 +6,7 @@ import type { Locale } from "@/lib/site";
 
 export function Footer({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale);
+  const phoneHref = `tel:${dict.footer.phone.replace(/[^\d+]/g, "")}`;
   const productNav = dict.nav.find((item) => item.href === "/products");
   const applicationNav = dict.nav.find((item) => item.href === "/applications");
   const contactNav = dict.nav.find((item) => item.href === "/contact");
@@ -53,7 +54,10 @@ export function Footer({ locale }: { locale: Locale }) {
             <span>{dict.footer.company}</span>
             {dict.footer.companyLine2 ? <span>{dict.footer.companyLine2}</span> : null}
             <span>
-              {footerLabels.telFaxPrefix} {dict.footer.phone} | Fax. {dict.footer.fax}
+              {footerLabels.telFaxPrefix} <a href={phoneHref} className="footerPhoneLink">{dict.footer.phone}</a>
+            </span>
+            <span>
+              Fax. {dict.footer.fax}
             </span>
             <span className="footerEmail">
               {dict.footer.email}
