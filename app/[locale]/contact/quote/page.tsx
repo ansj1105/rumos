@@ -96,17 +96,11 @@ export default async function QuotePage({
                   href={`/${locale}/contact/quote?topic=${key}`}
                   className={`contactDirectCard ${selectedTopic === key ? "isActive" : ""}`}
                 >
-                  <span>{isKo ? topic.labelKo : topic.labelEn}</span>
+                  <span className="contactDirectLabel">{isKo ? topic.labelKo : topic.labelEn}</span>
                   <strong>{isKo ? topic.titleKo : topic.titleEn}</strong>
                   <p>{isKo ? topic.descriptionKo : topic.descriptionEn}</p>
                   <span className="contactDirectAction">
-                    {selectedTopic === key
-                      ? isKo
-                        ? "선택됨"
-                        : "Selected"
-                      : isKo
-                        ? "선택하기"
-                        : "Select"}
+                    {isKo ? "문의하기" : "Contact Us"}
                   </span>
                 </Link>
               ))}

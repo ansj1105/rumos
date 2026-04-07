@@ -2852,6 +2852,7 @@ select {
 
 .contactDirectCard {
   display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
   gap: 8px;
   min-height: 220px;
   padding: 24px 22px 22px;
@@ -2879,7 +2880,7 @@ select {
   box-shadow: 0 16px 32px rgba(15, 34, 61, 0.08);
 }
 
-.contactDirectCard span {
+.contactDirectLabel {
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -2913,6 +2914,8 @@ select {
   line-height: 1;
   letter-spacing: 0.02em;
   color: var(--blue-deep);
+  text-transform: none;
+  white-space: nowrap;
 }
 
 .contactDirectCard.isActive .contactDirectAction {
