@@ -1665,12 +1665,11 @@ select {
   display: grid;
   grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.18fr);
   gap: 64px;
-  align-items: start;
+  align-items: center;
 }
 
 .storyLeadBlock {
-  position: sticky;
-  top: 132px;
+  align-self: center;
   padding-left: 28px;
 }
 
