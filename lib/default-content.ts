@@ -8,8 +8,8 @@ export const defaultSiteConfig = {
     "Lumos delivers industrial optical hardware and software for production inspection workflows.",
   heroImageUrl: "/hero-semiconductor-bg.jpg",
   heroFontSize: 52,
-  storyTitleKo: "LUMOS 이름 어원",
-  storyTitleEn: "Origin of the name LUMOS",
+  storyTitleKo: "브랜드 어원 : 루모스",
+  storyTitleEn: "Brand Origin : Rumos",
   storyBodyKo:
     "LUMOS는 빛을 뜻하는 라틴어 'Lumen'에서 유래했습니다. 정확한 측정을 통해 빛의 본질을 포착하고, 광학 및 레이저 빔 분석 분야에 신뢰할 수 있는 정밀도를 제공하겠다는 의미를 담고 있습니다.",
   storyBodyEn:

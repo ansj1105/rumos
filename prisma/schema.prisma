@@ -15,8 +15,8 @@ model SiteConfig {
   heroDescriptionEn String             @db.Text
   heroImageUrl      String?
   heroFontSize      Int                @default(56)
-  storyTitleKo      String             @default("산업 현장과 공정 목적에 맞춘 광학 설계")
-  storyTitleEn      String             @default("Optical engineering aligned with industrial processes")
+  storyTitleKo      String             @default("브랜드 어원 : 루모스")
+  storyTitleEn      String             @default("Brand Origin : Rumos")
   storyBodyKo       String             @db.Text
   storyBodyEn       String             @db.Text
   storyFontSize     Int                @default(17)

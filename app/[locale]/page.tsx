@@ -12,6 +12,21 @@ export default async function HomePage({
   const { locale } = await params;
   const dict = getDictionary(locale);
   const [config, products] = await Promise.all([getSiteConfig(), getProducts()]);
+  const brandOriginTitle =
+    locale === "ko" ? "브랜드 어원 : 루모스" : "Brand Origin : Rumos";
+  const legacyStoryTitles = new Set([
+    "산업 현장과 공정 목적에 맞춘 광학 설계",
+    "Optical engineering aligned with industrial processes",
+    "LUMOS 이름 어원",
+    "Origin of the name LUMOS",
+    "LUMOS : 브랜드 어원",
+    "The Origin of LUMOS",
+  ]);
+  const configuredStoryTitle = locale === "ko" ? config?.storyTitleKo : config?.storyTitleEn;
+  const storyTitle =
+    configuredStoryTitle && !legacyStoryTitles.has(configuredStoryTitle)
+      ? configuredStoryTitle
+      : brandOriginTitle;
   const storySource = (locale === "ko" ? config?.storyBodyKo : config?.storyBodyEn) ?? dict.story.body;
   const storyParagraphs = storySource
     .split(/\n{2,}/)
@@ -54,14 +69,11 @@ export default async function HomePage({
         <div className="container storyInner">
           <div className="storyLeadBlock">
             <h2 className="storyDisplayTitle">
-              {(locale === "ko" ? config?.storyTitleKo : config?.storyTitleEn) ??
-                (locale === "ko" ? "LUMOS : 브랜드 어원" : "The Origin of LUMOS")}
+              {storyTitle}
             </h2>
           </div>
           <div className="storyContent">
-            <span className="storyEyebrow">
-              {locale === "ko" ? "Brand Origin | LUMOS" : "Brand Origin | LUMOS"}
-            </span>
+            <span className="storyEyebrow">{brandOriginTitle}</span>
             <div className="storyParagraphs">
               {storyParagraphs.map((paragraph, index) => (
                 <p
