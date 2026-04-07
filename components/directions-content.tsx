@@ -11,7 +11,7 @@ const kakaoMapUrl = `https://map.kakao.com/link/search/${encodedAddress}`;
 export function DirectionsContent({ locale }: DirectionsContentProps) {
   return (
     <div className="pageBody twoCol">
-      <div className="card" style={{ padding: 28 }}>
+      <div className="card directionsInfoCard">
         <div className="stack">
           <strong>{locale === "ko" ? "Address" : "Address"}</strong>
           <span>08594 {address}</span>
@@ -28,13 +28,12 @@ export function DirectionsContent({ locale }: DirectionsContentProps) {
           </div>
         </div>
       </div>
-      <div className="card" style={{ padding: 0, overflow: "hidden" }}>
+      <div className="card directionsMapCard">
         <iframe
           title={locale === "ko" ? "루모스 오시는 길 지도" : "Lumos directions map"}
           src={googleMapEmbedUrl}
           width="100%"
-          height="420"
-          style={{ border: 0, display: "block" }}
+          className="directionsMapIframe"
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         />

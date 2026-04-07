@@ -1,3 +1,12 @@
+/*
+ * Breakpoints (미디어 쿼리 기준)
+ * ---------------------------
+ * admin layout:  1100px  → admin grid 단일 컬럼
+ * tablet:         960px  → 헤더 모바일 전환, 주요 그리드 단일 컬럼
+ * mobile:         720px  → 서브 패딩 축소, 서브내브 gap 축소
+ * small:          520px  → 폰트·패딩 최소화
+ */
+
 :root {
   --bg: #f5f8fc;
   --surface: rgba(255, 255, 255, 0.88);
@@ -302,6 +311,21 @@ select {
   display: grid;
   grid-template-columns: 1.25fr 0.75fr;
   gap: 24px;
+}
+
+.directionsInfoCard {
+  padding: 28px;
+}
+
+.directionsMapCard {
+  overflow: hidden;
+}
+
+.directionsMapIframe {
+  display: block;
+  width: 100%;
+  height: 420px;
+  border: 0;
 }
 
 .threeCol {
@@ -3376,10 +3400,6 @@ td {
     background: var(--blue);
   }
 
-  .subpageHeroInner {
-    padding: 84px 0 30px;
-  }
-
   .subpageHeroBg {
     background-size: auto, 52px 52px, 52px 52px, auto 88%;
     background-position: center, center, center, right -24px center;
@@ -3388,11 +3408,6 @@ td {
 
   .subpageHeroCopy {
     padding-left: 30px;
-  }
-
-  .subpageContent {
-    padding-top: 48px;
-    padding-bottom: 48px;
   }
 
   .productsPage .subpageContent {
@@ -3561,25 +3576,8 @@ td {
     grid-template-columns: 1fr;
   }
 
-  .section {
-    padding: 64px 0;
-  }
-
-  .pageHeader {
-    padding: 48px 0 28px;
-  }
-
   .subpageHero {
     min-height: 200px;
-  }
-
-  .subpageHeroInner {
-    padding: 82px 0 30px;
-  }
-
-  .subpageContent {
-    padding-top: 40px;
-    padding-bottom: 40px;
   }
 }
 
@@ -3783,18 +3781,17 @@ td {
     opacity: 0.38;
   }
 
-  .subpageHeroInner {
-    padding: 74px 0 24px;
-  }
-
   .subpageHeroCopy {
     padding-left: 18px;
     gap: 8px;
   }
 
-  .subpageContent {
-    padding-top: 32px;
-    padding-bottom: 32px;
+  .directionsInfoCard {
+    padding: 20px;
+  }
+
+  .directionsMapIframe {
+    height: 300px;
   }
 
   .distributorSection {
