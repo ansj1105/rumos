@@ -5,10 +5,10 @@
   --text: #0f223d;
   --muted: #62748a;
   --line: rgba(15, 34, 61, 0.12);
-  --blue: #0d5bd7;
-  --blue-deep: #0a347f;
-  --blue-soft: #dce9ff;
-  --blue-fog: #edf4ff;
+  --blue: #123d67;
+  --blue-deep: #092c4d;
+  --blue-soft: #d7e2eb;
+  --blue-fog: #ecf2f6;
   --radius: 6px;
   --shadow: 0 6px 14px rgba(16, 32, 56, 0.05);
   --subnav-sticky-top: 85px;
@@ -224,7 +224,7 @@ select {
 .subpageHeroBgSkeleton {
   background:
     linear-gradient(110deg, rgba(255, 255, 255, 0.04) 18%, rgba(255, 255, 255, 0.16) 32%, rgba(255, 255, 255, 0.04) 46%),
-    linear-gradient(180deg, #18304e 0%, #274668 100%);
+    linear-gradient(180deg, #0b2a47 0%, #173a5d 100%);
 }
 
 .subpageHeroBgOverlay {
@@ -646,7 +646,7 @@ select {
   --admin-text: #f7fbff;
   --admin-muted: #8ea0b7;
   --admin-border: rgba(143, 167, 196, 0.16);
-  --admin-accent: #2b6ff2;
+  --admin-accent: #123d67;
   background: var(--admin-bg);
   color: var(--admin-text);
 }
@@ -658,7 +658,7 @@ select {
   --admin-text: #11233c;
   --admin-muted: #67778d;
   --admin-border: rgba(17, 35, 60, 0.1);
-  --admin-accent: #215ee0;
+  --admin-accent: #123d67;
 }
 
 .lumosAdminSidebar {
@@ -668,7 +668,7 @@ select {
   bottom: 0;
   width: 280px;
   padding: 18px 14px;
-  background: linear-gradient(180deg, #111d2d 0%, #0c1623 100%);
+  background: linear-gradient(180deg, #0b233b 0%, #091d31 100%);
   border-right: 1px solid rgba(143, 167, 196, 0.12);
   overflow-y: auto;
   transition: width 180ms ease;
@@ -1471,7 +1471,7 @@ select {
   width: 100%;
   margin-top: auto;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  background: #0f1722;
+  background: #092c4d;
 }
 
 .footerInner {
@@ -1650,7 +1650,7 @@ select {
 .heroBackdropSkeleton {
   background:
     linear-gradient(110deg, rgba(255, 255, 255, 0.03) 18%, rgba(255, 255, 255, 0.12) 32%, rgba(255, 255, 255, 0.03) 46%),
-    linear-gradient(180deg, #112338 0%, #1f3b59 100%);
+    linear-gradient(180deg, #0b233b 0%, #173a5d 100%);
 }
 
 .storySection {
@@ -1675,7 +1675,7 @@ select {
 
 .storyDisplayTitle {
   margin: 0;
-  color: #1f4f96;
+  color: #092c4d;
   font-size: clamp(44px, 4vw, 72px);
   line-height: 1.02;
   letter-spacing: -0.05em;
@@ -1690,7 +1690,7 @@ select {
 }
 
 .storyEyebrow {
-  color: #5aa4e8;
+  color: #31536f;
   font-size: 18px;
   font-weight: 800;
   letter-spacing: -0.02em;
