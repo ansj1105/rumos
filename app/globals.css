@@ -4088,7 +4088,15 @@ td {
     max-width: 126px;
   }
 
-  .applicationsIndexNo,
+  .applicationsIndexNo {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+  }
+
+  .applicationsIndexLink {
+    gap: 8px;
+  }
+
   .productDirectoryNo {
     font-size: 25px;
   }
