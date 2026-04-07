@@ -70,18 +70,18 @@ export default async function ResourceDetailPage({
       <div className="container subpageContent">
         <div className="resourceDetailLayout pageBody">
           <section className="resourceDetailSummary">
-            <div className="resourceDetailMetaGrid">
-              <div className="resourceMetaItem">
-                <strong>{isKo ? "제목" : "Title"}</strong>
-                <span>{title}</span>
-              </div>
-              <div className="resourceMetaItem">
-                <strong>{isKo ? "일시" : "Date"}</strong>
-                <span>{createdAtLabel}</span>
-              </div>
-              <div className="resourceMetaItem">
+            <div className="resourceDetailTitleBlock">
+              <strong>{isKo ? "제목" : "Title"}</strong>
+              <h2 className="resourceDetailTitle">{title}</h2>
+            </div>
+            <div className="resourceDetailMetaLine">
+              <div className="resourceMetaInline">
                 <strong>{isKo ? "작성자" : "Author"}</strong>
                 <span>{authorLabel}</span>
+              </div>
+              <div className="resourceMetaInline">
+                <strong>{isKo ? "작성일시" : "Published"}</strong>
+                <span>{createdAtLabel}</span>
               </div>
             </div>
           </section>
