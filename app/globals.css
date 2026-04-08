@@ -3059,6 +3059,14 @@ select {
   gap: 24px;
 }
 
+.productFeatureVisualCaption {
+  width: min(100%, 1080px);
+  margin: -8px auto 0;
+  color: #51657d;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
 .productFeatureVisualPanel {
   position: relative;
   width: min(100%, 1080px);

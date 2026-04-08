@@ -217,6 +217,10 @@ export default async function ProductDetailPage({
     zOverview: locale === "ko" ? "LUM-Z Overview" : "LUM-Z Overview",
     zSpec: locale === "ko" ? "Z Axis Scan Spec" : "Z Axis Scan Spec",
     scanAnalysis: locale === "ko" ? "Scan Analysis Interface" : "Scan Analysis Interface",
+    scanAnalysisCaption:
+      locale === "ko"
+        ? "실제 제품을 통한 분석 시연 영상입니다."
+        : "This is a demonstration video of analysis using the actual product.",
     softwareOverview: locale === "ko" ? "Lumosity Software Overview" : "Lumosity Software Overview",
     softwareCore: locale === "ko" ? "Core Software Functions" : "Core Software Functions",
     softwareAnalysis: locale === "ko" ? "Beam Analysis Features" : "Beam Analysis Features",
@@ -525,6 +529,7 @@ export default async function ProductDetailPage({
                 <h2 className="sectionTitle">{ui.scanAnalysis}</h2>
               </div>
               <ProductVideoPanel src="/products/lum-z/scan-demo.mp4" />
+              <p className="productFeatureVisualCaption">{ui.scanAnalysisCaption}</p>
             </section>
 
             <section className="productSection">
