@@ -3060,6 +3060,7 @@ select {
 }
 
 .productFeatureVisualPanel {
+  position: relative;
   width: min(100%, 1080px);
   max-height: 640px;
   margin: 0 auto;
@@ -3085,6 +3086,35 @@ select {
   height: 100%;
   object-fit: contain;
   background: #06111d;
+}
+
+.productFeatureVisualSpinner {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  background: rgba(6, 17, 29, 0.38);
+  pointer-events: none;
+}
+
+.productFeatureVisualSpinnerRing {
+  width: 44px;
+  height: 44px;
+  border: 3px solid rgba(255, 255, 255, 0.18);
+  border-top-color: rgba(255, 255, 255, 0.92);
+  border-radius: 999px;
+  animation: productVideoSpin 0.9s linear infinite;
+}
+
+@keyframes productVideoSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .productFeatureList {

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { FadeImage } from "@/components/fade-image";
+import { ProductVideoPanel } from "@/components/product-video-panel";
 import { ProductSubnav } from "@/components/product-subnav";
 import { SubpageHero } from "@/components/subpage-hero";
 import { getProductBySlug, getProducts } from "@/lib/content";
@@ -523,16 +524,7 @@ export default async function ProductDetailPage({
                 <span className="eyebrow">{ui.measurementView}</span>
                 <h2 className="sectionTitle">{ui.scanAnalysis}</h2>
               </div>
-              <div className="productFeatureVisualPanel">
-                <Image
-                  src="/products/lum-z/feature.png"
-                  alt="LUM-Z measurement view"
-                  width={963}
-                  height={646}
-                  sizes="(max-width: 960px) 100vw, 74vw"
-                  className="productFeatureVisualImage"
-                />
-              </div>
+              <ProductVideoPanel src="/products/lum-z/scan-demo.mp4" />
             </section>
 
             <section className="productSection">
@@ -581,17 +573,7 @@ export default async function ProductDetailPage({
                 <span className="eyebrow">{ui.software}</span>
                 <h2 className="sectionTitle">{ui.softwareOverview}</h2>
               </div>
-              <div className="productFeatureVisualPanel isVideo">
-                <video
-                  className="productFeatureVisualVideo"
-                  src="/products/software/feature-demo.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  controls
-                />
-              </div>
+              <ProductVideoPanel src="/products/software/feature-demo.mp4" />
             </section>
 
             <section className="productSection productFeatureVisualSection">
