@@ -2050,6 +2050,15 @@ select {
 
 .storyHighlightCardInner.isTextOnly {
   padding-top: 26px;
+  justify-items: center;
+  text-align: center;
+}
+
+.storyHighlightCardInner.isTextOnly .storyHighlightLabel,
+.storyHighlightCardInner.isTextOnly .storyHighlightTitle,
+.storyHighlightCardInner.isTextOnly .storyHighlightBody {
+  margin-inline: auto;
+  text-align: center;
 }
 
 .storyHighlightGlow {
