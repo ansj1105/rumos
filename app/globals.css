@@ -250,12 +250,29 @@ select {
 
 .subpageHeroBgOverlay.is-products {
   background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 42%, rgba(255, 255, 255, 0.06) 100%),
-    linear-gradient(90deg, rgba(15, 34, 61, 0.012) 1px, transparent 1px),
-    linear-gradient(rgba(15, 34, 61, 0.012) 1px, transparent 1px);
-  background-size: auto, 56px 56px, 56px 56px;
-  background-position: center, center, center;
-  background-repeat: no-repeat, repeat, repeat;
+    linear-gradient(90deg, rgba(3, 8, 18, 0.86) 0%, rgba(3, 8, 18, 0.56) 34%, rgba(3, 8, 18, 0.2) 62%, rgba(3, 8, 18, 0.3) 100%),
+    linear-gradient(180deg, rgba(3, 8, 18, 0.38) 0%, rgba(3, 8, 18, 0.12) 48%, rgba(3, 8, 18, 0.32) 100%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: auto, auto, 56px 56px, 56px 56px;
+  background-position: center, center, center, center;
+  background-repeat: no-repeat, no-repeat, repeat, repeat;
+}
+
+.subpageHero-products .subpageHeroBgImage {
+  object-position: 68% center;
+}
+
+.subpageHero-products .eyebrow {
+  color: rgba(232, 241, 252, 0.88);
+}
+
+.subpageHero-products .sectionTitle {
+  color: #ffffff;
+}
+
+.subpageHero-products .sectionLead {
+  color: rgba(236, 243, 251, 0.9);
 }
 
 .subpageHeroInner {
@@ -3589,6 +3606,10 @@ td {
   .subpageHero {
     min-height: 200px;
   }
+
+  .subpageHero-products .subpageHeroBgImage {
+    object-position: 64% center;
+  }
 }
 
 @media (max-width: 720px) {
@@ -3794,6 +3815,16 @@ td {
   .subpageHeroCopy {
     padding-left: 18px;
     gap: 8px;
+  }
+
+  .subpageHeroBgOverlay.is-products {
+    background:
+      linear-gradient(180deg, rgba(3, 8, 18, 0.74) 0%, rgba(3, 8, 18, 0.46) 38%, rgba(3, 8, 18, 0.22) 100%),
+      linear-gradient(90deg, rgba(3, 8, 18, 0.72) 0%, rgba(3, 8, 18, 0.14) 58%, rgba(3, 8, 18, 0.22) 100%);
+  }
+
+  .subpageHero-products .subpageHeroBgImage {
+    object-position: 60% center;
   }
 
   .directionsInfoCard {
