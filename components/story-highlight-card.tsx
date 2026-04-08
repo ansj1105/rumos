@@ -98,11 +98,9 @@ export function StoryHighlightCard({
     >
       <div ref={overlayRef} className="storyHighlightGlow" aria-hidden="true" />
       <div className={`storyHighlightCardInner ${iconKey === "mission" ? "isTextOnly" : ""}`}>
-        {iconKey !== "mission" ? (
-          <div className={`storyHighlightIcon is-${iconKey}`} aria-hidden="true">
-            <StoryHighlightSvg iconKey={iconKey} />
-          </div>
-        ) : null}
+        <div className={`storyHighlightIcon is-${iconKey}`} aria-hidden="true">
+          <StoryHighlightSvg iconKey={iconKey} />
+        </div>
         <span className="storyHighlightLabel">{label}</span>
         <strong className="storyHighlightTitle">{title}</strong>
         <p className="storyHighlightBody">{body}</p>
