@@ -20,7 +20,7 @@ export function Hero({
   heroFontSize,
 }: HeroProps) {
   const dict = getDictionary(locale);
-  const backgroundImageUrl = heroImageUrl ?? "/hero-lab-bg.png";
+  const backgroundImageUrl = heroImageUrl ?? "/hero-lab-bg.avif";
   const resolvedHeroTitle = (heroTitle ?? dict.hero.title).replace(/\\n/g, "\n");
   const resolvedHeroDescription = (heroDescription ?? dict.hero.description).replace(/\\n/g, "\n");
 
