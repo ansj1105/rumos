@@ -3110,14 +3110,31 @@ select {
 }
 
 .productFeatureVisualPanel {
+  width: min(100%, 1080px);
+  max-height: 640px;
+  margin: 0 auto;
   border: 1px solid rgba(15, 34, 61, 0.08);
   background: #ffffff;
   overflow: hidden;
 }
 
 .productFeatureVisualImage {
+  display: block;
   width: 100%;
   height: auto;
+}
+
+.productFeatureVisualPanel.isVideo {
+  aspect-ratio: 1450 / 720;
+  background: #06111d;
+}
+
+.productFeatureVisualVideo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #06111d;
 }
 
 .productFeatureList {

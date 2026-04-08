@@ -579,6 +579,24 @@ export default async function ProductDetailPage({
             <section className="productSection productFeatureVisualSection">
               <div className="productSectionHead">
                 <span className="eyebrow">{ui.software}</span>
+                <h2 className="sectionTitle">{ui.softwareOverview}</h2>
+              </div>
+              <div className="productFeatureVisualPanel isVideo">
+                <video
+                  className="productFeatureVisualVideo"
+                  src="/products/software/feature-demo.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls
+                />
+              </div>
+            </section>
+
+            <section className="productSection productFeatureVisualSection">
+              <div className="productSectionHead">
+                <span className="eyebrow">{ui.software}</span>
                 <h2 className="sectionTitle">{ui.softwareCore}</h2>
               </div>
               <div className="softwareFeatureGrid">
