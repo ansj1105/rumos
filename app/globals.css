@@ -1922,12 +1922,10 @@ select {
 .storySection {
   width: 100%;
   padding: 92px 0 110px;
-  background:
-    linear-gradient(180deg, rgba(6, 18, 28, 0.5) 0%, rgba(6, 18, 28, 0.56) 100%),
-    linear-gradient(90deg, rgba(7, 16, 26, 0.72) 0%, rgba(7, 16, 26, 0.5) 36%, rgba(7, 16, 26, 0.2) 100%),
-    url("/story-origin-bg.jpg");
+  background-image: url("/story-origin-bg.jpg");
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
   border-top: 1px solid rgba(15, 34, 61, 0.08);
   border-bottom: 1px solid rgba(15, 34, 61, 0.08);
 }
