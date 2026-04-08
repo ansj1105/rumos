@@ -3204,6 +3204,10 @@ select {
   padding: 24px 28px 28px;
 }
 
+.resourceDetailContentMain {
+  min-height: 420px;
+}
+
 .resourceDetailSectionHead {
   padding-bottom: 14px;
   border-bottom: 1px solid rgba(15, 34, 61, 0.08);
@@ -3212,6 +3216,12 @@ select {
 .resourceDetailBody {
   padding-top: 22px;
   max-width: 920px;
+}
+
+.resourceDetailContentMain .resourceDetailBody {
+  max-height: 360px;
+  overflow-y: auto;
+  padding-right: 8px;
 }
 
 .resourceAttachmentBox {

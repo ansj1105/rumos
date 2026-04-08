@@ -86,7 +86,7 @@ export default async function ResourceDetailPage({
             </div>
           </section>
 
-          <section className="resourceDetailContentCard">
+          <section className="resourceDetailContentCard resourceDetailContentMain">
             <div className="resourceDetailSectionHead">
               <strong>{isKo ? "내용" : "Content"}</strong>
             </div>
