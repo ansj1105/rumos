@@ -16,10 +16,13 @@ type Dictionary = {
   nav: NavItem[];
   hero: {
     eyebrow: string;
-    title: string;
-    description: string;
-    ctaPrimary: string;
-    ctaSecondary: string;
+    titlePrefix: string;
+    titleHighlight: string;
+    lead: string;
+    relationLabel: string;
+    relationBody: string;
+    ctaDetail: string;
+    visualLabel: string;
   };
   story: {
     title: string;
@@ -106,17 +109,21 @@ export const dictionaries: Record<Locale, Dictionary> = {
       },
     ],
     hero: {
-      eyebrow: "OPTICAL INSPECTION PLATFORM",
-      title: "정밀 공정에 맞는\n신뢰 가능한 광학 솔루션",
-      description:
-        "루모스는 산업용 검사 환경에 맞춘 광학 장비와 소프트웨어를 공급합니다.",
-      ctaPrimary: "제품 보기",
-      ctaSecondary: "문의하기",
+      eyebrow: "LUMOS Background | SHINHOTEK",
+      titlePrefix: "About",
+      titleHighlight: "LUMOS",
+      lead:
+        "LUMOS(루모스)는 정밀 광학 및 레이저 분야에서 다년간 노하우를 축적해 온 신호텍(Shinhotek)이 기획부터 R&D, 생산까지 전 과정을 직접 완성한 자체 개발 장비 브랜드입니다. 신호텍은 산업 현장의 고객들이 기존 장비들을 사용하며 겪는 높은 가격 장벽, 복잡한 소프트웨어, 늦은 기술 지원 등의 실질적인 불편함에 주목했습니다.",
+      relationLabel: "SHINHOTEK",
+      relationBody:
+        "이러한 시장의 니즈를 근본적으로 해결하기 위해, 우리는 자체 기술력을 바탕으로 합리적인 도입 비용과 직관적인 인터페이스, 그리고 신속한 사후 관리를 모두 갖춘 LUMOS를 선보이게 되었습니다. 신호텍의 탄탄한 인프라와 독자적인 제조 역량을 통해, LUMOS는 레이저 측정 분야의 가장 신뢰할 수 있는 새로운 표준을 제시합니다.",
+      ctaDetail: "자세히 보기",
+      visualLabel: "Precision optical engineering",
     },
     story: {
-      title: "Brand Story",
+      title: "Brand Origin : LUMOS",
       body:
-        "LUMOS는 빛을 뜻하는 라틴어 'Lumen'에서 유래했습니다. 정확한 측정을 통해 빛의 본질을 포착하고, 광학 및 레이저 빔 분석 분야에 신뢰할 수 있는 정밀도를 제공하겠다는 의미를 담고 있습니다.",
+        "LUMOS는 라틴어로 '빛'을 뜻하는 'Lumen'에서 영감을 받아 탄생했으며,\n빛을 정밀하게 측정하고자 하는 우리의 사명을 담고 있습니다.",
     },
     homepage: {
       productTitle: "Product",
@@ -202,17 +209,21 @@ export const dictionaries: Record<Locale, Dictionary> = {
       },
     ],
     hero: {
-      eyebrow: "OPTICAL INSPECTION PLATFORM",
-      title: "Reliable optical solutions for precision manufacturing",
-      description:
-        "Lumos delivers industrial optical hardware and software for production inspection workflows.",
-      ctaPrimary: "View products",
-      ctaSecondary: "Contact us",
+      eyebrow: "LUMOS Background | SHINHOTEK",
+      titlePrefix: "About",
+      titleHighlight: "LUMOS",
+      lead:
+        "LUMOS is a proprietary equipment brand fully conceived, developed, and manufactured by Shinhotek, a company with years of expertise in precision optics and laser systems. Shinhotek recognized the practical friction customers faced with conventional equipment, including high acquisition costs, overly complex software, and slow technical support.",
+      relationLabel: "SHINHOTEK",
+      relationBody:
+        "To address those issues at the root, we built LUMOS around our own engineering capabilities, combining a more reasonable entry cost, an intuitive interface, and responsive after-sales support. Backed by Shinhotek's solid infrastructure and in-house manufacturing capabilities, LUMOS is committed to setting the most trusted new standard in laser measurement.",
+      ctaDetail: "Learn more",
+      visualLabel: "Precision optical engineering",
     },
     story: {
-      title: "Brand Story",
+      title: "Brand Origin : LUMOS",
       body:
-        "LUMOS comes from the Latin 'Lumen' (Light). It represents our mission to capture the true essence of light through precise measurement and to deliver trusted precision for optics and laser beam analysis.",
+        "LUMOS is inspired by the Latin Lumen (light),\nreflecting our mission to measure light with precision.",
     },
     homepage: {
       productTitle: "Products",

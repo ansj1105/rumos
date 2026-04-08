@@ -213,7 +213,7 @@ export default async function ProductDetailPage({
     targetApplications: locale === "ko" ? "Target Applications" : "Target Applications",
     quickSpecs: locale === "ko" ? "Quick Specs" : "Quick Specs",
     filterTitle: locale === "ko" ? "Neutral Density Filter Configuration" : "Neutral Density Filter Configuration",
-    zOverview: locale === "ko" ? "LUM-Z Series Overview" : "LUM-Z Series Overview",
+    zOverview: locale === "ko" ? "LUM-Z Overview" : "LUM-Z Overview",
     zSpec: locale === "ko" ? "Z Axis Scan Spec" : "Z Axis Scan Spec",
     scanAnalysis: locale === "ko" ? "Scan Analysis Interface" : "Scan Analysis Interface",
     softwareOverview: locale === "ko" ? "Lumosity Software Overview" : "Lumosity Software Overview",
@@ -227,8 +227,8 @@ export default async function ProductDetailPage({
       : product.heroEyebrowEn ?? ui.productDetail;
   const productHeroTitle =
     locale === "ko"
-      ? product.heroTitleKo ?? `${product.nameKo} Series`
-      : product.heroTitleEn ?? `${product.nameEn} Series`;
+      ? product.heroTitleKo ?? `${product.nameKo}`
+      : product.heroTitleEn ?? `${product.nameEn}`;
   const productHeroLead =
     locale === "ko"
       ? product.heroLeadKo ?? product.summaryKo
@@ -263,7 +263,8 @@ export default async function ProductDetailPage({
         <div className="container productDetailHeroInner">
           <div className="productDetailCopy">
             <div className="productMetaLine">
-              <span>{`LUMOS ${locale === "ko" ? product.nameKo : product.nameEn} Series`}</span>
+              <span>Lumos Series</span>
+              <strong>{locale === "ko" ? product.nameKo : product.nameEn}</strong>
             </div>
           </div>
           <div className="productDetailVisual">
@@ -334,10 +335,10 @@ export default async function ProductDetailPage({
                 <span className="eyebrow">{ui.overview}</span>
                 <h2 className="sectionTitle">
                   {isLumBSeries
-                    ? "LUM-B Series Overview"
+                    ? "LUM-B Overview"
                     : isLumBLSeries
-                      ? "LUM-B-L Series Overview"
-                      : "LUM-F Series Overview"}
+                      ? "LUM-B-L Overview"
+                      : "LUM-F Overview"}
                 </h2>
               </div>
               <div className="productOverviewBody">

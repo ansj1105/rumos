@@ -6,61 +6,101 @@ import { useEffect, useState } from "react";
 
 import type { Locale } from "@/lib/site";
 
-const seriesItems = [
+type SeriesCardItem = {
+  slug: string;
+  name: string;
+  taglineKo: string;
+  taglineEn: string;
+  summaryKo: string;
+  summaryEn: string;
+  keywordsKo: string[];
+  keywordsEn: string[];
+  imageUrl: string;
+  imageClassName: string;
+  layoutClassName: string;
+};
+
+const seriesItems: SeriesCardItem[] = [
   {
     slug: "lum-b",
     name: "LUM-B",
     taglineKo: "Raw Beam Profiler",
     taglineEn: "Raw Beam Profiler",
+    summaryKo:
+      "레이저 소스의 기본 빔 형상과 균일도를 빠르게 파악할 수 있도록 설계된 표준형 프로파일러입니다.",
+    summaryEn:
+      "A standard profiler designed to capture core beam shape and uniformity data with speed and clarity.",
+    keywordsKo: ["Raw beam", "Uniformity", "Alignment"],
+    keywordsEn: ["Raw beam", "Uniformity", "Alignment"],
     imageUrl: "/products/lum-b/main.png",
     imageClassName: "isLumB",
+    layoutClassName: "isPrimary",
   },
   {
     slug: "lum-b-l",
     name: "LUM-B-L",
     taglineKo: "Large Beam Profiler",
     taglineEn: "Large Beam Profiler",
+    summaryKo:
+      "대구경 광원과 넓은 조사 영역을 안정적으로 측정하기 위한 라지 포맷 빔 프로파일러입니다.",
+    summaryEn:
+      "A large-format beam profiler optimized for broad illumination zones and large-diameter sources.",
+    keywordsKo: ["Large aperture", "Wide field", "Process setup"],
+    keywordsEn: ["Large aperture", "Wide field", "Process setup"],
     imageUrl: "/products/lum-b-l/main.png",
     imageClassName: "isLumBL",
+    layoutClassName: "isTopRight",
   },
   {
     slug: "lum-f",
     name: "LUM-F",
     taglineKo: "Focus Beam Profiler",
     taglineEn: "Focus Beam Profiler",
+    summaryKo:
+      "초점 위치와 집광 품질을 정밀하게 확인해 미세 공정에서 필요한 최적 조건을 빠르게 잡아냅니다.",
+    summaryEn:
+      "A focused-beam solution for fine process tuning, focal-position checks, and high-density spot analysis.",
+    keywordsKo: ["Focus", "Spot size", "Fine tuning"],
+    keywordsEn: ["Focus", "Spot size", "Fine tuning"],
     imageUrl: "/products/lum-f/main.png",
     imageClassName: "isLumF",
+    layoutClassName: "isCenter",
   },
   {
     slug: "lum-z",
     name: "LUM-Z",
     taglineKo: "3D Beam Profiler",
     taglineEn: "3D Beam Profiler",
+    summaryKo:
+      "Z축 기반 분석으로 깊이 방향의 빔 거동까지 시각화해 입체적인 공정 검증을 지원합니다.",
+    summaryEn:
+      "A 3D profiling platform that visualizes beam behavior through the Z-axis for deeper process validation.",
+    keywordsKo: ["3D mapping", "Z scan", "Depth profile"],
+    keywordsEn: ["3D mapping", "Z scan", "Depth profile"],
     imageUrl: "/products/lum-z/main.png",
     imageClassName: "isLumZ",
+    layoutClassName: "isBottomLeft",
   },
   {
     slug: "software",
     name: "Software",
     taglineKo: "Lumosity Software",
     taglineEn: "Lumosity Software",
+    summaryKo:
+      "측정 데이터 시각화와 분석, 리포트까지 하나의 운용 환경에서 연결하는 소프트웨어 스위트입니다.",
+    summaryEn:
+      "An operational software suite that connects visualization, analysis, and reporting in one workflow.",
+    keywordsKo: ["Visualization", "Analysis", "Reporting"],
+    keywordsEn: ["Visualization", "Analysis", "Reporting"],
     imageUrl: "/products/software/main.png",
     imageClassName: "isSoftware",
+    layoutClassName: "isBottomRight",
   },
-] as const;
+];
 
 type SeriesProductSource = {
   slug: string;
   imageUrl: string | null;
-};
-
-type SeriesCardItem = {
-  slug: string;
-  name: string;
-  taglineKo: string;
-  taglineEn: string;
-  imageUrl: string;
-  imageClassName: string;
 };
 
 export function HomeSeriesOverview({
@@ -103,25 +143,60 @@ export function HomeSeriesOverview({
   return (
     <section id="homeSeriesSection" className="homeSeriesSection">
       <div className="container homeSeriesInner">
-        <div className="homeSeriesHead">
-          <h2 className="sectionTitle">{title ?? "LUMOS series overview"}</h2>
-          <p className="sectionLead">
-            {lead ??
-              (locale === "ko"
-                ? "빔 프로파일러와 운용 소프트웨어 라인업을 한 번에 확인할 수 있습니다."
-                : "Explore the beam profiler lineup and operational software in one view.")}
-          </p>
-        </div>
+        <div className="homeSeriesDesktop">
+          <div className="homeSeriesIntro">
+            <div className="homeSeriesHead">
+              <span className="eyebrow">Products Overview</span>
+              <h2 className="sectionTitle">{title ?? "LUMOS series overview"}</h2>
+              <p className="sectionLead">
+                {lead ??
+                  (locale === "ko"
+                    ? "각 제품군 위로 마우스를 올리면 강조되고, 클릭하면 해당 제품 페이지로 이동합니다."
+                    : "Hover each product to preview it in context, then click through to the product page.")}
+              </p>
+            </div>
 
-        <div className="homeSeriesRailDesktop">
-          <div className="homeSeriesRail">
-            {mergedSeriesItems.map((item) => (
-              <SeriesCard key={item.slug} item={item} locale={locale} />
+            <div className="homeSeriesKeywordGrid">
+              {mergedSeriesItems.map((item, index) => (
+                <Link
+                  key={item.slug}
+                  href={`/${locale}/products/${item.slug}`}
+                  className={`homeSeriesKeywordLink ${currentIndex === index ? "isActive" : ""}`}
+                  onMouseEnter={() => setCurrentIndex(index)}
+                  onFocus={() => setCurrentIndex(index)}
+                >
+                  <strong>{item.name}</strong>
+                  <span>{locale === "ko" ? item.taglineKo : item.taglineEn}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="homeSeriesMosaic">
+            {mergedSeriesItems.map((item, index) => (
+              <SeriesFeatureCard
+                key={item.slug}
+                item={item}
+                locale={locale}
+                isActive={currentIndex === index}
+                onActivate={() => setCurrentIndex(index)}
+              />
             ))}
           </div>
         </div>
 
         <div className="homeSeriesSlider">
+          <div className="homeSeriesHead">
+            <span className="eyebrow">Products Overview</span>
+            <h2 className="sectionTitle">{title ?? "LUMOS series overview"}</h2>
+            <p className="sectionLead">
+              {lead ??
+                (locale === "ko"
+                  ? "제품 카드를 좌우로 넘기고 선택해 각 제품 상세 페이지로 이동할 수 있습니다."
+                  : "Swipe through the product cards and open the corresponding detail page.")}
+            </p>
+          </div>
+
           <div
             className="homeSeriesSliderViewport"
             onPointerDown={(event) => setDragStartX(event.clientX)}
@@ -151,39 +226,13 @@ export function HomeSeriesOverview({
             >
               {mergedSeriesItems.map((item) => (
                 <div key={item.slug} className="homeSeriesSlide">
-                  <Link href={`/${locale}/products/${item.slug}`} className="seriesCard seriesCardMobile">
-                    <div className="seriesCardMedia">
-                      <div className={`seriesCardMediaFrame ${item.imageClassName}`}>
-                        <Image
-                          src={item.imageUrl}
-                          alt={item.name}
-                          width={1200}
-                          height={900}
-                          sizes="84vw"
-                          className={`seriesCardImage ${item.imageClassName}`}
-                        />
-                      </div>
-                    </div>
-                  </Link>
+                  <SeriesFeatureCard item={item} locale={locale} isActive />
                 </div>
               ))}
             </div>
           </div>
 
-          <Link
-            href={`/${locale}/products/${mergedSeriesItems[currentIndex].slug}`}
-            className="seriesCardBody seriesCardBodyMobile"
-          >
-            <div className="seriesCardText">
-              <strong>{mergedSeriesItems[currentIndex].name}</strong>
-              <span>{locale === "ko" ? mergedSeriesItems[currentIndex].taglineKo : mergedSeriesItems[currentIndex].taglineEn}</span>
-            </div>
-            <span className="seriesCardArrow" aria-hidden="true">
-              ↗
-            </span>
-          </Link>
-
-          <div className="homeSeriesSliderControls" aria-hidden="true">
+          <div className="homeSeriesSliderControls">
             <button
               type="button"
               className="homeSeriesSliderButton"
@@ -220,36 +269,49 @@ export function HomeSeriesOverview({
   );
 }
 
-function SeriesCard({
+function SeriesFeatureCard({
   item,
   locale,
+  isActive,
+  onActivate,
 }: {
   item: SeriesCardItem;
   locale: Locale;
+  isActive: boolean;
+  onActivate?: () => void;
 }) {
   return (
-    <Link href={`/${locale}/products/${item.slug}`} className="seriesCard">
-      <div className="seriesCardMedia">
-        <div className={`seriesCardMediaFrame ${item.imageClassName}`}>
-          <Image
-            src={item.imageUrl}
-            alt={item.name}
-            width={1200}
-            height={900}
-            sizes="(max-width: 960px) 84vw, (max-width: 1180px) 32vw, 20vw"
-            className={`seriesCardImage ${item.imageClassName}`}
-          />
-        </div>
+    <Link
+      href={`/${locale}/products/${item.slug}`}
+      className={`seriesFeatureCard ${item.layoutClassName} ${isActive ? "isActive" : ""}`}
+      onMouseEnter={onActivate}
+      onFocus={onActivate}
+    >
+      <div className="seriesFeatureMedia">
+        <Image
+          src={item.imageUrl}
+          alt={item.name}
+          fill
+          sizes="(max-width: 960px) 100vw, 42vw"
+          className={`seriesFeatureImage ${item.imageClassName}`}
+        />
       </div>
-
-      <div className="seriesCardBody">
-        <div className="seriesCardText">
-          <strong>{item.name}</strong>
-          <span>{locale === "ko" ? item.taglineKo : item.taglineEn}</span>
+      <div className="seriesFeatureOverlay" />
+      <div className="seriesFeatureContent">
+        <span className="seriesFeatureName">{item.name}</span>
+        <strong className="seriesFeatureTitle">
+          {locale === "ko" ? item.taglineKo : item.taglineEn}
+        </strong>
+        <p className="seriesFeatureSummary">
+          {locale === "ko" ? item.summaryKo : item.summaryEn}
+        </p>
+        <div className="seriesFeatureKeywords">
+          {(locale === "ko" ? item.keywordsKo : item.keywordsEn).map((keyword) => (
+            <span key={keyword} className="seriesFeatureKeyword">
+              {keyword}
+            </span>
+          ))}
         </div>
-        <span className="seriesCardArrow" aria-hidden="true">
-          ↗
-        </span>
       </div>
     </Link>
   );

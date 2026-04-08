@@ -8,28 +8,28 @@ import type { Locale } from "@/lib/site";
 
 const productOverviewCopy = {
   "lum-b": {
-    title: "LUM-B Series",
+    title: "LUM-B",
     bodyEn:
       "A versatile RAW laser beam profiler for industrial and research applications. It supports a wide range of lasers (UV to IR) with selectable models based on wavelength and sensor configurations.",
     bodyKo:
       "산업 · 연구 현장에서 범용적으로 사용 가능한 RAW 레이저 빔 프로파일러이며, 파장대와 센서 구성에 따라 모델을 선택하여 다양한 레이저(UV~IR)에 대응할 수 있습니다.",
   },
   "lum-f": {
-    title: "LUM-F Series",
+    title: "LUM-F",
     bodyEn:
       "A micro spot measurement beam profiler featuring an all-in-one integrated design that covers the UV to IR spectrum.",
     bodyKo:
       "UV~IR 구간 측정을 ONE-BODY 통합 구조로 제공하는 Micro Spot Measurement 빔 프로파일러입니다.",
   },
   "lum-b-l": {
-    title: "LUM-B-L Series",
+    title: "LUM-B-L",
     bodyEn:
       "A large-area sensor-based beam profiler designed for large-diameter beam measurements. It is ideal for verifying the quality of expansive beams, including expanded beams, flat-top beams, and pre-scanning beams.",
     bodyKo:
       "대면적 센서 기반으로 대구경 · 대형 빔 측정을 지원하는 빔 프로파일러이며, 확장빔과 플랫탑빔, 스캐닝 전 빔 품질 검증에 적합합니다.",
   },
   "lum-z": {
-    title: "LUM-Z Series",
+    title: "LUM-Z",
     bodyEn:
       "A precision 3D beam profiling and analysis system designed for detailed spot size and depth-of-focus evaluation, supported by intuitive 2D and 3D profile viewers.",
     bodyKo:
@@ -95,7 +95,7 @@ export default async function ProductsPage({
                 <span className="productDirectoryNo">{String(index + 1).padStart(2, "0")}</span>
                 <h2 className="productShowcaseTitle">
                   {productOverviewCopy[product.slug as keyof typeof productOverviewCopy]?.title ??
-                    `${locale === "ko" ? product.nameKo : product.nameEn} Series`}
+                    `${locale === "ko" ? product.nameKo : product.nameEn}`}
                 </h2>
                 <p className="productShowcaseText">
                   {locale === "ko"
