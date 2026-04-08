@@ -1,4 +1,5 @@
 import { HomeSeriesOverview } from "@/components/home-series-overview";
+import { PatentSection } from "@/components/patent-section";
 import { Hero } from "@/components/hero";
 import { StoryHighlightCard } from "@/components/story-highlight-card";
 import { getProducts, getSiteConfig } from "@/lib/content";
@@ -94,25 +95,28 @@ export default async function HomePage({
               title: "레이저 빔 측정 장치",
               summary: "정밀 계측 기반의 빔 형상 분석과 공정 재현성 확보를 위한 핵심 구조 특허",
               date: "2024.05.21",
-              accent: true,
+              href: `/${locale}/contact/resources`,
             },
             {
               type: "Patent",
               title: "광학 신호 정렬 보정 기술",
               summary: "센서 정합성과 반복 측정 안정도를 높이기 위한 보정 로직 관련 출원 구조",
               date: "2024.01.18",
+              href: `/${locale}/contact/resources`,
             },
             {
               type: "Certification",
               title: "산업용 광학 모듈 인증",
               summary: "현장 적용성과 신뢰성 확보를 위한 성능 및 품질 검증 항목 정리",
               date: "2023.11.02",
+              href: `/${locale}/contact/resources`,
             },
             {
               type: "IP Portfolio",
               title: "정밀 광학 설계 자산화",
               summary: "핵심 공정 기술과 설계 노하우를 포트폴리오 형태로 축적하는 구조",
               date: "2023.08.14",
+              href: `/${locale}/contact/resources`,
             },
           ],
         }
@@ -126,25 +130,28 @@ export default async function HomePage({
               title: "Laser Beam Measurement Device",
               summary: "Core patent structure for beam-shape analysis and process repeatability in precision metrology",
               date: "2024.05.21",
-              accent: true,
+              href: `/${locale}/contact/resources`,
             },
             {
               type: "Patent",
               title: "Optical Signal Alignment Calibration",
               summary: "Filed structure focused on calibration logic for sensor alignment and stable repeated measurements",
               date: "2024.01.18",
+              href: `/${locale}/contact/resources`,
             },
             {
               type: "Certification",
               title: "Industrial Optical Module Certification",
               summary: "Structured around performance and quality verification for reliable field deployment",
               date: "2023.11.02",
+              href: `/${locale}/contact/resources`,
             },
             {
               type: "IP Portfolio",
               title: "Precision Optical Design Assets",
               summary: "A portfolio structure that accumulates key process know-how and optical design assets",
               date: "2023.08.14",
+              href: `/${locale}/contact/resources`,
             },
           ],
         };
@@ -187,33 +194,13 @@ export default async function HomePage({
         </div>
       </section>
 
-      <section className="patentSection">
-        <div className="container patentInner">
-          <div className="patentHead">
-            <div>
-              <h2 className="sectionTitle patentTitle">{patentSection.title}</h2>
-              <p className="sectionLead patentLead">{patentSection.lead}</p>
-            </div>
-            <a className="patentMoreLink" href={`/${locale}/contact/resources`}>
-              {patentSection.more}
-            </a>
-          </div>
-
-          <div className="patentGrid">
-            {patentSection.cards.map((item) => (
-              <article key={`${item.type}-${item.title}`} className={`patentCard ${item.accent ? "isAccent" : ""}`}>
-                <span className="patentCardType">{item.type}</span>
-                <h3 className="patentCardTitle">{item.title}</h3>
-                <p className="patentCardSummary">{item.summary}</p>
-                <div className="patentCardFoot">
-                  <span className="patentCardDate">{item.date}</span>
-                  <span className="patentCardIcon" aria-hidden="true" />
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PatentSection
+        title={patentSection.title}
+        lead={patentSection.lead}
+        moreLabel={patentSection.more}
+        moreHref={`/${locale}/contact/resources`}
+        cards={patentSection.cards}
+      />
 
       <HomeSeriesOverview
         locale={locale}
