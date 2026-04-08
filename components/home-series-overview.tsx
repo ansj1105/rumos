@@ -297,7 +297,9 @@ function SeriesFeatureCard({
         />
       </div>
       <div className="seriesFeatureOverlay" />
-      <div className="seriesFeatureContent">
+      <div
+        className={`seriesFeatureContent ${item.slug === "software" ? "isSoftware" : ""}`}
+      >
         <span className="seriesFeatureName">{item.name}</span>
         <strong className="seriesFeatureTitle">
           {locale === "ko" ? item.taglineKo : item.taglineEn}

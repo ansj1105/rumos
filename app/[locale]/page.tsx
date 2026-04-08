@@ -22,20 +22,9 @@ export default async function HomePage({
   const dict = getDictionary(locale);
   const [config, products] = await Promise.all([getSiteConfig(), getProducts()]);
   const brandOriginTitle =
-    locale === "ko" ? "Brand Origin : LUMOS" : "Brand Origin : LUMOS";
-  const legacyStoryTitles = new Set([
-    "산업 현장과 공정 목적에 맞춘 광학 설계",
-    "Optical engineering aligned with industrial processes",
-    "LUMOS 이름 어원",
-    "Origin of the name LUMOS",
-    "LUMOS : 브랜드 어원",
-    "The Origin of LUMOS",
-  ]);
-  const configuredStoryTitle = locale === "ko" ? config?.storyTitleKo : config?.storyTitleEn;
-  const storyTitle =
-    configuredStoryTitle && !legacyStoryTitles.has(configuredStoryTitle)
-      ? configuredStoryTitle
-      : brandOriginTitle;
+    locale === "ko" ? "브랜드 어원 : LUMOS" : "Brand Origin : LUMOS";
+  const storyDisplayLines =
+    locale === "ko" ? ["브랜드 어원 :", "루모스"] : ["Brand Origin :", "LUMOS"];
   const storySource = (locale === "ko" ? config?.storyBodyKo : config?.storyBodyEn) ?? dict.story.body;
   const storyParagraphs = storySource
     .split(/\n+/)
@@ -163,7 +152,10 @@ export default async function HomePage({
         <div className="container storyInner">
           <div className="storyLeadBlock">
             <h2 className="storyDisplayTitle">
-              {storyTitle}
+              <span className="storyDisplayTitleLine">{storyDisplayLines[0]}</span>
+              <span className="storyDisplayTitleLine storyDisplayTitleLineAccent">
+                {storyDisplayLines[1]}
+              </span>
             </h2>
           </div>
           <div className="storyContent">
