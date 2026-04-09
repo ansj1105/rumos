@@ -2234,6 +2234,10 @@ select {
   gap: 12px;
 }
 
+.patentMobilePager {
+  display: none;
+}
+
 .patentCard {
   display: grid;
   align-content: space-between;
@@ -2336,6 +2340,30 @@ select {
 
 .patentCard.isAccent .patentCardIcon {
   color: rgba(255, 255, 255, 0.8);
+}
+
+.patentMobilePagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.patentMobilePageButton {
+  min-width: 36px;
+  height: 36px;
+  padding: 0 10px;
+  border: 1px solid rgba(15, 34, 61, 0.14);
+  background: #ffffff;
+  color: #27415f;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.patentMobilePageButton.isActive {
+  border-color: #0d7d7e;
+  background: #0d7d7e;
+  color: #ffffff;
 }
 
 .homeSeriesSection {
@@ -4620,6 +4648,19 @@ td {
     min-height: 0;
   }
 
+  .patentGrid {
+    display: none;
+  }
+
+  .patentMobilePager {
+    display: grid;
+    gap: 16px;
+  }
+
+  .patentMobileViewport .patentCard {
+    min-height: 240px;
+  }
+
   .storyRelationSection {
     padding-bottom: 52px;
   }
@@ -4665,14 +4706,38 @@ td {
     letter-spacing: 0.14em;
   }
 
+  .storyHighlightGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
   .storyHighlightCard {
     aspect-ratio: 1 / 1;
     min-height: 0;
     padding: 0;
   }
 
+  .storyHighlightCardInner {
+    gap: 6px;
+    padding: 12px 8px 10px;
+  }
+
   .storyHighlightIcon {
     display: none;
+  }
+
+  .storyHighlightLabel {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+  }
+
+  .storyHighlightTitle {
+    font-size: 14px;
+  }
+
+  .storyHighlightBody {
+    font-size: 11px;
+    line-height: 1.45;
   }
 
   .homeSeriesSlide .seriesFeatureCard {
