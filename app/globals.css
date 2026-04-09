@@ -4062,20 +4062,44 @@ select {
 .resourceDetailBody {
   padding-top: 22px;
   max-width: 920px;
+  display: grid;
+  gap: 22px;
 }
 
 .resourceDetailContentMain .resourceDetailBody {
-  max-height: 360px;
-  overflow-y: auto;
-  padding-right: 8px;
+  max-width: 100%;
+}
+
+.resourcePreviewPanel {
+  width: 100%;
+  min-height: 620px;
+  border: 1px solid rgba(15, 34, 61, 0.08);
+  background: #f5f7fb;
+  overflow: hidden;
+}
+
+.resourcePreviewFrame {
+  display: block;
+  width: 100%;
+  height: 620px;
+  border: 0;
 }
 
 .resourceAttachmentBox {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 14px;
   padding-top: 20px;
   color: var(--muted);
+}
+
+.resourceAttachmentName {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.7;
+  color: var(--text);
+  word-break: break-all;
 }
 
 table {
@@ -4094,6 +4118,12 @@ td {
 @media (max-width: 960px) {
   :root {
     --subnav-sticky-top: 71px;
+  }
+
+  .resourcePreviewPanel,
+  .resourcePreviewFrame {
+    min-height: 460px;
+    height: 460px;
   }
 
   .headerInner {

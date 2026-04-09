@@ -55,6 +55,10 @@ export default async function ResourceDetailPage({
   const body = isKo ? resource.bodyKo : resource.bodyEn;
   const createdAtLabel = new Date(resource.createdAt).toLocaleDateString(isKo ? "ko-KR" : "en-US");
   const authorLabel = isKo ? "LUMOS" : "LUMOS";
+  const attachmentName = resource.fileUrl
+    ? decodeURIComponent(resource.fileUrl.split("/").pop() ?? resource.fileUrl)
+    : null;
+  const hasPdfPreview = resource.fileUrl?.toLowerCase().endsWith(".pdf") ?? false;
 
   return (
     <div className="resourcesPage">
@@ -91,6 +95,15 @@ export default async function ResourceDetailPage({
               <strong>{isKo ? "내용" : "Content"}</strong>
             </div>
             <div className="resourceDetailBody">
+              {hasPdfPreview ? (
+                <div className="resourcePreviewPanel">
+                  <iframe
+                    src={`${resource.fileUrl}#view=FitH`}
+                    title={attachmentName ?? title}
+                    className="resourcePreviewFrame"
+                  />
+                </div>
+              ) : null}
               <p style={{ margin: 0, lineHeight: 1.9 }}>{body}</p>
             </div>
           </section>
@@ -101,9 +114,12 @@ export default async function ResourceDetailPage({
             </div>
             <div className="resourceAttachmentBox">
               {resource.fileUrl ? (
-                <a href={resource.fileUrl} target="_blank" rel="noreferrer" className="button secondary">
-                  {isKo ? "파일 다운로드" : "Download File"}
-                </a>
+                <>
+                  <strong className="resourceAttachmentName">{attachmentName}</strong>
+                  <a href={resource.fileUrl} target="_blank" rel="noreferrer" className="button secondary">
+                    {isKo ? "파일 다운로드" : "Download File"}
+                  </a>
+                </>
               ) : (
                 <span>{isKo ? "첨부된 파일이 없습니다." : "No file attached."}</span>
               )}
