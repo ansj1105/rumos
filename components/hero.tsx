@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import { FadeImage } from "@/components/fade-image";
 import { getDictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/site";
@@ -45,9 +43,14 @@ export function Hero({ locale, heroImageUrl }: HeroProps) {
             </div>
           </div>
           <div className="buttonRow heroButtonRow">
-            <Link href={`/${locale}#storySection`} className="button secondary heroDetailButton">
+            <a
+              href="https://www.shinhotek.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="button secondary heroDetailButton"
+            >
               {dict.hero.ctaDetail}
-            </Link>
+            </a>
           </div>
         </div>
 
