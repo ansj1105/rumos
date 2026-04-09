@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type PatentCardItem = {
   type: string;
@@ -27,6 +27,17 @@ export function PatentSection({
 }: PatentSectionProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [mobilePage, setMobilePage] = useState(0);
+  const [isMobilePager, setIsMobilePager] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 720px)");
+    const syncViewport = () => setIsMobilePager(mediaQuery.matches);
+
+    syncViewport();
+    mediaQuery.addEventListener("change", syncViewport);
+
+    return () => mediaQuery.removeEventListener("change", syncViewport);
+  }, []);
 
   const renderCard = (item: PatentCardItem, index: number) => {
     const isActive = index === activeIndex;
@@ -65,27 +76,29 @@ export function PatentSection({
           </a>
         </div>
 
-        <div className="patentGrid">
-          {cards.map((item, index) => renderCard(item, index))}
-        </div>
-
-        <div className="patentMobilePager">
-          <div className="patentMobileViewport">{cards[mobilePage] ? renderCard(cards[mobilePage], mobilePage) : null}</div>
-          <div className="patentMobilePagination" aria-label="Patent pages">
-            {cards.map((item, index) => (
-              <button
-                key={`${item.type}-${index}`}
-                type="button"
-                className={`patentMobilePageButton ${index === mobilePage ? "isActive" : ""}`}
-                onClick={() => setMobilePage(index)}
-                aria-pressed={index === mobilePage}
-                aria-label={`Page ${index + 1}`}
-              >
-                {index + 1}
-              </button>
-            ))}
+        {isMobilePager ? (
+          <div className="patentMobilePager">
+            <div className="patentMobileViewport">{cards[mobilePage] ? renderCard(cards[mobilePage], mobilePage) : null}</div>
+            <div className="patentMobilePagination" aria-label="Patent pages">
+              {cards.map((item, index) => (
+                <button
+                  key={`${item.type}-${index}`}
+                  type="button"
+                  className={`patentMobilePageButton ${index === mobilePage ? "isActive" : ""}`}
+                  onClick={() => setMobilePage(index)}
+                  aria-pressed={index === mobilePage}
+                  aria-label={`Page ${index + 1}`}
+                >
+                  {index + 1}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="patentGrid">
+            {cards.map((item, index) => renderCard(item, index))}
+          </div>
+        )}
       </div>
     </section>
   );
