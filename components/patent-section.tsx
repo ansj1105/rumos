@@ -25,7 +25,7 @@ export function PatentSection({
   moreHref,
   cards,
 }: PatentSectionProps) {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
     <section className="patentSection">
@@ -50,9 +50,9 @@ export function PatentSection({
                 href={item.href ?? moreHref}
                 className={`patentCard ${isActive ? "isAccent" : ""}`}
                 onMouseEnter={() => setActiveIndex(index)}
-                onMouseLeave={() => setActiveIndex(0)}
+                onMouseLeave={() => setActiveIndex(null)}
                 onFocus={() => setActiveIndex(index)}
-                onBlur={() => setActiveIndex(0)}
+                onBlur={() => setActiveIndex(null)}
               >
                 <span className="patentCardType">{item.type}</span>
                 <h3 className="patentCardTitle">{item.title}</h3>
