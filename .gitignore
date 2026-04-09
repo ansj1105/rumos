@@ -6,3 +6,17 @@ dist
 coverage
 prisma/dev.db
 *.log
+.DS_Store
+docs/
+logo/
+Untitled
+public/Untitled
+KakaoTalk_Video_2026-04-08-16-54-15.mp4
+dsada.jpg
+photo_2026-04-03 16.52.12.jpeg
+public/lumos-logo copy.png
+public/products/lum-b/spec-table-reference.png
+public/subpage-lum-b-bg2.png
+public/subpage-lum-b-l-bg2.png
+public/subpage-lum-f-bg2.png
+public/subpage-lum-z-bg2.png
