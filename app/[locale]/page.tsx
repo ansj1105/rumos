@@ -81,31 +81,45 @@ export default async function HomePage({
           cards: [
             {
               type: "Patent",
-              title: "레이저 빔 측정 장치",
-              summary: "정밀 계측 기반의 빔 형상 분석과 공정 재현성 확보를 위한 핵심 구조 특허",
-              date: "2024.05.21",
-              href: `/${locale}/contact/resources`,
+              title: "레이저 광학 시스템",
+              summary: "광학 경로 구성과 정밀 계측 시스템 구현에 관한 핵심 특허 문서",
+              date: "10-2932994",
+              href: `/${locale}/contact/resources/patent-10-2932994-laser-optical-system`,
             },
             {
               type: "Patent",
-              title: "광학 신호 정렬 보정 기술",
-              summary: "센서 정합성과 반복 측정 안정도를 높이기 위한 보정 로직 관련 출원 구조",
-              date: "2024.01.18",
-              href: `/${locale}/contact/resources`,
+              title: "레이저 빔 성형장치",
+              summary: "빔 프로파일 제어와 공정 정밀도 향상에 관한 특허 문서",
+              date: "10-2946121",
+              href: `/${locale}/contact/resources/patent-10-2946121-laser-beam-shaping-device`,
+            },
+            {
+              type: "Patent",
+              title: "레이저 광학장치",
+              summary: "광학 안정성과 레이저 계측 구조를 다루는 특허 문서",
+              date: "10-2948666",
+              href: `/${locale}/contact/resources/patent-10-2948666-laser-optical-device`,
             },
             {
               type: "Certification",
-              title: "산업용 광학 모듈 인증",
-              summary: "현장 적용성과 신뢰성 확보를 위한 성능 및 품질 검증 항목 정리",
-              date: "2023.11.02",
-              href: `/${locale}/contact/resources`,
+              title: "기술인증증빙",
+              summary: "특허 10-2077732호 및 10-2243189호 관련 인증 증빙 문서",
+              date: "Certification",
+              href: `/${locale}/contact/resources/cert-10-2077732-10-2243189`,
             },
             {
-              type: "IP Portfolio",
-              title: "정밀 광학 설계 자산화",
-              summary: "핵심 공정 기술과 설계 노하우를 포트폴리오 형태로 축적하는 구조",
-              date: "2023.08.14",
-              href: `/${locale}/contact/resources`,
+              type: "Patent",
+              title: "레이저가공장치",
+              summary: "레이저 기반 가공 공정 및 장비 구현 구조에 관한 특허 문서",
+              date: "10-2077732",
+              href: `/${locale}/contact/resources/patent-10-2077732-laser-processing-device`,
+            },
+            {
+              type: "Patent",
+              title: "진공빔프로파일링장치",
+              summary: "진공 환경에서의 빔 특성 측정과 분석을 위한 특허 문서",
+              date: "10-2243189",
+              href: `/${locale}/contact/resources/patent-10-2243189-vacuum-beam-profiling-device`,
             },
           ],
         }
@@ -116,31 +130,45 @@ export default async function HomePage({
           cards: [
             {
               type: "Patent",
-              title: "Laser Beam Measurement Device",
-              summary: "Core patent structure for beam-shape analysis and process repeatability in precision metrology",
-              date: "2024.05.21",
-              href: `/${locale}/contact/resources`,
+              title: "Laser Optical System",
+              summary: "Core patent document covering optical path configuration and precision metrology system design",
+              date: "10-2932994",
+              href: `/${locale}/contact/resources/patent-10-2932994-laser-optical-system`,
             },
             {
               type: "Patent",
-              title: "Optical Signal Alignment Calibration",
-              summary: "Filed structure focused on calibration logic for sensor alignment and stable repeated measurements",
-              date: "2024.01.18",
-              href: `/${locale}/contact/resources`,
+              title: "Laser Beam Shaping Device",
+              summary: "Patent document for beam profile control and improved process precision",
+              date: "10-2946121",
+              href: `/${locale}/contact/resources/patent-10-2946121-laser-beam-shaping-device`,
+            },
+            {
+              type: "Patent",
+              title: "Laser Optical Device",
+              summary: "Patent document covering laser optical device architecture and measurement stability",
+              date: "10-2948666",
+              href: `/${locale}/contact/resources/patent-10-2948666-laser-optical-device`,
             },
             {
               type: "Certification",
-              title: "Industrial Optical Module Certification",
-              summary: "Structured around performance and quality verification for reliable field deployment",
-              date: "2023.11.02",
-              href: `/${locale}/contact/resources`,
+              title: "Technical Certification",
+              summary: "Supporting certification document for patents 10-2077732 and 10-2243189",
+              date: "Certification",
+              href: `/${locale}/contact/resources/cert-10-2077732-10-2243189`,
             },
             {
-              type: "IP Portfolio",
-              title: "Precision Optical Design Assets",
-              summary: "A portfolio structure that accumulates key process know-how and optical design assets",
-              date: "2023.08.14",
-              href: `/${locale}/contact/resources`,
+              type: "Patent",
+              title: "Laser Processing Device",
+              summary: "Patent document for laser-based processing equipment structure",
+              date: "10-2077732",
+              href: `/${locale}/contact/resources/patent-10-2077732-laser-processing-device`,
+            },
+            {
+              type: "Patent",
+              title: "Vacuum Beam Profiling Device",
+              summary: "Patent document for beam measurement and profile analysis in vacuum environments",
+              date: "10-2243189",
+              href: `/${locale}/contact/resources/patent-10-2243189-vacuum-beam-profiling-device`,
             },
           ],
         };
@@ -186,19 +214,19 @@ export default async function HomePage({
         </div>
       </section>
 
+      <HomeSeriesOverview
+        locale={locale}
+        title={locale === "ko" ? config?.seriesTitleKo : config?.seriesTitleEn}
+        lead={locale === "ko" ? config?.seriesLeadKo : config?.seriesLeadEn}
+        products={products}
+      />
+
       <PatentSection
         title={patentSection.title}
         lead={patentSection.lead}
         moreLabel={patentSection.more}
         moreHref={`/${locale}/contact/resources`}
         cards={patentSection.cards}
-      />
-
-      <HomeSeriesOverview
-        locale={locale}
-        title={locale === "ko" ? config?.seriesTitleKo : config?.seriesTitleEn}
-        lead={locale === "ko" ? config?.seriesLeadKo : config?.seriesLeadEn}
-        products={products}
       />
     </>
   );

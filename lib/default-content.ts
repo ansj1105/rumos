@@ -201,6 +201,84 @@ export const defaultResources = [
       "The resource detail page provides document descriptions, file links, and publish timestamps.",
     fileUrl: null,
   },
+  {
+    slug: "patent-10-2932994-laser-optical-system",
+    displayIndex: 2,
+    titleKo: "[특허증] 10-2932994 레이저 광학 시스템",
+    titleEn: "[Patent] 10-2932994 Laser Optical System",
+    excerptKo: "레이저 광학 시스템 관련 특허 문서입니다.",
+    excerptEn: "Patent document for a laser optical system.",
+    bodyKo:
+      "LUMOS의 광학 설계 및 계측 시스템 역량과 연계된 레이저 광학 시스템 특허 문서입니다.",
+    bodyEn:
+      "This patent document covers a laser optical system related to the optical design and metrology capabilities behind LUMOS.",
+    fileUrl: "/uploads/resources/patent-10-2932994-laser-optical-system.pdf",
+  },
+  {
+    slug: "patent-10-2946121-laser-beam-shaping-device",
+    displayIndex: 3,
+    titleKo: "[특허증] 10-2946121 레이저 빔 성형장치",
+    titleEn: "[Patent] 10-2946121 Laser Beam Shaping Device",
+    excerptKo: "레이저 빔 성형장치 관련 특허 문서입니다.",
+    excerptEn: "Patent document for a laser beam shaping device.",
+    bodyKo:
+      "빔 프로파일 제어와 공정 정밀도 향상을 위한 레이저 빔 성형장치 특허 문서입니다.",
+    bodyEn:
+      "This patent document covers a laser beam shaping device for beam profile control and improved process precision.",
+    fileUrl: "/uploads/resources/patent-10-2946121-laser-beam-shaping-device.pdf",
+  },
+  {
+    slug: "patent-10-2948666-laser-optical-device",
+    displayIndex: 4,
+    titleKo: "[특허증] 10-2948666 레이저 광학장치",
+    titleEn: "[Patent] 10-2948666 Laser Optical Device",
+    excerptKo: "레이저 광학장치 관련 특허 문서입니다.",
+    excerptEn: "Patent document for a laser optical device.",
+    bodyKo:
+      "광학 경로 구성과 계측 안정성 확보를 위한 레이저 광학장치 특허 문서입니다.",
+    bodyEn:
+      "This patent document covers a laser optical device for optical path configuration and measurement stability.",
+    fileUrl: "/uploads/resources/patent-10-2948666-laser-optical-device.pdf",
+  },
+  {
+    slug: "cert-10-2077732-10-2243189",
+    displayIndex: 5,
+    titleKo: "[기술인증증빙] 특허증 10-2077732호 10-2243189호",
+    titleEn: "[Technical Certification] Patent 10-2077732 and 10-2243189",
+    excerptKo: "관련 특허 인증 증빙 문서입니다.",
+    excerptEn: "Supporting certification document for related patents.",
+    bodyKo:
+      "레이저 가공장치 및 진공빔 프로파일링장치 특허와 연계된 기술 인증 증빙 문서입니다.",
+    bodyEn:
+      "This certification document supports the related patents for the laser processing device and vacuum beam profiling device.",
+    fileUrl: "/uploads/resources/cert-10-2077732-10-2243189.pdf",
+  },
+  {
+    slug: "patent-10-2077732-laser-processing-device",
+    displayIndex: 6,
+    titleKo: "[특허증] 10-2077732호 레이저가공장치",
+    titleEn: "[Patent] 10-2077732 Laser Processing Device",
+    excerptKo: "레이저가공장치 관련 특허 문서입니다.",
+    excerptEn: "Patent document for a laser processing device.",
+    bodyKo:
+      "레이저 기반 가공 공정과 장비 구현 구조를 다루는 레이저가공장치 특허 문서입니다.",
+    bodyEn:
+      "This patent document covers a laser processing device for laser-based manufacturing process and equipment implementation.",
+    fileUrl: "/uploads/resources/patent-10-2077732-laser-processing-device.pdf",
+  },
+  {
+    slug: "patent-10-2243189-vacuum-beam-profiling-device",
+    displayIndex: 7,
+    titleKo: "[특허증] 10-2243189호 진공빔프로파일링장치",
+    titleEn: "[Patent] 10-2243189 Vacuum Beam Profiling Device",
+    excerptKo: "진공빔프로파일링장치 관련 특허 문서입니다.",
+    excerptEn: "Patent document for a vacuum beam profiling device.",
+    bodyKo:
+      "진공 환경에서의 빔 특성 측정과 프로파일 분석을 위한 특허 문서입니다.",
+    bodyEn:
+      "This patent document covers beam characteristic measurement and profile analysis in a vacuum environment.",
+    fileUrl: "/uploads/resources/patent-10-2243189-vacuum-beam-profiling-device.pdf",
+  },
 ] as const;
 
 export const defaultPageHeroConfigs = [

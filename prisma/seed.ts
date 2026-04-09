@@ -52,7 +52,9 @@ async function main() {
   for (const resource of defaultResources) {
     await prisma.resource.upsert({
       where: { slug: resource.slug },
-      update: {},
+      update: {
+        ...resource,
+      },
       create: {
         ...resource,
       },
