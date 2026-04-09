@@ -64,7 +64,7 @@ export default async function ResourceDetailPage({
     <div className="resourcesPage">
       <SubpageHero
         eyebrow={isKo ? "자료 상세" : "Resource Detail"}
-        title={title}
+        title={isKo ? "자료실" : "Resources"}
         description={excerpt}
         tone="resources"
         backgroundImageUrl="/subpage-contact-bg.png"
