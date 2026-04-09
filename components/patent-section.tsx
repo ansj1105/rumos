@@ -50,8 +50,9 @@ export function PatentSection({
                 href={item.href ?? moreHref}
                 className={`patentCard ${isActive ? "isAccent" : ""}`}
                 onMouseEnter={() => setActiveIndex(index)}
+                onMouseLeave={() => setActiveIndex(0)}
                 onFocus={() => setActiveIndex(index)}
-                onClick={() => setActiveIndex(index)}
+                onBlur={() => setActiveIndex(0)}
               >
                 <span className="patentCardType">{item.type}</span>
                 <h3 className="patentCardTitle">{item.title}</h3>
