@@ -4668,7 +4668,9 @@ td {
   }
 
   .homeSeriesSection {
+    margin-top: -1px;
     padding: 54px 0 60px;
+    border-top: 0;
   }
 
   .homeSeriesInner {
