@@ -4711,17 +4711,21 @@ td {
   .storyHighlightGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 8px;
+    align-items: stretch;
   }
 
   .storyHighlightCard {
     aspect-ratio: 1 / 1;
+    display: block;
     min-height: 0;
     padding: 0;
   }
 
   .storyHighlightCardInner {
+    height: 100%;
+    align-content: center;
     gap: 6px;
-    padding: 12px 8px 10px;
+    padding: 10px 7px;
   }
 
   .storyHighlightIcon {
@@ -4734,12 +4738,17 @@ td {
   }
 
   .storyHighlightTitle {
-    font-size: 14px;
+    display: none;
   }
 
   .storyHighlightBody {
-    font-size: 11px;
-    line-height: 1.45;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    font-size: 10px;
+    line-height: 1.35;
+    word-break: keep-all;
   }
 
   .homeSeriesSlide .seriesFeatureCard {
