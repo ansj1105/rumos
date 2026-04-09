@@ -4735,8 +4735,13 @@ td {
   }
 
   .storyHighlightLabel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 18px;
     font-size: 9px;
     letter-spacing: 0.1em;
+    line-height: 1;
   }
 
   .storyHighlightTitle {
