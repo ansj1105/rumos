@@ -375,6 +375,21 @@ export async function saveApplication(formData: FormData) {
   revalidateAdminPages();
 }
 
+export async function deleteApplication(formData: FormData) {
+  const id = Number(formData.get("id") ?? 0);
+
+  if (!id) {
+    return;
+  }
+
+  await prisma.application.delete({
+    where: { id },
+  });
+
+  revalidatePublicPages();
+  revalidateAdminPages();
+}
+
 export async function savePageHeroConfig(formData: FormData) {
   const pageKey = String(formData.get("pageKey") ?? "").trim();
 

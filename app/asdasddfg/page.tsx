@@ -25,7 +25,6 @@ export default async function AdminLoginPage({
         <div className="adminLoginHead">
           <span className="eyebrow">Admin</span>
           <h1>Lumos 관리자 로그인</h1>
-          <p>관리자 콘텐츠와 문의 대응을 위해 로그인하세요.</p>
         </div>
         <form action={loginAdmin} className="adminLoginForm">
           <label className="field">

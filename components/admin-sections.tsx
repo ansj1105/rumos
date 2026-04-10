@@ -8,6 +8,7 @@ import {
 import { AdminApplicationsTabs } from "@/components/admin-applications-tabs";
 import { AdminHomeTabs } from "@/components/admin-home-tabs";
 import { AdminInquiriesTabs } from "@/components/admin-inquiries-tabs";
+import { AdminPageHeroTabs } from "@/components/admin-page-hero-tabs";
 import { AdminProductsTabs } from "@/components/admin-products-tabs";
 import { AdminResourcesTabs } from "@/components/admin-resources-tabs";
 
@@ -186,4 +187,46 @@ export function InquiriesAdminSection({
   }>;
 }) {
   return <AdminInquiriesTabs inquiries={inquiries} />;
+}
+
+export function ContactAdminSection({
+  pageHeroConfigs,
+}: {
+  pageHeroConfigs: Array<{
+    id: number;
+    pageKey: string;
+    eyebrowKo: string;
+    eyebrowEn: string;
+    titleKo: string;
+    titleEn: string;
+    descriptionKo: string;
+    descriptionEn: string;
+    backgroundImageUrl: string | null;
+    backgroundOpacity: number;
+  }>;
+}) {
+  const contactHeroConfigs = pageHeroConfigs.filter((config) => config.pageKey.startsWith("contact-"));
+
+  return (
+    <div className="lumosAdminStack">
+      <AdminSectionCard
+        title="Contact Us 콘텐츠 관리"
+        description="문의함과 분리해 Contact Us 공개 페이지의 히어로와 진입 구성을 관리합니다."
+      >
+        <div className="lumosAdminEmptyState">
+          <strong>현재 1차 리팩토링 범위</strong>
+          <p>
+            이번 단계에서는 Contact 하위 페이지의 공개 히어로를 이 메뉴로 분리했습니다. 다음 단계에서
+            quote, distributors, directions 본문 섹션을 관리자 편집형으로 확장합니다.
+          </p>
+        </div>
+      </AdminSectionCard>
+      <AdminSectionCard
+        title="Contact Subpage Hero"
+        description="Quote, Distributors, Directions, Resources 상단 비주얼과 카피를 조정합니다."
+      >
+        <AdminPageHeroTabs pageHeroConfigs={contactHeroConfigs} />
+      </AdminSectionCard>
+    </div>
+  );
 }

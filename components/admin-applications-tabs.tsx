@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 
-import { saveApplication } from "@/app/admin/actions";
+import { deleteApplication, saveApplication } from "@/app/admin/actions";
 import { siteUrl } from "@/lib/site";
 
 type ApplicationItem = {
@@ -236,14 +236,28 @@ export function AdminApplicationsTabs({
               <span>노출</span>
             </label>
             <div className="lumosAdminActionRow">
-              <a
-                href={`${siteUrl}/ko/applications#${activeApplication.slug}`}
-                target="_blank"
-                rel="noreferrer"
-                className="lumosAdminGhostButton"
-              >
-                프론트 미리보기
-              </a>
+              <div className="lumosAdminActionRowEnd">
+                <a
+                  href={`${siteUrl}/ko/applications#${activeApplication.slug}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="lumosAdminGhostButton"
+                >
+                  프론트 미리보기
+                </a>
+                <button
+                  type="submit"
+                  formAction={deleteApplication}
+                  className="lumosAdminDangerButton"
+                  onClick={(event) => {
+                    if (!window.confirm("이 Application을 삭제할까요?")) {
+                      event.preventDefault();
+                    }
+                  }}
+                >
+                  Application 삭제
+                </button>
+              </div>
               <button type="submit" className="lumosAdminPrimaryButton">
                 Application 저장
               </button>

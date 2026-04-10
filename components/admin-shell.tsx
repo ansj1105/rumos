@@ -10,7 +10,7 @@ type AdminMenuChild = {
   href: string;
   label: string;
   meta: string;
-  icon: "home" | "apps" | "box" | "docs" | "mail" | "settings";
+  icon: "home" | "apps" | "box" | "docs" | "mail" | "settings" | "contact";
 };
 
 type AdminMenuGroup = {
@@ -27,6 +27,7 @@ const adminMenu: AdminMenuGroup[] = [
       { href: "/asdasddfg/admin/home", label: "메인 설정", meta: "Hero / Story / SEO", icon: "home" },
       { href: "/asdasddfg/admin/applications", label: "Applications", meta: "소개 / 정렬 / 노출", icon: "apps" },
       { href: "/asdasddfg/admin/products", label: "Products", meta: "목록 / 상세 / SEO", icon: "box" },
+      { href: "/asdasddfg/admin/contact", label: "Contact Us", meta: "Quote / Directions / Hero", icon: "contact" },
       { href: "/asdasddfg/admin/resources", label: "자료실", meta: "CRUD / 순번 / 파일 링크", icon: "docs" },
     ],
   },
@@ -99,6 +100,14 @@ function AdminNavIcon({ type }: { type: AdminMenuChild["icon"] }) {
           <path d="m5 7 7 5 7-5" />
         </svg>
       );
+    case "contact":
+      return (
+        <svg {...common}>
+          <path d="M4 7.5A2.5 2.5 0 0 1 6.5 5h11A2.5 2.5 0 0 1 20 7.5v9a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 16.5z" />
+          <path d="M7.5 9.5h9" />
+          <path d="M7.5 13h5" />
+        </svg>
+      );
     case "settings":
       return (
         <svg {...common}>
@@ -169,13 +178,21 @@ export function AdminShell({
   todayVisitors?: number;
 }) {
   const pathname = usePathname();
-  const currentRoute = pathname?.replace("/asdasddfg/admin/", "") || "home";
   const currentGroup =
     adminMenu.find((group) => group.children.some((item) => item.href === pathname)) ?? adminMenu[0];
   const currentPage =
     currentGroup.children.find((item) => item.href === pathname) ?? currentGroup.children[0];
+  const previewMap: Record<string, { href: string; label: string }> = {
+    "/asdasddfg/admin/home": { href: "/ko", label: "메인 미리보기" },
+    "/asdasddfg/admin/applications": { href: "/ko/applications", label: "Applications 미리보기" },
+    "/asdasddfg/admin/products": { href: "/ko/products", label: "Products 미리보기" },
+    "/asdasddfg/admin/contact": { href: "/ko/contact/quote", label: "Contact Us 미리보기" },
+    "/asdasddfg/admin/resources": { href: "/ko/contact/resources", label: "자료실 미리보기" },
+    "/asdasddfg/admin/inquiries": { href: "/ko/contact/quote", label: "문의 페이지 보기" },
+  };
+  const previewTarget = pathname ? previewMap[pathname] : null;
   const [collapsed, setCollapsed] = useState(false);
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [theme, setTheme] = useState<"dark" | "light">("light");
 
   useEffect(() => {
     const savedTheme = window.localStorage.getItem("lumos-admin-theme");
@@ -269,23 +286,25 @@ export function AdminShell({
               <span>Today Visitors</span>
               <strong>{todayVisitors ?? 0}</strong>
             </div>
-            <div className="lumosAdminStatItem">
-              <span>Alerts</span>
-              <strong>{pendingInquiries ?? 0}</strong>
-            </div>
-            <div className="lumosAdminStatItem">
-              <span>Theme</span>
-              <strong>{theme === "dark" ? "Dark" : "Light"}</strong>
-            </div>
-            <div className="lumosAdminStatItem">
-              <span>Route</span>
-              <strong>{currentRoute}</strong>
-            </div>
           </div>
           <div className="lumosAdminHeaderActions">
-            <div className="lumosAdminInquiryBadge" aria-hidden="true">
-              {pendingInquiries ?? 0}
+            <div className="lumosAdminInquiryBadge" aria-label={`미응답 문의 ${pendingInquiries ?? 0}건`}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M6 8a6 6 0 1 1 12 0c0 5 2 6 2 6H4s2-1 2-6" />
+                <path d="M10 18a2 2 0 0 0 4 0" />
+              </svg>
+              <strong>{pendingInquiries ?? 0}</strong>
             </div>
+            {previewTarget ? (
+              <Link
+                href={previewTarget.href}
+                className="lumosAdminGhostButton"
+                target="_blank"
+                title={previewTarget.label}
+              >
+                {previewTarget.label}
+              </Link>
+            ) : null}
             <Link href="/ko" className="lumosAdminGhostIconButton" target="_blank" title="사이트 보기" aria-label="사이트 보기">
               <AdminHeaderActionIcon type="site" />
             </Link>
@@ -326,10 +345,22 @@ export function AdminShell({
                 <h2>{currentPage.label}</h2>
                 <p>{description || title}</p>
               </div>
-              <div className="lumosAdminPageTags">
-                {currentPage.meta.split("/").map((item) => (
-                  <span key={item.trim()}>{item.trim()}</span>
-                ))}
+              <div className="lumosAdminPageAside">
+                <div className="lumosAdminPageTags">
+                  {currentPage.meta.split("/").map((item) => (
+                    <span key={item.trim()}>{item.trim()}</span>
+                  ))}
+                </div>
+                {previewTarget ? (
+                  <Link
+                    href={previewTarget.href}
+                    className="lumosAdminPrimaryButton"
+                    target="_blank"
+                    title={previewTarget.label}
+                  >
+                    {previewTarget.label}
+                  </Link>
+                ) : null}
               </div>
             </div>
           </section>
