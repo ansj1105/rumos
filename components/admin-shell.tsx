@@ -192,7 +192,9 @@ export function AdminShell({
   };
   const previewTarget = pathname ? previewMap[pathname] : null;
   const [collapsed, setCollapsed] = useState(false);
+  const [showNotifications, setShowNotifications] = useState(false);
   const [theme, setTheme] = useState<"dark" | "light">("light");
+  const unresolvedInquiryCount = pendingInquiries ?? 0;
 
   useEffect(() => {
     const savedTheme = window.localStorage.getItem("lumos-admin-theme");
@@ -288,13 +290,23 @@ export function AdminShell({
             </div>
           </div>
           <div className="lumosAdminHeaderActions">
-            <div className="lumosAdminInquiryBadge" aria-label={`미응답 문의 ${pendingInquiries ?? 0}건`}>
+            <button
+              type="button"
+              className="lumosAdminGhostIconButton lumosAdminNotificationButton"
+              aria-label={unresolvedInquiryCount > 0 ? `알림 ${unresolvedInquiryCount}건` : "알림"}
+              title={unresolvedInquiryCount > 0 ? `알림 ${unresolvedInquiryCount}건` : "알림"}
+              onClick={() => setShowNotifications(true)}
+            >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M6 8a6 6 0 1 1 12 0c0 5 2 6 2 6H4s2-1 2-6" />
                 <path d="M10 18a2 2 0 0 0 4 0" />
               </svg>
-              <strong>{pendingInquiries ?? 0}</strong>
-            </div>
+              {unresolvedInquiryCount > 0 ? (
+                <span className="lumosAdminNotificationBadge" aria-hidden="true">
+                  {unresolvedInquiryCount > 9 ? "9+" : unresolvedInquiryCount}
+                </span>
+              ) : null}
+            </button>
             {previewTarget ? (
               <Link
                 href={previewTarget.href}
@@ -367,6 +379,60 @@ export function AdminShell({
           {children}
         </main>
       </div>
+      {showNotifications ? (
+        <div
+          className="lumosAdminModalBackdrop"
+          role="presentation"
+          onClick={() => setShowNotifications(false)}
+        >
+          <section
+            className="lumosAdminModal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="lumos-admin-notification-title"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="lumosAdminModalHead">
+              <div>
+                <span className="lumosAdminPageEyebrow">Notifications</span>
+                <h2 id="lumos-admin-notification-title">알림</h2>
+              </div>
+              <button
+                type="button"
+                className="lumosAdminGhostIconButton"
+                onClick={() => setShowNotifications(false)}
+                aria-label="알림 닫기"
+              >
+                ×
+              </button>
+            </div>
+            <div className="lumosAdminModalBody">
+              {unresolvedInquiryCount > 0 ? (
+                <div className="lumosAdminNotificationList">
+                  <div className="lumosAdminNotificationItem isAlert">
+                    <div className="lumosAdminNotificationCopy">
+                      <strong>미응답 문의</strong>
+                      <p>{`현재 확인이 필요한 문의가 ${unresolvedInquiryCount}건 있습니다.`}</p>
+                    </div>
+                    <Link
+                      href="/asdasddfg/admin/inquiries"
+                      className="lumosAdminPrimaryButton"
+                      onClick={() => setShowNotifications(false)}
+                    >
+                      문의 관리 보기
+                    </Link>
+                  </div>
+                </div>
+              ) : (
+                <div className="lumosAdminEmptyState">
+                  <strong>새 알림이 없습니다.</strong>
+                  <p>미응답 문의나 운영 알림이 생기면 이곳에서 바로 확인할 수 있습니다.</p>
+                </div>
+              )}
+            </div>
+          </section>
+        </div>
+      ) : null}
     </div>
   );
 }

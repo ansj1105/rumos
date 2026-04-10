@@ -178,7 +178,7 @@ export function AdminApplicationsTabs({
               </div>
               <div className="lumosAdminClientPreviewFrame">
                 <iframe
-                  src={`${siteUrl}/ko/applications#${activeApplication.slug}`}
+                  src={`/ko/applications#${activeApplication.slug}`}
                   title={`${activeApplication.titleKo} preview`}
                   loading="lazy"
                   scrolling="no"

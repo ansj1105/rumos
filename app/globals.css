@@ -968,25 +968,94 @@ select {
   height: 18px;
 }
 
-.lumosAdminInquiryBadge {
-  min-width: 52px;
-  width: auto;
-  gap: 6px;
-  padding: 0 12px;
+.lumosAdminNotificationButton {
+  position: relative;
+}
+
+.lumosAdminNotificationBadge {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--admin-accent) 35%, transparent);
-  background: color-mix(in srgb, var(--admin-accent) 18%, transparent);
-  color: color-mix(in srgb, var(--admin-accent) 70%, #fff);
-}
-
-.lumosAdminInquiryBadge svg {
-  width: 16px;
-  height: 16px;
-}
-
-.lumosAdminInquiryBadge strong {
-  font-size: 13px;
+  background: #d93025;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
   line-height: 1;
+  box-shadow: 0 0 0 2px var(--admin-surface);
+}
+
+.lumosAdminModalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.28);
+}
+
+.lumosAdminModal {
+  width: min(520px, 100%);
+  border: 1px solid var(--admin-border);
+  background: var(--admin-surface);
+  box-shadow: 0 24px 64px rgba(15, 23, 42, 0.16);
+}
+
+.lumosAdminModalHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 22px 18px;
+  border-bottom: 1px solid var(--admin-border);
+}
+
+.lumosAdminModalHead h2 {
+  margin: 8px 0 0;
+  font-size: 24px;
+}
+
+.lumosAdminModalBody {
+  padding: 22px;
+}
+
+.lumosAdminNotificationList {
+  display: grid;
+  gap: 14px;
+}
+
+.lumosAdminNotificationItem {
+  display: grid;
+  gap: 16px;
+  padding: 18px;
+  border: 1px solid var(--admin-border);
+  background: #ffffff;
+}
+
+.lumosAdminNotificationItem.isAlert {
+  border-left: 3px solid #d93025;
+}
+
+.lumosAdminNotificationCopy {
+  display: grid;
+  gap: 8px;
+}
+
+.lumosAdminNotificationCopy strong {
+  font-size: 16px;
+}
+
+.lumosAdminNotificationCopy p {
+  margin: 0;
+  color: var(--admin-muted);
+  line-height: 1.6;
 }
 
 .lumosAdminContent {

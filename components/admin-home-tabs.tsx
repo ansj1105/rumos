@@ -114,7 +114,7 @@ export function AdminHomeTabs({
               </div>
               <div className="lumosAdminClientPreviewFrame">
                 <iframe
-                  src={`${siteUrl}/ko`}
+                  src="/ko"
                   title="home hero preview"
                   loading="lazy"
                   scrolling="no"
@@ -157,7 +157,7 @@ export function AdminHomeTabs({
               </div>
               <div className="lumosAdminClientPreviewFrame">
                 <iframe
-                  src={`${siteUrl}/ko#storySection`}
+                  src="/ko#storySection"
                   title="story section preview"
                   loading="lazy"
                   scrolling="no"
@@ -212,7 +212,7 @@ export function AdminHomeTabs({
               </div>
               <div className="lumosAdminClientPreviewFrame">
                 <iframe
-                  src={`${siteUrl}/ko#homeSeriesSection`}
+                  src="/ko#homeSeriesSection"
                   title="home series section preview"
                   loading="lazy"
                   scrolling="no"
