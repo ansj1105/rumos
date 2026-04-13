@@ -55,7 +55,6 @@ export function Hero({ locale, heroImageUrl }: HeroProps) {
         </div>
 
         <div className="heroMedia">
-          <div className="heroMediaOrbit" aria-hidden="true" />
           <div className="heroMediaFrame">
             <FadeImage
               src={imageUrl}

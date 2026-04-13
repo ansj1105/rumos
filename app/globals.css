@@ -1853,6 +1853,11 @@ select {
   gap: 56px;
   align-items: center;
   min-height: 600px;
+  width: 100%;
+  max-width: 100%;
+  opacity: 0;
+  transform: translateY(-42px);
+  animation: heroSectionDropIn 1s ease 0.4s forwards;
 }
 
 .heroCopy {
@@ -1923,6 +1928,9 @@ select {
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(26px);
+  animation: heroContentRiseIn 0.9s ease 0.95s forwards;
 }
 
 .heroRelationText {
@@ -1930,10 +1938,16 @@ select {
   color: var(--muted);
   font-size: 16px;
   line-height: 1.85;
+  opacity: 0;
+  transform: translateY(26px);
+  animation: heroContentRiseIn 0.9s ease 1.05s forwards;
 }
 
 .heroButtonRow {
   margin-top: 32px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: heroContentRiseIn 0.9s ease 1.15s forwards;
 }
 
 .heroDetailButton {
@@ -1990,23 +2004,6 @@ select {
   z-index: 2;
 }
 
-.heroMediaOrbit {
-  position: absolute;
-  top: -18px;
-  right: -24px;
-  width: 122px;
-  height: 122px;
-  border-radius: 50%;
-  opacity: 0.9;
-  background:
-    radial-gradient(circle at center, transparent 0 21px, rgba(22, 171, 202, 0.94) 21px 22.5px, transparent 22.5px 30px),
-    radial-gradient(circle at center, transparent 0 33px, rgba(18, 61, 103, 0.92) 33px 34.5px, transparent 34.5px 42px),
-    radial-gradient(circle at center, transparent 0 45px, rgba(22, 171, 202, 0.9) 45px 46.5px, transparent 46.5px 54px),
-    radial-gradient(circle at center, transparent 0 57px, rgba(18, 61, 103, 0.88) 57px 58.5px, transparent 58.5px 100%);
-  filter: drop-shadow(0 4px 10px rgba(18, 61, 103, 0.08));
-  z-index: 3;
-}
-
 .heroMediaOverlay {
   position: absolute;
   inset: 0;
@@ -2035,6 +2032,30 @@ select {
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
+}
+
+@keyframes heroSectionDropIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-42px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroContentRiseIn {
+  0% {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .heroBackdropSkeleton {
@@ -4360,13 +4381,6 @@ td {
   .heroMediaFrame {
     min-height: 380px;
     border-radius: 72px 16px 72px 16px;
-  }
-
-  .heroMediaOrbit {
-    width: 96px;
-    height: 96px;
-    top: -10px;
-    right: -10px;
   }
 
   .storyHighlightGrid {
