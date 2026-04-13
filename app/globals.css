@@ -2644,33 +2644,30 @@ select {
 .seriesFeatureCard.isPrimary {
   grid-column: auto;
   grid-row: auto;
+  margin-top: 0;
 }
 
 .seriesFeatureCard.isTopRight {
   grid-column: auto;
   grid-row: auto;
+  margin-top: 74px;
 }
 
 .seriesFeatureCard.isCenter {
   grid-column: auto;
   grid-row: auto;
+  margin-top: 0;
 }
 
 .seriesFeatureCard.isBottomLeft {
   grid-column: auto;
   grid-row: auto;
+  margin-top: 74px;
 }
 
 .seriesFeatureCard.isBottomRight {
   grid-column: auto;
   grid-row: auto;
-}
-
-.homeSeriesMosaic .seriesFeatureCard:nth-child(odd) {
-  margin-top: 74px;
-}
-
-.homeSeriesMosaic .seriesFeatureCard:nth-child(even) {
   margin-top: 0;
 }
 
