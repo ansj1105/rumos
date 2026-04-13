@@ -1999,13 +1999,11 @@ select {
   border-radius: 50%;
   opacity: 0.9;
   background:
-    repeating-radial-gradient(
-      circle at center,
-      transparent 0 8px,
-      rgba(22, 171, 202, 0.95) 8px 11px,
-      transparent 11px 15px,
-      rgba(18, 61, 103, 0.92) 15px 18px
-    );
+    radial-gradient(circle at center, transparent 0 21px, rgba(22, 171, 202, 0.94) 21px 22.5px, transparent 22.5px 30px),
+    radial-gradient(circle at center, transparent 0 33px, rgba(18, 61, 103, 0.92) 33px 34.5px, transparent 34.5px 42px),
+    radial-gradient(circle at center, transparent 0 45px, rgba(22, 171, 202, 0.9) 45px 46.5px, transparent 46.5px 54px),
+    radial-gradient(circle at center, transparent 0 57px, rgba(18, 61, 103, 0.88) 57px 58.5px, transparent 58.5px 100%);
+  filter: drop-shadow(0 4px 10px rgba(18, 61, 103, 0.08));
   z-index: 3;
 }
 
@@ -2053,7 +2051,6 @@ select {
   background-size: cover;
   background-repeat: no-repeat;
   border-top: 1px solid rgba(15, 34, 61, 0.08);
-  border-bottom: 1px solid rgba(15, 34, 61, 0.08);
 }
 
 .storyInner {
