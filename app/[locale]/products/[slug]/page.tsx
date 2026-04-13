@@ -567,8 +567,8 @@ export default async function ProductDetailPage({
               <div className="productOverviewBody">
                 <p style={{ margin: 0, lineHeight: 1.9 }}>
                   {locale === "ko"
-                    ? "Lumosity는 빔 프로파일링 장비 제어, 측정 데이터 시각화, 분석, 로깅을 통합한 운영 소프트웨어로 생산 라인과 외부 시스템 연동까지 고려한 환경을 제공합니다."
-                    : "Lumosity is an operational software suite that combines device control, measurement visualization, analysis, and logging, with support for production line integration and external systems."}
+                    ? "다양한 빔 형태에서도 자동 중심 검출과 ROI 기능을 통해 필요한 영역만 정확하게 분석할 수 있는 직관적인 빔 분석 소프트웨어입니다."
+                    : "An intuitive beam analysis software suite that accurately analyzes only the required area through automatic center detection and ROI functions, even across diverse beam shapes."}
                 </p>
               </div>
             </section>

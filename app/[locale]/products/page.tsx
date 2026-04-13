@@ -37,8 +37,10 @@ const productOverviewCopy = {
   },
   software: {
     title: "Software",
-    bodyEn: "Details are currently being finalized.",
-    bodyKo: "현재 미정",
+    bodyEn:
+      "An intuitive beam analysis software suite that accurately analyzes only the required area through automatic center detection and ROI functions, even across diverse beam shapes.",
+    bodyKo:
+      "다양한 빔 형태에서도 자동 중심 검출과 ROI 기능을 통해 필요한 영역만 정확하게 분석할 수 있는 직관적인 빔 분석 소프트웨어입니다.",
   },
 } as const;
 

@@ -116,6 +116,7 @@ export function HomeSeriesOverview({
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [dragStartX, setDragStartX] = useState<number | null>(null);
+  const [revealedSlugs, setRevealedSlugs] = useState<string[]>([]);
   const mosaicRef = useRef<HTMLDivElement | null>(null);
   const mergedSeriesItems = seriesItems.map((item) => {
     const product = products?.find((candidate) => candidate.slug === item.slug);
@@ -161,7 +162,13 @@ export function HomeSeriesOverview({
             return;
           }
 
-          entry.target.classList.add("isRevealed");
+          const slug = entry.target.getAttribute("data-series-slug");
+
+          if (!slug) {
+            return;
+          }
+
+          setRevealedSlugs((current) => (current.includes(slug) ? current : [...current, slug]));
           observer.unobserve(entry.target);
         });
       },
@@ -215,6 +222,7 @@ export function HomeSeriesOverview({
                 item={item}
                 locale={locale}
                 isActive={currentIndex === index}
+                isRevealed={revealedSlugs.includes(item.slug)}
                 onActivate={() => setCurrentIndex(index)}
                 revealIndex={index}
               />
@@ -263,7 +271,7 @@ export function HomeSeriesOverview({
             >
               {mergedSeriesItems.map((item) => (
                 <div key={item.slug} className="homeSeriesSlide">
-                  <SeriesFeatureCard item={item} locale={locale} isActive />
+                  <SeriesFeatureCard item={item} locale={locale} isActive isRevealed />
                 </div>
               ))}
             </div>
@@ -310,19 +318,22 @@ function SeriesFeatureCard({
   item,
   locale,
   isActive,
+  isRevealed,
   onActivate,
   revealIndex,
 }: {
   item: SeriesCardItem;
   locale: Locale;
   isActive: boolean;
+  isRevealed?: boolean;
   onActivate?: () => void;
   revealIndex?: number;
 }) {
   return (
     <Link
       href={`/${locale}/products/${item.slug}`}
-      className={`seriesFeatureCard ${item.layoutClassName} ${isActive ? "isActive" : ""}`}
+      className={`seriesFeatureCard ${item.layoutClassName} ${isActive ? "isActive" : ""} ${isRevealed ? "isRevealed" : ""}`}
+      data-series-slug={item.slug}
       onMouseEnter={onActivate}
       onFocus={onActivate}
       style={{ ["--series-card-delay" as string]: `${(revealIndex ?? 0) * 90}ms` }}

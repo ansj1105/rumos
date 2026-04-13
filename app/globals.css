@@ -1975,11 +1975,16 @@ select {
   overflow: hidden;
   border: 1px solid rgba(15, 34, 61, 0.08);
   border-radius: 92px 18px 92px 18px;
+  clip-path: inset(0 round 92px 18px 92px 18px);
+  isolation: isolate;
   background: linear-gradient(180deg, #dfe8f0 0%, #f6f9fb 100%);
   box-shadow: 0 18px 44px rgba(15, 34, 61, 0.08);
 }
 
+.heroMediaFrame .imageLoadSkeleton,
+.heroMediaFrame .fadeImage,
 .heroMediaImage {
+  border-radius: inherit;
   object-fit: cover;
   object-position: center;
 }
@@ -4415,6 +4420,7 @@ td {
   .heroMediaFrame {
     min-height: 380px;
     border-radius: 72px 16px 72px 16px;
+    clip-path: inset(0 round 72px 16px 72px 16px);
   }
 
   .storyHighlightGrid {
@@ -4866,6 +4872,7 @@ td {
   .heroMediaFrame {
     min-height: 280px;
     border-radius: 52px 12px 52px 12px;
+    clip-path: inset(0 round 52px 12px 52px 12px);
   }
 
   .heroMediaSpec {
