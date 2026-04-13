@@ -41,13 +41,13 @@ export default async function ResourceListPage({
             <span>{locale === "ko" ? "등록일" : "Date"}</span>
           </div>
           <div className="resourcesTableBody">
-            {resources.map((resource) => (
+            {resources.map((resource, index) => (
               <Link
                 key={resource.slug}
                 href={`/${locale}/contact/resources/${resource.slug}`}
                 className="resourcesRow"
               >
-                <span>{String(resource.displayIndex ?? 0).padStart(2, "0")}</span>
+                <span>{String(index + 1).padStart(2, "0")}</span>
                 <span className="resourcesRowTitle">
                   {locale === "ko" ? resource.titleKo : resource.titleEn}
                 </span>

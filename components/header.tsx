@@ -15,7 +15,6 @@ type HeaderProps = {
 export function Header({ locale }: HeaderProps) {
   const dict = getDictionary(locale);
   const localeLabel = locale === "ko" ? "한국어" : "English";
-  const localeFlag = locale === "ko" ? "🇰🇷" : "🇺🇸";
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMobileSection, setOpenMobileSection] = useState<string | null>(null);
   const [localeOpen, setLocaleOpen] = useState(false);
@@ -118,9 +117,6 @@ export function Header({ locale }: HeaderProps) {
                   </svg>
                 </span>
                 <span className="localeSwitchValue">
-                  <span className="localeFlag" aria-hidden="true">
-                    {localeFlag}
-                  </span>
                   <span>{localeLabel}</span>
                 </span>
               </button>
