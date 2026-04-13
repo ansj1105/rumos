@@ -559,6 +559,12 @@ select {
   color: var(--text);
 }
 
+.localeSwitchValue {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .localeGlobe {
   width: 18px;
   height: 18px;
@@ -572,7 +578,7 @@ select {
 
 .localeDropdown {
   position: absolute;
-  top: calc(100% + 10px);
+  top: calc(100% + 14px);
   right: 0;
   min-width: 164px;
   padding: 8px;
@@ -580,10 +586,21 @@ select {
   gap: 4px;
   background: rgba(255, 255, 255, 0.98);
   box-shadow: none;
+  z-index: 60;
 }
 
 .localeDropdown.isOpen {
   display: grid;
+}
+
+.localeFlag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  min-width: 18px;
+  font-size: 15px;
+  line-height: 1;
 }
 
 .localeDropdownLink {

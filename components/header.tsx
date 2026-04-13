@@ -14,6 +14,8 @@ type HeaderProps = {
 
 export function Header({ locale }: HeaderProps) {
   const dict = getDictionary(locale);
+  const localeLabel = locale === "ko" ? "한국어" : "English";
+  const localeFlag = locale === "ko" ? "🇰🇷" : "🇺🇸";
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMobileSection, setOpenMobileSection] = useState<string | null>(null);
   const [localeOpen, setLocaleOpen] = useState(false);
@@ -115,17 +117,21 @@ export function Header({ locale }: HeaderProps) {
                     <path d="M12 3.8c2.5 2.1 4 5.1 4 8.2s-1.5 6.1-4 8.2c-2.5-2.1-4-5.1-4-8.2s1.5-6.1 4-8.2Z" />
                   </svg>
                 </span>
-                <span>{locale === "ko" ? "Korean" : "English"}</span>
+                <span className="localeSwitchValue">
+                  <span className="localeFlag" aria-hidden="true">
+                    {localeFlag}
+                  </span>
+                  <span>{localeLabel}</span>
+                </span>
               </button>
 
               <div className={`localeDropdown card ${localeOpen ? "isOpen" : ""}`}>
                 <Link href="/ko" className={`localeDropdownLink ${locale === "ko" ? "isActive" : ""}`}>
-                  
-                  <span>KR</span>
+                  <span className="localeFlag" aria-hidden="true">🇰🇷</span>
                   <span>한국어</span>
                 </Link>
                 <Link href="/en" className={`localeDropdownLink ${locale === "en" ? "isActive" : ""}`}>
-                  <span>EN</span>
+                  <span className="localeFlag" aria-hidden="true">🇺🇸</span>
                   <span>English</span>
                 </Link>
               </div>
