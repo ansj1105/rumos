@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import type { Locale } from "@/lib/site";
 
@@ -116,6 +116,7 @@ export function HomeSeriesOverview({
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [dragStartX, setDragStartX] = useState<number | null>(null);
+  const mosaicRef = useRef<HTMLDivElement | null>(null);
   const mergedSeriesItems = seriesItems.map((item) => {
     const product = products?.find((candidate) => candidate.slug === item.slug);
     return {
@@ -139,6 +140,41 @@ export function HomeSeriesOverview({
 
     return () => window.clearInterval(timer);
   }, [mergedSeriesItems.length]);
+
+  useEffect(() => {
+    const mosaicElement = mosaicRef.current;
+
+    if (!mosaicElement) {
+      return;
+    }
+
+    const cards = Array.from(mosaicElement.querySelectorAll<HTMLElement>(".seriesFeatureCard"));
+
+    if (cards.length === 0) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          entry.target.classList.add("isRevealed");
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.18,
+        rootMargin: "0px 0px -8% 0px",
+      },
+    );
+
+    cards.forEach((card) => observer.observe(card));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section id="homeSeriesSection" className="homeSeriesSection">
@@ -172,7 +208,7 @@ export function HomeSeriesOverview({
             </div>
           </div>
 
-          <div className="homeSeriesMosaic">
+          <div ref={mosaicRef} className="homeSeriesMosaic">
             {mergedSeriesItems.map((item, index) => (
               <SeriesFeatureCard
                 key={item.slug}
@@ -180,6 +216,7 @@ export function HomeSeriesOverview({
                 locale={locale}
                 isActive={currentIndex === index}
                 onActivate={() => setCurrentIndex(index)}
+                revealIndex={index}
               />
             ))}
           </div>
@@ -274,11 +311,13 @@ function SeriesFeatureCard({
   locale,
   isActive,
   onActivate,
+  revealIndex,
 }: {
   item: SeriesCardItem;
   locale: Locale;
   isActive: boolean;
   onActivate?: () => void;
+  revealIndex?: number;
 }) {
   return (
     <Link
@@ -286,6 +325,7 @@ function SeriesFeatureCard({
       className={`seriesFeatureCard ${item.layoutClassName} ${isActive ? "isActive" : ""}`}
       onMouseEnter={onActivate}
       onFocus={onActivate}
+      style={{ ["--series-card-delay" as string]: `${(revealIndex ?? 0) * 90}ms` }}
     >
       <div className="seriesFeatureMedia">
         <Image

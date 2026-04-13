@@ -1,17 +1,10 @@
 import { HomeSeriesOverview } from "@/components/home-series-overview";
+import { HomeStorySection, type StoryHighlightItem } from "@/components/home-story-section";
 import { PatentSection } from "@/components/patent-section";
 import { Hero } from "@/components/hero";
-import { StoryHighlightCard } from "@/components/story-highlight-card";
 import { getProducts, getSiteConfig } from "@/lib/content";
 import { getDictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/site";
-
-type StoryHighlightItem = {
-  key: "light" | "precision" | "mission";
-  label: string;
-  title: string;
-  body: string;
-};
 
 export default async function HomePage({
   params,
@@ -175,44 +168,13 @@ export default async function HomePage({
   return (
     <>
       <Hero locale={locale} heroImageUrl={config?.heroImageUrl} />
-
-      <section id="storySection" className="storySection">
-        <div className="container storyInner">
-          <div className="storyLeadBlock">
-            <h2 className="storyDisplayTitle">
-              <span className="storyDisplayTitleLine">{storyDisplayLines[0]}</span>
-              <span className="storyDisplayTitleLine storyDisplayTitleLineAccent">
-                {storyDisplayLines[1]}
-              </span>
-            </h2>
-          </div>
-          <div className="storyContent">
-            <span className="storyEyebrow">{brandOriginTitle}</span>
-            <div className="storyParagraphs">
-              {storyParagraphs.map((paragraph, index) => (
-                <p
-                  key={`${index}-${paragraph.slice(0, 24)}`}
-                  className="storyParagraph"
-                  style={config?.storyFontSize ? { fontSize: `${config.storyFontSize}px` } : undefined}
-                >
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-            <div className="storyHighlightGrid">
-              {storyHighlights.map((item) => (
-                <StoryHighlightCard
-                  key={item.key}
-                  iconKey={item.key}
-                  label={item.label}
-                  title={item.title}
-                  body={item.body}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <HomeStorySection
+        brandOriginTitle={brandOriginTitle}
+        storyDisplayLines={storyDisplayLines}
+        storyParagraphs={storyParagraphs}
+        storyFontSize={config?.storyFontSize}
+        storyHighlights={storyHighlights}
+      />
 
       <HomeSeriesOverview
         locale={locale}

@@ -1853,11 +1853,6 @@ select {
   gap: 56px;
   align-items: center;
   min-height: 600px;
-  width: 100%;
-  max-width: 100%;
-  opacity: 0;
-  transform: translateY(-42px);
-  animation: heroSectionDropIn 1s ease 0.4s forwards;
 }
 
 .heroCopy {
@@ -1866,6 +1861,9 @@ select {
   max-width: 640px;
   color: var(--text);
   padding: 24px 0 24px 4px;
+  opacity: 0;
+  transform: translateY(-42px);
+  animation: heroSectionDropIn 1s ease 0.4s forwards;
 }
 
 .heroEyebrow {
@@ -1966,6 +1964,9 @@ select {
   position: relative;
   z-index: 2;
   min-height: 520px;
+  opacity: 0;
+  transform: translateY(-42px);
+  animation: heroSectionDropIn 1s ease 0.55s forwards;
 }
 
 .heroMediaFrame {
@@ -2084,6 +2085,21 @@ select {
 .storyLeadBlock {
   align-self: center;
   padding-left: 28px;
+}
+
+.storyReveal {
+  opacity: 0;
+  transform: translate3d(0, 52px, 0);
+  transition:
+    opacity 0.72s ease,
+    transform 0.86s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--story-reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.storyReveal.isRevealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 
 .storyDisplayTitle {
@@ -2613,6 +2629,18 @@ select {
     box-shadow 220ms ease;
 }
 
+.homeSeriesMosaic .seriesFeatureCard {
+  opacity: 0;
+  transform: translate3d(0, 52px, 0);
+  transition:
+    transform 0.82s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.72s ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+  transition-delay: var(--series-card-delay, 0ms);
+  will-change: transform, opacity;
+}
+
 .seriesFeatureCard.isPrimary {
   grid-column: auto;
   grid-row: auto;
@@ -2648,6 +2676,15 @@ select {
 
 .seriesFeatureCard:not(.isActive) {
   opacity: 0.7;
+}
+
+.homeSeriesMosaic .seriesFeatureCard:not(.isRevealed) {
+  opacity: 0;
+}
+
+.homeSeriesMosaic .seriesFeatureCard.isRevealed {
+  opacity: 0.7;
+  transform: translate3d(0, 0, 0);
 }
 
 .seriesFeatureCard:hover,
