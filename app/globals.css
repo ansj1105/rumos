@@ -350,29 +350,6 @@ select {
   overflow: hidden;
 }
 
-.directionsMapBadge {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 36px;
-  padding: 0 14px;
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(15, 34, 61, 0.12);
-  color: var(--blue-deep);
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.directionsMapPin {
-  color: #d93025;
-  font-size: 14px;
-  line-height: 1;
-}
-
 .directionsMapIframe {
   display: block;
   width: 100%;

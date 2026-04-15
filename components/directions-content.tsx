@@ -31,10 +31,6 @@ export function DirectionsContent({ locale }: DirectionsContentProps) {
         </div>
       </div>
       <div className="card directionsMapCard">
-        <div className="directionsMapBadge" aria-hidden="true">
-          <span className="directionsMapPin">●</span>
-          <span>{isKo ? "루모스 위치" : "Lumos location"}</span>
-        </div>
         <iframe
           title={isKo ? "루모스 오시는 길 지도" : "Lumos directions map"}
           src={googleMapEmbedUrl}
