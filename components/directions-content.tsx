@@ -3,10 +3,13 @@ type DirectionsContentProps = {
 };
 
 const address = "서울특별시 금천구 가산디지털 1로 19 대륭테크노타운 18차 1306호";
-const encodedAddress = encodeURIComponent(address);
-const googleMapEmbedUrl = `https://www.google.com/maps?output=embed&q=${encodedAddress}&z=17`;
-const googleMapUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
-const kakaoMapUrl = `https://map.kakao.com/link/search/${encodedAddress}`;
+const latitude = 37.467837;
+const longitude = 126.886559;
+const coordinates = `${latitude},${longitude}`;
+const encodedCoordinates = encodeURIComponent(coordinates);
+const googleMapEmbedUrl = `https://www.google.com/maps?output=embed&q=${encodedCoordinates}&z=17`;
+const googleMapUrl = `https://www.google.com/maps/search/?api=1&query=${encodedCoordinates}`;
+const kakaoMapUrl = `https://map.kakao.com/link/map/${encodeURIComponent("루모스")},${latitude},${longitude}`;
 
 export function DirectionsContent({ locale }: DirectionsContentProps) {
   const isKo = locale === "ko";
