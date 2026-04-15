@@ -346,7 +346,31 @@ select {
 }
 
 .directionsMapCard {
+  position: relative;
   overflow: hidden;
+}
+
+.directionsMapBadge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 0 14px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(15, 34, 61, 0.12);
+  color: var(--blue-deep);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.directionsMapPin {
+  color: #d93025;
+  font-size: 14px;
+  line-height: 1;
 }
 
 .directionsMapIframe {
@@ -2418,10 +2442,6 @@ select {
   gap: 12px;
 }
 
-.patentMobilePager {
-  display: none;
-}
-
 .patentCard {
   display: grid;
   align-content: space-between;
@@ -2526,14 +2546,18 @@ select {
   color: rgba(255, 255, 255, 0.8);
 }
 
-.patentMobilePagination {
+.patentGrid.isSingle .patentCard {
+  min-height: 240px;
+}
+
+.patentPagination {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   justify-content: center;
 }
 
-.patentMobilePageButton {
+.patentPageButton {
   min-width: 36px;
   height: 36px;
   padding: 0 10px;
@@ -2544,7 +2568,7 @@ select {
   font-weight: 700;
 }
 
-.patentMobilePageButton.isActive {
+.patentPageButton.isActive {
   border-color: #0d7d7e;
   background: #0d7d7e;
   color: #ffffff;
@@ -4838,24 +4862,11 @@ td {
   }
 
   .patentGrid {
-    grid-template-columns: 1fr;
+    gap: 10px;
   }
 
   .patentCard {
     min-height: 0;
-  }
-
-  .patentGrid {
-    display: none;
-  }
-
-  .patentMobilePager {
-    display: grid;
-    gap: 16px;
-  }
-
-  .patentMobileViewport .patentCard {
-    min-height: 240px;
   }
 
   .storyRelationSection {

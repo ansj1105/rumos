@@ -103,7 +103,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
         children: [
           { label: "문의하기", href: "/contact/quote" },
           { label: "대리점소개", href: "/contact/distributors" },
-          { label: "찾아오시는길", href: "/contact/directions" },
+          { label: "찾아오시는 길", href: "/contact/directions" },
           { label: "자료실", href: "/contact/resources" },
         ],
       },

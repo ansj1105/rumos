@@ -26,18 +26,40 @@ export function PatentSection({
   cards,
 }: PatentSectionProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [mobilePage, setMobilePage] = useState(0);
-  const [isMobilePager, setIsMobilePager] = useState(false);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(4);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 720px)");
-    const syncViewport = () => setIsMobilePager(mediaQuery.matches);
+    const syncViewport = () => {
+      if (window.matchMedia("(max-width: 720px)").matches) {
+        setItemsPerPage(1);
+        return;
+      }
+
+      if (window.matchMedia("(max-width: 1100px)").matches) {
+        setItemsPerPage(2);
+        return;
+      }
+
+      setItemsPerPage(4);
+    };
 
     syncViewport();
-    mediaQuery.addEventListener("change", syncViewport);
+    window.addEventListener("resize", syncViewport);
 
-    return () => mediaQuery.removeEventListener("change", syncViewport);
+    return () => window.removeEventListener("resize", syncViewport);
   }, []);
+
+  useEffect(() => {
+    const maxPage = Math.max(0, Math.ceil(cards.length / itemsPerPage) - 1);
+    setCurrentPage((page) => Math.min(page, maxPage));
+  }, [cards.length, itemsPerPage]);
+
+  const pageCount = Math.ceil(cards.length / itemsPerPage);
+  const pagedCards = cards.slice(
+    currentPage * itemsPerPage,
+    currentPage * itemsPerPage + itemsPerPage,
+  );
 
   const renderCard = (item: PatentCardItem, index: number) => {
     const isActive = index === activeIndex;
@@ -76,29 +98,30 @@ export function PatentSection({
           </a>
         </div>
 
-        {isMobilePager ? (
-          <div className="patentMobilePager">
-            <div className="patentMobileViewport">{cards[mobilePage] ? renderCard(cards[mobilePage], mobilePage) : null}</div>
-            <div className="patentMobilePagination" aria-label="Patent pages">
-              {cards.map((item, index) => (
-                <button
-                  key={`${item.type}-${index}`}
-                  type="button"
-                  className={`patentMobilePageButton ${index === mobilePage ? "isActive" : ""}`}
-                  onClick={() => setMobilePage(index)}
-                  aria-pressed={index === mobilePage}
-                  aria-label={`Page ${index + 1}`}
-                >
-                  {index + 1}
-                </button>
-              ))}
-            </div>
+        <div
+          className={`patentGrid ${itemsPerPage === 1 ? "isSingle" : ""}`}
+          style={{ gridTemplateColumns: `repeat(${itemsPerPage}, minmax(0, 1fr))` }}
+        >
+          {pagedCards.map((item, index) =>
+            renderCard(item, currentPage * itemsPerPage + index),
+          )}
+        </div>
+        {pageCount > 1 ? (
+          <div className="patentPagination" aria-label="Patent pages">
+            {Array.from({ length: pageCount }, (_, index) => (
+              <button
+                key={index}
+                type="button"
+                className={`patentPageButton ${index === currentPage ? "isActive" : ""}`}
+                onClick={() => setCurrentPage(index)}
+                aria-pressed={index === currentPage}
+                aria-label={`Page ${index + 1}`}
+              >
+                {index + 1}
+              </button>
+            ))}
           </div>
-        ) : (
-          <div className="patentGrid">
-            {cards.map((item, index) => renderCard(item, index))}
-          </div>
-        )}
+        ) : null}
       </div>
     </section>
   );

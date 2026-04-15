@@ -328,9 +328,9 @@ export const defaultPageHeroConfigs = [
   },
   {
     pageKey: "contact-directions",
-    eyebrowKo: "찾아오시는길",
+    eyebrowKo: "찾아오시는 길",
     eyebrowEn: "Directions",
-    titleKo: "찾아오시는길",
+    titleKo: "찾아오시는 길",
     titleEn: "Directions",
     descriptionKo: "루모스 방문을 위한 위치와 연락처를 안내드립니다.",
     descriptionEn: "Find our office location and contact information for your visit.",

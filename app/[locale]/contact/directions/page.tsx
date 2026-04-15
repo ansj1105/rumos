@@ -13,12 +13,20 @@ export default async function ContactDirectionsPage({
   const { locale } = await params;
   const dict = getDictionary(locale);
   const heroConfig = await getPageHeroConfig("contact-directions");
+  const eyebrowKo =
+    heroConfig?.eyebrowKo === "찾아오시는길"
+      ? "찾아오시는 길"
+      : heroConfig?.eyebrowKo || "찾아오시는 길";
+  const titleKo =
+    heroConfig?.titleKo === "찾아오시는길"
+      ? "찾아오시는 길"
+      : heroConfig?.titleKo || dict.directions.title;
 
   return (
     <div className="subpageShell">
       <SubpageHero
-        eyebrow={locale === "ko" ? heroConfig?.eyebrowKo || "찾아오시는길" : heroConfig?.eyebrowEn || "Directions"}
-        title={locale === "ko" ? heroConfig?.titleKo || dict.directions.title : heroConfig?.titleEn || dict.directions.title}
+        eyebrow={locale === "ko" ? eyebrowKo : heroConfig?.eyebrowEn || "Directions"}
+        title={locale === "ko" ? titleKo : heroConfig?.titleEn || dict.directions.title}
         description={locale === "ko" ? heroConfig?.descriptionKo || dict.directions.body : heroConfig?.descriptionEn || dict.directions.body}
         tone="directions"
         backgroundImageUrl={heroConfig?.backgroundImageUrl || "/subpage-contact-bg.png"}
