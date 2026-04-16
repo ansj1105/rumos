@@ -2777,6 +2777,10 @@ select {
     linear-gradient(135deg, rgba(60, 185, 255, 0.08) 0%, transparent 34%);
 }
 
+.seriesFeatureCard.isPrimary .seriesFeatureOverlay {
+  background: none;
+}
+
 .seriesFeatureContent {
   position: relative;
   z-index: 1;
