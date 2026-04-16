@@ -3911,7 +3911,7 @@ select {
   justify-content: space-between;
   gap: 14px;
   padding: 16px 18px;
-  border-top: 2px solid var(--blue-deep);
+  border-top: 2px solid #092c4d;
   border-bottom: 1px solid rgba(15, 34, 61, 0.12);
   background: #ffffff;
 }
@@ -3971,7 +3971,7 @@ select {
   min-height: 220px;
   padding: 24px 22px 22px;
   border: 1px solid rgba(15, 34, 61, 0.1);
-  background: linear-gradient(180deg, #ffffff 0%, #f4f7fb 100%);
+  background: #ffffff;
   color: inherit;
   text-decoration: none;
   transition:
@@ -3989,8 +3989,8 @@ select {
 }
 
 .contactDirectCard.isActive {
-  border-color: var(--blue-deep);
-  background: linear-gradient(180deg, #ffffff 0%, #f4f7fb 100%);
+  border: 3px solid #092c4d;
+  background: #ffffff;
   box-shadow: 0 16px 32px rgba(15, 34, 61, 0.08);
 }
 
