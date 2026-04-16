@@ -3913,7 +3913,7 @@ select {
   padding: 16px 18px;
   border-top: 2px solid var(--blue-deep);
   border-bottom: 1px solid rgba(15, 34, 61, 0.12);
-  background: linear-gradient(180deg, rgba(233, 239, 247, 0.72), rgba(255, 255, 255, 0.95));
+  background: #ffffff;
 }
 
 .contactFormTypeBanner strong,
