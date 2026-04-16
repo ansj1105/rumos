@@ -3338,6 +3338,416 @@ select {
   background: #06111d;
 }
 
+.lumBFilterComposite {
+  display: grid;
+  gap: 26px;
+  padding: 28px;
+  border: 1px solid rgba(15, 34, 61, 0.08);
+  background: #ffffff;
+}
+
+.lumBFilterSpectrum {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.lumBFilterSpectrumImage {
+  display: block;
+  width: min(100%, 820px);
+  height: auto;
+}
+
+.lumBFilterLayout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.88fr) minmax(0, 1.12fr);
+  gap: 34px;
+  align-items: start;
+}
+
+.lumBFilterLayout.isLargeArea {
+  grid-template-columns: minmax(320px, 0.98fr) minmax(0, 1.02fr);
+}
+
+.lumBFilterDevice {
+  position: relative;
+  min-height: 420px;
+}
+
+.lumBFilterDevice.isLargeArea {
+  min-height: 460px;
+}
+
+.lumBFilterDeviceImage {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+}
+
+.lumBFilterDeviceImage.isLargeArea {
+  max-width: 700px;
+}
+
+.lumBFilterArrow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.lumBFilterArrow.isLargeArea .lumBFilterArrowStem {
+  left: 70%;
+  top: 36%;
+  width: 122px;
+}
+
+.lumBFilterArrow.isLargeArea .lumBFilterArrowStem::after {
+  width: 132px;
+}
+
+.lumBFilterArrow.isLargeArea .lumBFilterArrowHead {
+  left: calc(70% + 130px);
+  top: 35.4%;
+}
+
+.lumBFilterArrow.isLargeArea .lumBFilterArrowDot {
+  left: 66%;
+  top: 43.5%;
+}
+
+.lumBFilterArrowStem {
+  position: absolute;
+  left: 66%;
+  top: 42%;
+  width: 132px;
+  height: 0;
+  border-top: 4px solid #2a75af;
+  transform: rotate(90deg);
+  transform-origin: left center;
+}
+
+.lumBFilterArrowStem::after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: -4px;
+  width: 150px;
+  height: 0;
+  border-top: 4px solid #2a75af;
+  transform: rotate(-90deg);
+  transform-origin: left center;
+}
+
+.lumBFilterArrowHead {
+  position: absolute;
+  left: calc(66% + 148px);
+  top: 41.4%;
+  width: 16px;
+  height: 16px;
+  border-top: 4px solid #2a75af;
+  border-right: 4px solid #2a75af;
+  transform: rotate(45deg);
+}
+
+.lumBFilterArrowDot {
+  position: absolute;
+  left: 61.5%;
+  top: 62%;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #2a75af;
+  box-shadow: 0 0 0 6px rgba(42, 117, 175, 0.14);
+}
+
+.lumBFilterTableWrap {
+  border: 1px solid rgba(15, 34, 61, 0.08);
+  background: #ffffff;
+}
+
+.lumBFilterTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.lumBFilterTable thead th {
+  padding: 18px 20px;
+  background: #1f4c86;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.lumBFilterTable thead tr:first-child th {
+  font-size: 20px;
+}
+
+.lumBFilterTable thead tr:first-child strong {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.lumBFilterTable thead tr:last-child th {
+  font-size: 18px;
+}
+
+.lumBFilterTable tbody th,
+.lumBFilterTable tbody td {
+  padding: 18px 20px;
+  border-top: 1px solid rgba(42, 117, 175, 0.38);
+  text-align: center;
+}
+
+.lumBFilterTable tbody th {
+  color: #2a75af;
+  font-weight: 500;
+}
+
+.lumBFilterTable tbody td {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1b2430;
+}
+
+.lumBFilterTable.isSingleModel thead th:first-child {
+  width: auto;
+}
+
+.lumBFilterTable.isSingleModel tbody th,
+.lumBFilterTable.isSingleModel tbody td {
+  width: 50%;
+}
+
+.lumFFilterComposite {
+  display: grid;
+  gap: 22px;
+  padding: 28px;
+  border: 1px solid rgba(15, 34, 61, 0.08);
+  background: #ffffff;
+}
+
+.lumFFilterHero {
+  display: grid;
+  grid-template-columns: minmax(340px, 0.92fr) minmax(0, 1.08fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.lumFFilterMedia {
+  position: relative;
+  min-height: 330px;
+}
+
+.lumFFilterBodyWrap {
+  position: relative;
+  min-height: 330px;
+}
+
+.lumFFilterBodyImage {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+}
+
+.lumFFilterHolderImage {
+  position: absolute;
+  left: 2%;
+  bottom: -4px;
+  width: 110px;
+  height: auto;
+}
+
+.lumFFilterArrow {
+  position: absolute;
+  pointer-events: none;
+}
+
+.lumFFilterArrowStem {
+  position: absolute;
+  height: 0;
+  border-top: 3px solid #2a75af;
+}
+
+.lumFFilterArrowHead {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-top: 3px solid #2a75af;
+  border-right: 3px solid #2a75af;
+  transform: rotate(45deg);
+}
+
+.lumFFilterArrowDot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: #2a75af;
+  box-shadow: 0 0 0 5px rgba(42, 117, 175, 0.14);
+}
+
+.lumFFilterArrow.isHolder {
+  left: 18%;
+  top: 62%;
+  width: 290px;
+  height: 150px;
+}
+
+.lumFFilterArrow.isHolder .lumFFilterArrowStem {
+  left: 0;
+  top: 82px;
+  width: 170px;
+  transform: rotate(-90deg);
+  transform-origin: left center;
+}
+
+.lumFFilterArrow.isHolder .lumFFilterArrowStem::after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: -3px;
+  width: 118px;
+  border-top: 3px solid #2a75af;
+  transform: rotate(90deg);
+  transform-origin: left center;
+}
+
+.lumFFilterArrow.isHolder .lumFFilterArrowHead {
+  left: 278px;
+  top: 75px;
+}
+
+.lumFFilterArrow.isHolder .lumFFilterArrowDot {
+  left: 159px;
+  top: 72px;
+}
+
+.lumFFilterArrow.isLens {
+  left: 53%;
+  top: 11%;
+  width: 250px;
+  height: 86px;
+}
+
+.lumFFilterArrow.isLens .lumFFilterArrowStem {
+  left: 0;
+  top: 42px;
+  width: 238px;
+}
+
+.lumFFilterArrow.isLens .lumFFilterArrowHead {
+  right: -2px;
+  top: 35px;
+}
+
+.lumFFilterArrow.isLens .lumFFilterArrowDot {
+  left: -8px;
+  top: 34px;
+}
+
+.lumFFilterObjectiveCard {
+  border: 1px solid rgba(15, 34, 61, 0.08);
+  background: #ffffff;
+}
+
+.lumFFilterObjectiveHead {
+  padding: 16px 18px;
+  background: #1f4c86;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.lumFFilterObjectiveBody {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 168px;
+  gap: 18px;
+  align-items: start;
+  padding: 18px;
+}
+
+.lumFFilterObjectiveCopy {
+  display: grid;
+  gap: 12px;
+  color: #334155;
+  line-height: 1.65;
+}
+
+.lumFFilterObjectiveCopy p {
+  margin: 0;
+}
+
+.lumFFilterObjectiveList {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lumFFilterLensImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.lumFFilterSpectrum {
+  display: flex;
+  justify-content: center;
+}
+
+.lumFFilterSpectrumImage {
+  display: block;
+  width: min(100%, 900px);
+  height: auto;
+}
+
+.lumFFilterTableWrap {
+  border: 1px solid rgba(15, 34, 61, 0.08);
+  background: #ffffff;
+}
+
+.lumFFilterTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.lumFFilterTable thead th {
+  padding: 16px 18px;
+  background: #1f4c86;
+  color: #ffffff;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.lumFFilterTable thead tr:first-child th {
+  font-size: 20px;
+}
+
+.lumFFilterTable thead tr:first-child strong {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.lumFFilterTable tbody th,
+.lumFFilterTable tbody td {
+  padding: 16px 18px;
+  border-top: 1px solid rgba(42, 117, 175, 0.36);
+  text-align: center;
+}
+
+.lumFFilterTable tbody th {
+  color: #2a75af;
+  font-weight: 500;
+}
+
+.lumFFilterTable tbody td {
+  color: #1b2430;
+  font-weight: 700;
+}
+
 .productFeatureVisualVideo {
   display: block;
   width: 100%;
@@ -3387,7 +3797,6 @@ select {
 
 .productFeatureItem {
   padding: 14px 0;
-  border-bottom: 1px solid rgba(15, 34, 61, 0.08);
   line-height: 1.8;
 }
 
@@ -3989,8 +4398,8 @@ select {
 }
 
 .contactDirectCard.isActive {
-  border: 3px solid var(--blue);
-  background: #ffffff;
+  border: 1px solid rgba(15, 34, 61, 0.16);
+  background: rgba(16, 92, 178, 0.08);
   box-shadow: 0 16px 32px rgba(15, 34, 61, 0.08);
 }
 

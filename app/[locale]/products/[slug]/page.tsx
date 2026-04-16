@@ -45,6 +45,58 @@ const lumBSharedRows = [
   },
 ] as const;
 
+const lumBFilterRows = [
+  {
+    label: "Wavelength[nm]",
+    lumBD: "200 - 1064",
+    lumBNM: "343 - 1064",
+  },
+  {
+    label: "Type",
+    lumBD: "Reflective",
+    lumBNM: "Absorptive",
+  },
+  {
+    label: "Optical Density (1)",
+    lumBD: "0.1 up to 4.0",
+    lumBNM: "0.1 up to 6.0",
+  },
+] as const;
+
+const lumBLFilterRows = [
+  {
+    label: "Wavelength [nm]",
+    value: "400 - 1100",
+  },
+  {
+    label: "Type",
+    value: "Absorptive",
+  },
+  {
+    label: "Optical Density(1)",
+    value: "0.1 up to 6.0",
+  },
+  {
+    label: "Clear Aperture [mm]",
+    value: "< 45 mm x 45 mm",
+  },
+] as const;
+
+const lumFFilterRows = [
+  {
+    label: "Wavelength[nm]",
+    values: ["240 - 355", "343 - 355", "485 - 570", "980 - 1064"],
+  },
+  {
+    label: "Type",
+    values: ["Reflective", "Absorptive", "Absorptive", "Absorptive"],
+  },
+  {
+    label: "Optical Density (2)",
+    values: ["0.1 up to 4.0", "0.1 up to 6.0", "0.1 up to 6.0", "0.1 up to 6.0"],
+  },
+] as const;
+
 const lumBAccessoryRows = [
   {
     label: "Data",
@@ -457,69 +509,283 @@ export default async function ProductDetailPage({
               </ol>
             </section>
 
-            <section className="productSection productFeatureVisualSection">
-              <div className="productSectionHead">
-                <span className="eyebrow">FEATURE</span>
-                <h2 className="sectionTitle">{ui.filterTitle}</h2>
-              </div>
-              <div className="productFeatureVisualPanel">
-                <Image
-                  src={
-                    isLumBSeries
-                      ? "/products/lum-b/filter.png"
-                      : isLumBLSeries
-                        ? "/products/lum-b-l/filter.png"
-                        : "/products/lum-f/filter.png"
-                  }
-                  alt={
-                    isLumBSeries
-                      ? "LUM-B filter configuration"
-                      : isLumBLSeries
-                        ? "LUM-B-L filter configuration"
-                        : "LUM-F filter configuration"
-                  }
-                  width={1066}
-                  height={isLumBSeries ? 656 : isLumBLSeries ? 598 : 661}
-                  sizes="(max-width: 960px) 100vw, 74vw"
-                  className="productFeatureVisualImage"
-                />
-              </div>
-            </section>
+            {isLumBSeries ? (
+              <>
+                <section className="productSection">
+                  <div className="productSectionHead">
+                    <span className="eyebrow">FEATURE</span>
+                    <h2 className="sectionTitle">{ui.filterTitle}</h2>
+                  </div>
+                  <div className="lumBFilterComposite">
+                    <div className="lumBFilterSpectrum">
+                      <Image
+                        src="/products/lum-b/lum-b-filter-spectrum.png"
+                        alt="LUM-B filter wavelength spectrum"
+                        width={1520}
+                        height={157}
+                        className="lumBFilterSpectrumImage"
+                      />
+                    </div>
+                    <div className="lumBFilterLayout">
+                      <div className="lumBFilterDevice">
+                        <Image
+                          src="/products/lum-b/lum-b-filter-device.png"
+                          alt="LUM-B camera with neutral density filter"
+                          width={1024}
+                          height={1024}
+                          className="lumBFilterDeviceImage"
+                        />
+                        <div className="lumBFilterArrow" aria-hidden="true">
+                          <span className="lumBFilterArrowStem" />
+                          <span className="lumBFilterArrowHead" />
+                          <span className="lumBFilterArrowDot" />
+                        </div>
+                      </div>
+                      <div className="lumBFilterTableWrap">
+                        <table className="lumBFilterTable">
+                          <thead>
+                            <tr>
+                              <th colSpan={3}>
+                                Kind of <strong>Neutral Density Filter</strong>
+                              </th>
+                            </tr>
+                            <tr>
+                              <th>{ui.technicalData}</th>
+                              <th>for LUM-B-D</th>
+                              <th>for LUM-B-N/M</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {lumBFilterRows.map((row) => (
+                              <tr key={row.label}>
+                                <th>{row.label}</th>
+                                <td>{row.lumBD}</td>
+                                <td>{row.lumBNM}</td>
+                              </tr>
+                            ))}
+                            <tr>
+                              <th>Clear Aperture [mm]</th>
+                              <td colSpan={2}>&lt; Ø 20 mm</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </section>
 
-            <section className="productSection">
-              <div className="productSectionHead">
-                <span className="eyebrow">FEATURE</span>
-                <h2 className="sectionTitle">{ui.technicalData}</h2>
-              </div>
+                <section className="productSection">
+                  <div className="productSectionHead">
+                    <span className="eyebrow">FEATURE</span>
+                    <h2 className="sectionTitle">{ui.accessoryInfo}</h2>
+                  </div>
+                  <div className="productAccessoryBlock">
+                    <table className="productAccessoryTable">
+                      <tbody>
+                        {lumBAccessoryRows.map((row) => (
+                          <tr key={row.label}>
+                            <th>{row.label}</th>
+                            <td>{row.value}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+              </>
+            ) : isLumBLSeries ? (
+              <>
+                <section className="productSection">
+                  <div className="productSectionHead">
+                    <span className="eyebrow">FEATURE</span>
+                    <h2 className="sectionTitle">{ui.filterTitle}</h2>
+                  </div>
+                  <div className="lumBFilterComposite">
+                    <div className="lumBFilterSpectrum">
+                      <Image
+                        src="/products/lum-b-l/lum-b-l-filter-spectrum.png"
+                        alt="LUM-B-L filter wavelength spectrum"
+                        width={1233}
+                        height={147}
+                        className="lumBFilterSpectrumImage"
+                      />
+                    </div>
+                    <div className="lumBFilterLayout isLargeArea">
+                      <div className="lumBFilterDevice isLargeArea">
+                        <Image
+                          src="/products/lum-b-l/lum-b-l-filter-device.png"
+                          alt="LUM-B-L camera with neutral density filter"
+                          width={1536}
+                          height={1024}
+                          className="lumBFilterDeviceImage isLargeArea"
+                        />
+                        <div className="lumBFilterArrow isLargeArea" aria-hidden="true">
+                          <span className="lumBFilterArrowStem" />
+                          <span className="lumBFilterArrowHead" />
+                          <span className="lumBFilterArrowDot" />
+                        </div>
+                      </div>
+                      <div className="lumBFilterTableWrap">
+                        <table className="lumBFilterTable isSingleModel">
+                          <thead>
+                            <tr>
+                              <th colSpan={2}>
+                                Kind of <strong>Neutral Density Filter</strong>
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {lumBLFilterRows.map((row) => (
+                              <tr key={row.label}>
+                                <th>{row.label}</th>
+                                <td>{row.value}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </section>
 
-              <div className="productSpecBlock">
-                <table className="productTechTable">
-                  <thead>
-                    <tr>
-                      <th>{ui.technicalData}</th>
-                      {isLumBSeries ? (
-                        <>
-                          <th>LUM-B-D</th>
-                          <th>LUM-B-N</th>
-                          <th>LUM-B-M</th>
-                        </>
-                      ) : isLumBLSeries ? (
-                        <th colSpan={3}>LUM-B-L</th>
-                      ) : (
-                        <>
-                          <th>LUM-F-DUV</th>
-                          <th>LUM-F-UV</th>
-                          <th>LUM-F-VIS</th>
-                          <th>LUM-F-NIR</th>
-                        </>
-                      )}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {isLumBSeries
-                      ? (
-                        <>
-                          {lumBTechnicalRows.map((row) => (
+                <section className="productSection">
+                  <div className="productSectionHead">
+                    <span className="eyebrow">FEATURE</span>
+                    <h2 className="sectionTitle">{ui.technicalData}</h2>
+                  </div>
+
+                  <div className="productSpecBlock">
+                    <table className="productTechTable">
+                      <thead>
+                        <tr>
+                          <th>{ui.technicalData}</th>
+                          <th colSpan={3}>LUM-B-L</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {lumBLTechnicalRows.map((row) => (
+                          <tr key={row.label}>
+                            <th>{row.label}</th>
+                            <td colSpan={3}>{row.value}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div className="productAccessoryBlock">
+                    <div className="productAccessoryHeading">{ui.accessoryInfo}</div>
+                    <table className="productAccessoryTable">
+                      <tbody>
+                        {lumBLAccessoryRows.map((row) => (
+                          <tr key={row.label}>
+                            <th>{row.label}</th>
+                            <td>{row.value}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+              </>
+            ) : (
+              <>
+                <section className="productSection">
+                  <div className="productSectionHead">
+                    <span className="eyebrow">FEATURE</span>
+                    <h2 className="sectionTitle">{ui.filterTitle}</h2>
+                  </div>
+                  <div className="lumFFilterComposite">
+                    <div className="lumFFilterHero">
+                      <div className="lumFFilterMedia">
+                        <div className="lumFFilterBodyWrap">
+                          <Image
+                            src="/products/lum-f/lum-f-filter-body.png"
+                            alt="LUM-F main body"
+                            width={1536}
+                            height={1024}
+                            className="lumFFilterBodyImage"
+                          />
+                          <Image
+                            src="/products/lum-f/lum-f-filter-holder.png"
+                            alt="LUM-F filter holder"
+                            width={768}
+                            height={1024}
+                            className="lumFFilterHolderImage"
+                          />
+                          <div className="lumFFilterArrow isHolder" aria-hidden="true">
+                            <span className="lumFFilterArrowStem" />
+                            <span className="lumFFilterArrowHead" />
+                            <span className="lumFFilterArrowDot" />
+                          </div>
+                          <div className="lumFFilterArrow isLens" aria-hidden="true">
+                            <span className="lumFFilterArrowStem" />
+                            <span className="lumFFilterArrowHead" />
+                            <span className="lumFFilterArrowDot" />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="lumFFilterObjectiveCard">
+                        <div className="lumFFilterObjectiveHead">
+                          Objective Lens Unit<sup>(1)</sup>
+                        </div>
+                        <div className="lumFFilterObjectiveBody">
+                          <div className="lumFFilterObjectiveCopy">
+                            <p>
+                              Can <strong>Select Magnification</strong>
+                              <br />
+                              from min. X05 to max. X20
+                            </p>
+                            <p>
+                              Available <strong>3 types of Wavelength</strong>
+                            </p>
+                            <ul className="lumFFilterObjectiveList">
+                              <li><strong>UV</strong> : 343 nm – 355 nm</li>
+                              <li><strong>VIS</strong> : 485 nm – 570 nm</li>
+                              <li><strong>NIR</strong> : 980 nm – 1064 nm</li>
+                              <li><strong>DUV</strong>/Provisional : 240 nm – 355 nm</li>
+                            </ul>
+                          </div>
+                          <Image
+                            src="/products/lum-f/lum-f-filter-lens.png"
+                            alt="LUM-F objective lens unit"
+                            width={768}
+                            height={1024}
+                            className="lumFFilterLensImage"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="lumFFilterSpectrum">
+                      <Image
+                        src="/products/lum-f/lum-f-filter-spectrum.png"
+                        alt="LUM-F filter wavelength spectrum"
+                        width={1800}
+                        height={300}
+                        className="lumFFilterSpectrumImage"
+                      />
+                    </div>
+
+                    <div className="lumFFilterTableWrap">
+                      <table className="lumFFilterTable">
+                        <thead>
+                          <tr>
+                            <th colSpan={5}>
+                              Kind of <strong>Neutral Density Filter</strong>
+                            </th>
+                          </tr>
+                          <tr>
+                            <th>{ui.technicalData}</th>
+                            <th>for DUV</th>
+                            <th>for UV</th>
+                            <th>for VIS</th>
+                            <th>for NIR</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {lumFFilterRows.map((row) => (
                             <tr key={row.label}>
                               <th>{row.label}</th>
                               {row.values.map((value) => (
@@ -527,71 +793,79 @@ export default async function ProductDetailPage({
                               ))}
                             </tr>
                           ))}
-                          {lumBSharedRows.map((row) => (
-                            <tr key={row.label}>
-                              <th>{row.label}</th>
-                              <td colSpan={3}>{row.value}</td>
-                            </tr>
-                          ))}
-                        </>
-                      ) : isLumBLSeries ? (
-                        <>
-                          {lumBLTechnicalRows.map((row) => (
-                            <tr key={row.label}>
-                              <th>{row.label}</th>
-                              <td colSpan={3}>{row.value}</td>
-                            </tr>
-                          ))}
-                        </>
-                      ) : (
-                        <>
-                          {lumFTechnicalRows.map((row) => (
-                            <tr key={row.label}>
-                              <th>{row.label}</th>
-                              {"groups" in row ? (
-                                row.groups.map((group, index) => (
-                                  <td key={`${row.label}-${index}`} colSpan={group.span}>
-                                    {group.value}
-                                  </td>
-                                ))
-                              ) : "values" in row ? (
-                                row.values.map((value, index) => (
-                                  <td
-                                    key={`${row.label}-${value}`}
-                                    colSpan={row.values.length === 3 && index === 0 ? 2 : 1}
-                                  >
-                                    {value}
-                                  </td>
-                                ))
-                              ) : (
-                                <td colSpan={4}>{row.value}</td>
-                              )}
-                            </tr>
-                          ))}
-                        </>
-                      )}
-                  </tbody>
-                </table>
-              </div>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </section>
 
-              <div className="productAccessoryBlock">
-                <div className="productAccessoryHeading">{ui.accessoryInfo}</div>
-                <table className="productAccessoryTable">
-                  <tbody>
-                    {(isLumBSeries
-                      ? lumBAccessoryRows
-                      : isLumBLSeries
-                        ? lumBLAccessoryRows
-                        : lumFAccessoryRows).map((row) => (
-                      <tr key={row.label}>
-                        <th>{row.label}</th>
-                        <td>{row.value}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </section>
+                <section className="productSection">
+                  <div className="productSectionHead">
+                    <span className="eyebrow">FEATURE</span>
+                    <h2 className="sectionTitle">{ui.technicalData}</h2>
+                  </div>
+
+                  <div className="productSpecBlock">
+                    <table className="productTechTable">
+                      <thead>
+                        <tr>
+                          <th>{ui.technicalData}</th>
+                          {isLumBLSeries ? (
+                            <th colSpan={3}>LUM-B-L</th>
+                          ) : (
+                            <>
+                              <th>LUM-F-DUV</th>
+                              <th>LUM-F-UV</th>
+                              <th>LUM-F-VIS</th>
+                              <th>LUM-F-NIR</th>
+                            </>
+                          )}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {lumFTechnicalRows.map((row) => (
+                          <tr key={row.label}>
+                            <th>{row.label}</th>
+                            {"groups" in row ? (
+                              row.groups.map((group, index) => (
+                                <td key={`${row.label}-${index}`} colSpan={group.span}>
+                                  {group.value}
+                                </td>
+                              ))
+                            ) : "values" in row ? (
+                              row.values.map((value, index) => (
+                                <td
+                                  key={`${row.label}-${value}`}
+                                  colSpan={row.values.length === 3 && index === 0 ? 2 : 1}
+                                >
+                                  {value}
+                                </td>
+                              ))
+                            ) : (
+                              <td colSpan={4}>{row.value}</td>
+                            )}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div className="productAccessoryBlock">
+                    <div className="productAccessoryHeading">{ui.accessoryInfo}</div>
+                    <table className="productAccessoryTable">
+                      <tbody>
+                        {lumFAccessoryRows.map((row) => (
+                          <tr key={row.label}>
+                            <th>{row.label}</th>
+                            <td>{row.value}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+              </>
+            )}
           </>
         ) : isLumZSeries ? (
           <>
