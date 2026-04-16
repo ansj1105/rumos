@@ -3694,73 +3694,41 @@ select {
 
   .lumBFilterTableWrap,
   .lumFFilterTableWrap {
-    overflow: visible;
+    overflow-x: hidden;
   }
 
   .lumBFilterTable,
   .lumFFilterTable {
     min-width: 0;
-  }
-
-  .lumBFilterTable thead,
-  .lumFFilterTable thead {
-    display: none;
-  }
-
-  .lumBFilterTable,
-  .lumBFilterTable tbody,
-  .lumBFilterTable tr,
-  .lumBFilterTable th,
-  .lumBFilterTable td,
-  .lumFFilterTable,
-  .lumFFilterTable tbody,
-  .lumFFilterTable tr,
-  .lumFFilterTable th,
-  .lumFFilterTable td {
-    display: block;
     width: 100%;
+    table-layout: fixed;
   }
 
-  .lumBFilterTable tbody tr,
-  .lumFFilterTable tbody tr {
-    border-top: 1px solid rgba(42, 117, 175, 0.2);
-  }
-
+  .lumBFilterTable thead th,
   .lumBFilterTable tbody th,
-  .lumFFilterTable tbody th {
-    padding: 14px 14px 10px;
-    border-top: 0;
-    text-align: left;
-    background: #f5f8fb;
-    font-size: 14px;
-    font-weight: 700;
-  }
-
   .lumBFilterTable tbody td,
+  .lumFFilterTable thead th,
+  .lumFFilterTable tbody th,
   .lumFFilterTable tbody td {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 12px 14px;
-    border-top: 1px solid rgba(42, 117, 175, 0.14);
-    text-align: left;
+    padding: 11px 8px;
+    font-size: 12px;
+    line-height: 1.45;
+    word-break: keep-all;
+  }
+
+  .lumBFilterTable thead tr:first-child th,
+  .lumFFilterTable thead tr:first-child th {
     font-size: 14px;
   }
 
-  .lumBFilterTable tbody td::before,
-  .lumFFilterTable tbody td::before {
-    content: attr(data-column);
-    flex: 0 0 92px;
-    color: #2a75af;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
+  .lumBFilterTable thead tr:first-child strong,
+  .lumFFilterTable thead tr:first-child strong {
+    font-size: 18px;
   }
 
-  .lumBFilterTable.isSingleModel tbody td::before,
-  .lumBFilterTable tbody td[colspan]::before {
-    content: none;
+  .lumBFilterTable thead tr:last-child th,
+  .lumFFilterTable thead tr:last-child th {
+    font-size: 12px;
   }
 }
 
