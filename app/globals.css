@@ -3833,18 +3833,9 @@ select {
 
 .softwareInterfaceItem {
   display: flex;
-  gap: 12px;
   padding: 14px 0;
   border-bottom: 1px solid rgba(15, 34, 61, 0.08);
   line-height: 1.8;
-}
-
-.productFeatureMark {
-  width: 8px;
-  height: 8px;
-  margin-top: 10px;
-  flex: 0 0 auto;
-  background: var(--blue);
 }
 
 .productApplicationList,

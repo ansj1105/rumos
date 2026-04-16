@@ -500,13 +500,13 @@ export default async function ProductDetailPage({
                 <span className="eyebrow">FEATURE</span>
                 <h2 className="sectionTitle">{ui.keyFeatures}</h2>
               </div>
-              <ol className="productFeatureList">
+              <div className="softwareInterfaceList">
                 {displayFeatures.map((feature) => (
-                  <li key={feature} className="productFeatureItem">
+                  <div key={feature} className="softwareInterfaceItem">
                     <span>{feature}</span>
-                  </li>
+                  </div>
                 ))}
-              </ol>
+              </div>
             </section>
 
             {isLumBSeries ? (
@@ -987,7 +987,6 @@ export default async function ProductDetailPage({
               <div className="softwareInterfaceList">
                 {ifiRemarks.map((item, index) => (
                   <div key={item} className="softwareInterfaceItem">
-                    <span className="productFeatureMark" />
                     <span>{`(${index + 1}) ${item}`}</span>
                   </div>
                 ))}
@@ -1092,7 +1091,6 @@ export default async function ProductDetailPage({
                       "Operator-oriented screens for repeated measurement workflows.",
                     ]).map((item) => (
                   <div key={item} className="softwareInterfaceItem">
-                    <span className="productFeatureMark" />
                     <span>{item}</span>
                   </div>
                 ))}
