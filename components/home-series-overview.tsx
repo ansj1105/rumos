@@ -109,7 +109,7 @@ const seriesItems: SeriesCardItem[] = [
     keywordsEn: ["Visualization", "Analysis", "Reporting"],
     imageUrl: "/products/software/main.png",
     imageClassName: "isSoftware",
-    layoutClassName: "isPrimary",
+    layoutClassName: "isSoftwareOffset",
   },
 ];
 
