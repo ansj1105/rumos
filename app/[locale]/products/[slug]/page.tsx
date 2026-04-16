@@ -57,7 +57,7 @@ const lumBFilterRows = [
     lumBNM: "Absorptive",
   },
   {
-    label: "Optical Density (1)",
+    label: "Optical Density",
     lumBD: "0.1 up to 4.0",
     lumBNM: "0.1 up to 6.0",
   },
@@ -73,7 +73,7 @@ const lumBLFilterRows = [
     value: "Absorptive",
   },
   {
-    label: "Optical Density(1)",
+    label: "Optical Density",
     value: "0.1 up to 6.0",
   },
   {
@@ -92,7 +92,7 @@ const lumFFilterRows = [
     values: ["Reflective", "Absorptive", "Absorptive", "Absorptive"],
   },
   {
-    label: "Optical Density (2)",
+    label: "Optical Density",
     values: ["0.1 up to 4.0", "0.1 up to 6.0", "0.1 up to 6.0", "0.1 up to 6.0"],
   },
 ] as const;
@@ -708,7 +708,7 @@ export default async function ProductDetailPage({
 
                       <div className="lumFFilterObjectiveCard">
                         <div className="lumFFilterObjectiveHead">
-                          Objective Lens Unit<sup>(1)</sup>
+                          Objective Lens Unit
                         </div>
                         <div className="lumFFilterObjectiveBody">
                           <div className="lumFFilterObjectiveCopy">
