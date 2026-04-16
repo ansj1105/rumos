@@ -13,9 +13,13 @@ function StoryHighlightSvg({ iconKey }: { iconKey: StoryHighlightCardProps["icon
   if (iconKey === "vision") {
     return (
       <svg viewBox="0 0 64 64" className="storyHighlightSvg" aria-hidden="true">
-        <path d="M10 32s8-14 22-14 22 14 22 14-8 14-22 14S10 32 10 32Z" className="storyHighlightSvgLine" />
-        <circle cx="32" cy="32" r="8" className="storyHighlightSvgLine" />
-        <circle cx="32" cy="32" r="3" className="storyHighlightSvgCore" />
+        <path
+          d="M22 36c-2.6-2.4-4-5.8-4-9.6 0-7.7 6.3-14 14-14s14 6.3 14 14c0 3.8-1.4 7.2-4 9.6-1.8 1.7-2.8 3.2-3.2 4.8H25.2c-.4-1.6-1.4-3.1-3.2-4.8Z"
+          className="storyHighlightSvgLine"
+        />
+        <path d="M26 45h12M27.5 50h9" className="storyHighlightSvgLine" />
+        <path d="M28 23.5c1.1-1.7 2.8-2.7 5-3" className="storyHighlightSvgLine" />
+        <circle cx="32" cy="42" r="2.4" className="storyHighlightSvgCore" />
       </svg>
     );
   }
@@ -24,11 +28,11 @@ function StoryHighlightSvg({ iconKey }: { iconKey: StoryHighlightCardProps["icon
     <svg viewBox="0 0 64 64" className="storyHighlightSvg" aria-hidden="true">
       <circle cx="32" cy="32" r="18" className="storyHighlightSvgLine" />
       <circle cx="32" cy="32" r="10" className="storyHighlightSvgLine" />
-      <path d="M32 14v8M32 42v8M14 32h8M42 32h8" className="storyHighlightSvgLine" />
-      <path
-        d="M32 27.5a4.5 4.5 0 1 1 0 9a4.5 4.5 0 0 1 0-9Z"
-        className="storyHighlightSvgCore"
-      />
+      <circle cx="32" cy="32" r="3.5" className="storyHighlightSvgCore" />
+      <path d="M15 49l15-15" className="storyHighlightSvgLine" />
+      <path d="M28 22l12-2-2 12" className="storyHighlightSvgLine" />
+      <path d="M34 26l11-11" className="storyHighlightSvgLine" />
+      <path d="M45 15l4 4" className="storyHighlightSvgLine" />
     </svg>
   );
 }
