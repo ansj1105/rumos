@@ -3,43 +3,32 @@
 import { useEffect, useRef } from "react";
 
 type StoryHighlightCardProps = {
-  iconKey: "light" | "precision" | "mission";
+  iconKey: "vision" | "goal";
   label: string;
   title: string;
   body: string;
 };
 
 function StoryHighlightSvg({ iconKey }: { iconKey: StoryHighlightCardProps["iconKey"] }) {
-  if (iconKey === "light") {
+  if (iconKey === "vision") {
     return (
       <svg viewBox="0 0 64 64" className="storyHighlightSvg" aria-hidden="true">
-        <circle cx="32" cy="32" r="11" className="storyHighlightSvgCore" />
-        <path
-          d="M32 8v9M32 47v9M8 32h9M47 32h9M15 15l6.5 6.5M42.5 42.5L49 49M49 15l-6.5 6.5M15 49l6.5-6.5"
-          className="storyHighlightSvgLine"
-        />
-      </svg>
-    );
-  }
-
-  if (iconKey === "precision") {
-    return (
-      <svg viewBox="0 0 64 64" className="storyHighlightSvg" aria-hidden="true">
-        <circle cx="32" cy="32" r="18" className="storyHighlightSvgLine" />
+        <path d="M10 32s8-14 22-14 22 14 22 14-8 14-22 14S10 32 10 32Z" className="storyHighlightSvgLine" />
         <circle cx="32" cy="32" r="8" className="storyHighlightSvgLine" />
-        <circle cx="32" cy="32" r="2.5" className="storyHighlightSvgCore" />
-        <path d="M32 10v8M32 46v8M10 32h8M46 32h8" className="storyHighlightSvgLine" />
+        <circle cx="32" cy="32" r="3" className="storyHighlightSvgCore" />
       </svg>
     );
   }
 
   return (
     <svg viewBox="0 0 64 64" className="storyHighlightSvg" aria-hidden="true">
-      <path d="M32 12v40" className="storyHighlightSvgLine" />
-      <path d="M22 22h20" className="storyHighlightSvgLine" />
-      <path d="M18 48h28" className="storyHighlightSvgLine" />
-      <path d="M32 12l11 11-11 11-11-11 11-11Z" className="storyHighlightSvgLine" />
-      <circle cx="32" cy="48" r="4" className="storyHighlightSvgCore" />
+      <circle cx="32" cy="32" r="18" className="storyHighlightSvgLine" />
+      <circle cx="32" cy="32" r="10" className="storyHighlightSvgLine" />
+      <path d="M32 14v8M32 42v8M14 32h8M42 32h8" className="storyHighlightSvgLine" />
+      <path
+        d="M32 27.5a4.5 4.5 0 1 1 0 9a4.5 4.5 0 0 1 0-9Z"
+        className="storyHighlightSvgCore"
+      />
     </svg>
   );
 }
@@ -65,8 +54,8 @@ export function StoryHighlightCard({
       const rect = container.getBoundingClientRect();
       const x = event.clientX - rect.left;
       const y = event.clientY - rect.top;
-      const rotateY = ((x / rect.width) - 0.5) * 12;
-      const rotateX = (0.5 - (y / rect.height)) * 10;
+      const rotateY = ((x / rect.width) - 0.5) * 8;
+      const rotateX = (0.5 - (y / rect.height)) * 6;
       const backgroundX = (x / rect.width) * 100;
       const backgroundY = (y / rect.height) * 100;
 
@@ -97,13 +86,15 @@ export function StoryHighlightCard({
       style={{ transformStyle: "preserve-3d", willChange: "transform" }}
     >
       <div ref={overlayRef} className="storyHighlightGlow" aria-hidden="true" />
-      <div className={`storyHighlightCardInner ${iconKey === "mission" ? "isTextOnly" : ""}`}>
+      <div className="storyHighlightCardInner">
         <div className={`storyHighlightIcon is-${iconKey}`} aria-hidden="true">
           <StoryHighlightSvg iconKey={iconKey} />
         </div>
-        <span className="storyHighlightLabel">{label}</span>
-        <strong className="storyHighlightTitle">{title}</strong>
-        <p className="storyHighlightBody">{body}</p>
+        <div className="storyHighlightCopy">
+          <span className="storyHighlightLabel">{label}</span>
+          <strong className="storyHighlightTitle">{title}</strong>
+          <p className="storyHighlightBody">{body}</p>
+        </div>
       </div>
     </article>
   );

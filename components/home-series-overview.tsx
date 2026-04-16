@@ -199,20 +199,6 @@ export function HomeSeriesOverview({
               </p>
             </div>
 
-            <div className="homeSeriesKeywordGrid">
-              {mergedSeriesItems.map((item, index) => (
-                <Link
-                  key={item.slug}
-                  href={`/${locale}/products/${item.slug}`}
-                  className={`homeSeriesKeywordLink ${currentIndex === index ? "isActive" : ""}`}
-                  onMouseEnter={() => setCurrentIndex(index)}
-                  onFocus={() => setCurrentIndex(index)}
-                >
-                  <strong>{item.name}</strong>
-                  <span>{locale === "ko" ? item.taglineKo : item.taglineEn}</span>
-                </Link>
-              ))}
-            </div>
           </div>
 
           <div ref={mosaicRef} className="homeSeriesMosaic">

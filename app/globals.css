@@ -2198,8 +2198,9 @@ select {
 
 .storyHighlightGrid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  width: min(100%, 520px);
 }
 
 .storyHighlightCard {
@@ -2224,26 +2225,19 @@ select {
   position: relative;
   z-index: 1;
   display: grid;
-  justify-items: center;
-  text-align: center;
-  gap: 10px;
-  padding: 28px 20px 24px;
+  grid-template-columns: 112px minmax(0, 1fr);
+  align-items: center;
+  gap: 20px;
+  padding: 24px 26px;
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   transform: translateZ(20px);
 }
 
-.storyHighlightCardInner.isTextOnly {
-  padding-top: 26px;
-  justify-items: center;
-  text-align: center;
-}
-
-.storyHighlightCardInner.isTextOnly .storyHighlightLabel,
-.storyHighlightCardInner.isTextOnly .storyHighlightTitle,
-.storyHighlightCardInner.isTextOnly .storyHighlightBody {
-  margin-inline: auto;
-  text-align: center;
+.storyHighlightCopy {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
 }
 
 .storyHighlightGlow {
@@ -2272,8 +2266,8 @@ select {
   position: relative;
   display: grid;
   place-items: center;
-  width: 116px;
-  height: 116px;
+  width: 96px;
+  height: 96px;
   border: 1.5px solid rgba(173, 224, 255, 0.34);
   border-radius: 999px;
   color: #d9f0ff;
@@ -2310,14 +2304,14 @@ select {
 
 .storyHighlightLabel {
   color: rgba(165, 219, 255, 0.88);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 .storyHighlightTitle {
-  font-size: 22px;
+  font-size: 26px;
   letter-spacing: -0.03em;
   color: #f5f8fc;
   transform: translateZ(18px);
@@ -2326,8 +2320,8 @@ select {
 .storyHighlightBody {
   margin: 0;
   color: rgba(224, 232, 240, 0.82);
-  font-size: 14px;
-  line-height: 1.7;
+  font-size: 16px;
+  line-height: 1.55;
   transform: translateZ(14px);
 }
 
@@ -2720,6 +2714,7 @@ select {
 .seriesFeatureMedia {
   position: absolute;
   inset: 0;
+  background: #ffffff;
 }
 
 .seriesFeatureImage {
@@ -4895,50 +4890,45 @@ td {
   }
 
   .storyHighlightGrid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 8px;
-    align-items: stretch;
+    width: 100%;
+    gap: 10px;
   }
 
   .storyHighlightCard {
-    aspect-ratio: 1 / 1;
-    display: block;
-    min-height: 0;
+    display: grid;
     padding: 0;
   }
 
   .storyHighlightCardInner {
-    height: 100%;
-    align-content: center;
-    gap: 6px;
-    padding: 10px 7px;
+    grid-template-columns: 64px minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
+    min-height: 112px;
+    padding: 14px 14px 14px 12px;
   }
 
   .storyHighlightIcon {
-    display: none;
+    display: grid;
+    width: 64px;
+    height: 64px;
   }
 
   .storyHighlightLabel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 18px;
     font-size: 9px;
     letter-spacing: 0.1em;
-    line-height: 1;
+    line-height: 1.1;
   }
 
   .storyHighlightTitle {
-    display: none;
+    display: block;
+    font-size: 18px;
   }
 
   .storyHighlightBody {
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
-    font-size: 10px;
-    line-height: 1.35;
+    display: block;
+    overflow: visible;
+    font-size: 12px;
+    line-height: 1.45;
     word-break: keep-all;
   }
 

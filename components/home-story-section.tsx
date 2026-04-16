@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 import { StoryHighlightCard } from "@/components/story-highlight-card";
 
 export type StoryHighlightItem = {
-  key: "light" | "precision" | "mission";
+  key: "vision" | "goal";
   label: string;
   title: string;
   body: string;

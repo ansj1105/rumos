@@ -113,10 +113,10 @@ export const dictionaries: Record<Locale, Dictionary> = {
       titlePrefix: "About",
       titleHighlight: "LUMOS",
       lead:
-        "LUMOS(루모스)는 정밀 광학 및 레이저 분야에서 다년간 노하우를 축적해 온 신호텍(Shinhotek)이 기획부터 R&D, 생산까지 전 과정을 직접 완성한 자체 개발 장비 브랜드입니다. 신호텍은 산업 현장의 고객들이 기존 장비들을 사용하며 겪는 높은 가격 장벽, 복잡한 소프트웨어, 늦은 기술 지원 등의 실질적인 불편함에 주목했습니다.",
+        "2000년 Coherent AVIA 레이저가 세계 최초로 디스플레이 양산라인에 적용되며 디스플레이 생산의 주요 생산 수단이 되었듯이, 2016년 독일 Metrolux사의 FM100 모델이 양산라인에서 모니터링 모듈로 적용되었고 이후 빔프로파일러는 파워미터와 함께 한국 내 레이저 장비 모니터링의 한 축이 되었습니다.",
       relationLabel: "SHINHOTEK",
       relationBody:
-        "이러한 시장의 니즈를 근본적으로 해결하기 위해, 우리는 자체 기술력을 바탕으로 합리적인 도입 비용과 직관적인 인터페이스, 그리고 신속한 사후 관리를 모두 갖춘 LUMOS를 선보이게 되었습니다. 신호텍의 탄탄한 인프라와 독자적인 제조 역량을 통해, LUMOS는 레이저 측정 분야의 가장 신뢰할 수 있는 새로운 표준을 제시합니다.",
+        "신호텍은 20년간 Metrolux의 한국 대리점으로서 한국 양산라인에 수백 대의 빔프로파일러를 공급하며 그 노하우를 축적해 왔습니다. 2000년대 초반 Metrolux가 아쉽게도 제품 단종을 결정하게 되어, 그동안 축적해 놓은 Metrolux의 명성과 품질을 유산으로 4년여의 개발을 통해 이어받아 2026년 LUMOS라는 브랜드로 새롭게 출발하게 되었습니다. LUMOS는 한국 최초의 commercial beam profiler로서 한국의 강점인 반도체, 디스플레이, 2차전지, PCB 고객의 니즈를 빔프로파일러의 품질에 녹여냄으로써 세계에서 가장 양산에 최적화되어 있다고 감히 자부할 수 있습니다.",
       ctaDetail: "자세히 보기",
       visualLabel: "Precision optical engineering",
     },
@@ -213,10 +213,10 @@ export const dictionaries: Record<Locale, Dictionary> = {
       titlePrefix: "About",
       titleHighlight: "LUMOS",
       lead:
-        "LUMOS is a proprietary equipment brand fully conceived, developed, and manufactured by Shinhotek, a company with years of expertise in precision optics and laser systems. Shinhotek recognized the practical friction customers faced with conventional equipment, including high acquisition costs, overly complex software, and slow technical support.",
+        "Just as the Coherent AVIA laser became the primary production tool for display laser applications after it was first applied to mass production lines for mobile displays in Korea, the Metrolux (Germany) FM100 model was adopted as a monitoring module for mass production in Korea in 2016. Since then, beam profilers, along with power meters, have become a standard option for laser equipment monitoring in laser microprocessing systems across Korea.",
       relationLabel: "SHINHOTEK",
       relationBody:
-        "To address those issues at the root, we built LUMOS around our own engineering capabilities, combining a more reasonable entry cost, an intuitive interface, and responsive after-sales support. Backed by Shinhotek's solid infrastructure and in-house manufacturing capabilities, LUMOS is committed to setting the most trusted new standard in laser measurement.",
+        "As the Korean distributor of Metrolux for 20 years, Shinhotek accumulated extensive know-how by supplying hundreds of beam profilers to mass production lines in Korea. When Metrolux regrettably decided to discontinue its products in the early 2000s, we carried forward its reputation and quality through approximately four years of development and launched a new brand, LUMOS, in 2026. As Korea's first commercial beam profiler, LUMOS reflects the needs of customers across Korean industries, including semiconductors, displays, secondary batteries, and PCBs. We are confident in stating that our products are among the world's most optimized for mass production.",
       ctaDetail: "Learn more",
       visualLabel: "Precision optical engineering",
     },

@@ -42,16 +42,6 @@ export function Hero({ locale, heroImageUrl }: HeroProps) {
               <p className="heroRelationText">{dict.hero.relationBody}</p>
             </div>
           </div>
-          <div className="buttonRow heroButtonRow">
-            <a
-              href="https://www.shinhotek.com/"
-              target="_blank"
-              rel="noreferrer"
-              className="button secondary heroDetailButton"
-            >
-              {dict.hero.ctaDetail}
-            </a>
-          </div>
         </div>
 
         <div className="heroMedia">

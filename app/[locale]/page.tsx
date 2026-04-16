@@ -15,7 +15,7 @@ export default async function HomePage({
   const dict = getDictionary(locale);
   const [config, products] = await Promise.all([getSiteConfig(), getProducts()]);
   const brandOriginTitle =
-    locale === "ko" ? "브랜드 어원 : LUMOS" : "Brand Origin : LUMOS";
+    "LUMOS:";
   const storyDisplayLines =
     locale === "ko" ? ["브랜드 어원 :", "루모스"] : ["Brand Origin :", "LUMOS"];
   const storySource = (locale === "ko" ? config?.storyBodyKo : config?.storyBodyEn) ?? dict.story.body;
@@ -27,42 +27,30 @@ export default async function HomePage({
     locale === "ko"
       ? [
           {
-            key: "light",
-            label: "Lumen",
-            title: "빛의 어원",
-            body: "LUMOS의 이름은 빛의 본질을 정밀하게 읽어내겠다는 출발점에서 시작되었습니다.",
+            key: "vision",
+            label: "Vision",
+            title: "비전",
+            body: "Trusting LASER Light through LUMOS",
           },
           {
-            key: "precision",
-            label: "Precision",
-            title: "정밀 측정",
-            body: "광학과 레이저 계측에서 필요한 정확도와 반복성을 브랜드의 핵심 가치로 삼습니다.",
-          },
-          {
-            key: "mission",
-            label: "Mission",
-            title: "측정의 사명",
-            body: "빛을 더 명확하게 이해하고 공정 해석을 더 선명하게 만드는 장비 경험을 지향합니다.",
+            key: "goal",
+            label: "Goal",
+            title: "목표",
+            body: "The Trusted Standard for Laser Beam Measurement",
           },
         ]
       : [
           {
-            key: "light",
-            label: "Lumen",
-            title: "Origin of Light",
-            body: "The LUMOS name starts from the idea of reading the essence of light with clarity and discipline.",
+            key: "vision",
+            label: "Vision",
+            title: "Vision",
+            body: "Trusting LASER Light through LUMOS",
           },
           {
-            key: "precision",
-            label: "Precision",
-            title: "Measured Accuracy",
-            body: "Precision and repeatability in optical and laser metrology define the core value of the brand.",
-          },
-          {
-            key: "mission",
-            label: "Mission",
-            title: "Purpose of Measurement",
-            body: "We aim to make light easier to understand and industrial process analysis more reliable.",
+            key: "goal",
+            label: "Goal",
+            title: "Goal",
+            body: "The Trusted Standard for Laser Beam Measurement",
           },
         ];
   const patentSection =
