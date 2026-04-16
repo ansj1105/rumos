@@ -1071,6 +1071,7 @@ export default async function ProductDetailPage({
                       "Operator-oriented screens for repeated measurement workflows.",
                     ]).map((item) => (
                   <div key={item} className="softwareInterfaceItem">
+                    <span className="softwareInterfaceDot" aria-hidden="true" />
                     <span>{item}</span>
                   </div>
                 ))}
