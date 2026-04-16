@@ -236,6 +236,17 @@ select {
   overflow: hidden;
 }
 
+@media (min-width: 961px) {
+  .subpageHero {
+    min-height: 330px;
+  }
+
+  .subpageHeroBg {
+    height: 330px;
+    inset: 0 0 auto 0;
+  }
+}
+
 .subpageHeroBgImage {
   object-fit: cover;
   object-position: center;
