@@ -2688,7 +2688,7 @@ select {
 .seriesFeatureCard.isTopRight {
   grid-column: auto;
   grid-row: auto;
-  margin-top: 74px;
+  margin-top: 34px;
 }
 
 .seriesFeatureCard.isCenter {
@@ -2700,7 +2700,7 @@ select {
 .seriesFeatureCard.isBottomLeft {
   grid-column: auto;
   grid-row: auto;
-  margin-top: 74px;
+  margin-top: 34px;
 }
 
 .seriesFeatureCard.isBottomRight {
@@ -2754,7 +2754,7 @@ select {
 .seriesFeatureImage.isLumF,
 .seriesFeatureImage.isLumZ {
   object-fit: contain;
-  padding: 32px;
+  padding: 20px;
 }
 
 .seriesFeatureImage.isSoftware {
@@ -2765,8 +2765,8 @@ select {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(4, 18, 41, 0.08) 0%, rgba(3, 16, 38, 0.78) 100%),
-    linear-gradient(135deg, rgba(60, 185, 255, 0.14) 0%, transparent 36%);
+    linear-gradient(180deg, rgba(4, 18, 41, 0.02) 0%, rgba(3, 16, 38, 0.56) 100%),
+    linear-gradient(135deg, rgba(60, 185, 255, 0.08) 0%, transparent 34%);
 }
 
 .seriesFeatureContent {
@@ -2806,28 +2806,6 @@ select {
   color: rgba(255, 255, 255, 0.8);
   font-size: 14px;
   line-height: 1.7;
-}
-
-.seriesFeatureKeywords {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.seriesFeatureContent.isSoftware .seriesFeatureKeywords {
-  justify-content: flex-end;
-}
-
-.seriesFeatureKeyword {
-  display: inline-flex;
-  min-height: 34px;
-  align-items: center;
-  padding: 0 12px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.88);
-  font-size: 12px;
-  font-weight: 600;
 }
 
 .homeSeriesSlider {

@@ -344,13 +344,6 @@ function SeriesFeatureCard({
         <p className="seriesFeatureSummary">
           {locale === "ko" ? item.summaryKo : item.summaryEn}
         </p>
-        <div className="seriesFeatureKeywords">
-          {(locale === "ko" ? item.keywordsKo : item.keywordsEn).map((keyword) => (
-            <span key={keyword} className="seriesFeatureKeyword">
-              {keyword}
-            </span>
-          ))}
-        </div>
       </div>
     </Link>
   );
