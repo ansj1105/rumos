@@ -358,12 +358,12 @@ export default async function ProductDetailPage({
                       isLumBLSeries
                         ? (
                           locale === "ko"
-                            ? "LUM-B-L 시리즈는 대면적 레이저 빔 프로파일링을 위한 고해상도 측정 플랫폼으로, 대형 센서와 넓은 유효 개구를 통해 확장된 계측 환경에 대응합니다."
+                            ? "LUM-B-L 시리즈는 대면적 레이저 빔 프로파일링을 위한 고해상도 측정 기기로, 대형 센서와 넓은 유효 개구를 통해 확장된 계측 환경에 대응합니다."
                             : "The LUM-B-L Series is a high-resolution platform for large-area laser beam profiling, combining a large sensor and wide clear aperture for expanded measurement environments."
                         )
                         : (
                           locale === "ko"
-                            ? "LUM-F 시리즈는 고배율 초점 빔 프로파일링을 위한 측정 플랫폼으로, 파장별 렌즈 유닛과 필터 구성을 통해 미세 스폿 계측 환경에 대응합니다."
+                            ? "LUM-F 시리즈는 고배율 초점 빔 프로파일링을 위한 측정 기기로, 파장별 렌즈 유닛과 필터 구성을 통해 미세 스폿 계측 환경에 대응합니다."
                             : "The LUM-F Series is a focused beam profiling platform built for fine spot measurement, combining wavelength-specific objective units and filter configurations."
                         )
                     )}

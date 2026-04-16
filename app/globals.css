@@ -271,7 +271,13 @@ select {
 }
 
 .subpageHero-products .subpageHeroBgImage {
-  object-position: 68% center;
+  object-position: 68% 24%;
+}
+
+@media (min-width: 961px) {
+  .subpageHero-products {
+    min-height: 320px;
+  }
 }
 
 .subpageHero-products .eyebrow {
