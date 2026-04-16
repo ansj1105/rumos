@@ -3,6 +3,7 @@ import nodemailer from "nodemailer";
 type InquiryMail = {
   inquiryType?: string | null;
   company?: string | null;
+  position?: string | null;
   name: string;
   email: string;
   phone?: string | null;
@@ -39,6 +40,7 @@ export async function sendInquiryMail(payload: InquiryMail) {
       `Inquiry Type: ${payload.inquiryType ?? "-"}`,
       `Locale: ${payload.locale}`,
       `Company: ${payload.company ?? "-"}`,
+      `Position: ${payload.position ?? "-"}`,
       `Name: ${payload.name}`,
       `Email: ${payload.email}`,
       `Phone: ${payload.phone ?? "-"}`,

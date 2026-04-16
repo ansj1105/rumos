@@ -7,29 +7,23 @@ import { getPageHeroConfig } from "@/lib/content";
 import type { Locale } from "@/lib/site";
 
 const inquiryTopics = {
-  consultation: {
-    labelKo: "상담 요청",
-    labelEn: "Request a Consultation",
-    titleKo: "Request a Consultation",
-    titleEn: "Request a Consultation",
-    descriptionKo: "적용 공정과 목표를 남겨주시면 제품 적합성과 대응 방향을 검토해 드립니다.",
-    descriptionEn: "Share your process and objectives, and we will review fit and next steps.",
+  consultationSales: {
+    labelKo: "상담 및 견적 문의",
+    labelEn: "Consultation & Quotation",
+    titleKo: "상담 및 견적 문의",
+    titleEn: "Consultation & Quotation",
+    descriptionKo:
+      "T : +82-02-852-0533\nM : Sales@lumosity.co.kr",
+    descriptionEn:
+      "T : +82-02-852-0533\nM : Sales@lumosity.co.kr",
   },
-  sales: {
-    labelKo: "영업 문의",
-    labelEn: "Contact Sales",
-    titleKo: "Contact Sales",
-    titleEn: "Contact Sales",
-    descriptionKo: "제품 사양, 수량, 일정, 협업 범위 등 구매 관련 내용을 남겨주세요.",
-    descriptionEn: "Use this for product specs, quantity, schedule, and commercial discussions.",
-  },
-  support: {
-    labelKo: "지원 및 RMA",
-    labelEn: "Support & RMA Request",
-    titleKo: "Support & RMA Request",
-    titleEn: "Support & RMA Request",
-    descriptionKo: "설치, 운용, 장애 대응, 반품 및 RMA 요청과 관련된 내용을 남겨주세요.",
-    descriptionEn: "Use this for installation, troubleshooting, service support, and RMA requests.",
+  supportRma: {
+    labelKo: "지원 & RMA",
+    labelEn: "Support & RMA",
+    titleKo: "지원 & RMA",
+    titleEn: "Support & RMA",
+    descriptionKo: "M : Technical@shinhotek.com",
+    descriptionEn: "M : Technical@shinhotek.com",
   },
 } as const;
 
@@ -47,7 +41,7 @@ export default async function QuotePage({
   const selectedTopic =
     resolvedSearchParams?.topic && resolvedSearchParams.topic in inquiryTopics
       ? (resolvedSearchParams.topic as keyof typeof inquiryTopics)
-      : "consultation";
+      : "consultationSales";
   const activeTopic = inquiryTopics[selectedTopic];
   const introTitle = isKo ? activeTopic.titleKo : activeTopic.titleEn;
   const introDescription = isKo ? activeTopic.descriptionKo : activeTopic.descriptionEn;
@@ -72,7 +66,7 @@ export default async function QuotePage({
             <strong>{isKo ? "문의하기" : "Contact Us"}</strong>
             <span>
               {isKo
-                ? "아래 문의 유형을 선택하시면 해당 목적에 맞는 내용으로 접수됩니다."
+                ? "선택하시면 해당 목적에 맞는 내용으로 접수됩니다."
                 : "Select the inquiry path below and submit the form for the right team."}
             </span>
           </div>
@@ -83,8 +77,8 @@ export default async function QuotePage({
               <strong>{isKo ? "문의 유형 선택" : "Choose Your Inquiry Path"}</strong>
               <p>
                 {isKo
-                  ? "상담, 영업, 기술지원 중 목적에 맞는 항목을 선택하면 아래 폼이 해당 문의로 접수됩니다."
-                  : "Choose consultation, sales, or support. The form below will be submitted under that request type."}
+                  ? "목적에 맞는 항목을 선택하면 아래 폼이 해당 문의로 접수됩니다."
+                  : "Choose the option that matches your purpose. The form below will be submitted under that request type."}
               </p>
             </div>
             <div className="contactDirectGrid">
@@ -96,19 +90,15 @@ export default async function QuotePage({
                   href={`/${locale}/contact/quote?topic=${key}`}
                   className={`contactDirectCard ${selectedTopic === key ? "isActive" : ""}`}
                 >
-                  <span className="contactDirectLabel">{isKo ? topic.labelKo : topic.labelEn}</span>
                   <strong>{isKo ? topic.titleKo : topic.titleEn}</strong>
                   <p>{isKo ? topic.descriptionKo : topic.descriptionEn}</p>
-                  <span className="contactDirectAction">
-                    {isKo ? "문의하기" : "Contact Us"}
-                  </span>
                 </Link>
               ))}
             </div>
             <div className="contactDirectNotice">
               {isKo
-                ? "상담시간 08:00 - 17:00 (KST) · 대표전화 02-852-0533 · sales@lumosity.co.kr"
-                : "Hours 08:00 - 17:00 (KST) · Tel. 02-852-0533 · sales@lumosity.co.kr"}
+                ? "상담시간 7:00~16:00(KST)"
+                : "Hours 7:00~16:00 (KST)"}
             </div>
           </section>
           <div className="contactFormCaption">

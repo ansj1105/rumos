@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 
 export function ContactForm({
   locale,
@@ -13,15 +13,19 @@ export function ContactForm({
   const [submitting, setSubmitting] = useState(false);
   const isKo = locale === "ko";
 
-  async function onSubmit(formData: FormData) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
     setSubmitting(true);
     setStatus("");
+
+    const formData = new FormData(event.currentTarget);
 
     const response = await fetch("/api/contact", {
       method: "POST",
       body: JSON.stringify({
         inquiryType,
         company: formData.get("company"),
+        position: formData.get("position"),
         name: formData.get("name"),
         email: formData.get("email"),
         phone: formData.get("phone"),
@@ -35,14 +39,14 @@ export function ContactForm({
 
     const data = (await response.json()) as { message?: string; error?: string };
     setStatus(data.message ?? data.error ?? "");
+    if (response.ok) {
+      event.currentTarget.reset();
+    }
     setSubmitting(false);
   }
 
   return (
-    <form
-      action={onSubmit}
-      className="contactForm"
-    >
+    <form onSubmit={onSubmit} className="contactForm">
       <div className="contactFormTypeBanner">
         <strong>{isKo ? "문의 유형" : "Inquiry Type"}</strong>
         <span>{inquiryType}</span>
@@ -55,6 +59,10 @@ export function ContactForm({
         <div className="field">
           <label htmlFor="name">{isKo ? "담당자명" : "Name"}</label>
           <input id="name" name="name" required />
+        </div>
+        <div className="field">
+          <label htmlFor="position">{isKo ? "직책" : "Position"}</label>
+          <input id="position" name="position" />
         </div>
         <div className="field">
           <label htmlFor="email">{isKo ? "이메일" : "Email"}</label>

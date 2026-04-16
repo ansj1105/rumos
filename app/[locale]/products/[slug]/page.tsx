@@ -267,7 +267,7 @@ export default async function ProductDetailPage({
     technicalData: locale === "ko" ? "Technical Data" : "Technical Data",
     accessoryInfo: locale === "ko" ? "Information for Accessories" : "Information for Accessories",
     productOverview: locale === "ko" ? "Product Overview" : "Product Overview",
-    keyFeatures: locale === "ko" ? "Key Features" : "Key Features",
+    keyFeatures: locale === "ko" ? "Features" : "Features",
     targetApplications: locale === "ko" ? "Target Applications" : "Target Applications",
     quickSpecs: locale === "ko" ? "Quick Specs" : "Quick Specs",
     filterTitle: locale === "ko" ? "Neutral Density Filter Configuration" : "Neutral Density Filter Configuration",
@@ -448,14 +448,13 @@ export default async function ProductDetailPage({
                 <span className="eyebrow">FEATURE</span>
                 <h2 className="sectionTitle">{ui.keyFeatures}</h2>
               </div>
-              <div className="productFeatureList">
+              <ol className="productFeatureList">
                 {displayFeatures.map((feature) => (
-                  <div key={feature} className="productFeatureItem">
-                    <span className="productFeatureMark" />
+                  <li key={feature} className="productFeatureItem">
                     <span>{feature}</span>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ol>
             </section>
 
             <section className="productSection productFeatureVisualSection">
@@ -601,14 +600,13 @@ export default async function ProductDetailPage({
                 <span className="eyebrow">FEATURE</span>
                 <h2 className="sectionTitle">{ui.keyFeatures}</h2>
               </div>
-              <div className="productFeatureList">
+              <ol className="productFeatureList">
                 {displayFeatures.map((feature) => (
-                  <div key={feature} className="productFeatureItem">
-                    <span className="productFeatureMark" />
+                  <li key={feature} className="productFeatureItem">
                     <span>{feature}</span>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ol>
             </section>
 
             <section className="productSection productFeatureVisualSection">
@@ -652,14 +650,13 @@ export default async function ProductDetailPage({
                 <span className="eyebrow">FEATURE</span>
                 <h2 className="sectionTitle">{ui.keyFeatures}</h2>
               </div>
-              <div className="productFeatureList">
+              <ol className="productFeatureList">
                 {displayFeatures.map((feature) => (
-                  <div key={feature} className="productFeatureItem">
-                    <span className="productFeatureMark" />
+                  <li key={feature} className="productFeatureItem">
                     <span>{feature}</span>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ol>
             </section>
 
             <section className="productSection productFeatureVisualSection">
@@ -730,14 +727,13 @@ export default async function ProductDetailPage({
                 <span className="eyebrow">FEATURE</span>
                 <h2 className="sectionTitle">{ui.keyFeatures}</h2>
               </div>
-              <div className="productFeatureList">
+              <ol className="productFeatureList">
                 {displayFeatures.map((feature) => (
-                  <div key={feature} className="productFeatureItem">
-                    <span className="productFeatureMark" />
+                  <li key={feature} className="productFeatureItem">
                     <span>{feature}</span>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ol>
             </section>
 
             <section className="productSection productFeatureVisualSection">
@@ -836,14 +832,13 @@ export default async function ProductDetailPage({
             <span className="eyebrow">FEATURE</span>
             <h2 className="sectionTitle">{ui.keyFeatures}</h2>
           </div>
-          <div className="productFeatureList">
+          <ol className="productFeatureList">
             {displayFeatures.map((feature) => (
-              <div key={feature} className="productFeatureItem">
-                <span className="productFeatureMark" />
+              <li key={feature} className="productFeatureItem">
                 <span>{feature}</span>
-              </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </section>
 
         <section className="productSection productSectionSplit">

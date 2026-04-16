@@ -2759,7 +2759,8 @@ select {
 }
 
 .seriesFeatureImage.isSoftware {
-  object-fit: cover;
+  object-fit: contain;
+  padding: 20px;
 }
 
 .seriesFeatureOverlay {
@@ -3370,13 +3371,17 @@ select {
 
 .productFeatureList {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px 24px;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: decimal;
+  list-style-position: inside;
 }
 
 .productFeatureItem {
-  display: flex;
-  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(15, 34, 61, 0.08);
   line-height: 1.8;
 }
 
@@ -3983,14 +3988,6 @@ select {
   box-shadow: 0 16px 32px rgba(15, 34, 61, 0.08);
 }
 
-.contactDirectLabel {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--blue);
-  text-transform: uppercase;
-}
-
 .contactDirectCard strong {
   font-size: 24px;
   line-height: 1.25;
@@ -4001,30 +3998,7 @@ select {
   margin: 0;
   color: var(--muted);
   line-height: 1.7;
-}
-
-.contactDirectAction {
-  margin-top: auto;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 42px;
-  padding: 0 16px;
-  border: 1px solid rgba(15, 34, 61, 0.12);
-  background: #ffffff;
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: 0.02em;
-  color: var(--blue-deep);
-  text-transform: none;
-  white-space: nowrap;
-}
-
-.contactDirectCard.isActive .contactDirectAction {
-  border-color: rgba(20, 74, 132, 0.36);
-  background: var(--blue-deep);
-  color: #ffffff;
+  white-space: pre-line;
 }
 
 .contactDirectNotice {

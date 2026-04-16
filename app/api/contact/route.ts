@@ -7,6 +7,7 @@ import { prisma } from "@/lib/prisma";
 const inquirySchema = z.object({
   inquiryType: z.string().optional().nullable(),
   company: z.string().optional().nullable(),
+  position: z.string().optional().nullable(),
   name: z.string().min(1),
   email: z.string().email(),
   phone: z.string().optional().nullable(),
@@ -26,7 +27,12 @@ export async function POST(request: Request) {
         phone: body.phone,
         message: body.message,
         locale: body.locale,
-        internalNote: body.inquiryType ? `[Inquiry Type] ${body.inquiryType}` : null,
+        internalNote: [
+          body.inquiryType ? `[Inquiry Type] ${body.inquiryType}` : null,
+          body.position ? `[Position] ${body.position}` : null,
+        ]
+          .filter(Boolean)
+          .join("\n") || null,
       },
     });
 
