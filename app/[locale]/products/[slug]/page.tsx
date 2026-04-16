@@ -923,15 +923,50 @@ export default async function ProductDetailPage({
                 <span className="eyebrow">FEATURE</span>
                 <h2 className="sectionTitle">IFI Beam Projection</h2>
               </div>
-              <div className="productFeatureVisualPanel">
-                <Image
-                  src="/products/ifi/feature.png"
-                  alt="IFI beam projection concept"
-                  width={1164}
-                  height={762}
-                  sizes="(max-width: 960px) 100vw, 74vw"
-                  className="productFeatureVisualImage"
-                />
+              <div className="ifiProjectionSection">
+                <div className="ifiProjectionHero">
+                  <Image
+                    src="/products/ifi/beam-projection-top.png"
+                    alt="IFI beam projection concept"
+                    width={1124}
+                    height={720}
+                    sizes="(max-width: 960px) 100vw, 74vw"
+                    className="ifiProjectionHeroImage"
+                  />
+                </div>
+                <div className="ifiProjectionGrid">
+                  {[
+                    {
+                      src: "/products/ifi/30x30.png",
+                      alt: "IFI 30 by 30 beam output",
+                      label: "Size : 30 x 30 mm",
+                    },
+                    {
+                      src: "/products/ifi/100x100.png",
+                      alt: "IFI 100 by 100 beam output",
+                      label: "Size : 100 x 100 mm",
+                    },
+                    {
+                      src: "/products/ifi/200x200.png",
+                      alt: "IFI 200 by 200 beam output",
+                      label: "Size : 200 x 200 mm",
+                    },
+                  ].map((item) => (
+                    <figure key={item.src} className="ifiProjectionCard">
+                      <div className="ifiProjectionImageWrap">
+                        <Image
+                          src={item.src}
+                          alt={item.alt}
+                          width={1009}
+                          height={767}
+                          sizes="(max-width: 720px) 100vw, (max-width: 960px) 50vw, 28vw"
+                          className="ifiProjectionImage"
+                        />
+                      </div>
+                      <figcaption className="ifiProjectionCaption">{item.label}</figcaption>
+                    </figure>
+                  ))}
+                </div>
               </div>
             </section>
 
