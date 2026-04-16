@@ -554,8 +554,8 @@ export default async function ProductDetailPage({
                             {lumBFilterRows.map((row) => (
                               <tr key={row.label}>
                                 <th>{row.label}</th>
-                                <td>{row.lumBD}</td>
-                                <td>{row.lumBNM}</td>
+                                <td data-column="for LUM-B-D">{row.lumBD}</td>
+                                <td data-column="for LUM-B-N/M">{row.lumBNM}</td>
                               </tr>
                             ))}
                             <tr>
@@ -768,8 +768,13 @@ export default async function ProductDetailPage({
                           {lumFFilterRows.map((row) => (
                             <tr key={row.label}>
                               <th>{row.label}</th>
-                              {row.values.map((value) => (
-                                <td key={`${row.label}-${value}`}>{value}</td>
+                              {row.values.map((value, index) => (
+                                <td
+                                  key={`${row.label}-${value}`}
+                                  data-column={["for DUV", "for UV", "for VIS", "for NIR"][index]}
+                                >
+                                  {value}
+                                </td>
                               ))}
                             </tr>
                           ))}
