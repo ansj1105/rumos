@@ -503,6 +503,7 @@ export default async function ProductDetailPage({
               <div className="softwareInterfaceList">
                 {displayFeatures.map((feature) => (
                   <div key={feature} className="softwareInterfaceItem">
+                    <span className="productListMarker" aria-hidden="true" />
                     <span>{feature}</span>
                   </div>
                 ))}
@@ -862,6 +863,7 @@ export default async function ProductDetailPage({
               <ol className="productFeatureList">
                 {displayFeatures.map((feature) => (
                   <li key={feature} className="productFeatureItem">
+                    <span className="productListMarker" aria-hidden="true" />
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -912,6 +914,7 @@ export default async function ProductDetailPage({
               <ol className="productFeatureList">
                 {displayFeatures.map((feature) => (
                   <li key={feature} className="productFeatureItem">
+                    <span className="productListMarker" aria-hidden="true" />
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -1111,7 +1114,7 @@ export default async function ProductDetailPage({
                       "Operator-oriented screens for repeated measurement workflows.",
                     ]).map((item) => (
                   <div key={item} className="softwareInterfaceItem">
-                    <span className="softwareInterfaceDot" aria-hidden="true" />
+                    <span className="productListMarker" aria-hidden="true" />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -1128,6 +1131,7 @@ export default async function ProductDetailPage({
           <ol className="productFeatureList">
             {displayFeatures.map((feature) => (
               <li key={feature} className="productFeatureItem">
+                <span className="productListMarker" aria-hidden="true" />
                 <span>{feature}</span>
               </li>
             ))}
