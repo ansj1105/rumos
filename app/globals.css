@@ -3911,7 +3911,7 @@ select {
   justify-content: space-between;
   gap: 14px;
   padding: 16px 18px;
-  border-top: 2px solid #092c4d;
+  border-top: 2px solid var(--blue);
   border-bottom: 1px solid rgba(15, 34, 61, 0.12);
   background: #ffffff;
 }
@@ -3989,7 +3989,7 @@ select {
 }
 
 .contactDirectCard.isActive {
-  border: 3px solid #092c4d;
+  border: 3px solid var(--blue);
   background: #ffffff;
   box-shadow: 0 16px 32px rgba(15, 34, 61, 0.08);
 }
