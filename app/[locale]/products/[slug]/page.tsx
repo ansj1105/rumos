@@ -535,11 +535,6 @@ export default async function ProductDetailPage({
                           height={1024}
                           className="lumBFilterDeviceImage"
                         />
-                        <div className="lumBFilterArrow" aria-hidden="true">
-                          <span className="lumBFilterArrowStem" />
-                          <span className="lumBFilterArrowHead" />
-                          <span className="lumBFilterArrowDot" />
-                        </div>
                       </div>
                       <div className="lumBFilterTableWrap">
                         <table className="lumBFilterTable">
@@ -619,11 +614,6 @@ export default async function ProductDetailPage({
                           height={1024}
                           className="lumBFilterDeviceImage isLargeArea"
                         />
-                        <div className="lumBFilterArrow isLargeArea" aria-hidden="true">
-                          <span className="lumBFilterArrowStem" />
-                          <span className="lumBFilterArrowHead" />
-                          <span className="lumBFilterArrowDot" />
-                        </div>
                       </div>
                       <div className="lumBFilterTableWrap">
                         <table className="lumBFilterTable isSingleModel">
@@ -706,23 +696,13 @@ export default async function ProductDetailPage({
                             height={1024}
                             className="lumFFilterBodyImage"
                           />
-                          <Image
-                            src="/products/lum-f/lum-f-filter-holder.png"
-                            alt="LUM-F filter holder"
-                            width={768}
-                            height={1024}
-                            className="lumFFilterHolderImage"
-                          />
-                          <div className="lumFFilterArrow isHolder" aria-hidden="true">
-                            <span className="lumFFilterArrowStem" />
-                            <span className="lumFFilterArrowHead" />
-                            <span className="lumFFilterArrowDot" />
-                          </div>
-                          <div className="lumFFilterArrow isLens" aria-hidden="true">
-                            <span className="lumFFilterArrowStem" />
-                            <span className="lumFFilterArrowHead" />
-                            <span className="lumFFilterArrowDot" />
-                          </div>
+                        <Image
+                          src="/products/lum-f/lum-f-filter-holder.png"
+                          alt="LUM-F filter holder"
+                          width={768}
+                          height={1024}
+                          className="lumFFilterHolderImage"
+                        />
                         </div>
                       </div>
 

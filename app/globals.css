@@ -3388,84 +3388,16 @@ select {
   max-width: 700px;
 }
 
-.lumBFilterArrow {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.lumBFilterArrow.isLargeArea .lumBFilterArrowStem {
-  left: 70%;
-  top: 36%;
-  width: 122px;
-}
-
-.lumBFilterArrow.isLargeArea .lumBFilterArrowStem::after {
-  width: 132px;
-}
-
-.lumBFilterArrow.isLargeArea .lumBFilterArrowHead {
-  left: calc(70% + 130px);
-  top: 35.4%;
-}
-
-.lumBFilterArrow.isLargeArea .lumBFilterArrowDot {
-  left: 66%;
-  top: 43.5%;
-}
-
-.lumBFilterArrowStem {
-  position: absolute;
-  left: 66%;
-  top: 42%;
-  width: 132px;
-  height: 0;
-  border-top: 4px solid #2a75af;
-  transform: rotate(90deg);
-  transform-origin: left center;
-}
-
-.lumBFilterArrowStem::after {
-  content: "";
-  position: absolute;
-  left: 100%;
-  top: -4px;
-  width: 150px;
-  height: 0;
-  border-top: 4px solid #2a75af;
-  transform: rotate(-90deg);
-  transform-origin: left center;
-}
-
-.lumBFilterArrowHead {
-  position: absolute;
-  left: calc(66% + 148px);
-  top: 41.4%;
-  width: 16px;
-  height: 16px;
-  border-top: 4px solid #2a75af;
-  border-right: 4px solid #2a75af;
-  transform: rotate(45deg);
-}
-
-.lumBFilterArrowDot {
-  position: absolute;
-  left: 61.5%;
-  top: 62%;
-  width: 18px;
-  height: 18px;
-  border-radius: 999px;
-  background: #2a75af;
-  box-shadow: 0 0 0 6px rgba(42, 117, 175, 0.14);
-}
-
 .lumBFilterTableWrap {
   border: 1px solid rgba(15, 34, 61, 0.08);
   background: #ffffff;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .lumBFilterTable {
   width: 100%;
+  min-width: 620px;
   border-collapse: collapse;
 }
 
@@ -3558,94 +3490,6 @@ select {
   height: auto;
 }
 
-.lumFFilterArrow {
-  position: absolute;
-  pointer-events: none;
-}
-
-.lumFFilterArrowStem {
-  position: absolute;
-  height: 0;
-  border-top: 3px solid #2a75af;
-}
-
-.lumFFilterArrowHead {
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  border-top: 3px solid #2a75af;
-  border-right: 3px solid #2a75af;
-  transform: rotate(45deg);
-}
-
-.lumFFilterArrowDot {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  border-radius: 999px;
-  background: #2a75af;
-  box-shadow: 0 0 0 5px rgba(42, 117, 175, 0.14);
-}
-
-.lumFFilterArrow.isHolder {
-  left: 18%;
-  top: 62%;
-  width: 290px;
-  height: 150px;
-}
-
-.lumFFilterArrow.isHolder .lumFFilterArrowStem {
-  left: 0;
-  top: 82px;
-  width: 170px;
-  transform: rotate(-90deg);
-  transform-origin: left center;
-}
-
-.lumFFilterArrow.isHolder .lumFFilterArrowStem::after {
-  content: "";
-  position: absolute;
-  left: 100%;
-  top: -3px;
-  width: 118px;
-  border-top: 3px solid #2a75af;
-  transform: rotate(90deg);
-  transform-origin: left center;
-}
-
-.lumFFilterArrow.isHolder .lumFFilterArrowHead {
-  left: 278px;
-  top: 75px;
-}
-
-.lumFFilterArrow.isHolder .lumFFilterArrowDot {
-  left: 159px;
-  top: 72px;
-}
-
-.lumFFilterArrow.isLens {
-  left: 53%;
-  top: 11%;
-  width: 250px;
-  height: 86px;
-}
-
-.lumFFilterArrow.isLens .lumFFilterArrowStem {
-  left: 0;
-  top: 42px;
-  width: 238px;
-}
-
-.lumFFilterArrow.isLens .lumFFilterArrowHead {
-  right: -2px;
-  top: 35px;
-}
-
-.lumFFilterArrow.isLens .lumFFilterArrowDot {
-  left: -8px;
-  top: 34px;
-}
-
 .lumFFilterObjectiveCard {
   border: 1px solid rgba(15, 34, 61, 0.08);
   background: #ffffff;
@@ -3706,10 +3550,13 @@ select {
 .lumFFilterTableWrap {
   border: 1px solid rgba(15, 34, 61, 0.08);
   background: #ffffff;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .lumFFilterTable {
   width: 100%;
+  min-width: 760px;
   border-collapse: collapse;
 }
 
@@ -3746,6 +3593,56 @@ select {
 .lumFFilterTable tbody td {
   color: #1b2430;
   font-weight: 700;
+}
+
+@media (max-width: 1100px) {
+  .lumBFilterLayout,
+  .lumBFilterLayout.isLargeArea,
+  .lumFFilterHero {
+    grid-template-columns: 1fr;
+  }
+
+  .lumBFilterDevice,
+  .lumBFilterDevice.isLargeArea,
+  .lumFFilterMedia,
+  .lumFFilterBodyWrap {
+    min-height: 0;
+  }
+
+  .lumFFilterObjectiveBody {
+    grid-template-columns: 1fr;
+  }
+
+  .lumFFilterLensImage {
+    width: min(220px, 100%);
+  }
+}
+
+@media (max-width: 720px) {
+  .lumBFilterComposite,
+  .lumFFilterComposite {
+    padding: 18px;
+  }
+
+  .lumBFilterTable thead th,
+  .lumBFilterTable tbody th,
+  .lumBFilterTable tbody td,
+  .lumFFilterTable thead th,
+  .lumFFilterTable tbody th,
+  .lumFFilterTable tbody td {
+    padding: 14px 12px;
+    font-size: 14px;
+  }
+
+  .lumBFilterTable thead tr:first-child th,
+  .lumFFilterTable thead tr:first-child th {
+    font-size: 16px;
+  }
+
+  .lumBFilterTable thead tr:first-child strong,
+  .lumFFilterTable thead tr:first-child strong {
+    font-size: 22px;
+  }
 }
 
 .productFeatureVisualVideo {
