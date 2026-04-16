@@ -82,6 +82,21 @@ const seriesItems: SeriesCardItem[] = [
     layoutClassName: "isBottomLeft",
   },
   {
+    slug: "ifi",
+    name: "IFI",
+    taglineKo: "IFI Series",
+    taglineEn: "IFI Series",
+    summaryKo:
+      "전 초점 거리 범위에서 90% 이상의 빔 균일도를 유지하도록 설계된 Infinity Flat Top 광학 솔루션입니다.",
+    summaryEn:
+      "An infinity flat top optical solution designed to maintain beam uniformity above 90% across focal ranges.",
+    keywordsKo: ["Infinity flat top", "Uniformity", "NA"],
+    keywordsEn: ["Infinity flat top", "Uniformity", "NA"],
+    imageUrl: "/products/ifi/main.png",
+    imageClassName: "isIFI",
+    layoutClassName: "isBottomRight",
+  },
+  {
     slug: "software",
     name: "Software",
     taglineKo: "Lumosity Software",
@@ -94,7 +109,7 @@ const seriesItems: SeriesCardItem[] = [
     keywordsEn: ["Visualization", "Analysis", "Reporting"],
     imageUrl: "/products/software/main.png",
     imageClassName: "isSoftware",
-    layoutClassName: "isBottomRight",
+    layoutClassName: "isPrimary",
   },
 ];
 

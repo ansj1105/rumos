@@ -35,6 +35,13 @@ const productOverviewCopy = {
     bodyKo:
       "정밀한 3D 빔 프로파일링 및 분석을 위해 설계된 전용 시스템입니다. 스팟 사이즈(Spot size)와 초점 심도(DOF) 측정이 가능하며, 직관적인 2D 및 3D 빔 프로파일 뷰어를 통해 3D 광도(Intensity) 분포를 상세하게 분석할 수 있습니다.",
   },
+  ifi: {
+    title: "IFI",
+    bodyEn:
+      "An IFI series optical solution that maintains beam uniformity above 90% across focal ranges and supports infinity flat top projection with NA.",
+    bodyKo:
+      "전 초점 거리 범위에서 90% 이상의 빔 균일도를 유지하고 Infinity Flat Top 투영을 지원하는 IFI 시리즈 광학 솔루션입니다.",
+  },
   software: {
     title: "Software",
     bodyEn:
@@ -49,6 +56,7 @@ const productFallbackImages = {
   "lum-b-l": "/products/lum-b-l/main.png",
   "lum-f": "/products/lum-f/main.png",
   "lum-z": "/products/lum-z/main.png",
+  ifi: "/products/ifi/main.png",
   software: "/products/software/main.png",
 } as const;
 

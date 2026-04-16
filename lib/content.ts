@@ -89,10 +89,29 @@ export async function getApplications() {
 
 export async function getProducts() {
   try {
-    return await prisma.product.findMany({
+    const products = await prisma.product.findMany({
       where: { published: true },
       orderBy: [{ displayOrder: "asc" }, { createdAt: "asc" }],
     });
+
+    const mergedProducts = fallbackProducts.map((fallbackProduct) => {
+      const existingProduct = products.find((product) => product.slug === fallbackProduct.slug);
+
+      return existingProduct
+        ? {
+            ...existingProduct,
+            displayOrder: fallbackProduct.displayOrder,
+          }
+        : fallbackProduct;
+    });
+
+    const extraProducts = products.filter(
+      (product) => !fallbackProducts.some((fallbackProduct) => fallbackProduct.slug === product.slug),
+    );
+
+    return [...mergedProducts, ...extraProducts].sort(
+      (a, b) => a.displayOrder - b.displayOrder || a.createdAt.getTime() - b.createdAt.getTime(),
+    );
   } catch (error) {
     logFallback("products", error);
     return fallbackProducts;
@@ -101,9 +120,22 @@ export async function getProducts() {
 
 export async function getProductBySlug(slug: string) {
   try {
-    return await prisma.product.findUnique({
+    const product = await prisma.product.findUnique({
       where: { slug },
     });
+
+    if (!product) {
+      return fallbackProducts.find((item) => item.slug === slug) ?? null;
+    }
+
+    const fallbackProduct = fallbackProducts.find((item) => item.slug === slug);
+
+    return fallbackProduct
+      ? {
+          ...product,
+          displayOrder: fallbackProduct.displayOrder,
+        }
+      : product;
   } catch (error) {
     logFallback(`product:${slug}`, error);
     return fallbackProducts.find((product) => product.slug === slug) ?? null;

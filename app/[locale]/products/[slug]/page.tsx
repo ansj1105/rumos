@@ -122,6 +122,62 @@ const lumZSpecRows = [
   { label: "Power", value: "<1W" },
 ] as const;
 
+const ifiTechnicalRows = [
+  { label: "Wavelength(1) [nm]", values: ["808, 976, 1064", "808, 976, 1064", "808, 976, 1064"] },
+  { label: "Fiber Core Size(2) [mm]", values: ["0.6 X 0.6", "0.6 X 0.6", "0.6 X 0.6"] },
+  { label: "Fiber NA", values: ["0.22", "0.22", "0.22"] },
+  { label: "LASER Power [W]", values: ["< 2000 (with Water Cooling)", "< 2000 (with Water Cooling)", "< 2000 (with Water Cooling)"] },
+  { label: "Connector Type(1)", values: ["QBH, D80", "QBH, D80", "QBH, D80"] },
+  { label: "Beam Profile", values: ["Flat Top Square", "Flat Top Square", "Flat Top Square"] },
+  { label: "Flat Top Size(3) [mm]", values: ["2 X 2 - 30 X 30", "5 X 5 - 30 X 30", "7 X 7 - 30 X 30"] },
+  { label: "WD(3) [mm]", values: ["200 - 2500", "50 - 540", "50 - 320"] },
+  { label: "Infinity Flat Top Size(3) [mm]", values: ["30 X 30 - ∞", "30 X 30 - ∞", "30 X 30 - ∞"] },
+  { label: "Infinity WD(3) [mm]", values: ["2500 - ∞", "540 - ∞", "320 - ∞"] },
+  { label: "Uniformity [%]", values: ["> 90", "> 90", "> 90"] },
+  { label: "Operating Temperature [°C]", values: ["0 to 60", "0 to 60", "0 to 60"] },
+  { label: "Storage Temperature [°C]", values: ["-20 to 80", "-20 to 80", "-20 to 80"] },
+  { label: "Relative Humidity [%]", values: ["10 to 95", "10 to 95", "10 to 95"] },
+] as const;
+
+const ifiRemarks = [
+  "Custom specifications are available upon request.",
+  "Supports core sizes up to 1.2mm; image size scales proportionally to the core size",
+  "The projected beam size relative to distance may vary depending on the specific system configuration, and the maximum achievable size is virtually unlimited",
+] as const;
+
+const productDetailFeatureOverrides: Record<string, string[]> = {
+  "lum-b": [
+    "Multiple Cameras can be connected to One Program",
+    "User-Customizable parameter windows in Lumosity SW",
+  ],
+  "lum-b-l": [
+    "Measurable up to 38 mm X 27 mm using Large Area Sensor",
+    "Protective Cap Structure to Prevent Filter Breakage",
+    "User-Customizable parameter windows in Lumosity SW",
+  ],
+  "lum-f": [
+    "ONE-BODY Integrated modular solution from UV to IR",
+    "User-Customizable parameter windows in Lumosity SW",
+    "Replaceable objective unit per wavelengths and magnifications",
+    "Requires only focal point alignment",
+  ],
+  "lum-z": [
+    "Measurable spot size and DOF",
+    "3D intensity distribution",
+    "2D & 3D Beam profile viewer",
+  ],
+  ifi: [
+    "Maintain a superior beam UNIFORMITY OF OVER 90% across all focal ranges, ensuring consistent process quality",
+    "Infinity flat top along with NA",
+  ],
+  software: [
+    "ISO 11146 Standard Analysis: Supports international standard measurement methods (Second Moment, Knife-Edge, and Slit)",
+    "1D Beam Profiling & 2D Viewer: Real-time imaging with simultaneous Cross & Beam Section view",
+    "Advanced Diameter Analysis: Offers various diameter calculation options including Ellipse Fit, Threshold, and Min Area",
+    "2D & 3D ROI Analysis: Evaluates Flatness, Uniformity, and Edge Steepness based on ISO 13694 standards / Intuitive beam shape verification via 3D visualization of 2D intensity data",
+  ],
+};
+
 export async function generateMetadata({
   params,
 }: {
@@ -194,6 +250,7 @@ export default async function ProductDetailPage({
   const isLumBLSeries = slug === "lum-b-l";
   const isLumFSeries = slug === "lum-f";
   const isLumZSeries = slug === "lum-z";
+  const isIFISeries = slug === "ifi";
   const isSoftwareSeries = slug === "software";
   const isCustomSeries = isLumBSeries || isLumBLSeries || isLumFSeries;
   const ui = {
@@ -246,12 +303,53 @@ export default async function ProductDetailPage({
         ? "/subpage-lum-b-l-bg.png"
         : slug === "lum-f"
           ? "/subpage-lum-f-bg.png"
-          : slug === "lum-z"
-            ? "/subpage-lum-z-bg.png"
-            : slug === "software"
-              ? "/subpage-software-bg.png"
+            : slug === "lum-z"
+              ? "/subpage-lum-z-bg.png"
+              : slug === "ifi"
+                ? "/products/ifi/main.png"
+              : slug === "software"
+                ? "/subpage-software-bg.png"
         : null);
   const productHeroBgOpacity = product.heroBgOpacity ?? 0.9;
+  const productDetailSummary =
+    isLumBSeries
+      ? (
+        locale === "ko"
+          ? "LUM-B 시리즈는 Raw Laser Beam Profiling과 분석을 위한 카메라 기반 측정 장비로, 다양한 필터 옵션과 해상도 구성을 통해 산업용 광학 계측 환경에 대응합니다."
+          : "The LUM-B Series is a camera-based measurement platform for raw laser beam profiling and analysis, offering multiple filter and resolution options for industrial optical metrology environments."
+      )
+      : isLumBLSeries
+        ? (
+          locale === "ko"
+            ? "LUM-B-L 시리즈는 대면적 레이저 빔 프로파일링을 위한 고해상도 측정 기기로, 대형 센서와 넓은 유효 개구를 통해 확장된 계측 환경에 대응합니다."
+            : "The LUM-B-L Series is a high-resolution platform for large-area laser beam profiling, combining a large sensor and wide clear aperture for expanded measurement environments."
+        )
+        : isLumFSeries
+          ? (
+            locale === "ko"
+              ? "LUM-F 시리즈는 고배율 초점 빔 프로파일링을 위한 측정 기기로, 파장별 렌즈 유닛과 필터 구성을 통해 미세 스폿 계측 환경에 대응합니다."
+              : "The LUM-F Series is a focused beam profiling platform built for fine spot measurement, combining wavelength-specific objective units and filter configurations."
+          )
+          : isLumZSeries
+            ? (
+              locale === "ko"
+                ? "LUM-Z 시리즈는 빔 전파축 방향의 형상을 스캔하고 분석하기 위한 3D 빔 프로파일링 플랫폼으로, 정밀 스텝 제어와 다양한 파장 선택 환경에 대응합니다."
+                : "The LUM-Z Series is a 3D beam profiling platform for scanning and analyzing beam propagation, built for precision step control and selectable wavelength environments."
+            )
+            : isIFISeries
+              ? (
+                locale === "ko"
+                  ? "IFI 시리즈는 전 초점 거리 범위에서 90% 이상의 빔 균일도를 유지하도록 설계된 Infinity Flat Top 광학 솔루션으로, 일관된 공정 품질을 지원합니다."
+                  : "The IFI Series is an infinity flat top optical solution engineered to maintain beam uniformity above 90% across focal ranges for stable process quality."
+              )
+            : isSoftwareSeries
+              ? (
+                locale === "ko"
+                  ? "다양한 빔 형태에서도 자동 중심 검출과 ROI 기능을 통해 필요한 영역만 정확하게 분석할 수 있는 직관적인 빔 분석 소프트웨어입니다."
+                  : "An intuitive beam analysis software suite that accurately analyzes only the required area through automatic center detection and ROI functions, even across diverse beam shapes."
+              )
+              : (locale === "ko" ? product.contentKo : product.contentEn);
+  const displayFeatures = productDetailFeatureOverrides[slug] ?? features;
 
   return (
     <div className="productsPage">
@@ -270,6 +368,7 @@ export default async function ProductDetailPage({
             <div className="productMetaLine">
               <span>Lumos Series</span>
               <strong>{locale === "ko" ? product.nameKo : product.nameEn}</strong>
+              <p>{productDetailSummary}</p>
             </div>
           </div>
           <div className="productDetailVisual">
@@ -310,6 +409,15 @@ export default async function ProductDetailPage({
                   className="productDetailVisualImage"
                   skeletonClassName="productDetailVisualSkeleton"
                 />
+              ) : isIFISeries ? (
+                <FadeImage
+                  src="/products/ifi/main.png"
+                  alt="IFI optical module"
+                  fill
+                  sizes="(max-width: 960px) 100vw, 44vw"
+                  className="productDetailVisualImage"
+                  skeletonClassName="productDetailVisualSkeleton"
+                />
               ) : isSoftwareSeries ? (
                 <FadeImage
                   src="/products/software/main.png"
@@ -337,43 +445,22 @@ export default async function ProductDetailPage({
           <>
             <section className="productSection">
               <div className="productSectionHead">
-                <span className="eyebrow">{ui.overview}</span>
-                <h2 className="sectionTitle">
-                  {isLumBSeries
-                    ? "LUM-B Overview"
-                    : isLumBLSeries
-                      ? "LUM-B-L Overview"
-                      : "LUM-F Overview"}
-                </h2>
+                <span className="eyebrow">FEATURE</span>
+                <h2 className="sectionTitle">{ui.keyFeatures}</h2>
               </div>
-              <div className="productOverviewBody">
-                <p style={{ margin: 0, lineHeight: 1.9 }}>
-                  {isLumBSeries
-                    ? (
-                      locale === "ko"
-                        ? "LUM-B 시리즈는 Raw Laser Beam Profiling과 분석을 위한 카메라 기반 측정 장비로, 다양한 필터 옵션과 해상도 구성을 통해 산업용 광학 계측 환경에 대응합니다."
-                        : "The LUM-B Series is a camera-based measurement platform for raw laser beam profiling and analysis, offering multiple filter and resolution options for industrial optical metrology environments."
-                    )
-                    : (
-                      isLumBLSeries
-                        ? (
-                          locale === "ko"
-                            ? "LUM-B-L 시리즈는 대면적 레이저 빔 프로파일링을 위한 고해상도 측정 기기로, 대형 센서와 넓은 유효 개구를 통해 확장된 계측 환경에 대응합니다."
-                            : "The LUM-B-L Series is a high-resolution platform for large-area laser beam profiling, combining a large sensor and wide clear aperture for expanded measurement environments."
-                        )
-                        : (
-                          locale === "ko"
-                            ? "LUM-F 시리즈는 고배율 초점 빔 프로파일링을 위한 측정 기기로, 파장별 렌즈 유닛과 필터 구성을 통해 미세 스폿 계측 환경에 대응합니다."
-                            : "The LUM-F Series is a focused beam profiling platform built for fine spot measurement, combining wavelength-specific objective units and filter configurations."
-                        )
-                    )}
-                </p>
+              <div className="productFeatureList">
+                {displayFeatures.map((feature) => (
+                  <div key={feature} className="productFeatureItem">
+                    <span className="productFeatureMark" />
+                    <span>{feature}</span>
+                  </div>
+                ))}
               </div>
             </section>
 
             <section className="productSection productFeatureVisualSection">
               <div className="productSectionHead">
-                <span className="eyebrow">{ui.filterOptions}</span>
+                <span className="eyebrow">FEATURE</span>
                 <h2 className="sectionTitle">{ui.filterTitle}</h2>
               </div>
               <div className="productFeatureVisualPanel">
@@ -402,7 +489,7 @@ export default async function ProductDetailPage({
 
             <section className="productSection">
               <div className="productSectionHead">
-                <span className="eyebrow">{ui.specification}</span>
+                <span className="eyebrow">FEATURE</span>
                 <h2 className="sectionTitle">{ui.technicalData}</h2>
               </div>
 
@@ -511,21 +598,22 @@ export default async function ProductDetailPage({
           <>
             <section className="productSection">
               <div className="productSectionHead">
-                <span className="eyebrow">{ui.overview}</span>
-                <h2 className="sectionTitle">{ui.zOverview}</h2>
+                <span className="eyebrow">FEATURE</span>
+                <h2 className="sectionTitle">{ui.keyFeatures}</h2>
               </div>
-              <div className="productOverviewBody">
-                <p style={{ margin: 0, lineHeight: 1.9 }}>
-                  {locale === "ko"
-                    ? "LUM-Z 시리즈는 빔 전파축 방향의 형상을 스캔하고 분석하기 위한 3D 빔 프로파일링 플랫폼으로, 정밀 스텝 제어와 다양한 파장 선택 환경에 대응합니다."
-                    : "The LUM-Z Series is a 3D beam profiling platform for scanning and analyzing beam propagation, built for precision step control and selectable wavelength environments."}
-                </p>
+              <div className="productFeatureList">
+                {displayFeatures.map((feature) => (
+                  <div key={feature} className="productFeatureItem">
+                    <span className="productFeatureMark" />
+                    <span>{feature}</span>
+                  </div>
+                ))}
               </div>
             </section>
 
             <section className="productSection productFeatureVisualSection">
               <div className="productSectionHead">
-                <span className="eyebrow">{ui.measurementView}</span>
+                <span className="eyebrow">FEATURE</span>
                 <h2 className="sectionTitle">{ui.scanAnalysis}</h2>
               </div>
               <ProductVideoPanel src="/products/lum-z/scan-demo.mp4" />
@@ -534,7 +622,7 @@ export default async function ProductDetailPage({
 
             <section className="productSection">
               <div className="productSectionHead">
-                <span className="eyebrow">{ui.specification}</span>
+                <span className="eyebrow">FEATURE</span>
                 <h2 className="sectionTitle">{ui.zSpec}</h2>
               </div>
               <div className="productSpecBlock">
@@ -557,25 +645,104 @@ export default async function ProductDetailPage({
               </div>
             </section>
           </>
-        ) : isSoftwareSeries ? (
+        ) : isIFISeries ? (
           <>
             <section className="productSection">
               <div className="productSectionHead">
-                <span className="eyebrow">{ui.overview}</span>
-                <h2 className="sectionTitle">{ui.softwareOverview}</h2>
+                <span className="eyebrow">FEATURE</span>
+                <h2 className="sectionTitle">{ui.keyFeatures}</h2>
               </div>
-              <div className="productOverviewBody">
-                <p style={{ margin: 0, lineHeight: 1.9 }}>
-                  {locale === "ko"
-                    ? "다양한 빔 형태에서도 자동 중심 검출과 ROI 기능을 통해 필요한 영역만 정확하게 분석할 수 있는 직관적인 빔 분석 소프트웨어입니다."
-                    : "An intuitive beam analysis software suite that accurately analyzes only the required area through automatic center detection and ROI functions, even across diverse beam shapes."}
-                </p>
+              <div className="productFeatureList">
+                {displayFeatures.map((feature) => (
+                  <div key={feature} className="productFeatureItem">
+                    <span className="productFeatureMark" />
+                    <span>{feature}</span>
+                  </div>
+                ))}
               </div>
             </section>
 
             <section className="productSection productFeatureVisualSection">
               <div className="productSectionHead">
-                <span className="eyebrow">{ui.software}</span>
+                <span className="eyebrow">FEATURE</span>
+                <h2 className="sectionTitle">IFI Beam Projection</h2>
+              </div>
+              <div className="productFeatureVisualPanel">
+                <Image
+                  src="/products/ifi/feature.png"
+                  alt="IFI beam projection concept"
+                  width={1164}
+                  height={762}
+                  sizes="(max-width: 960px) 100vw, 74vw"
+                  className="productFeatureVisualImage"
+                />
+              </div>
+            </section>
+
+            <section className="productSection">
+              <div className="productSectionHead">
+                <span className="eyebrow">FEATURE</span>
+                <h2 className="sectionTitle">{ui.technicalData}</h2>
+              </div>
+              <div className="productSpecBlock">
+                <table className="productTechTable">
+                  <thead>
+                    <tr>
+                      <th>{ui.technicalData}</th>
+                      <th>IFI-S</th>
+                      <th>IFI-X4</th>
+                      <th>IFI-X8</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {ifiTechnicalRows.map((row) => (
+                      <tr key={row.label}>
+                        <th>{row.label}</th>
+                        {row.values.map((value) => (
+                          <td key={`${row.label}-${value}`}>{value}</td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section className="productSection">
+              <div className="productSectionHead">
+                <span className="eyebrow">FEATURE</span>
+                <h2 className="sectionTitle">REMARKS</h2>
+              </div>
+              <div className="softwareInterfaceList">
+                {ifiRemarks.map((item, index) => (
+                  <div key={item} className="softwareInterfaceItem">
+                    <span className="productFeatureMark" />
+                    <span>{`(${index + 1}) ${item}`}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </>
+        ) : isSoftwareSeries ? (
+          <>
+            <section className="productSection">
+              <div className="productSectionHead">
+                <span className="eyebrow">FEATURE</span>
+                <h2 className="sectionTitle">{ui.keyFeatures}</h2>
+              </div>
+              <div className="productFeatureList">
+                {displayFeatures.map((feature) => (
+                  <div key={feature} className="productFeatureItem">
+                    <span className="productFeatureMark" />
+                    <span>{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section className="productSection productFeatureVisualSection">
+              <div className="productSectionHead">
+                <span className="eyebrow">FEATURE</span>
                 <h2 className="sectionTitle">{ui.softwareOverview}</h2>
               </div>
               <ProductVideoPanel src="/products/software/feature-demo.mp4" />
@@ -583,7 +750,7 @@ export default async function ProductDetailPage({
 
             <section className="productSection productFeatureVisualSection">
               <div className="productSectionHead">
-                <span className="eyebrow">{ui.software}</span>
+                <span className="eyebrow">FEATURE</span>
                 <h2 className="sectionTitle">{ui.softwareCore}</h2>
               </div>
               <div className="softwareFeatureGrid">
@@ -610,7 +777,7 @@ export default async function ProductDetailPage({
 
             <section className="productSection productFeatureVisualSection">
               <div className="productSectionHead">
-                <span className="eyebrow">{ui.feature}</span>
+                <span className="eyebrow">FEATURE</span>
                 <h2 className="sectionTitle">{ui.softwareAnalysis}</h2>
               </div>
               <div className="softwareFeatureGrid">
@@ -637,7 +804,7 @@ export default async function ProductDetailPage({
 
             <section className="productSection">
               <div className="productSectionHead">
-                <span className="eyebrow">{ui.integration}</span>
+                <span className="eyebrow">FEATURE</span>
                 <h2 className="sectionTitle">{ui.softwareInterface}</h2>
               </div>
               <div className="softwareInterfaceList">
@@ -666,23 +833,11 @@ export default async function ProductDetailPage({
           <>
         <section className="productSection">
           <div className="productSectionHead">
-            <span className="eyebrow">{ui.overview}</span>
-            <h2 className="sectionTitle">{ui.productOverview}</h2>
-          </div>
-          <div className="productOverviewBody">
-            <p style={{ margin: 0, lineHeight: 1.9 }}>
-              {locale === "ko" ? product.contentKo : product.contentEn}
-            </p>
-          </div>
-        </section>
-
-        <section className="productSection">
-          <div className="productSectionHead">
-            <span className="eyebrow">{ui.features}</span>
+            <span className="eyebrow">FEATURE</span>
             <h2 className="sectionTitle">{ui.keyFeatures}</h2>
           </div>
           <div className="productFeatureList">
-            {features.map((feature) => (
+            {displayFeatures.map((feature) => (
               <div key={feature} className="productFeatureItem">
                 <span className="productFeatureMark" />
                 <span>{feature}</span>
@@ -694,7 +849,7 @@ export default async function ProductDetailPage({
         <section className="productSection productSectionSplit">
           <div>
             <div className="productSectionHead">
-              <span className="eyebrow">{ui.applications}</span>
+              <span className="eyebrow">FEATURE</span>
               <h2 className="sectionTitle">{ui.targetApplications}</h2>
             </div>
             <div className="productApplicationList">
@@ -707,7 +862,7 @@ export default async function ProductDetailPage({
           </div>
           <div>
             <div className="productSectionHead">
-              <span className="eyebrow">{ui.specification}</span>
+              <span className="eyebrow">FEATURE</span>
               <h2 className="sectionTitle">{ui.quickSpecs}</h2>
             </div>
             <div className="productSpecTable">

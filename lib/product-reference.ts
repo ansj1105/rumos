@@ -103,6 +103,25 @@ export const productReferenceMap: Record<string, ProductReference> = {
       { label: "Use Case", valueKo: "Precision Process", valueEn: "Precision Process" },
     ],
   },
+  ifi: {
+    familyKo: "Infinity Flat Top 광학 모듈",
+    familyEn: "Infinity Flat Top optical module",
+    featuresKo: [
+      "Maintain a superior beam UNIFORMITY OF OVER 90% across all focal ranges, ensuring consistent process quality",
+      "Infinity flat top along with NA",
+    ],
+    featuresEn: [
+      "Maintain a superior beam UNIFORMITY OF OVER 90% across all focal ranges, ensuring consistent process quality",
+      "Infinity flat top along with NA",
+    ],
+    applicationsKo: ["Beam shaping", "Uniform process window", "Infinity area projection"],
+    applicationsEn: ["Beam shaping", "Uniform process window", "Infinity area projection"],
+    specs: [
+      { label: "Beam Profile", valueKo: "Flat Top Square", valueEn: "Flat Top Square" },
+      { label: "Uniformity", valueKo: "> 90", valueEn: "> 90" },
+      { label: "Operating Temperature [°C]", valueKo: "0 to 60", valueEn: "0 to 60" },
+    ],
+  },
   software: {
     familyKo: "운영 소프트웨어",
     familyEn: "Operation software",

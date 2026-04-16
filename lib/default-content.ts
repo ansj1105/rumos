@@ -120,6 +120,10 @@ export const defaultProducts = [
     name: "LUM-Z",
   },
   {
+    slug: "ifi",
+    name: "IFI",
+  },
+  {
     slug: "software",
     name: "Software",
   },
