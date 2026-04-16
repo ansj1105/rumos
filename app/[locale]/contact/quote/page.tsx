@@ -13,17 +13,19 @@ const inquiryTopics = {
     titleKo: "상담 및 견적 문의",
     titleEn: "Consultation & Quotation",
     descriptionKo:
-      "T : +82-02-852-0533\nM : Sales@lumosity.co.kr",
+      "제품 적용 검토, 견적, 구매 관련 문의를 접수합니다.\nT : +82-02-852-0533\nM : Sales@lumosity.co.kr",
     descriptionEn:
-      "T : +82-02-852-0533\nM : Sales@lumosity.co.kr",
+      "Use this for product fit review, quotations, and purchasing inquiries.\nT : +82-02-852-0533\nM : Sales@lumosity.co.kr",
   },
   supportRma: {
     labelKo: "지원 & RMA",
     labelEn: "Support & RMA",
     titleKo: "지원 & RMA",
     titleEn: "Support & RMA",
-    descriptionKo: "M : Technical@shinhotek.com",
-    descriptionEn: "M : Technical@shinhotek.com",
+    descriptionKo:
+      "설치, 기술 지원, 점검 및 RMA 관련 문의를 접수합니다.\nM : Technical@shinhotek.com",
+    descriptionEn:
+      "Use this for installation, technical support, inspection, and RMA requests.\nM : Technical@shinhotek.com",
   },
 } as const;
 
