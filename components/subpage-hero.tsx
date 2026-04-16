@@ -6,6 +6,7 @@ export function SubpageHero({
   description,
   tone = "default",
   backgroundImageUrl,
+  desktopBackgroundImageUrl,
   backgroundOpacity,
   lightText = false,
 }: {
@@ -14,6 +15,7 @@ export function SubpageHero({
   description: string;
   tone?: "default" | "contact" | "applications" | "products" | "resources" | "directions";
   backgroundImageUrl?: string | null;
+  desktopBackgroundImageUrl?: string | null;
   backgroundOpacity?: number;
   lightText?: boolean;
 }) {
@@ -24,15 +26,28 @@ export function SubpageHero({
     <section className={`subpageHero subpageHero-${tone}`}>
       <div className="subpageHeroBg">
         {backgroundImageUrl ? (
-          <FadeImage
-            src={backgroundImageUrl}
-            alt=""
-            fill
-            sizes="100vw"
-            className="subpageHeroBgImage"
-            skeletonClassName="subpageHeroBgSkeleton"
-            style={{ opacity: resolvedOpacity }}
-          />
+          <>
+            <FadeImage
+              src={backgroundImageUrl}
+              alt=""
+              fill
+              sizes="100vw"
+              className={`subpageHeroBgImage ${desktopBackgroundImageUrl ? "isMobileSource" : ""}`}
+              skeletonClassName="subpageHeroBgSkeleton"
+              style={{ opacity: resolvedOpacity }}
+            />
+            {desktopBackgroundImageUrl ? (
+              <FadeImage
+                src={desktopBackgroundImageUrl}
+                alt=""
+                fill
+                sizes="100vw"
+                className="subpageHeroBgImage isDesktopSource"
+                skeletonClassName="subpageHeroBgSkeleton"
+                style={{ opacity: resolvedOpacity }}
+              />
+            ) : null}
+          </>
         ) : null}
         <div className={`subpageHeroBgOverlay is-${tone}`} />
       </div>

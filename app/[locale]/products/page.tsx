@@ -69,6 +69,7 @@ export default async function ProductsPage({
         description={locale === "ko" ? heroConfig?.descriptionKo || dict.products.lead : heroConfig?.descriptionEn || dict.products.lead}
         tone="products"
         backgroundImageUrl={heroConfig?.backgroundImageUrl || "/subpage-products-hero.png"}
+        desktopBackgroundImageUrl="/subpage-products-hero-pc.png"
         backgroundOpacity={heroConfig?.backgroundOpacity ?? 0.9}
       />
       <div className="container subpageContent">
