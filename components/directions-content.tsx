@@ -71,11 +71,8 @@ export function DirectionsContent({ locale }: DirectionsContentProps) {
     <div className="pageBody twoCol">
       <div className="card directionsInfoCard">
         <div className="stack">
-          <strong>{isKo ? "주소" : "Address"}</strong>
+          <strong>{isKo ? "본사" : "Head Office"}</strong>
           <span>{isKo ? locations[0].addressKo : locations[0].addressEn}</span>
-          <strong>{isKo ? "연락처" : "Contact"}</strong>
-          <span>T. 02-852-0533</span>
-          <span>F. 02-853-0537</span>
 
           {locations.slice(1).map((location) => (
             <div key={location.id} className="directionsLocationGroup">
@@ -83,6 +80,12 @@ export function DirectionsContent({ locale }: DirectionsContentProps) {
               <span>{isKo ? location.addressKo : location.addressEn}</span>
             </div>
           ))}
+
+          <div className="directionsLocationGroup">
+            <strong>Contact</strong>
+            <span>T. 02-852-0533</span>
+            <span>F. 02-853-0537</span>
+          </div>
 
           <div className="buttonRow" style={{ marginTop: 10 }}>
             <a href={googleMapUrl} target="_blank" rel="noreferrer" className="button secondary">
