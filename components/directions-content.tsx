@@ -1,40 +1,86 @@
+"use client";
+
+import { useMemo, useState } from "react";
+
 type DirectionsContentProps = {
   locale: string;
 };
 
-const address = "서울특별시 금천구 가산디지털 1로 19 대륭테크노타운 18차 1306호";
-const rdCenterAddress =
-  "#1307 Daerung Techno Town-18, 19 Gasan digital 1-ro, Geumcheon-gu, Seoul, 08594, Korea";
-const factoryAddress =
-  "#1609, #1010, 58, Gasan digital 1-ro, Geumcheon-gu, Seoul, 08591, Korea";
-const latitude = 37.467837;
-const longitude = 126.886559;
-const coordinates = `${latitude},${longitude}`;
-const encodedCoordinates = encodeURIComponent(coordinates);
-const googleMapEmbedUrl = `https://www.google.com/maps?output=embed&q=${encodedCoordinates}&z=17`;
-const googleMapUrl = `https://www.google.com/maps/search/?api=1&query=${encodedCoordinates}`;
-const kakaoMapUrl = `https://map.kakao.com/link/map/${encodeURIComponent("루모스")},${latitude},${longitude}`;
+type LocationItem = {
+  id: "hq" | "rd" | "factory";
+  labelKo: string;
+  labelEn: string;
+  addressKo: string;
+  addressEn: string;
+  query: string;
+  latitude?: number;
+  longitude?: number;
+};
+
+const locations: LocationItem[] = [
+  {
+    id: "hq",
+    labelKo: "본사",
+    labelEn: "Head Office",
+    addressKo: "서울특별시 금천구 가산디지털1로 19 대륭테크노타운 18차 1306호, 08594",
+    addressEn: "1306, Daerung Techno Town-18, 19 Gasan digital 1-ro, Geumcheon-gu, Seoul, 08594, Korea",
+    query: "37.467837,126.886559",
+    latitude: 37.467837,
+    longitude: 126.886559,
+  },
+  {
+    id: "rd",
+    labelKo: "R&D Center",
+    labelEn: "R&D Center",
+    addressKo: "서울특별시 금천구 가산디지털1로 19 대륭테크노타운 18차 1307호, 08594",
+    addressEn: "1307, Daerung Techno Town-18, 19 Gasan digital 1-ro, Geumcheon-gu, Seoul, 08594, Korea",
+    query: "1307 Daerung Techno Town-18, 19 Gasan digital 1-ro, Geumcheon-gu, Seoul, 08594, Korea",
+  },
+  {
+    id: "factory",
+    labelKo: "Factory",
+    labelEn: "Factory",
+    addressKo: "서울특별시 금천구 가산디지털1로 58 1609호, 1010호, 08591",
+    addressEn: "1609, 1010, 58, Gasan digital 1-ro, Geumcheon-gu, Seoul, 08591, Korea",
+    query: "1609, 1010, 58, Gasan digital 1-ro, Geumcheon-gu, Seoul, 08591, Korea",
+  },
+];
 
 export function DirectionsContent({ locale }: DirectionsContentProps) {
   const isKo = locale === "ko";
+  const [activeLocationId, setActiveLocationId] = useState<LocationItem["id"]>("hq");
+
+  const activeLocation = useMemo(
+    () => locations.find((location) => location.id === activeLocationId) ?? locations[0],
+    [activeLocationId],
+  );
+
+  const encodedQuery = encodeURIComponent(activeLocation.query);
+  const googleMapEmbedUrl = `https://www.google.com/maps?output=embed&q=${encodedQuery}&z=17`;
+  const googleMapUrl = `https://www.google.com/maps/search/?api=1&query=${encodedQuery}`;
+  const kakaoMapUrl =
+    activeLocation.latitude && activeLocation.longitude
+      ? `https://map.kakao.com/link/map/${encodeURIComponent(isKo ? activeLocation.labelKo : activeLocation.labelEn)},${activeLocation.latitude},${activeLocation.longitude}`
+      : `https://map.kakao.com/link/search/${encodedQuery}`;
 
   return (
     <div className="pageBody twoCol">
       <div className="card directionsInfoCard">
         <div className="stack">
           <strong>{isKo ? "주소" : "Address"}</strong>
-          <span>08594 {address}</span>
+          <span>{isKo ? locations[0].addressKo : locations[0].addressEn}</span>
           <strong>{isKo ? "연락처" : "Contact"}</strong>
           <span>T. 02-852-0533</span>
           <span>F. 02-853-0537</span>
-          <div className="directionsLocationGroup">
-            <strong>R&D Center</strong>
-            <span>{rdCenterAddress}</span>
-          </div>
-          <div className="directionsLocationGroup">
-            <strong>Factory</strong>
-            <span>{factoryAddress}</span>
-          </div>
+
+          {locations.slice(1).map((location) => (
+            <div key={location.id} className="directionsLocationGroup">
+              <strong>{isKo ? location.labelKo : location.labelEn}</strong>
+              <span className="directionsLocationMeta">{isKo ? "주소" : "Address"}</span>
+              <span>{isKo ? location.addressKo : location.addressEn}</span>
+            </div>
+          ))}
+
           <div className="buttonRow" style={{ marginTop: 10 }}>
             <a href={googleMapUrl} target="_blank" rel="noreferrer" className="button secondary">
               Google Maps
@@ -45,6 +91,7 @@ export function DirectionsContent({ locale }: DirectionsContentProps) {
           </div>
         </div>
       </div>
+
       <div className="card directionsMapCard">
         <iframe
           title={isKo ? "루모스 오시는 길 지도" : "Lumos directions map"}
@@ -54,6 +101,21 @@ export function DirectionsContent({ locale }: DirectionsContentProps) {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         />
+
+        <div className="directionsMapTabs" role="tablist" aria-label={isKo ? "위치 선택" : "Select location"}>
+          {locations.map((location) => (
+            <button
+              key={location.id}
+              type="button"
+              role="tab"
+              aria-selected={location.id === activeLocationId}
+              className={`directionsMapTab ${location.id === activeLocationId ? "isActive" : ""}`}
+              onClick={() => setActiveLocationId(location.id)}
+            >
+              {isKo ? location.labelKo : location.labelEn}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
