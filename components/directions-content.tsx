@@ -3,6 +3,10 @@ type DirectionsContentProps = {
 };
 
 const address = "서울특별시 금천구 가산디지털 1로 19 대륭테크노타운 18차 1306호";
+const rdCenterAddress =
+  "#1307 Daerung Techno Town-18, 19 Gasan digital 1-ro, Geumcheon-gu, Seoul, 08594, Korea";
+const factoryAddress =
+  "#1609, #1010, 58, Gasan digital 1-ro, Geumcheon-gu, Seoul, 08591, Korea";
 const latitude = 37.467837;
 const longitude = 126.886559;
 const coordinates = `${latitude},${longitude}`;
@@ -23,6 +27,14 @@ export function DirectionsContent({ locale }: DirectionsContentProps) {
           <strong>{isKo ? "연락처" : "Contact"}</strong>
           <span>T. 02-852-0533</span>
           <span>F. 02-853-0537</span>
+          <div className="directionsLocationGroup">
+            <strong>R&D Center</strong>
+            <span>{rdCenterAddress}</span>
+          </div>
+          <div className="directionsLocationGroup">
+            <strong>Factory</strong>
+            <span>{factoryAddress}</span>
+          </div>
           <div className="buttonRow" style={{ marginTop: 10 }}>
             <a href={googleMapUrl} target="_blank" rel="noreferrer" className="button secondary">
               Google Maps

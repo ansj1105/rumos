@@ -348,7 +348,6 @@ function SeriesFeatureCard({
           className={`seriesFeatureImage ${item.imageClassName}`}
         />
       </div>
-      <div className="seriesFeatureOverlay" />
       <div
         className={`seriesFeatureContent ${item.slug === "software" ? "isSoftware" : ""}`}
       >
