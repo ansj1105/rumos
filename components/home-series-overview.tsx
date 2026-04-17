@@ -358,6 +358,9 @@ function SeriesFeatureCard({
         <p className="seriesFeatureSummary">
           {locale === "ko" ? item.summaryKo : item.summaryEn}
         </p>
+        <span className="seriesFeatureCta">
+          {locale === "ko" ? "View Product" : "View Product"}
+        </span>
       </div>
     </Link>
   );

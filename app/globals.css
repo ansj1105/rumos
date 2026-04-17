@@ -2817,7 +2817,7 @@ select {
   gap: 12px;
   width: 100%;
   padding: 24px;
-  background: #ffffff;
+  background: #f3f5f7;
   color: #0f223d;
 }
 
@@ -2849,6 +2849,32 @@ select {
   color: rgba(15, 34, 61, 0.74);
   font-size: 14px;
   line-height: 1.65;
+}
+
+.seriesFeatureCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  width: 100%;
+  margin-top: 10px;
+  border: 1px solid rgba(15, 34, 61, 0.18);
+  background: #ffffff;
+  color: #0f223d;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.seriesFeatureCard:hover .seriesFeatureCta,
+.seriesFeatureCard:focus-visible .seriesFeatureCta,
+.seriesFeatureCard.isActive .seriesFeatureCta {
+  border-color: rgba(15, 34, 61, 0.28);
+  background: #fdfefe;
 }
 
 .homeSeriesSlider {
