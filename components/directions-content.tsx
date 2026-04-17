@@ -34,7 +34,9 @@ const locations: LocationItem[] = [
     labelEn: "R&D Center",
     addressKo: "서울특별시 금천구 가산디지털1로 19 대륭테크노타운 18차 1307호, 08594",
     addressEn: "1307, Daerung Techno Town-18, 19 Gasan digital 1-ro, Geumcheon-gu, Seoul, 08594, Korea",
-    query: "1307 Daerung Techno Town-18, 19 Gasan digital 1-ro, Geumcheon-gu, Seoul, 08594, Korea",
+    query: "37.467837,126.886559",
+    latitude: 37.467837,
+    longitude: 126.886559,
   },
   {
     id: "factory",
@@ -42,7 +44,9 @@ const locations: LocationItem[] = [
     labelEn: "Factory",
     addressKo: "서울특별시 금천구 가산디지털1로 58 1609호, 1010호, 08591",
     addressEn: "1609, 1010, 58, Gasan digital 1-ro, Geumcheon-gu, Seoul, 08591, Korea",
-    query: "1609, 1010, 58, Gasan digital 1-ro, Geumcheon-gu, Seoul, 08591, Korea",
+    query: "37.471434,126.886417",
+    latitude: 37.471434,
+    longitude: 126.886417,
   },
 ];
 
@@ -76,7 +80,6 @@ export function DirectionsContent({ locale }: DirectionsContentProps) {
           {locations.slice(1).map((location) => (
             <div key={location.id} className="directionsLocationGroup">
               <strong>{isKo ? location.labelKo : location.labelEn}</strong>
-              <span className="directionsLocationMeta">{isKo ? "주소" : "Address"}</span>
               <span>{isKo ? location.addressKo : location.addressEn}</span>
             </div>
           ))}

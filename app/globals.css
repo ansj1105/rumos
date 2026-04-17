@@ -373,14 +373,6 @@ select {
   border-top: 1px solid rgba(15, 34, 61, 0.08);
 }
 
-.directionsLocationMeta {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(15, 34, 61, 0.56);
-}
-
 .directionsMapCard {
   position: relative;
   overflow: hidden;
