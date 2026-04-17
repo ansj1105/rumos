@@ -1026,6 +1026,7 @@ export default async function ProductDetailPage({
               <ol className="productFeatureList">
                 {displayFeatures.map((feature) => (
                   <li key={feature} className="productFeatureItem">
+                    <span className="productListMarker" aria-hidden="true" />
                     <span>{feature}</span>
                   </li>
                 ))}
