@@ -2605,7 +2605,8 @@ select {
 .homeSeriesSection {
   width: 100%;
   padding: 92px 0 110px;
-  background: #ffffff;
+  background:
+    linear-gradient(180deg, #0e3d73 0%, #123e7a 44%, #0f3871 100%);
   border-top: 1px solid rgba(15, 34, 61, 0.08);
 }
 
@@ -2752,7 +2753,7 @@ select {
 }
 
 .seriesFeatureCard:not(.isActive) {
-  opacity: 0.7;
+  opacity: 1;
 }
 
 .homeSeriesMosaic .seriesFeatureCard:not(.isRevealed) {
@@ -2760,7 +2761,7 @@ select {
 }
 
 .homeSeriesMosaic .seriesFeatureCard.isRevealed {
-  opacity: 0.7;
+  opacity: 1;
   transform: translate3d(0, 0, 0);
 }
 
