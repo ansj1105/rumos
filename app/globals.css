@@ -3703,6 +3703,48 @@ select {
   font-weight: 700;
 }
 
+.lumBTechnicalComposite {
+  display: grid;
+  gap: 22px;
+}
+
+.lumBTechnicalVisual {
+  border: 1px solid rgba(15, 34, 61, 0.08);
+  background: #ffffff;
+}
+
+.lumBTechnicalVisualImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.lumBRemarksBlock {
+  border: 1px solid rgba(15, 34, 61, 0.08);
+  background: #ffffff;
+}
+
+.lumBRemarksList {
+  display: grid;
+  gap: 0;
+  padding: 0 18px;
+}
+
+.lumBRemarkItem {
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(15, 34, 61, 0.08);
+  color: #17283d;
+  line-height: 1.7;
+}
+
+.lumBRemarkItem.isEmphasis {
+  font-weight: 700;
+}
+
+.lumBRemarksList .lumBRemarkItem:last-child {
+  border-bottom: 0;
+}
+
 @media (max-width: 1100px) {
   .lumBFilterLayout,
   .lumBFilterLayout.isLargeArea,

@@ -124,6 +124,16 @@ const lumBAccessoryRows = [
   },
 ] as const;
 
+const lumBAccessoryRemarks = [
+  "OD 1.0 ND filter is provided as standard. If you need an ND filter of a different OD, you can purchase additional filters.",
+  "5 m cable is provided by default if the user does not select",
+] as const;
+
+const lumBRemarks = [
+  "The measurement wavelength needs to be checked before ordering.",
+  "With ISO-1146 as the standard for measurable values, the minimum measurable size is 20 pixels.",
+] as const;
+
 const lumBLTechnicalRows = [
   { label: "Wavelength [nm]", value: "400 - 1064" },
   { label: "Resolution [pixels]", value: "8424 X 6032 [51 MP]" },
@@ -366,9 +376,7 @@ export default async function ProductDetailPage({
   const productDetailSummary =
     isLumBSeries
       ? (
-        locale === "ko"
-          ? "LUM-B 시리즈는 Raw Laser Beam Profiling과 분석을 위한 카메라 기반 측정 장비로, 다양한 필터 옵션과 해상도 구성을 통해 산업용 광학 계측 환경에 대응합니다."
-          : "The LUM-B Series is a camera-based measurement platform for raw laser beam profiling and analysis, offering multiple filter and resolution options for industrial optical metrology environments."
+        "MULTIPLE CAMERAS can be connected to ONE PROGRAM. User-Customizable parameter windows in Lumosity SW"
       )
       : isLumBLSeries
         ? (
@@ -515,6 +523,63 @@ export default async function ProductDetailPage({
                 <section className="productSection">
                   <div className="productSectionHead">
                     <span className="eyebrow">FEATURE</span>
+                    <h2 className="sectionTitle">{ui.technicalData}</h2>
+                  </div>
+                  <div className="lumBTechnicalComposite">
+                    <div className="lumBTechnicalVisual">
+                      <Image
+                        src="/products/lum-b/lum-b-tech-visual.png"
+                        alt="LUM-B technical overview"
+                        width={1600}
+                        height={900}
+                        className="lumBTechnicalVisualImage"
+                      />
+                    </div>
+                    <div className="productSpecBlock">
+                      <table className="productTechTable">
+                        <thead>
+                          <tr>
+                            <th>{ui.technicalData}</th>
+                            <th>LUM-B-D</th>
+                            <th>LUM-B-N</th>
+                            <th>LUM-B-M</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {lumBTechnicalRows.map((row) => (
+                            <tr key={row.label}>
+                              <th>{row.label}</th>
+                              {row.values.map((value) => (
+                                <td key={`${row.label}-${value}`}>{value}</td>
+                              ))}
+                            </tr>
+                          ))}
+                          {lumBSharedRows.map((row) => (
+                            <tr key={row.label}>
+                              <th>{row.label}</th>
+                              <td colSpan={3}>{row.value}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                    <div className="lumBRemarksBlock">
+                      <div className="productAccessoryHeading">REMARKS</div>
+                      <div className="lumBRemarksList">
+                        {lumBRemarks.map((item, index) => (
+                          <div key={item} className="lumBRemarkItem">{`(${index + 1}) ${item}`}</div>
+                        ))}
+                        <div className="lumBRemarkItem isEmphasis">
+                          For changes in the exterior structure, it is necessary to check in advance whether it is possible before ordering.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <section className="productSection">
+                  <div className="productSectionHead">
+                    <span className="eyebrow">FEATURE</span>
                     <h2 className="sectionTitle">{ui.filterTitle}</h2>
                   </div>
                   <div className="lumBFilterComposite">
@@ -576,6 +641,7 @@ export default async function ProductDetailPage({
                     <h2 className="sectionTitle">{ui.accessoryInfo}</h2>
                   </div>
                   <div className="productAccessoryBlock">
+                    <div className="productAccessoryHeading">{ui.accessoryInfo}</div>
                     <table className="productAccessoryTable">
                       <tbody>
                         {lumBAccessoryRows.map((row) => (
@@ -586,6 +652,14 @@ export default async function ProductDetailPage({
                         ))}
                       </tbody>
                     </table>
+                  </div>
+                  <div className="lumBRemarksBlock">
+                    <div className="productAccessoryHeading">REMARKS</div>
+                    <div className="lumBRemarksList">
+                      {lumBAccessoryRemarks.map((item, index) => (
+                        <div key={item} className="lumBRemarkItem">{`(${index + 1}) ${item}`}</div>
+                      ))}
+                    </div>
                   </div>
                 </section>
               </>
