@@ -54,11 +54,6 @@ export default async function QuotePage({
           <section className="contactDirectSection">
             <div className="contactDirectHead">
               <strong>{isKo ? "문의 유형 선택" : "Choose Your Inquiry Path"}</strong>
-              <p>
-                {isKo
-                  ? "목적에 맞는 항목을 선택하면 아래 폼이 해당 문의로 접수됩니다."
-                  : "Choose the option that matches your purpose. The form below will be submitted under that request type."}
-              </p>
             </div>
             <div className="contactDirectGrid">
               {(Object.entries(inquiryTopics) as Array<
