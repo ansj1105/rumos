@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import type { Locale } from "@/lib/site";
 
@@ -85,6 +85,41 @@ export function HomeSeriesOverview({
   const desktopTopRow = mergedSeriesItems.slice(0, 4);
   const desktopBottomRow = mergedSeriesItems.slice(4, 7);
 
+  useEffect(() => {
+    const sectionElement = document.getElementById("homeSeriesSection");
+
+    if (!sectionElement) {
+      return;
+    }
+
+    const revealTargets = Array.from(sectionElement.querySelectorAll<HTMLElement>(".seriesFeatureCard"));
+
+    if (revealTargets.length === 0) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          entry.target.classList.add("isRevealed");
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.18,
+        rootMargin: "0px 0px -10% 0px",
+      },
+    );
+
+    revealTargets.forEach((target) => observer.observe(target));
+
+    return () => observer.disconnect();
+  }, []);
+
   function goToPrev() {
     setCurrentIndex((index) => (index === 0 ? mergedSeriesItems.length - 1 : index - 1));
   }
@@ -103,12 +138,22 @@ export function HomeSeriesOverview({
         <div className="homeSeriesDesktop">
           <div className="homeSeriesRow isTop">
             {desktopTopRow.map((item) => (
-              <SeriesFeatureCard key={item.slug} item={item} locale={locale} />
+              <SeriesFeatureCard
+                key={item.slug}
+                item={item}
+                locale={locale}
+                revealDelayMs={getSymmetricRevealDelay(desktopTopRow.length, desktopTopRow.findIndex((candidate) => candidate.slug === item.slug))}
+              />
             ))}
           </div>
           <div className="homeSeriesRow isBottom">
             {desktopBottomRow.map((item) => (
-              <SeriesFeatureCard key={item.slug} item={item} locale={locale} />
+              <SeriesFeatureCard
+                key={item.slug}
+                item={item}
+                locale={locale}
+                revealDelayMs={getSymmetricRevealDelay(desktopBottomRow.length, desktopBottomRow.findIndex((candidate) => candidate.slug === item.slug))}
+              />
             ))}
           </div>
         </div>
@@ -143,7 +188,7 @@ export function HomeSeriesOverview({
             >
               {mergedSeriesItems.map((item) => (
                 <div key={item.slug} className="homeSeriesSlide">
-                  <SeriesFeatureCard item={item} locale={locale} />
+                  <SeriesFeatureCard item={item} locale={locale} revealDelayMs={0} />
                 </div>
               ))}
             </div>
@@ -186,15 +231,34 @@ export function HomeSeriesOverview({
   );
 }
 
+function getSymmetricRevealDelay(length: number, index: number) {
+  if (index < 0) {
+    return 0;
+  }
+
+  const lastIndex = length - 1;
+  const pairStep = Math.min(index, lastIndex - index);
+  const centerBonus = length % 2 === 1 && index === Math.floor(length / 2) ? 1 : 0;
+
+  return (pairStep + centerBonus) * 140;
+}
+
 function SeriesFeatureCard({
   item,
   locale,
+  revealDelayMs = 0,
 }: {
   item: SeriesCardItem;
   locale: Locale;
+  revealDelayMs?: number;
 }) {
   return (
-    <Link href={`/${locale}/products/${item.slug}`} className="seriesFeatureCard" data-series-slug={item.slug}>
+    <Link
+      href={`/${locale}/products/${item.slug}`}
+      className="seriesFeatureCard"
+      data-series-slug={item.slug}
+      style={{ ["--series-reveal-delay" as string]: `${revealDelayMs}ms` }}
+    >
       <div className="seriesFeatureMedia">
         <Image
           src={item.imageUrl}
