@@ -485,7 +485,7 @@ export default async function ProductDetailPage({
                 alt={productDetailHeroVisual.alt}
                 fill
                 sizes="(max-width: 960px) 100vw, 44vw"
-                className={`productDetailVisualImage ${isSoftwareSeries ? "isSoftware" : ""}`}
+                className={`productDetailVisualImage ${isSoftwareSeries ? "isSoftware" : ""} ${isLumBSeries ? "isLumBCover" : ""}`}
                 skeletonClassName="productDetailVisualSkeleton"
               />
             </div>

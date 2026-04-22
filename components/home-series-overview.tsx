@@ -16,37 +16,37 @@ type SeriesCardItem = {
 const seriesItems: SeriesCardItem[] = [
   {
     slug: "lum-b",
-    name: "LUM-B",
+    name: "Raw Beam Profiler (LUM-B)",
     imageUrl: "/products/lum-b/main.png",
     imageClassName: "isLumB",
   },
   {
     slug: "lum-b-l",
-    name: "LUM-B-L",
+    name: "Large Beam Profiler (LUM-B-L)",
     imageUrl: "/products/lum-b-l/main.png",
     imageClassName: "isLumBL",
   },
   {
     slug: "lum-f",
-    name: "LUM-F",
+    name: "Focus Beam Profiler (LUM-F)",
     imageUrl: "/products/lum-f/main.png",
     imageClassName: "isLumF",
   },
   {
     slug: "lum-z",
-    name: "LUM-Z",
+    name: "3D Beam Profiling and Analysis (LUM-Z)",
     imageUrl: "/products/lum-z/main.png",
     imageClassName: "isLumZ",
   },
   {
     slug: "software",
-    name: "Software",
+    name: "Lumosity (Software)",
     imageUrl: "/products/software/main.png",
     imageClassName: "isSoftware",
   },
   {
     slug: "ifi",
-    name: "IFI",
+    name: "Infinity Flat Top Imaging Optics (IFI)",
     imageUrl: "/products/ifi/main.png",
     imageClassName: "isIFI",
   },
