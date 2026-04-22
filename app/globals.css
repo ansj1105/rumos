@@ -4933,7 +4933,7 @@ td {
 
   .mobileMenu.isOpen {
     display: block;
-    border-radius: 0 0 24px 24px;
+    border-radius: 0;
     border-left: 0;
     border-right: 0;
   }
