@@ -4275,10 +4275,9 @@ select {
 
 .contactDirectCard {
   display: grid;
-  grid-template-rows: auto auto minmax(0, 1fr) auto;
-  gap: 8px;
-  min-height: 220px;
-  padding: 24px 22px 22px;
+  gap: 12px;
+  min-height: 152px;
+  padding: 22px 22px 20px;
   border: 1px solid rgba(15, 34, 61, 0.1);
   background: #ffffff;
   color: inherit;
@@ -4312,37 +4311,14 @@ select {
 .contactDirectCard p {
   margin: 0;
   color: var(--muted);
-  line-height: 1.7;
+  font-size: 15px;
+  line-height: 1.8;
   white-space: pre-line;
-}
-
-.contactDirectNotice {
-  margin-top: 16px;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.7;
 }
 
 .contactFormStatus {
   margin: 0;
   color: var(--blue-deep);
-}
-
-.contactFormCaption {
-  max-width: 920px;
-  margin: 16px auto 0;
-  display: grid;
-  gap: 6px;
-}
-
-.contactFormCaption strong {
-  font-size: 18px;
-}
-
-.contactFormCaption p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.7;
 }
 
 .distributorLayout {

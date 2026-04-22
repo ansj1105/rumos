@@ -1,6 +1,4 @@
 import Link from "next/link";
-
-import { ContactSubnav } from "@/components/contact-subnav";
 import { ContactForm } from "@/components/forms/contact-form";
 import { SubpageHero } from "@/components/subpage-hero";
 import { getPageHeroConfig } from "@/lib/content";
@@ -8,24 +6,14 @@ import type { Locale } from "@/lib/site";
 
 const inquiryTopics = {
   consultationSales: {
-    labelKo: "상담 및 견적 문의",
-    labelEn: "Consultation & Quotation",
     titleKo: "상담 및 견적 문의",
     titleEn: "Consultation & Quotation",
-    descriptionKo:
-      "제품 적용 가능 여부 검토부터 견적, 구매 조건, 납기 협의까지 상담 및 견적 관련 문의를 접수합니다.\nT : +82-02-852-0533\nM : Sales@lumosity.co.kr",
-    descriptionEn:
-      "Use this for product fit review, quotations, purchasing conditions, and delivery discussions.\nT : +82-02-852-0533\nM : Sales@lumosity.co.kr",
+    contacts: ["T : +82-02-852-0533", "M : Sales@lumosity.co.kr"],
   },
   supportRma: {
-    labelKo: "지원 & RMA",
-    labelEn: "Support & RMA",
     titleKo: "지원 & RMA",
     titleEn: "Support & RMA",
-    descriptionKo:
-      "설치 이후 운용 지원, 기술 점검, 장애 대응, 수리 및 RMA 진행 관련 문의를 접수합니다.\nM : Technical@shinhotek.com",
-    descriptionEn:
-      "Use this for operational support after installation, technical inspection, troubleshooting, repair, and RMA requests.\nM : Technical@shinhotek.com",
+    contacts: ["M : Technical@shinhotek.com"],
   },
 } as const;
 
@@ -63,16 +51,6 @@ export default async function QuotePage({
       />
       {/* <ContactSubnav locale={locale} activeHref="/contact/quote" /> */}
       <div className="container subpageContent">
-        <div className="contactIntro">
-          <div className="contactInfoRow">
-            <strong>{isKo ? "문의하기" : "Contact Us"}</strong>
-            <span>
-              {isKo
-                ? "선택하시면 해당 목적에 맞는 내용으로 접수됩니다."
-                : "Select the inquiry path below and submit the form for the right team."}
-            </span>
-          </div>
-        </div>
         <div className="pageBody">
           <section className="contactDirectSection">
             <div className="contactDirectHead">
@@ -93,20 +71,11 @@ export default async function QuotePage({
                   className={`contactDirectCard ${selectedTopic === key ? "isActive" : ""}`}
                 >
                   <strong>{isKo ? topic.titleKo : topic.titleEn}</strong>
-                  <p>{isKo ? topic.descriptionKo : topic.descriptionEn}</p>
+                  <p>{topic.contacts.join("\n")}</p>
                 </Link>
               ))}
             </div>
-            <div className="contactDirectNotice">
-              {isKo
-                ? "상담시간 7:00~16:00(KST)"
-                : "Hours 7:00~16:00 (KST)"}
-            </div>
           </section>
-          <div className="contactFormCaption">
-            <strong>{introTitle}</strong>
-            <p>{introDescription}</p>
-          </div>
           <ContactForm locale={locale} inquiryType={introTitle} />
         </div>
       </div>
