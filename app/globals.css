@@ -2381,7 +2381,6 @@ select {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  border-top: 1px solid rgba(15, 34, 61, 0.08);
 }
 
 .storyInner {
@@ -2878,9 +2877,12 @@ select {
   overflow: hidden;
   min-height: 280px;
   border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
   background: #ffffff;
-  box-shadow: none;
-  transition: border-color 180ms ease;
+  box-shadow: 0 10px 22px rgba(15, 34, 61, 0.08);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .seriesFeatureCard::after {
@@ -2896,6 +2898,7 @@ select {
 .seriesFeatureCard:hover,
 .seriesFeatureCard:focus-visible {
   border-color: rgba(255, 255, 255, 0.34);
+  box-shadow: 0 14px 28px rgba(15, 34, 61, 0.11);
 }
 
 .seriesFeatureMedia {
@@ -2929,7 +2932,8 @@ select {
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 0 12px 22px;
+  min-height: 68px;
+  padding: 16px 14px;
   background:
     linear-gradient(180deg, rgba(246, 249, 252, 0.98) 0%, rgba(255, 255, 255, 1) 100%);
   color: #1c6cb3;
