@@ -71,7 +71,7 @@ export function DirectionsContent({ locale }: DirectionsContentProps) {
   return (
     <div className="pageBody twoCol">
       <div className="card directionsInfoCard">
-        <div className="stack">
+        <div className="directionsInfoLayout">
           <div className="directionsCompanyImageWrap">
             <Image
               src="/contact/company-building.png"
@@ -82,29 +82,31 @@ export function DirectionsContent({ locale }: DirectionsContentProps) {
             />
           </div>
 
-          <strong>{isKo ? "본사" : "Head Office"}</strong>
-          <span>{isKo ? locations[0].addressKo : locations[0].addressEn}</span>
+          <div className="stack">
+            <strong>{isKo ? "본사" : "Head Office"}</strong>
+            <span>{isKo ? locations[0].addressKo : locations[0].addressEn}</span>
 
-          {locations.slice(1).map((location) => (
-            <div key={location.id} className="directionsLocationGroup">
-              <strong>{isKo ? location.labelKo : location.labelEn}</strong>
-              <span>{isKo ? location.addressKo : location.addressEn}</span>
+            {locations.slice(1).map((location) => (
+              <div key={location.id} className="directionsLocationGroup">
+                <strong>{isKo ? location.labelKo : location.labelEn}</strong>
+                <span>{isKo ? location.addressKo : location.addressEn}</span>
+              </div>
+            ))}
+
+            <div className="directionsLocationGroup">
+              <strong>Contact</strong>
+              <span>T. 02-852-0533</span>
+              <span>F. 02-853-0537</span>
             </div>
-          ))}
 
-          <div className="directionsLocationGroup">
-            <strong>Contact</strong>
-            <span>T. 02-852-0533</span>
-            <span>F. 02-853-0537</span>
-          </div>
-
-          <div className="buttonRow" style={{ marginTop: 10 }}>
-            <a href={googleMapUrl} target="_blank" rel="noreferrer" className="button secondary">
-              Google Maps
-            </a>
-            <a href={kakaoMapUrl} target="_blank" rel="noreferrer" className="button secondary">
-              Kakao Map
-            </a>
+            <div className="buttonRow" style={{ marginTop: 10 }}>
+              <a href={googleMapUrl} target="_blank" rel="noreferrer" className="button secondary">
+                Google Maps
+              </a>
+              <a href={kakaoMapUrl} target="_blank" rel="noreferrer" className="button secondary">
+                Kakao Map
+              </a>
+            </div>
           </div>
         </div>
       </div>

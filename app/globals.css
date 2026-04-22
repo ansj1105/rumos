@@ -309,7 +309,7 @@ select {
 .subpageHeroInner {
   position: relative;
   width: 100%;
-  padding: clamp(78px, 9vw, 108px) 0 28px;
+  padding: clamp(78px, 9vw, 108px) 0 50px;
 }
 
 .subpageHeroCopy {
@@ -317,6 +317,10 @@ select {
   display: grid;
   gap: 10px;
   padding-left: 44px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  border-radius: 8px;
+  filter: drop-shadow(0 14px 28px rgba(8, 20, 40, 0.16));
 }
 
 .subpageContent {
@@ -631,16 +635,24 @@ select {
   padding: 28px;
 }
 
+.directionsInfoLayout {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+}
+
 .directionsCompanyImageWrap {
   overflow: hidden;
   border: 1px solid rgba(15, 34, 61, 0.08);
   background: #eef3f8;
+  align-self: stretch;
 }
 
 .directionsCompanyImage {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -5678,8 +5690,13 @@ td {
     padding: 20px;
   }
 
+  .directionsInfoLayout {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
   .directionsCompanyImageWrap {
-    margin-bottom: 2px;
+    max-width: 220px;
   }
 
   .directionsMapIframe {
