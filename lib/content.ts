@@ -5,6 +5,7 @@ import {
   defaultResources,
   defaultSiteConfig,
 } from "@/lib/default-content";
+import { getProductDisplayName } from "@/lib/product-display";
 import { prisma } from "@/lib/prisma";
 import type { Locale } from "@/lib/site";
 
@@ -101,6 +102,8 @@ export async function getProducts() {
         ? {
             ...existingProduct,
             displayOrder: fallbackProduct.displayOrder,
+            nameKo: getProductDisplayName(existingProduct.slug, fallbackProduct.nameKo),
+            nameEn: getProductDisplayName(existingProduct.slug, fallbackProduct.nameEn),
           }
         : fallbackProduct;
     });
@@ -134,6 +137,8 @@ export async function getProductBySlug(slug: string) {
       ? {
           ...product,
           displayOrder: fallbackProduct.displayOrder,
+          nameKo: getProductDisplayName(product.slug, fallbackProduct.nameKo),
+          nameEn: getProductDisplayName(product.slug, fallbackProduct.nameEn),
         }
       : product;
   } catch (error) {

@@ -145,6 +145,29 @@ export const productReferenceMap: Record<string, ProductReference> = {
       { label: "Integration", valueKo: "Device-ready", valueEn: "Device-ready" },
     ],
   },
+  customizing: {
+    familyKo: "맞춤형 광학 솔루션",
+    familyEn: "Custom optical solution",
+    featuresKo: [
+      "공정 조건에 맞춘 광학계 및 측정 구성 제안",
+      "고객 장비 환경에 맞는 기구 및 인터페이스 대응",
+      "측정 목적에 따른 소프트웨어 기능 확장",
+      "라인 적용을 고려한 단계별 커스터마이징 지원",
+    ],
+    featuresEn: [
+      "Optical and measurement configurations tailored to process conditions",
+      "Mechanical and interface adaptation for customer equipment environments",
+      "Software function extensions aligned to measurement goals",
+      "Stepwise customization support for production-line integration",
+    ],
+    applicationsKo: ["전용 장비 개발", "라인 통합", "특수 측정 요구 대응"],
+    applicationsEn: ["Dedicated equipment development", "Line integration", "Special measurement requirements"],
+    specs: [
+      { label: "Scope", valueKo: "Optics / Mechanics / Software", valueEn: "Optics / Mechanics / Software" },
+      { label: "Delivery", valueKo: "Requirement-based", valueEn: "Requirement-based" },
+      { label: "Integration", valueKo: "Customer Line Ready", valueEn: "Customer Line Ready" },
+    ],
+  },
 };
 
 export function getProductReference(slug: string, locale: Locale) {

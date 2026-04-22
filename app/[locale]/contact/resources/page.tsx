@@ -32,7 +32,7 @@ export default async function ResourceListPage({
         backgroundOpacity={heroConfig?.backgroundOpacity ?? 0.9}
         lightText
       />
-      <ContactSubnav locale={locale} activeHref="/contact/resources" />
+      {/* <ContactSubnav locale={locale} activeHref="/contact/resources" /> */}
       <div className="container subpageContent">
         <div className="resourcesTableWrap">
           <div className="resourcesTableHead">

@@ -1,3 +1,5 @@
+import { PRODUCT_DISPLAY_NAMES } from "@/lib/product-display";
+
 export const defaultSiteConfig = {
   id: 1,
   heroTitleKo: "정밀 공정에 맞는\n신뢰 가능한 광학 솔루션",
@@ -15,10 +17,10 @@ export const defaultSiteConfig = {
   storyBodyEn:
     "LUMOS comes from the Latin 'Lumen' (Light). It represents our mission to capture the true essence of light through precise measurement and to deliver trusted precision for optics and laser beam analysis.",
   storyFontSize: 18,
-  seriesTitleKo: "LUMOS series overview",
-  seriesTitleEn: "LUMOS series overview",
-  seriesLeadKo: "빔 프로파일러와 운용 소프트웨어 라인업을 한 번에 확인할 수 있습니다.",
-  seriesLeadEn: "Explore the beam profiler lineup and operational software in one view.",
+  seriesTitleKo: "LUMOS series",
+  seriesTitleEn: "LUMOS series",
+  seriesLeadKo: "",
+  seriesLeadEn: "",
   seoTitleKo: "루모스 | 산업용 광학 솔루션",
   seoTitleEn: "Lumos | Industrial Optical Solutions",
   seoDescriptionKo:
@@ -105,27 +107,31 @@ export const defaultApplications = [
 export const defaultProducts = [
   {
     slug: "lum-b",
-    name: "LUM-B",
+    name: PRODUCT_DISPLAY_NAMES["lum-b"],
   },
   {
     slug: "lum-b-l",
-    name: "LUM-B-L",
+    name: PRODUCT_DISPLAY_NAMES["lum-b-l"],
   },
   {
     slug: "lum-f",
-    name: "LUM-F",
+    name: PRODUCT_DISPLAY_NAMES["lum-f"],
   },
   {
     slug: "lum-z",
-    name: "LUM-Z",
-  },
-  {
-    slug: "ifi",
-    name: "IFI",
+    name: PRODUCT_DISPLAY_NAMES["lum-z"],
   },
   {
     slug: "software",
-    name: "Software",
+    name: PRODUCT_DISPLAY_NAMES.software,
+  },
+  {
+    slug: "ifi",
+    name: PRODUCT_DISPLAY_NAMES.ifi,
+  },
+  {
+    slug: "customizing",
+    name: PRODUCT_DISPLAY_NAMES.customizing,
   },
 ].map((item, index) => ({
   slug: item.slug,

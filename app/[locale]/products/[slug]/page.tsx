@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { FadeImage } from "@/components/fade-image";
-import { ProductVideoPanel } from "@/components/product-video-panel";
 import { ProductSubnav } from "@/components/product-subnav";
 import { SubpageHero } from "@/components/subpage-hero";
 import { getProductBySlug, getProducts } from "@/lib/content";
@@ -326,7 +325,7 @@ export default async function ProductDetailPage({
     software: locale === "ko" ? "Software" : "Software",
     feature: locale === "ko" ? "Feature" : "Feature",
     integration: locale === "ko" ? "Integration" : "Integration",
-    technicalData: locale === "ko" ? "Technical Data" : "Technical Data",
+    technicalData: locale === "ko" ? "Specifications" : "Specifications",
     accessoryInfo: locale === "ko" ? "Information for Accessories" : "Information for Accessories",
     productOverview: locale === "ko" ? "Product Overview" : "Product Overview",
     keyFeatures: locale === "ko" ? "Features" : "Features",
@@ -421,7 +420,7 @@ export default async function ProductDetailPage({
         backgroundImageUrl={productHeroBgImageUrl}
         backgroundOpacity={productHeroBgOpacity}
       />
-      <ProductSubnav locale={locale} products={navItems} activeSlug={slug} />
+      {/* <ProductSubnav locale={locale} products={navItems} activeSlug={slug} /> */}
       <div className="productDetailHero">
         <div className="container productDetailHeroInner">
           <div className="productDetailCopy">
@@ -505,7 +504,6 @@ export default async function ProductDetailPage({
           <>
             <section className="productSection">
               <div className="productSectionHead">
-                <span className="eyebrow">FEATURE</span>
                 <h2 className="sectionTitle">{ui.keyFeatures}</h2>
               </div>
               <div className="softwareInterfaceList">
@@ -522,7 +520,6 @@ export default async function ProductDetailPage({
               <>
                 <section className="productSection">
                   <div className="productSectionHead">
-                    <span className="eyebrow">FEATURE</span>
                     <h2 className="sectionTitle">{ui.technicalData}</h2>
                   </div>
                   <div className="lumBTechnicalComposite">
@@ -579,7 +576,6 @@ export default async function ProductDetailPage({
 
                 <section className="productSection">
                   <div className="productSectionHead">
-                    <span className="eyebrow">FEATURE</span>
                     <h2 className="sectionTitle">{ui.filterTitle}</h2>
                   </div>
                   <div className="lumBFilterComposite">
@@ -637,7 +633,6 @@ export default async function ProductDetailPage({
 
                 <section className="productSection">
                   <div className="productSectionHead">
-                    <span className="eyebrow">FEATURE</span>
                     <h2 className="sectionTitle">{ui.accessoryInfo}</h2>
                   </div>
                   <div className="productAccessoryBlock">
@@ -667,7 +662,6 @@ export default async function ProductDetailPage({
               <>
                 <section className="productSection">
                   <div className="productSectionHead">
-                    <span className="eyebrow">FEATURE</span>
                     <h2 className="sectionTitle">{ui.filterTitle}</h2>
                   </div>
                   <div className="lumBFilterComposite">
@@ -715,7 +709,6 @@ export default async function ProductDetailPage({
 
                 <section className="productSection">
                   <div className="productSectionHead">
-                    <span className="eyebrow">FEATURE</span>
                     <h2 className="sectionTitle">{ui.technicalData}</h2>
                   </div>
 
@@ -757,7 +750,6 @@ export default async function ProductDetailPage({
               <>
                 <section className="productSection">
                   <div className="productSectionHead">
-                    <span className="eyebrow">FEATURE</span>
                     <h2 className="sectionTitle">{ui.filterTitle}</h2>
                   </div>
                   <div className="lumFFilterComposite">
@@ -861,7 +853,6 @@ export default async function ProductDetailPage({
 
                 <section className="productSection">
                   <div className="productSectionHead">
-                    <span className="eyebrow">FEATURE</span>
                     <h2 className="sectionTitle">{ui.technicalData}</h2>
                   </div>
 
@@ -931,7 +922,6 @@ export default async function ProductDetailPage({
           <>
             <section className="productSection">
               <div className="productSectionHead">
-                <span className="eyebrow">FEATURE</span>
                 <h2 className="sectionTitle">{ui.keyFeatures}</h2>
               </div>
               <ol className="productFeatureList">
@@ -946,16 +936,13 @@ export default async function ProductDetailPage({
 
             <section className="productSection productFeatureVisualSection">
               <div className="productSectionHead">
-                <span className="eyebrow">FEATURE</span>
                 <h2 className="sectionTitle">{ui.scanAnalysis}</h2>
               </div>
-              <ProductVideoPanel src="/products/lum-z/scan-demo.mp4" />
-              <p className="productFeatureVisualCaption">{ui.scanAnalysisCaption}</p>
+              <div className="productFeaturePlaceholder" aria-hidden="true" />
             </section>
 
             <section className="productSection">
               <div className="productSectionHead">
-                <span className="eyebrow">FEATURE</span>
                 <h2 className="sectionTitle">{ui.zSpec}</h2>
               </div>
               <div className="productSpecBlock">
@@ -982,7 +969,6 @@ export default async function ProductDetailPage({
           <>
             <section className="productSection">
               <div className="productSectionHead">
-                <span className="eyebrow">FEATURE</span>
                 <h2 className="sectionTitle">{ui.keyFeatures}</h2>
               </div>
               <ol className="productFeatureList">
@@ -997,7 +983,6 @@ export default async function ProductDetailPage({
 
             <section className="productSection productFeatureVisualSection">
               <div className="productSectionHead">
-                <span className="eyebrow">FEATURE</span>
                 <h2 className="sectionTitle">IFI Beam Projection</h2>
               </div>
               <div className="ifiProjectionSection">
@@ -1049,7 +1034,6 @@ export default async function ProductDetailPage({
 
             <section className="productSection">
               <div className="productSectionHead">
-                <span className="eyebrow">FEATURE</span>
                 <h2 className="sectionTitle">{ui.technicalData}</h2>
               </div>
               <div className="productSpecBlock">
@@ -1078,7 +1062,6 @@ export default async function ProductDetailPage({
 
             <section className="productSection">
               <div className="productSectionHead">
-                <span className="eyebrow">FEATURE</span>
                 <h2 className="sectionTitle">REMARKS</h2>
               </div>
               <div className="softwareInterfaceList">
@@ -1094,7 +1077,6 @@ export default async function ProductDetailPage({
           <>
             <section className="productSection">
               <div className="productSectionHead">
-                <span className="eyebrow">FEATURE</span>
                 <h2 className="sectionTitle">{ui.keyFeatures}</h2>
               </div>
               <ol className="productFeatureList">
@@ -1109,15 +1091,13 @@ export default async function ProductDetailPage({
 
             <section className="productSection productFeatureVisualSection">
               <div className="productSectionHead">
-                <span className="eyebrow">FEATURE</span>
                 <h2 className="sectionTitle">{ui.softwareOverview}</h2>
               </div>
-              <ProductVideoPanel src="/products/software/feature-demo.mp4" />
+              <div className="productFeaturePlaceholder" aria-hidden="true" />
             </section>
 
             <section className="productSection productFeatureVisualSection">
               <div className="productSectionHead">
-                <span className="eyebrow">FEATURE</span>
                 <h2 className="sectionTitle">{ui.softwareCore}</h2>
               </div>
               <div className="softwareFeatureGrid">
@@ -1144,7 +1124,6 @@ export default async function ProductDetailPage({
 
             <section className="productSection productFeatureVisualSection">
               <div className="productSectionHead">
-                <span className="eyebrow">FEATURE</span>
                 <h2 className="sectionTitle">{ui.softwareAnalysis}</h2>
               </div>
               <div className="softwareFeatureGrid">
@@ -1171,7 +1150,6 @@ export default async function ProductDetailPage({
 
             <section className="productSection">
               <div className="productSectionHead">
-                <span className="eyebrow">FEATURE</span>
                 <h2 className="sectionTitle">{ui.softwareInterface}</h2>
               </div>
               <div className="softwareInterfaceList">
@@ -1200,7 +1178,6 @@ export default async function ProductDetailPage({
           <>
         <section className="productSection">
           <div className="productSectionHead">
-            <span className="eyebrow">FEATURE</span>
             <h2 className="sectionTitle">{ui.keyFeatures}</h2>
           </div>
           <ol className="productFeatureList">
@@ -1216,7 +1193,6 @@ export default async function ProductDetailPage({
         <section className="productSection productSectionSplit">
           <div>
             <div className="productSectionHead">
-              <span className="eyebrow">FEATURE</span>
               <h2 className="sectionTitle">{ui.targetApplications}</h2>
             </div>
             <div className="productApplicationList">
@@ -1229,7 +1205,6 @@ export default async function ProductDetailPage({
           </div>
           <div>
             <div className="productSectionHead">
-              <span className="eyebrow">FEATURE</span>
               <h2 className="sectionTitle">{ui.quickSpecs}</h2>
             </div>
             <div className="productSpecTable">

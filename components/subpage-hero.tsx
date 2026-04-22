@@ -53,9 +53,7 @@ export function SubpageHero({
       </div>
       <div className="container subpageHeroInner">
         <div className={`subpageHeroCopy ${lightText ? "isLightText" : ""}`}>
-          <div className="eyebrow">{eyebrow}</div>
           <h1 className="sectionTitle">{title}</h1>
-          <p className="sectionLead">{description}</p>
         </div>
       </div>
     </section>

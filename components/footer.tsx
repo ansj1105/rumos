@@ -4,9 +4,20 @@ import Link from "next/link";
 import { getDictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/site";
 
+const footerProductLabels: Record<string, string> = {
+  "/products/lum-b": "LUM-B",
+  "/products/lum-b-l": "LUM-B-L",
+  "/products/lum-f": "LUM-F",
+  "/products/lum-z": "LUM-Z",
+  "/products/software": "Software",
+  "/products/ifi": "IFI",
+  "/products/customizing": "Customizing",
+};
+
 export function Footer({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale);
   const phoneHref = `tel:${dict.footer.phone.replace(/[^\d+]/g, "")}`;
+  const companyNav = dict.nav.find((item) => item.href === "/");
   const productNav = dict.nav.find((item) => item.href === "/products");
   const applicationNav = dict.nav.find((item) => item.href === "/applications");
   const contactNav = dict.nav.find((item) => item.href === "/contact");
@@ -17,6 +28,7 @@ export function Footer({ locale }: { locale: Locale }) {
           product: "Product",
           quickLink: "Quick Link",
           legal: "Legal",
+          company: "Company",
           application: "어플리케이션",
           contactUs: "문의하기",
           telFaxPrefix: "Tel.",
@@ -27,6 +39,7 @@ export function Footer({ locale }: { locale: Locale }) {
           product: "Product",
           quickLink: "Quick Link",
           legal: "Legal",
+          company: "Company",
           application: "Application",
           contactUs: "Contact Us",
           telFaxPrefix: "Tel.",
@@ -68,13 +81,14 @@ export function Footer({ locale }: { locale: Locale }) {
             <strong>{footerLabels.product}</strong>
             {productNav?.children?.map((item) => (
               <Link key={item.href} href={`/${locale}${item.href}`}>
-                {item.label}
+                {footerProductLabels[item.href] ?? item.label}
               </Link>
             ))}
           </div>
 
           <div className="footerBlock">
             <strong>{footerLabels.quickLink}</strong>
+            {companyNav ? <Link href={`/${locale}${companyNav.href}`}>{footerLabels.company}</Link> : null}
             {applicationNav ? <Link href={`/${locale}${applicationNav.href}`}>{footerLabels.application}</Link> : null}
             {contactNav ? <Link href={`/${locale}${contactNav.href}`}>{footerLabels.contactUs}</Link> : null}
             {productNav ? <Link href={`/${locale}${productNav.href}`}>{footerLabels.product}</Link> : null}

@@ -1,6 +1,6 @@
-import { FadeImage } from "@/components/fade-image";
 import { getDictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/site";
+import type { CSSProperties } from "react";
 
 type HeroProps = {
   locale: Locale;
@@ -10,13 +10,12 @@ type HeroProps = {
 export function Hero({ locale, heroImageUrl }: HeroProps) {
   const dict = getDictionary(locale);
   const imageUrl = heroImageUrl ?? "/hero-lab-bg.avif";
-  const imageAlt =
-    locale === "ko"
-      ? "LUMOS 정밀 광학 장비 소개 이미지"
-      : "LUMOS precision optical equipment introduction image";
 
   return (
-    <section className="heroSection">
+    <section
+      className="heroSection"
+      style={{ ["--hero-image" as string]: `url("${imageUrl}")` } as CSSProperties}
+    >
       <div className="heroBackdrop" aria-hidden="true">
         <div className="heroBackdropTopWaves">
           <span />
@@ -42,23 +41,8 @@ export function Hero({ locale, heroImageUrl }: HeroProps) {
               <p className="heroRelationText">{dict.hero.relationBody}</p>
             </div>
           </div>
-        </div>
-
-        <div className="heroMedia">
-          <div className="heroMediaFrame">
-            <FadeImage
-              src={imageUrl}
-              alt={imageAlt}
-              fill
-              priority
-              sizes="(max-width: 960px) 100vw, 48vw"
-              className="heroMediaImage"
-              skeletonClassName="heroBackdropSkeleton"
-            />
-            <div className="heroMediaOverlay" aria-hidden="true" />
-            <div className="heroMediaSpec" aria-hidden="true">
-              <span className="heroMediaSpecLabel">{dict.hero.visualLabel}</span>
-            </div>
+          <div className="heroMediaSpec" aria-hidden="true">
+            <span className="heroMediaSpecLabel">{dict.hero.visualLabel}</span>
           </div>
         </div>
       </div>

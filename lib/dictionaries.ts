@@ -82,6 +82,10 @@ export const dictionaries: Record<Locale, Dictionary> = {
     },
     nav: [
       {
+        label: "Company",
+        href: "/",
+      },
+      {
         label: "Application",
         href: "/applications",
         children: [{ label: "어플리케이션 소개", href: "/applications" }],
@@ -90,11 +94,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
         label: "Product",
         href: "/products",
         children: [
-          { label: "LUM-B", href: "/products/lum-b" },
-          { label: "LUM-B-L", href: "/products/lum-b-l" },
-          { label: "LUM-F", href: "/products/lum-f" },
-          { label: "LUM-Z", href: "/products/lum-z" },
-          { label: "Software", href: "/products/software" },
+          { label: "Raw Beam Profiler (LUM-B)", href: "/products/lum-b" },
+          { label: "Large Beam Profiler (LUM-B-L)", href: "/products/lum-b-l" },
+          { label: "Focus Beam Profiler (LUM-F)", href: "/products/lum-f" },
+          { label: "3D Beam Profiling and Analysis (LUM-Z)", href: "/products/lum-z" },
+          { label: "Lumosity (Software)", href: "/products/software" },
+          { label: "Infinity Flat Top Imaging Optics (IFI)", href: "/products/ifi" },
+          { label: "Customizing", href: "/products/customizing" },
         ],
       },
       {
@@ -182,6 +188,10 @@ export const dictionaries: Record<Locale, Dictionary> = {
     },
     nav: [
       {
+        label: "Company",
+        href: "/",
+      },
+      {
         label: "Applications",
         href: "/applications",
         children: [{ label: "Application Overview", href: "/applications" }],
@@ -190,11 +200,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
         label: "Product",
         href: "/products",
         children: [
-          { label: "LUM-B", href: "/products/lum-b" },
-          { label: "LUM-B-L", href: "/products/lum-b-l" },
-          { label: "LUM-F", href: "/products/lum-f" },
-          { label: "LUM-Z", href: "/products/lum-z" },
-          { label: "Software", href: "/products/software" },
+          { label: "Raw Beam Profiler (LUM-B)", href: "/products/lum-b" },
+          { label: "Large Beam Profiler (LUM-B-L)", href: "/products/lum-b-l" },
+          { label: "Focus Beam Profiler (LUM-F)", href: "/products/lum-f" },
+          { label: "3D Beam Profiling and Analysis (LUM-Z)", href: "/products/lum-z" },
+          { label: "Lumosity (Software)", href: "/products/software" },
+          { label: "Infinity Flat Top Imaging Optics (IFI)", href: "/products/ifi" },
+          { label: "Customizing", href: "/products/customizing" },
         ],
       },
       {

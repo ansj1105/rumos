@@ -40,7 +40,7 @@ export default async function ApplicationsPage({
         backgroundImageUrl={heroConfig?.backgroundImageUrl || "/subpage-applications-bg.png"}
         backgroundOpacity={heroConfig?.backgroundOpacity ?? 0.6}
       />
-      <ApplicationsIndexNav locale={locale} items={applicationEntries} />
+      {/* <ApplicationsIndexNav locale={locale} items={applicationEntries} /> */}
 
       <div className="applicationsBody applicationsBodyShowcase">
         <div className="container applicationsShowcase">

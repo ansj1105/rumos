@@ -70,7 +70,7 @@ export default async function ResourceDetailPage({
         backgroundImageUrl="/subpage-contact-bg.png"
         lightText
       />
-      <ContactSubnav locale={locale} activeHref="/contact/resources" />
+      {/* <ContactSubnav locale={locale} activeHref="/contact/resources" /> */}
       <div className="container subpageContent">
         <div className="resourceDetailLayout pageBody">
           <section className="resourceDetailSummary">

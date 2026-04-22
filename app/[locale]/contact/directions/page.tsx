@@ -33,7 +33,7 @@ export default async function ContactDirectionsPage({
         backgroundOpacity={heroConfig?.backgroundOpacity ?? 0.9}
         lightText
       />
-      <ContactSubnav locale={locale} activeHref="/contact/directions" />
+      {/* <ContactSubnav locale={locale} activeHref="/contact/directions" /> */}
       <div className="container subpageContent">
         <DirectionsContent locale={locale} />
       </div>
