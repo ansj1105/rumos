@@ -41,9 +41,6 @@ export function Hero({ locale, heroImageUrl }: HeroProps) {
               <p className="heroRelationText">{dict.hero.relationBody}</p>
             </div>
           </div>
-          <div className="heroMediaSpec" aria-hidden="true">
-            <span className="heroMediaSpecLabel">{dict.hero.visualLabel}</span>
-          </div>
         </div>
       </div>
     </section>

@@ -409,6 +409,45 @@ export default async function ProductDetailPage({
               )
               : (locale === "ko" ? product.contentKo : product.contentEn);
   const displayFeatures = productDetailFeatureOverrides[slug] ?? features;
+  const productDetailHeroVisual = isLumBSeries
+    ? { src: "/products/detail-hero/lumb.jpeg", alt: "LUM-B detail hero image" }
+    : isLumBLSeries
+      ? { src: "/products/detail-hero/lumbl.png", alt: "LUM-B-L detail hero image" }
+      : isLumFSeries
+        ? { src: "/products/detail-hero/lumf.png", alt: "LUM-F detail hero image" }
+        : isLumZSeries
+          ? { src: "/products/detail-hero/lumz.jpeg", alt: "LUM-Z detail hero image" }
+          : isIFISeries
+            ? { src: "/products/detail-hero/ifi.png", alt: "IFI detail hero image" }
+            : isSoftwareSeries
+              ? { src: "/products/software/main.png", alt: "Lumosity software detail hero image" }
+              : { src: "/products/lum-b/main.png", alt: "Customizing detail hero image" };
+  const productDetailHeroHeadline = isLumBSeries
+    ? "LUM-B"
+    : isLumBLSeries
+      ? "LUM-B-L"
+      : isLumFSeries
+        ? "LUM-F"
+        : isLumZSeries
+          ? "LUM-Z"
+          : isIFISeries
+            ? "IFI"
+            : isSoftwareSeries
+              ? "Lumosity"
+              : "Customizing";
+  const productDetailHeroSubline = isLumBSeries
+    ? "Raw Laser Beam Profiling and Analysis"
+    : isLumBLSeries
+      ? "Larger Beam Profiling and Analysis"
+      : isLumFSeries
+        ? "High-Precision Micro Beam Profiling and Analysis"
+        : isLumZSeries
+          ? "3D Beam Profiling and Analysis"
+          : isIFISeries
+            ? "Infinity Flat top Imaging optics"
+            : isSoftwareSeries
+              ? "Beam Profiling Software"
+              : "Custom Optical Beam Profiling Solution";
 
   return (
     <div className="productsPage">
@@ -425,75 +464,30 @@ export default async function ProductDetailPage({
         <div className="container productDetailHeroInner">
           <div className="productDetailCopy">
             <div className="productMetaLine">
-              <span>Lumos Series</span>
-              <strong>{locale === "ko" ? product.nameKo : product.nameEn}</strong>
-              <p>{productDetailSummary}</p>
+              <span>{productDetailHeroHeadline}</span>
+              <strong>{productDetailHeroSubline}</strong>
+            </div>
+            <div className="productDetailFeatureBlock">
+              <div className="productDetailFeatureTitle">Feature</div>
+              <div className="productDetailFeatureList">
+                {displayFeatures.map((feature, index) => (
+                  <div key={feature} className="productDetailFeatureItem">
+                    {`${index + 1}. ${feature}`}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
           <div className="productDetailVisual">
             <div className="productDetailVisualPanel">
-              {isLumBSeries ? (
-                <FadeImage
-                  src="/products/lum-b/main.png"
-                  alt="LUM-B camera"
-                  fill
-                  sizes="(max-width: 960px) 100vw, 44vw"
-                  className="productDetailVisualImage"
-                  skeletonClassName="productDetailVisualSkeleton"
-                />
-              ) : isLumBLSeries ? (
-                <FadeImage
-                  src="/products/lum-b-l/main.png"
-                  alt="LUM-B-L camera"
-                  fill
-                  sizes="(max-width: 960px) 100vw, 44vw"
-                  className="productDetailVisualImage"
-                  skeletonClassName="productDetailVisualSkeleton"
-                />
-              ) : isLumFSeries ? (
-                <FadeImage
-                  src="/products/lum-f/main.png"
-                  alt="LUM-F camera"
-                  fill
-                  sizes="(max-width: 960px) 100vw, 44vw"
-                  className="productDetailVisualImage"
-                  skeletonClassName="productDetailVisualSkeleton"
-                />
-              ) : isLumZSeries ? (
-                <FadeImage
-                  src="/products/lum-z/main.png"
-                  alt="LUM-Z camera"
-                  fill
-                  sizes="(max-width: 960px) 100vw, 44vw"
-                  className="productDetailVisualImage"
-                  skeletonClassName="productDetailVisualSkeleton"
-                />
-              ) : isIFISeries ? (
-                <FadeImage
-                  src="/products/ifi/main.png"
-                  alt="IFI optical module"
-                  fill
-                  sizes="(max-width: 960px) 100vw, 44vw"
-                  className="productDetailVisualImage"
-                  skeletonClassName="productDetailVisualSkeleton"
-                />
-              ) : isSoftwareSeries ? (
-                <FadeImage
-                  src="/products/software/main.png"
-                  alt="Lumosity software interface"
-                  fill
-                  sizes="(max-width: 960px) 100vw, 44vw"
-                  className="productDetailVisualImage isSoftware"
-                  skeletonClassName="productDetailVisualSkeleton"
-                />
-              ) : (
-                <>
-                  <div className="productDetailVisualMark">
-                    {locale === "ko" ? product.nameKo : product.nameEn}
-                  </div>
-                  <div className="productDetailVisualGrid" />
-                </>
-              )}
+              <FadeImage
+                src={productDetailHeroVisual.src}
+                alt={productDetailHeroVisual.alt}
+                fill
+                sizes="(max-width: 960px) 100vw, 44vw"
+                className={`productDetailVisualImage ${isSoftwareSeries ? "isSoftware" : ""}`}
+                skeletonClassName="productDetailVisualSkeleton"
+              />
             </div>
           </div>
         </div>
