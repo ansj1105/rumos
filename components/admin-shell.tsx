@@ -27,7 +27,7 @@ const adminMenu: AdminMenuGroup[] = [
       { href: "/asdasddfg/admin/home", label: "메인 설정", meta: "Hero / Story / SEO", icon: "home" },
       { href: "/asdasddfg/admin/applications", label: "Applications", meta: "소개 / 정렬 / 노출", icon: "apps" },
       { href: "/asdasddfg/admin/products", label: "Products", meta: "목록 / 상세 / SEO", icon: "box" },
-      { href: "/asdasddfg/admin/contact", label: "Contact Us", meta: "Quote / Directions / Hero", icon: "contact" },
+      { href: "/asdasddfg/admin/contact", label: "Contact", meta: "Quote / Directions / Hero", icon: "contact" },
       { href: "/asdasddfg/admin/resources", label: "자료실", meta: "CRUD / 순번 / 파일 링크", icon: "docs" },
     ],
   },
@@ -186,7 +186,7 @@ export function AdminShell({
     "/asdasddfg/admin/home": { href: "/ko", label: "메인 미리보기" },
     "/asdasddfg/admin/applications": { href: "/ko/applications", label: "Applications 미리보기" },
     "/asdasddfg/admin/products": { href: "/ko/products", label: "Products 미리보기" },
-    "/asdasddfg/admin/contact": { href: "/ko/contact/quote", label: "Contact Us 미리보기" },
+    "/asdasddfg/admin/contact": { href: "/ko/contact/quote", label: "Contact 미리보기" },
     "/asdasddfg/admin/resources": { href: "/ko/contact/resources", label: "자료실 미리보기" },
     "/asdasddfg/admin/inquiries": { href: "/ko/contact/quote", label: "문의 페이지 보기" },
   };

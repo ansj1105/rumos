@@ -210,8 +210,8 @@ export function ContactAdminSection({
   return (
     <div className="lumosAdminStack">
       <AdminSectionCard
-        title="Contact Us 콘텐츠 관리"
-        description="문의함과 분리해 Contact Us 공개 페이지의 히어로와 진입 구성을 관리합니다."
+        title="Contact 콘텐츠 관리"
+        description="문의함과 분리해 Contact 공개 페이지의 히어로와 진입 구성을 관리합니다."
       >
         <div className="lumosAdminEmptyState">
           <strong>현재 1차 리팩토링 범위</strong>

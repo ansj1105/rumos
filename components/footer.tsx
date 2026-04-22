@@ -41,7 +41,7 @@ export function Footer({ locale }: { locale: Locale }) {
           legal: "Legal",
           company: "Company",
           application: "Application",
-          contactUs: "Contact Us",
+          contactUs: "Contact",
           telFaxPrefix: "Tel.",
           copyright: "Copyright 2026 Lumos. All Rights Reserved.",
         };

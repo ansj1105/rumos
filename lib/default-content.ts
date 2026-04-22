@@ -317,9 +317,9 @@ export const defaultPageHeroConfigs = [
   {
     pageKey: "contact-quote",
     eyebrowKo: "문의하기",
-    eyebrowEn: "Contact Us",
+    eyebrowEn: "Contact",
     titleKo: "문의하기",
-    titleEn: "Contact Us",
+    titleEn: "Contact",
     descriptionKo: "적용 목적과 요청 내용을 남겨주시면 검토 후 적합한 담당자가 안내드립니다.",
     descriptionEn: "Share your application and request, and the right team will follow up with you.",
     backgroundImageUrl: "/subpage-contact-bg.png",

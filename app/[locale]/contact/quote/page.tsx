@@ -38,8 +38,8 @@ export default async function QuotePage({
   return (
     <div className="contactPage">
       <SubpageHero
-        eyebrow={isKo ? "문의하기" : "Contact Us"}
-        title={isKo ? "문의하기" : "Contact Us"}
+        eyebrow={isKo ? "문의하기" : "Contact"}
+        title={isKo ? "문의하기" : "Contact"}
         description={isKo
           ? heroConfig?.descriptionKo || "적용 목적과 요청 내용을 남겨주시면 검토 후 적합한 담당자가 안내드립니다."
           : heroConfig?.descriptionEn || "Share your application and request, and the right team will follow up with you."}

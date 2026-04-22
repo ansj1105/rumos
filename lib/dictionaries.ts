@@ -104,7 +104,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
         ],
       },
       {
-        label: "Contact Us",
+        label: "Contact",
         href: "/contact",
         children: [
           { label: "문의하기", href: "/contact/quote" },
@@ -158,7 +158,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
     contact: {
       title: "Contact",
       lead: "문의 접수는 DB에 저장되며, SMTP 설정 시 이메일도 함께 발송됩니다.",
-      formTitle: "Contact Us",
+      formTitle: "Contact",
       formBody: "회사명, 담당자, 이메일, 문의 내용 기준으로 기본 폼을 제공합니다.",
       resourceTitle: "자료실",
     },
@@ -210,10 +210,10 @@ export const dictionaries: Record<Locale, Dictionary> = {
         ],
       },
       {
-        label: "Contact Us",
+        label: "Contact",
         href: "/contact",
         children: [
-          { label: "Contact Us", href: "/contact/quote" },
+          { label: "Contact", href: "/contact/quote" },
           { label: "Distributors", href: "/contact/distributors" },
           { label: "Directions", href: "/contact/directions" },
           { label: "Resources", href: "/contact/resources" },
@@ -264,7 +264,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
     contact: {
       title: "Contact",
       lead: "Inquiries are stored in the database, and optionally emailed through SMTP.",
-      formTitle: "Contact Us",
+      formTitle: "Contact",
       formBody: "The default form collects company, name, email, and message.",
       resourceTitle: "Resources",
     },
