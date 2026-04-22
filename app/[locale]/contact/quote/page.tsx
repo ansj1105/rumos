@@ -34,7 +34,6 @@ export default async function QuotePage({
       : "consultationSales";
   const activeTopic = inquiryTopics[selectedTopic];
   const introTitle = isKo ? activeTopic.titleKo : activeTopic.titleEn;
-  const introDescription = isKo ? activeTopic.descriptionKo : activeTopic.descriptionEn;
 
   return (
     <div className="contactPage">
