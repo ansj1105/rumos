@@ -83,7 +83,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
     nav: [
       {
         label: "Company",
-        href: "/",
+        href: "/company",
       },
       {
         label: "Application",
@@ -189,7 +189,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
     nav: [
       {
         label: "Company",
-        href: "/",
+        href: "/company",
       },
       {
         label: "Applications",

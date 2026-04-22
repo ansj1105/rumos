@@ -17,7 +17,7 @@ const footerProductLabels: Record<string, string> = {
 export function Footer({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale);
   const phoneHref = `tel:${dict.footer.phone.replace(/[^\d+]/g, "")}`;
-  const companyNav = dict.nav.find((item) => item.href === "/");
+  const companyNav = dict.nav.find((item) => item.href === "/company" || item.label === "Company");
   const productNav = dict.nav.find((item) => item.href === "/products");
   const applicationNav = dict.nav.find((item) => item.href === "/applications");
   const contactNav = dict.nav.find((item) => item.href === "/contact");

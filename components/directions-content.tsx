@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useMemo, useState } from "react";
 
 type DirectionsContentProps = {
@@ -71,6 +72,16 @@ export function DirectionsContent({ locale }: DirectionsContentProps) {
     <div className="pageBody twoCol">
       <div className="card directionsInfoCard">
         <div className="stack">
+          <div className="directionsCompanyImageWrap">
+            <Image
+              src="/contact/company-building.png"
+              alt={isKo ? "LUMOS 사옥 전경" : "LUMOS building"}
+              width={520}
+              height={520}
+              className="directionsCompanyImage"
+            />
+          </div>
+
           <strong>{isKo ? "본사" : "Head Office"}</strong>
           <span>{isKo ? locations[0].addressKo : locations[0].addressEn}</span>
 
