@@ -1,4 +1,4 @@
-import { PRODUCT_DISPLAY_NAMES } from "@/lib/product-display";
+import { PRODUCT_DISPLAY_NAMES } from "./product-display";
 
 export const defaultSiteConfig = {
   id: 1,
