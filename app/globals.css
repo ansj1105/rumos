@@ -351,6 +351,8 @@ select {
 
 .subpageHero-products .sectionTitle {
   color: #ffffff;
+  white-space: nowrap;
+  font-size: clamp(32px, 3.2vw, 50px);
 }
 
 .subpageHero-products .sectionLead {
@@ -682,7 +684,7 @@ select {
 }
 
 .directionsTwoCol {
-  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+  grid-template-columns: minmax(0, 1fr);
   align-items: start;
 }
 
@@ -725,7 +727,7 @@ select {
 .directionsMapCard {
   position: relative;
   overflow: hidden;
-  height: 100%;
+  height: auto;
 }
 
 .directionsMapIframe {
@@ -3509,7 +3511,7 @@ select {
 .productDetailCopy {
   display: grid;
   align-content: center;
-  gap: 0;
+  gap: 30px;
   padding: 56px 56px 60px;
   background: #0f5793;
 }
@@ -3540,6 +3542,30 @@ select {
   letter-spacing: -0.04em;
 }
 
+.productDetailFeatureBlock {
+  display: grid;
+  gap: 20px;
+}
+
+.productDetailFeatureTitle {
+  color: #22b7ff;
+  font-size: clamp(22px, 1.6vw, 32px);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.productDetailFeatureList {
+  display: grid;
+  gap: 10px;
+}
+
+.productDetailFeatureItem {
+  color: rgba(255, 255, 255, 0.96);
+  font-size: clamp(17px, 1.15vw, 24px);
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+
 .productSeriesTitleImage {
   width: min(100%, 520px);
   height: auto;
@@ -3562,13 +3588,22 @@ select {
 .productDetailVisualImage {
   object-fit: contain;
   object-position: center;
-  padding: 40px 28px;
+  padding: 0;
+}
+
+.productDetailVisualImage.isScaledProduct {
+  transform: scale(1.12);
 }
 
 .productDetailVisualImage.isLumBCover {
   object-fit: cover;
   object-position: center;
   padding: 0;
+  transform: none;
+}
+
+.productDetailVisualImage.isSoftware {
+  transform: none;
 }
 
 .productDetailVisualSkeleton {
@@ -5473,6 +5508,11 @@ td {
   .subpageHero-products .subpageHeroBgImage {
     object-position: 64% center;
   }
+
+  .subpageHero-products .sectionTitle {
+    white-space: normal;
+    font-size: clamp(30px, 5.2vw, 42px);
+  }
 }
 
 @media (max-width: 720px) {
@@ -6009,12 +6049,24 @@ td {
     font-size: 34px;
   }
 
+  .productDetailFeatureTitle {
+    font-size: 24px;
+  }
+
+  .productDetailFeatureItem {
+    font-size: 20px;
+  }
+
   .productDetailVisualPanel {
     min-height: 320px;
   }
 
   .productDetailVisualImage {
-    padding: 20px;
+    padding: 0;
+  }
+
+  .productDetailVisualImage.isScaledProduct {
+    transform: scale(1.08);
   }
 
   .productSection {
@@ -6259,8 +6311,20 @@ td {
     font-size: 28px;
   }
 
+  .productDetailFeatureTitle {
+    font-size: 21px;
+  }
+
+  .productDetailFeatureItem {
+    font-size: 18px;
+  }
+
   .productDetailVisualImage {
-    padding: 14px;
+    padding: 0;
+  }
+
+  .productDetailVisualImage.isScaledProduct {
+    transform: scale(1.03);
   }
 
   .productTechTable thead th,

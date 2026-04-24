@@ -204,6 +204,39 @@ const ifiRemarks = [
   "The projected beam size relative to distance may vary depending on the specific system configuration, and the maximum achievable size is virtually unlimited",
 ] as const;
 
+const productDetailFeatureOverrides: Record<string, string[]> = {
+  "lum-b": [
+    "Multiple Cameras can be connected to One Program",
+    "User-Customizable parameter windows in Lumosity SW",
+  ],
+  "lum-b-l": [
+    "Measurable up to 38 mm X 27 mm using Large Area Sensor",
+    "Protective Cap Structure to Prevent Filter Breakage",
+    "User-Customizable parameter windows in Lumosity SW",
+  ],
+  "lum-f": [
+    "ONE-BODY Integrated modular solution from UV to IR",
+    "User-Customizable parameter windows in Lumosity SW",
+    "Replaceable objective unit per wavelengths and magnifications",
+    "Requires only focal point alignment",
+  ],
+  "lum-z": [
+    "Measurable spot size and DOF",
+    "3D intensity distribution",
+    "2D & 3D Beam profile viewer",
+  ],
+  ifi: [
+    "Maintain a superior beam UNIFORMITY OF OVER 90% across all focal ranges, ensuring consistent process quality",
+    "Infinity flat top along with NA",
+  ],
+  software: [
+    "ISO 11146 Standard Analysis : Supports international standard measurement methods (Second Moment, Knife-Edge, and Slit)",
+    "1D Beam Profiling & 2D Viewer : Real-time imaging with simultaneous Cross & Beam Section view",
+    "Advanced Diameter Analysis : Offers various diameter calculation options including Ellipse Fit, Threshold, and Min Area",
+    "2D & 3D ROI Analysis : Evaluates Flatness, Uniformity, and Edge Steepness based on ISO 13694 standards / Intuitive beam shape verification via 3D visualization of 2D intensity data",
+  ],
+};
+
 export async function generateMetadata({
   params,
 }: {
@@ -321,6 +354,7 @@ export default async function ProductDetailPage({
             : isSoftwareSeries
               ? "Beam Profiling Software"
               : "Custom Optical Beam Profiling Solution";
+  const displayFeatures = productDetailFeatureOverrides[slug] ?? [];
 
   return (
     <div className="productsPage">
@@ -339,6 +373,18 @@ export default async function ProductDetailPage({
               <span>{productDetailHeroHeadline}</span>
               <strong>{productDetailHeroSubline}</strong>
             </div>
+            {displayFeatures.length ? (
+              <div className="productDetailFeatureBlock">
+                <div className="productDetailFeatureTitle">Feature</div>
+                <div className="productDetailFeatureList">
+                  {displayFeatures.map((feature, index) => (
+                    <div key={feature} className="productDetailFeatureItem">
+                      {`${index + 1}. ${feature}`}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null}
           </div>
           <div className="productDetailVisual">
             <div className="productDetailVisualPanel">
@@ -347,7 +393,7 @@ export default async function ProductDetailPage({
                 alt={productDetailHeroVisual.alt}
                 fill
                 sizes="(max-width: 960px) 100vw, 44vw"
-                className={`productDetailVisualImage ${isSoftwareSeries ? "isSoftware" : ""} ${isLumBSeries ? "isLumBCover" : ""}`}
+                className={`productDetailVisualImage ${isSoftwareSeries ? "isSoftware" : "isScaledProduct"} ${isLumBSeries ? "isLumBCover" : ""}`}
                 skeletonClassName="productDetailVisualSkeleton"
               />
             </div>
