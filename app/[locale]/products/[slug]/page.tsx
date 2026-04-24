@@ -18,7 +18,7 @@ const lumBTechnicalRows = [
     values: ["2848 X 2848 [8.1 MP]", "2856 X 2848 [8.1 MP]", "3216 X 2208 [7.1 MP]"],
   },
   {
-    label: "Pixel Size [um]",
+    label: "Pixel Size [µm]",
     values: ["2.74 X 2.74", "2.74 X 2.74", "4.5 X 4.5"],
   },
   {
@@ -27,7 +27,7 @@ const lumBTechnicalRows = [
   },
   {
     label: "Minimum Measurable Spot Size",
-    values: ["Dia. 60 um", "Dia. 60 um", "Dia. 100 um"],
+    values: ["Ø 60 µm", "Ø 60 µm", "Ø 100 µm"],
   },
 ] as const;
 
@@ -134,9 +134,9 @@ const lumBRemarks = [
 const lumBLTechnicalRows = [
   { label: "Wavelength [nm]", value: "400 - 1064" },
   { label: "Resolution [pixels]", value: "8424 X 6032 [51 MP]" },
-  { label: "Pixel Size [um]", value: "4.6 X 4.6" },
+  { label: "Pixel Size [µm]", value: "4.6 X 4.6" },
   { label: "Sensor Size [mm]", value: "38.75 X 27.75" },
-  { label: "Minimum Measurable Spot Size", value: "Dia. 92 um" },
+  { label: "Minimum Measurable Spot Size", value: "Ø 92 µm" },
   { label: "Sensor Type [Shutter]", value: "CMOS [Global Shutter]" },
   { label: "Electrical Data", value: "10-28 V / Gigabit Ethernet" },
 ] as const;
@@ -156,10 +156,10 @@ const lumFTechnicalRows = [
       { value: "2856 X 2848 [8.1 MP]", span: 2 },
     ],
   },
-  { label: "Pixel Size [um]", value: "2.74 X 2.74" },
+  { label: "Pixel Size [µm]", value: "2.74 X 2.74" },
   { label: "Sensor Size [mm]", value: "7.8 X 7.8" },
   { label: "Magnification", values: ["X20", "X10", "X05"] },
-  { label: "Minimum Measurable Spot Size", values: ["Dia. 3 um", "Dia. 6 um", "Dia. 14 um"] },
+  { label: "Minimum Measurable Spot Size", values: ["Ø 3 µm", "Ø 6 µm", "Ø 14 µm"] },
   { label: "Sensor Type [Shutter]", value: "CMOS [Global Shutter]" },
   { label: "Electrical Data", value: "10-28 V / Gigabit Ethernet, POE" },
 ] as const;
@@ -174,9 +174,9 @@ const lumFAccessoryRows = [
 
 const lumZSpecRows = [
   { label: "LUM-Z Stroke", value: "10mm" },
-  { label: "Min. Scan Step", value: "10 um" },
+  { label: "Min. Scan Step", value: "10 µm" },
   { label: "Max. Scan Time", value: "<200sec/1mm" },
-  { label: "Min. beam Size.", value: ">3 um" },
+  { label: "Min. beam Size.", value: ">3 µm" },
   { label: "Wavelength", value: "343~1064nm (Selection)" },
   { label: "Power", value: "<1W" },
 ] as const;
@@ -190,11 +190,11 @@ const ifiTechnicalRows = [
   { label: "Beam Profile", values: ["Flat Top Square", "Flat Top Square", "Flat Top Square"] },
   { label: "Flat Top Size(3) [mm]", values: ["2 X 2 - 30 X 30", "5 X 5 - 30 X 30", "7 X 7 - 30 X 30"] },
   { label: "WD(3) [mm]", values: ["200 - 2500", "50 - 540", "50 - 320"] },
-  { label: "Infinity Flat Top Size(3) [mm]", values: ["30 X 30 - Infinity", "30 X 30 - Infinity", "30 X 30 - Infinity"] },
-  { label: "Infinity WD(3) [mm]", values: ["2500 - Infinity", "540 - Infinity", "320 - Infinity"] },
+  { label: "Infinity Flat Top Size(3) [mm]", values: ["30 X 30 - ∞", "30 X 30 - ∞", "30 X 30 - ∞"] },
+  { label: "Infinity WD(3) [mm]", values: ["2500 - ∞", "540 - ∞", "320 - ∞"] },
   { label: "Uniformity [%]", values: ["> 90", "> 90", "> 90"] },
-  { label: "Operating Temperature [deg C]", values: ["0 to 60", "0 to 60", "0 to 60"] },
-  { label: "Storage Temperature [deg C]", values: ["-20 to 80", "-20 to 80", "-20 to 80"] },
+  { label: "Operating Temperature [°C]", values: ["0 to 60", "0 to 60", "0 to 60"] },
+  { label: "Storage Temperature [°C]", values: ["-20 to 80", "-20 to 80", "-20 to 80"] },
   { label: "Relative Humidity [%]", values: ["10 to 95", "10 to 95", "10 to 95"] },
 ] as const;
 
