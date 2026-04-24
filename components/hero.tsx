@@ -9,7 +9,10 @@ type HeroProps = {
 
 export function Hero({ locale, heroImageUrl }: HeroProps) {
   const dict = getDictionary(locale);
-  const imageUrl = heroImageUrl ?? "/hero-lab-bg.avif";
+  const imageUrl =
+    !heroImageUrl || heroImageUrl === "/hero-lab-bg.avif" || heroImageUrl === "/hero-lab-bg.png"
+      ? "/hero-main-laser.png"
+      : heroImageUrl;
 
   return (
     <section
@@ -17,6 +20,13 @@ export function Hero({ locale, heroImageUrl }: HeroProps) {
       style={{ ["--hero-image" as string]: `url("${imageUrl}")` } as CSSProperties}
     >
       <div className="heroBackdrop" aria-hidden="true">
+        <div className="heroTechOrbit">
+          <div className="heroTechHalo" />
+          <img className="heroTechWheel heroTechWheelPrimary" src="/hero-wheel.svg" alt="" />
+          <img className="heroTechWheel heroTechWheelSecondary" src="/hero-wheel.svg" alt="" />
+          <img className="heroTechFlash" src="/hero-flash.png" alt="" />
+          <span className="heroTechCore" />
+        </div>
         <div className="heroBackdropTopWaves">
           <span />
           <span />

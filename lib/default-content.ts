@@ -8,7 +8,7 @@ export const defaultSiteConfig = {
     "루모스는 산업용 검사 환경에 맞춘 광학 장비와 소프트웨어를 공급합니다.",
   heroDescriptionEn:
     "Lumos delivers industrial optical hardware and software for production inspection workflows.",
-  heroImageUrl: "/hero-lab-bg.avif",
+  heroImageUrl: "/hero-main-laser.png",
   heroFontSize: 52,
   storyTitleKo: "브랜드 어원 : 루모스",
   storyTitleEn: "Brand Origin : Rumos",

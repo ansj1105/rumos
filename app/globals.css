@@ -200,6 +200,57 @@ select {
   }
 }
 
+@keyframes heroTechWheelSpin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes heroTechWheelReverseSpin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg) scale(0.74);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg) scale(0.74);
+  }
+}
+
+@keyframes heroTechFlashPulse {
+  0%,
+  100% {
+    opacity: 0.72;
+    transform: translate(-50%, -50%) scale(0.94);
+  }
+
+  40% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+
+  70% {
+    opacity: 0.88;
+    transform: translate(-50%, -50%) scale(1.02);
+  }
+}
+
+@keyframes heroTechHaloPulse {
+  0%,
+  100% {
+    opacity: 0.26;
+    transform: translate(-50%, -50%) scale(0.96);
+  }
+
+  50% {
+    opacity: 0.46;
+    transform: translate(-50%, -50%) scale(1.04);
+  }
+}
+
 @keyframes imageSkeletonShimmer {
   0% {
     background-position: 120% 0, 0 0;
@@ -371,9 +422,8 @@ select {
 
 .companyHeroMedia {
   position: relative;
-  width: min(100%, 1600px);
+  width: 100%;
   height: clamp(220px, 24vw, 340px);
-  margin: 0 auto;
   overflow: hidden;
 }
 
@@ -631,29 +681,36 @@ select {
   gap: 24px;
 }
 
+.directionsTwoCol {
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+  align-items: start;
+}
+
 .directionsInfoCard {
   padding: 28px;
 }
 
 .directionsInfoLayout {
   display: grid;
-  grid-template-columns: 180px minmax(0, 1fr);
-  gap: 22px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
   align-items: start;
 }
 
 .directionsCompanyImageWrap {
   overflow: hidden;
   border: 1px solid rgba(15, 34, 61, 0.08);
-  background: #eef3f8;
-  align-self: stretch;
+  background:
+    linear-gradient(180deg, #eef5fb 0%, #f7fafc 100%);
+  aspect-ratio: 1 / 1.08;
 }
 
 .directionsCompanyImage {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center bottom;
 }
 
 .directionsLocationGroup {
@@ -667,12 +724,13 @@ select {
 .directionsMapCard {
   position: relative;
   overflow: hidden;
+  height: 100%;
 }
 
 .directionsMapIframe {
   display: block;
   width: 100%;
-  height: 420px;
+  height: 520px;
   border: 0;
 }
 
@@ -2179,6 +2237,83 @@ select {
   z-index: 1;
 }
 
+.heroTechOrbit {
+  position: absolute;
+  top: 56%;
+  left: 67%;
+  width: clamp(260px, 33vw, 560px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heroTechHalo {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 54%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background:
+    radial-gradient(circle, rgba(26, 200, 255, 0.34) 0%, rgba(26, 200, 255, 0.18) 28%, rgba(26, 200, 255, 0.04) 54%, rgba(26, 200, 255, 0) 72%),
+    radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 58%);
+  filter: blur(12px);
+  animation: heroTechHaloPulse 4.8s ease-in-out infinite;
+}
+
+.heroTechWheel {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  opacity: 0.58;
+  filter:
+    drop-shadow(0 0 16px rgba(0, 182, 255, 0.22))
+    drop-shadow(0 0 40px rgba(0, 182, 255, 0.18));
+  mix-blend-mode: screen;
+}
+
+.heroTechWheelPrimary {
+  animation: heroTechWheelSpin 44s linear infinite;
+}
+
+.heroTechWheelSecondary {
+  opacity: 0.3;
+  animation: heroTechWheelReverseSpin 32s linear infinite;
+}
+
+.heroTechFlash {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(96px, 11vw, 184px);
+  transform: translate(-50%, -50%);
+  opacity: 0.9;
+  mix-blend-mode: screen;
+  filter:
+    drop-shadow(0 0 22px rgba(255, 255, 255, 0.28))
+    drop-shadow(0 0 48px rgba(11, 196, 255, 0.24));
+  animation: heroTechFlashPulse 1.25s ease-in-out infinite;
+}
+
+.heroTechCore {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(12px, 1.4vw, 22px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.96) 0%, rgba(138, 229, 255, 0.92) 26%, rgba(21, 191, 255, 0.28) 62%, rgba(21, 191, 255, 0) 100%);
+  box-shadow:
+    0 0 18px rgba(255, 255, 255, 0.32),
+    0 0 34px rgba(15, 188, 255, 0.42);
+}
+
 .heroBackdropTopWaves {
   position: absolute;
   top: 18px;
@@ -2186,7 +2321,7 @@ select {
   width: min(520px, calc(100% - 48px));
   height: 74px;
   transform: translateX(-50%);
-  opacity: 0.9;
+  opacity: 0.46;
 }
 
 .heroBackdropTopWaves span {
@@ -5005,6 +5140,12 @@ td {
     min-height: 560px;
   }
 
+  .heroTechOrbit {
+    top: 58%;
+    left: 72%;
+    width: clamp(220px, 40vw, 420px);
+  }
+
   .heroCopy {
     max-width: none;
     padding-right: 0;
@@ -5406,6 +5547,17 @@ td {
     height: 48px;
   }
 
+  .heroTechOrbit {
+    top: 61%;
+    left: 76%;
+    width: clamp(180px, 46vw, 320px);
+    opacity: 0.88;
+  }
+
+  .heroTechFlash {
+    width: clamp(82px, 16vw, 132px);
+  }
+
   .buttonRow {
     gap: 10px;
   }
@@ -5712,11 +5864,12 @@ td {
   }
 
   .directionsCompanyImageWrap {
-    max-width: 220px;
+    max-width: none;
+    aspect-ratio: 1 / 1.12;
   }
 
   .directionsMapIframe {
-    height: 300px;
+    height: 320px;
   }
 
   .directionsMapTabs {
@@ -5997,6 +6150,17 @@ td {
 
   .heroVisual {
     min-height: 248px;
+  }
+
+  .heroTechOrbit {
+    top: 64%;
+    left: 79%;
+    width: 210px;
+    opacity: 0.78;
+  }
+
+  .heroTechFlash {
+    width: 92px;
   }
 
   .heroVisualPanel {

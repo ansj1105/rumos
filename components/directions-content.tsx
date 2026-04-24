@@ -69,15 +69,15 @@ export function DirectionsContent({ locale }: DirectionsContentProps) {
       : `https://map.kakao.com/link/search/${encodedQuery}`;
 
   return (
-    <div className="pageBody twoCol">
+    <div className="pageBody twoCol directionsTwoCol">
       <div className="card directionsInfoCard">
         <div className="directionsInfoLayout">
           <div className="directionsCompanyImageWrap">
             <Image
-              src="/contact/company-building.png"
+              src="/contact/directions-building.png"
               alt={isKo ? "LUMOS 사옥 전경" : "LUMOS building"}
-              width={520}
-              height={520}
+              width={1209}
+              height={1364}
               className="directionsCompanyImage"
             />
           </div>
