@@ -21,9 +21,9 @@ type LocationItem = {
 const locations: LocationItem[] = [
   {
     id: "hq",
-    labelKo: "본사",
+    labelKo: "\uBCF8\uC0AC",
     labelEn: "Head Office",
-    addressKo: "서울특별시 금천구 가산디지털1로 19 대륭테크노타운 18차 1306호, 08594",
+    addressKo: "\uC11C\uC6B8\uD2B9\uBCC4\uC2DC \uAE08\uCC9C\uAD6C \uAC00\uC0B0\uB514\uC9C0\uD1381\uB85C 19 \uB300\uB96D\uD14C\uD06C\uB178\uD0C0\uC6B418 18\uCC28 1306\uD638, 08594",
     addressEn: "1306, Daerung Techno Town-18, 19 Gasan digital 1-ro, Geumcheon-gu, Seoul, 08594, Korea",
     query: "37.467837,126.886559",
     latitude: 37.467837,
@@ -33,7 +33,7 @@ const locations: LocationItem[] = [
     id: "rd",
     labelKo: "R&D Center",
     labelEn: "R&D Center",
-    addressKo: "서울특별시 금천구 가산디지털1로 19 대륭테크노타운 18차 1307호, 08594",
+    addressKo: "\uC11C\uC6B8\uD2B9\uBCC4\uC2DC \uAE08\uCC9C\uAD6C \uAC00\uC0B0\uB514\uC9C0\uD1381\uB85C 19 \uB300\uB96D\uD14C\uD06C\uB178\uD0C0\uC6B418 18\uCC28 1307\uD638, 08594",
     addressEn: "1307, Daerung Techno Town-18, 19 Gasan digital 1-ro, Geumcheon-gu, Seoul, 08594, Korea",
     query: "37.467837,126.886559",
     latitude: 37.467837,
@@ -43,7 +43,7 @@ const locations: LocationItem[] = [
     id: "factory",
     labelKo: "Factory",
     labelEn: "Factory",
-    addressKo: "서울특별시 금천구 가산디지털1로 58 1609호, 1010호, 08591",
+    addressKo: "\uC11C\uC6B8\uD2B9\uBCC4\uC2DC \uAE08\uCC9C\uAD6C \uAC00\uC0B0\uB514\uC9C0\uD1381\uB85C 58 1609\uD638, 1010\uD638, 08591",
     addressEn: "1609, 1010, 58, Gasan digital 1-ro, Geumcheon-gu, Seoul, 08591, Korea",
     query: "37.471434,126.886417",
     latitude: 37.471434,
@@ -75,7 +75,7 @@ export function DirectionsContent({ locale }: DirectionsContentProps) {
           <div className="directionsCompanyImageWrap">
             <Image
               src="/contact/directions-building.png"
-              alt={isKo ? "LUMOS 사옥 전경" : "LUMOS building"}
+              alt={isKo ? "LUMOS \uAC74\uBB3C \uC804\uACBD" : "LUMOS building"}
               width={1209}
               height={1364}
               className="directionsCompanyImage"
@@ -83,7 +83,7 @@ export function DirectionsContent({ locale }: DirectionsContentProps) {
           </div>
 
           <div className="stack">
-            <strong>{isKo ? "본사" : "Head Office"}</strong>
+            <strong>{isKo ? "\uBCF8\uC0AC" : "Head Office"}</strong>
             <span>{isKo ? locations[0].addressKo : locations[0].addressEn}</span>
 
             {locations.slice(1).map((location) => (
@@ -113,7 +113,7 @@ export function DirectionsContent({ locale }: DirectionsContentProps) {
 
       <div className="card directionsMapCard">
         <iframe
-          title={isKo ? "루모스 오시는 길 지도" : "Lumos directions map"}
+          title={isKo ? "LUMOS \uCC3E\uC544\uC624\uB294 \uAE38 \uC9C0\uB3C4" : "Lumos directions map"}
           src={googleMapEmbedUrl}
           width="100%"
           className="directionsMapIframe"
@@ -121,7 +121,7 @@ export function DirectionsContent({ locale }: DirectionsContentProps) {
           referrerPolicy="no-referrer-when-downgrade"
         />
 
-        <div className="directionsMapTabs" role="tablist" aria-label={isKo ? "위치 선택" : "Select location"}>
+        <div className="directionsMapTabs" role="tablist" aria-label={isKo ? "\uC704\uCE58 \uC120\uD0DD" : "Select location"}>
           {locations.map((location) => (
             <button
               key={location.id}
