@@ -10,8 +10,11 @@ type HeroProps = {
 export function Hero({ locale, heroImageUrl }: HeroProps) {
   const dict = getDictionary(locale);
   const imageUrl =
-    !heroImageUrl || heroImageUrl === "/hero-lab-bg.avif" || heroImageUrl === "/hero-lab-bg.png"
-      ? "/hero-main-laser.png"
+    !heroImageUrl ||
+    heroImageUrl === "/hero-lab-bg.avif" ||
+    heroImageUrl === "/hero-lab-bg.png" ||
+    heroImageUrl === "/hero-main-laser.png"
+      ? "/hero-main-camera-hud.png"
       : heroImageUrl;
 
   return (

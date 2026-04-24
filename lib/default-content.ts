@@ -8,7 +8,7 @@ export const defaultSiteConfig = {
     "루모스는 산업용 검사 환경에 맞춘 광학 장비와 소프트웨어를 공급합니다.",
   heroDescriptionEn:
     "Lumos delivers industrial optical hardware and software for production inspection workflows.",
-  heroImageUrl: "/hero-main-laser.png",
+  heroImageUrl: "/hero-main-camera-hud.png",
   heroFontSize: 52,
   storyTitleKo: "브랜드 어원 : 루모스",
   storyTitleEn: "Brand Origin : Rumos",
@@ -311,7 +311,7 @@ export const defaultPageHeroConfigs = [
     titleEn: "Products",
     descriptionKo: "공정 조건과 검사 목적에 맞는 루모스 제품군을 확인하실 수 있습니다.",
     descriptionEn: "Explore the Lumos product lineup for different inspection goals and process conditions.",
-    backgroundImageUrl: "/subpage-lum-b-bg.png",
+    backgroundImageUrl: "/subpage-products-laser-bg.png",
     backgroundOpacity: 0.9,
   },
   {

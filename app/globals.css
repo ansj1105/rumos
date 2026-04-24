@@ -947,10 +947,15 @@ select {
   align-items: center;
   gap: 14px;
   justify-self: end;
+  align-self: stretch;
+  height: 100%;
 }
 
 .localeMenu {
   position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .localeSwitch {
@@ -986,7 +991,7 @@ select {
 
 .localeDropdown {
   position: absolute;
-  top: calc(100% + 23px);
+  top: calc(100% + 1px);
   right: 0;
   min-width: 164px;
   padding: 8px;
@@ -1006,10 +1011,13 @@ select {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  min-width: 22px;
-  font-size: 22px;
+  width: 32px;
+  min-width: 32px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
   line-height: 1;
+  color: var(--blue-deep);
 }
 
 .localeDropdownLink {
@@ -2239,9 +2247,9 @@ select {
 
 .heroTechOrbit {
   position: absolute;
-  top: 56%;
-  left: 67%;
-  width: clamp(260px, 33vw, 560px);
+  top: 51.5%;
+  left: 72.5%;
+  width: clamp(300px, 36vw, 640px);
   aspect-ratio: 1;
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -2251,14 +2259,14 @@ select {
 .heroTechHalo {
   position: absolute;
   inset: 50% auto auto 50%;
-  width: 54%;
+  width: 48%;
   aspect-ratio: 1;
   border-radius: 50%;
   transform: translate(-50%, -50%);
   background:
     radial-gradient(circle, rgba(26, 200, 255, 0.34) 0%, rgba(26, 200, 255, 0.18) 28%, rgba(26, 200, 255, 0.04) 54%, rgba(26, 200, 255, 0) 72%),
     radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 58%);
-  filter: blur(12px);
+  filter: blur(10px);
   animation: heroTechHaloPulse 4.8s ease-in-out infinite;
 }
 
@@ -2269,7 +2277,7 @@ select {
   height: 100%;
   transform: translate(-50%, -50%);
   transform-origin: center;
-  opacity: 0.58;
+  opacity: 0.52;
   filter:
     drop-shadow(0 0 16px rgba(0, 182, 255, 0.22))
     drop-shadow(0 0 40px rgba(0, 182, 255, 0.18));
@@ -2281,7 +2289,7 @@ select {
 }
 
 .heroTechWheelSecondary {
-  opacity: 0.3;
+  opacity: 0.22;
   animation: heroTechWheelReverseSpin 32s linear infinite;
 }
 
@@ -2289,7 +2297,7 @@ select {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: clamp(96px, 11vw, 184px);
+  width: clamp(108px, 12vw, 208px);
   transform: translate(-50%, -50%);
   opacity: 0.9;
   mix-blend-mode: screen;
@@ -2303,7 +2311,7 @@ select {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: clamp(12px, 1.4vw, 22px);
+  width: clamp(14px, 1.6vw, 26px);
   aspect-ratio: 1;
   border-radius: 50%;
   transform: translate(-50%, -50%);
@@ -3487,6 +3495,8 @@ select {
 }
 
 .productDetailHeroInner {
+  width: min(1440px, calc(100% - 32px));
+  margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 1.7fr) minmax(360px, 1fr);
   gap: 0;
@@ -3498,7 +3508,7 @@ select {
 .productDetailCopy {
   display: grid;
   align-content: center;
-  gap: 30px;
+  gap: 0;
   padding: 56px 56px 60px;
   background: #0f5793;
 }
@@ -3527,30 +3537,6 @@ select {
   font-weight: 400;
   line-height: 1.14;
   letter-spacing: -0.04em;
-}
-
-.productDetailFeatureBlock {
-  display: grid;
-  gap: 20px;
-}
-
-.productDetailFeatureTitle {
-  color: #22b7ff;
-  font-size: clamp(22px, 1.6vw, 32px);
-  font-weight: 700;
-  line-height: 1.1;
-}
-
-.productDetailFeatureList {
-  display: grid;
-  gap: 10px;
-}
-
-.productDetailFeatureItem {
-  color: rgba(255, 255, 255, 0.96);
-  font-size: clamp(17px, 1.15vw, 24px);
-  line-height: 1.35;
-  letter-spacing: -0.02em;
 }
 
 .productSeriesTitleImage {
@@ -5141,9 +5127,9 @@ td {
   }
 
   .heroTechOrbit {
-    top: 58%;
-    left: 72%;
-    width: clamp(220px, 40vw, 420px);
+    top: 53%;
+    left: 74%;
+    width: clamp(240px, 44vw, 460px);
   }
 
   .heroCopy {
@@ -5548,14 +5534,14 @@ td {
   }
 
   .heroTechOrbit {
-    top: 61%;
-    left: 76%;
-    width: clamp(180px, 46vw, 320px);
+    top: 55%;
+    left: 77%;
+    width: clamp(200px, 48vw, 340px);
     opacity: 0.88;
   }
 
   .heroTechFlash {
-    width: clamp(82px, 16vw, 132px);
+    width: clamp(92px, 17vw, 142px);
   }
 
   .buttonRow {
@@ -6022,14 +6008,6 @@ td {
     font-size: 34px;
   }
 
-  .productDetailFeatureTitle {
-    font-size: 24px;
-  }
-
-  .productDetailFeatureItem {
-    font-size: 20px;
-  }
-
   .productDetailVisualPanel {
     min-height: 320px;
   }
@@ -6153,14 +6131,14 @@ td {
   }
 
   .heroTechOrbit {
-    top: 64%;
+    top: 58%;
     left: 79%;
-    width: 210px;
+    width: 224px;
     opacity: 0.78;
   }
 
   .heroTechFlash {
-    width: 92px;
+    width: 98px;
   }
 
   .heroVisualPanel {
@@ -6278,14 +6256,6 @@ td {
 
   .productMetaLine strong {
     font-size: 28px;
-  }
-
-  .productDetailFeatureTitle {
-    font-size: 21px;
-  }
-
-  .productDetailFeatureItem {
-    font-size: 18px;
   }
 
   .productDetailVisualImage {

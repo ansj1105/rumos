@@ -77,6 +77,13 @@ export default async function ProductsPage({
   const { locale } = await params;
   const dict = getDictionary(locale);
   const [products, heroConfig] = await Promise.all([getProducts(), getPageHeroConfig("products")]);
+  const productsHeroBackgroundImage =
+    !heroConfig?.backgroundImageUrl ||
+    heroConfig.backgroundImageUrl === "/subpage-products-hero.png" ||
+    heroConfig.backgroundImageUrl === "/subpage-products-hero-pc.png" ||
+    heroConfig.backgroundImageUrl === "/subpage-lum-b-bg.png"
+      ? "/subpage-products-laser-bg.png"
+      : heroConfig.backgroundImageUrl;
 
   return (
     <div className="productsPage">
@@ -85,8 +92,8 @@ export default async function ProductsPage({
         title={locale === "ko" ? heroConfig?.titleKo || dict.products.title : heroConfig?.titleEn || dict.products.title}
         description={locale === "ko" ? heroConfig?.descriptionKo || dict.products.lead : heroConfig?.descriptionEn || dict.products.lead}
         tone="products"
-        backgroundImageUrl={heroConfig?.backgroundImageUrl || "/subpage-products-hero.png"}
-        desktopBackgroundImageUrl="/subpage-products-hero-pc.png"
+        backgroundImageUrl={productsHeroBackgroundImage}
+        desktopBackgroundImageUrl={productsHeroBackgroundImage}
         backgroundOpacity={heroConfig?.backgroundOpacity ?? 0.9}
       />
       <div className="container subpageContent">

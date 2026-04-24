@@ -14,7 +14,7 @@ type HeaderProps = {
 
 export function Header({ locale }: HeaderProps) {
   const dict = getDictionary(locale);
-  const localeLabel = locale === "ko" ? "한국어" : "English";
+  const localeLabel = locale === "ko" ? "\uD55C\uAD6D\uC5B4" : "English";
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMobileSection, setOpenMobileSection] = useState<string | null>(null);
   const [localeOpen, setLocaleOpen] = useState(false);
@@ -123,11 +123,11 @@ export function Header({ locale }: HeaderProps) {
 
               <div className={`localeDropdown card ${localeOpen ? "isOpen" : ""}`}>
                 <Link href="/ko" className={`localeDropdownLink ${locale === "ko" ? "isActive" : ""}`}>
-                  <span className="localeFlag" aria-hidden="true">🇰🇷</span>
-                  <span>한국어</span>
+                  <span className="localeFlag" aria-hidden="true">KR</span>
+                  <span>{"\uD55C\uAD6D\uC5B4"}</span>
                 </Link>
                 <Link href="/en" className={`localeDropdownLink ${locale === "en" ? "isActive" : ""}`}>
-                  <span className="localeFlag" aria-hidden="true">🇺🇸</span>
+                  <span className="localeFlag" aria-hidden="true">EN</span>
                   <span>English</span>
                 </Link>
               </div>
