@@ -15,7 +15,7 @@ export default async function HomePage({
   const [config, products] = await Promise.all([getSiteConfig(), getProducts()]);
   const brandOriginTitle = "LUMOS:";
   const storyDisplayLines =
-    locale === "ko" ? ["브랜드 어원 :", "루모스"] : ["Brand Origin :", "LUMOS"];
+    locale === "ko" ? ["\uBE0C\uB79C\uB4DC \uC5B4\uC6D0 :", "\uB8E8\uBAA8\uC2A4"] : ["Brand Origin :", "LUMOS"];
   const storySource = (locale === "ko" ? config?.storyBodyKo : config?.storyBodyEn) ?? dict.story.body;
   const storyParagraphs = storySource
     .split(/\n+/)
@@ -27,13 +27,13 @@ export default async function HomePage({
           {
             key: "vision",
             label: "Vision",
-            title: "비전",
+            title: "\uBE44\uC804",
             body: "Trusting LASER Light through LUMOS",
           },
           {
             key: "goal",
             label: "Goal",
-            title: "목표",
+            title: "\uBAA9\uD45C",
             body: "The Trusted Standard for Laser Beam Measurement",
           },
         ]
