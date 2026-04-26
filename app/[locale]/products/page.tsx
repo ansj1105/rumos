@@ -11,51 +11,51 @@ const productOverviewCopy = {
   "lum-b": {
     title: PRODUCT_DISPLAY_NAMES["lum-b"],
     bodyEn:
-      "A versatile RAW laser beam profiler for industrial and research applications. It supports a wide range of lasers (UV to IR) with selectable models based on wavelength and sensor configurations.",
+      "A high-resolution beam profiler for real-time precision measurement and analysis of laser beam shapes.",
     bodyKo:
-      "산업 · 연구 현장에서 범용적으로 사용 가능한 RAW 레이저 빔 프로파일러이며, 파장대와 센서 구성에 따라 모델을 선택하여 다양한 레이저(UV~IR)에 대응할 수 있습니다.",
-  },
-  "lum-f": {
-    title: PRODUCT_DISPLAY_NAMES["lum-f"],
-    bodyEn:
-      "A micro spot measurement beam profiler featuring an all-in-one integrated design that covers the UV to IR spectrum.",
-    bodyKo:
-      "UV~IR 구간 측정을 ONE-BODY 통합 구조로 제공하는 Micro Spot Measurement 빔 프로파일러입니다.",
+      "\uACE0\uD574\uC0C1\uB3C4 \uC13C\uC11C\uB97C \uAE30\uBC18\uC73C\uB85C \uB808\uC774\uC800 \uBE54 \uD615\uC0C1\uC744 \uC2E4\uC2DC\uAC04 \uC815\uBC00 \uCE21\uC815\u00B7\uBD84\uC11D\uD558\uB294 \uBE54 \uD504\uB85C\uD30C\uC77C\uB7EC",
   },
   "lum-b-l": {
     title: PRODUCT_DISPLAY_NAMES["lum-b-l"],
     bodyEn:
-      "A large-area sensor-based beam profiler designed for large-diameter beam measurements. It is ideal for verifying the quality of expansive beams, including expanded beams, flat-top beams, and pre-scanning beams.",
+      "A large-area sensor beam profiler for high-resolution measurement and analysis of beams up to 38 × 27 mm.",
     bodyKo:
-      "대면적 센서 기반으로 대구경 · 대형 빔 측정을 지원하는 빔 프로파일러이며, 확장빔과 플랫탑빔, 스캐닝 전 빔 품질 검증에 적합합니다.",
+      "\uB300\uBA74\uC801 \uC13C\uC11C\uB97C \uAE30\uBC18\uC73C\uB85C \uCD5C\uB300 38 \u00D7 27 mm \uBE54\uC744 \uACE0\uD574\uC0C1\uB3C4\uB85C \uCE21\uC815\u00B7\uBD84\uC11D\uD558\uB294 \uBE54 \uD504\uB85C\uD30C\uC77C\uB7EC",
+  },
+  "lum-f": {
+    title: PRODUCT_DISPLAY_NAMES["lum-f"],
+    bodyEn:
+      "A high-resolution micro beam profiler for precision measurement of fine spots down to Ø3 μm.",
+    bodyKo:
+      "\uCD5C\uC18C \u00D83\u03BCm \uC218\uC900\uC758 \uBBF8\uC138 \uC2A4\uD31F\uC744 \uC815\uBC00 \uCE21\uC815\uD558\uB294 \uACE0\uD574\uC0C1\uB3C4 \uB9C8\uC774\uD06C\uB85C \uBE54 \uD504\uB85C\uD30C\uC77C\uB7EC",
   },
   "lum-z": {
     title: PRODUCT_DISPLAY_NAMES["lum-z"],
     bodyEn:
-      "A precision 3D beam profiling and analysis system designed for detailed spot size and depth-of-focus evaluation, supported by intuitive 2D and 3D profile viewers.",
+      "A beam profiler that precisely measures and analyzes laser beam spot size and DOF in 3D through Z-axis scanning.",
     bodyKo:
-      "정밀한 3D 빔 프로파일링 및 분석을 위해 설계된 전용 시스템입니다. 스팟 사이즈(Spot size)와 초점 심도(DOF) 측정이 가능하며, 직관적인 2D 및 3D 빔 프로파일 뷰어를 통해 3D 광도(Intensity) 분포를 상세하게 분석할 수 있습니다.",
-  },
-  ifi: {
-    title: PRODUCT_DISPLAY_NAMES.ifi,
-    bodyEn:
-      "An IFI series optical solution that maintains beam uniformity above 90% across focal ranges and supports infinity flat top projection with NA.",
-    bodyKo:
-      "전 초점 거리 범위에서 90% 이상의 빔 균일도를 유지하고 Infinity Flat Top 투영을 지원하는 IFI 시리즈 광학 솔루션입니다.",
+      "LUM-Z\uB294 Z\uCD95 \uC2A4\uCE94\uC744 \uD1B5\uD574 \uB808\uC774\uC800 \uBE54\uC758 \uC2A4\uD31F \uD06C\uAE30\uC640 DOF\uB97C 3D\uB85C \uC815\uBC00 \uCE21\uC815\u00B7\uBD84\uC11D\uD558\uB294 \uBE54 \uD504\uB85C\uD30C\uC77C\uB7EC",
   },
   software: {
     title: PRODUCT_DISPLAY_NAMES.software,
     bodyEn:
-      "An intuitive beam analysis software suite that accurately analyzes only the required area through automatic center detection and ROI functions, even across diverse beam shapes.",
+      "Beam profiling software that integrates ISO-standard analysis with 2D and 3D visualization.",
     bodyKo:
-      "다양한 빔 형태에서도 자동 중심 검출과 ROI 기능을 통해 필요한 영역만 정확하게 분석할 수 있는 직관적인 빔 분석 소프트웨어입니다.",
+      "ISO \uD45C\uC900 \uAE30\uBC18 \uBD84\uC11D\uACFC 2D\u00B73D \uC2DC\uAC01\uD654\uB97C \uD1B5\uD569 \uC81C\uACF5\uD558\uB294 \uBE54 \uD504\uB85C\uD30C\uC77C\uB9C1 \uC18C\uD504\uD2B8\uC6E8\uC5B4",
+  },
+  ifi: {
+    title: PRODUCT_DISPLAY_NAMES.ifi,
+    bodyEn:
+      "Infinity Flat Top imaging optics delivering over 90% uniformity across the full focal range.",
+    bodyKo:
+      "\uC804 \uCD08\uC810 \uC601\uC5ED \uC804\uBC18\uC5D0\uC11C 90% \uC774\uC0C1 \uADE0\uC77C\uB3C4\uB97C \uAD6C\uD604\uD558\uB294 Infinity Flat Top \uC774\uBBF8\uC9D5 \uAD11\uD559\uACC4",
   },
   customizing: {
     title: PRODUCT_DISPLAY_NAMES.customizing,
     bodyEn:
-      "A customization program for adapting optics, mechanics, and software around specific beam measurement environments and line-integration requirements.",
+      "Custom optical design optimized for process conditions to deliver the best beam quality.",
     bodyKo:
-      "특정 빔 계측 환경과 라인 연동 요구사항에 맞춰 광학, 기구, 소프트웨어 구성을 최적화하는 맞춤형 솔루션 프로그램입니다.",
+      "\uACF5\uC815 \uC870\uAC74\uC5D0 \uCD5C\uC801\uD654\uB41C \uB9DE\uCDA4\uD615 \uAD11\uD559 \uC124\uACC4\uB85C \uCD5C\uC0C1\uC758 \uBE54 \uD488\uC9C8 \uAD6C\uD604",
   },
 } as const;
 
@@ -90,7 +90,9 @@ export default async function ProductsPage({
       <SubpageHero
         eyebrow={locale === "ko" ? heroConfig?.eyebrowKo || "Product" : heroConfig?.eyebrowEn || "Product"}
         title={locale === "ko" ? heroConfig?.titleKo || dict.products.title : heroConfig?.titleEn || dict.products.title}
-        description={locale === "ko" ? heroConfig?.descriptionKo || dict.products.lead : heroConfig?.descriptionEn || dict.products.lead}
+        description={
+          locale === "ko" ? heroConfig?.descriptionKo || dict.products.lead : heroConfig?.descriptionEn || dict.products.lead
+        }
         tone="products"
         backgroundImageUrl={productsHeroBackgroundImage}
         desktopBackgroundImageUrl={productsHeroBackgroundImage}
@@ -98,7 +100,7 @@ export default async function ProductsPage({
       />
       <div className="container subpageContent">
         <div className="productsShowcase">
-          {products.map((product, index) => (
+          {products.map((product) => (
             <Link
               key={product.slug}
               href={`/${locale}/products/${product.slug}`}
@@ -125,10 +127,8 @@ export default async function ProductsPage({
                 </h2>
                 <p className="productShowcaseText">
                   {locale === "ko"
-                    ? productOverviewCopy[product.slug as keyof typeof productOverviewCopy]?.bodyKo ??
-                      product.summaryKo
-                    : productOverviewCopy[product.slug as keyof typeof productOverviewCopy]?.bodyEn ??
-                      product.summaryEn}
+                    ? productOverviewCopy[product.slug as keyof typeof productOverviewCopy]?.bodyKo ?? product.summaryKo
+                    : productOverviewCopy[product.slug as keyof typeof productOverviewCopy]?.bodyEn ?? product.summaryEn}
                 </p>
               </div>
             </Link>

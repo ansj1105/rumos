@@ -4710,6 +4710,37 @@ select {
   gap: 18px 22px;
 }
 
+.contactFormLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.contactFormLabel.isRequired::after {
+  content: "*";
+  color: #d11f38;
+  font-weight: 700;
+}
+
+.contactForm .field {
+  display: grid;
+  gap: 8px;
+}
+
+.contactForm input[aria-invalid="true"],
+.contactForm textarea[aria-invalid="true"] {
+  border-color: rgba(209, 31, 56, 0.7);
+}
+
+.contactFormError {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #d11f38;
+}
+
 .contactDirectSection {
   max-width: 920px;
   margin: 0 auto 34px;

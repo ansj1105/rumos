@@ -6,12 +6,12 @@ import { prisma } from "@/lib/prisma";
 
 const inquirySchema = z.object({
   inquiryType: z.string().optional().nullable(),
-  company: z.string().optional().nullable(),
+  company: z.string().trim().min(1),
   position: z.string().optional().nullable(),
-  name: z.string().min(1),
-  email: z.string().email(),
-  phone: z.string().optional().nullable(),
-  message: z.string().min(10),
+  name: z.string().trim().min(1),
+  email: z.string().trim().email(),
+  phone: z.string().trim().min(1),
+  message: z.string().trim().min(1),
   locale: z.string().min(2),
 });
 
