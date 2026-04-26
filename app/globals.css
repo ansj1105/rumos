@@ -4720,8 +4720,9 @@ select {
 
 .contactFormLabel.isRequired::after {
   content: "*";
-  color: #d11f38;
+  color: #e11d48;
   font-weight: 700;
+  font-size: 1.05em;
 }
 
 .contactForm .field {

@@ -11,21 +11,21 @@ const productOverviewCopy = {
   "lum-b": {
     title: PRODUCT_DISPLAY_NAMES["lum-b"],
     bodyEn:
-      "A high-resolution beam profiler for real-time precision measurement and analysis of laser beam shapes.",
+      "A beam profiler that performs real-time, high-precision measurement and analysis of laser beam shapes based on a high-resolution sensor.",
     bodyKo:
       "\uACE0\uD574\uC0C1\uB3C4 \uC13C\uC11C\uB97C \uAE30\uBC18\uC73C\uB85C \uB808\uC774\uC800 \uBE54 \uD615\uC0C1\uC744 \uC2E4\uC2DC\uAC04 \uC815\uBC00 \uCE21\uC815\u00B7\uBD84\uC11D\uD558\uB294 \uBE54 \uD504\uB85C\uD30C\uC77C\uB7EC",
   },
   "lum-b-l": {
     title: PRODUCT_DISPLAY_NAMES["lum-b-l"],
     bodyEn:
-      "A large-area sensor beam profiler for high-resolution measurement and analysis of beams up to 38 × 27 mm.",
+      "A beam profiler based on a large-area sensor for high-resolution measurement and analysis of beams up to 38 x 27 mm.",
     bodyKo:
       "\uB300\uBA74\uC801 \uC13C\uC11C\uB97C \uAE30\uBC18\uC73C\uB85C \uCD5C\uB300 38 \u00D7 27 mm \uBE54\uC744 \uACE0\uD574\uC0C1\uB3C4\uB85C \uCE21\uC815\u00B7\uBD84\uC11D\uD558\uB294 \uBE54 \uD504\uB85C\uD30C\uC77C\uB7EC",
   },
   "lum-f": {
     title: PRODUCT_DISPLAY_NAMES["lum-f"],
     bodyEn:
-      "A high-resolution micro beam profiler for precision measurement of fine spots down to Ø3 μm.",
+      "A high-resolution micro beam profiler for precise measurement of fine spots down to approximately 3 um.",
     bodyKo:
       "\uCD5C\uC18C \u00D83\u03BCm \uC218\uC900\uC758 \uBBF8\uC138 \uC2A4\uD31F\uC744 \uC815\uBC00 \uCE21\uC815\uD558\uB294 \uACE0\uD574\uC0C1\uB3C4 \uB9C8\uC774\uD06C\uB85C \uBE54 \uD504\uB85C\uD30C\uC77C\uB7EC",
   },
@@ -46,14 +46,14 @@ const productOverviewCopy = {
   ifi: {
     title: PRODUCT_DISPLAY_NAMES.ifi,
     bodyEn:
-      "Infinity Flat Top imaging optics delivering over 90% uniformity across the full focal range.",
+      "Infinity Flat Top imaging optics delivering over 90% uniformity across the entire focal range.",
     bodyKo:
       "\uC804 \uCD08\uC810 \uC601\uC5ED \uC804\uBC18\uC5D0\uC11C 90% \uC774\uC0C1 \uADE0\uC77C\uB3C4\uB97C \uAD6C\uD604\uD558\uB294 Infinity Flat Top \uC774\uBBF8\uC9D5 \uAD11\uD559\uACC4",
   },
   customizing: {
     title: PRODUCT_DISPLAY_NAMES.customizing,
     bodyEn:
-      "Custom optical design optimized for process conditions to deliver the best beam quality.",
+      "Custom optical design optimized for process conditions to deliver the highest beam quality.",
     bodyKo:
       "\uACF5\uC815 \uC870\uAC74\uC5D0 \uCD5C\uC801\uD654\uB41C \uB9DE\uCDA4\uD615 \uAD11\uD559 \uC124\uACC4\uB85C \uCD5C\uC0C1\uC758 \uBE54 \uD488\uC9C8 \uAD6C\uD604",
   },

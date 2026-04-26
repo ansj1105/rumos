@@ -35,9 +35,9 @@ export const defaultApplications = [
     titleKo: "Semiconductor",
     titleEn: "Semiconductor",
     summaryKo:
-      "반도체 제조 공정에서 레이저 가공의 정밀도는 최종 수율과 직결됩니다. 대면적 웨이퍼 어닐링부터 TGV, ABF 비아 드릴링 등 차세대 패키징에 이르기까지 정확한 초점과 에너지 분포 제어가 필수적입니다. 당사의 초정밀 빔 프로파일링 솔루션은 기판 손상을 방지하고 최고 수준의 공정 재현성을 보장합니다.",
+      "반도체 제조 공정에서 레이저 가공의 정밀도는 최종 수율과 직결됩니다. 차세대 패키징을 위한 LUM-B의 레이저 솔더링(Laser Soldering)부터 대면적 공정에 최적화된 LUM-B-L의 웨이퍼 어닐링(Wafer Annealing)에 이르기까지 정확한 에너지 분포 제어가 필수적입니다. 또한, LUM-F를 활용한 웨이퍼 그루빙 및 다이싱(Wafer Grooving & Dicing)과 TGV 공정, 그리고 LUM-Z의 초정밀 스텔스 다이싱(Stealth Dicing) 및 TGV 솔루션을 통해 기판 손상을 완벽히 방지하고 최고 수준의 공정 재현성을 보장합니다.",
     summaryEn:
-      "In semiconductor manufacturing, laser precision directly dictates final yield. From large-area wafer annealing to TGV and ABF via drilling for next-generation packaging, exact focal control and energy distribution are critical. Our ultra-precise beam profiling solutions prevent substrate damage and maintain top-tier process repeatability.",
+      "In semiconductor manufacturing, laser-processing precision is directly tied to final yield. From LUM-B for laser soldering in next-generation packaging to LUM-B-L for wafer annealing optimized for large-area processes, precise energy-distribution control is essential. In addition, LUM-F supports wafer grooving, dicing, and TGV processes, while LUM-Z enables ultra-precise stealth dicing and TGV solutions to prevent substrate damage and ensure the highest level of process repeatability.",
     imageUrl: "/applications/semiconductor.png",
     bulletsKo: [],
     bulletsEn: [],
@@ -47,9 +47,9 @@ export const defaultApplications = [
     titleKo: "Solar Cell",
     titleEn: "Solar Cell",
     summaryKo:
-      "태양전지의 효율 극대화를 위해서는 제조 공정의 결점 없는 정밀함이 요구됩니다. 엣지 아이솔레이션, 스크라이빙 등의 레이저 가공 시 열영향구역(HAZ)과 미세 크랙을 최소화하려면 흔들림 없는 빔 품질이 필수적입니다. 첨단 빔 모니터링을 통해 광원을 최적화하여 태양전지의 광전 효율과 수명을 획기적으로 향상시킵니다.",
+      "태양전지의 효율 극대화를 위해서는 제조 공정의 결점 없는 정밀함이 요구됩니다. 엣지 아이솔레이션(Edge Isolation), 스크라이빙(Scribing) 등의 레이저 가공 시 열영향구역(HAZ)과 미세 크랙을 최소화하려면 흔들림 없는 빔 품질이 필수적입니다. 당사의 첨단 빔 모니터링 시스템은 광원을 완벽하게 최적화하여 태양전지의 광전 효율과 제품 수명을 획기적으로 향상시킵니다.",
     summaryEn:
-      "Maximizing solar-cell efficiency requires flawless manufacturing precision. During edge isolation and laser scribing, stable beam quality is essential to minimize heat-affected zones and micro-cracks. Advanced beam monitoring optimizes the light source to improve photovoltaic efficiency and product lifetime.",
+      "Maximizing solar-cell efficiency requires defect-free manufacturing precision. During laser processes such as edge isolation and scribing, stable beam quality is essential to minimize heat-affected zones and micro-cracks. Our advanced beam-monitoring system fully optimizes the light source to significantly improve photovoltaic efficiency and product lifetime.",
     imageUrl: "/applications/solar-cell.png",
     bulletsKo: [],
     bulletsEn: [],
@@ -59,9 +59,9 @@ export const defaultApplications = [
     titleKo: "Medical & Bio",
     titleEn: "Medical & Bio",
     summaryKo:
-      "의료 및 생명공학 분야에서 광학 시스템의 퀄리티는 환자의 안전과 직결됩니다. 피부 미용 레이저, 외과용 장비 및 고해상도 바이오 이미징 시스템은 설계된 출력 스펙을 오차 없이 준수해야 합니다. 정밀한 빔 진단을 통해 실시간으로 에너지 대칭성을 검증하여 의료 기기의 안전한 품질 보증을 지원합니다.",
+      "의료 및 생명공학 분야에서 광학 시스템의 신뢰성은 환자의 안전과 직결됩니다. 피부 미용 레이저, 정밀 외과용 장비 및 고해상도 바이오 이미징 시스템은 설계된 출력 스펙을 오차 없이 준수해야 합니다. 당사의 솔루션은 정밀한 빔 진단을 통해 실시간으로 에너지 대칭성을 검증하여, 의료 기기의 안전하고 완벽한 품질 보증(QA) 체계를 지원합니다.",
     summaryEn:
-      "In medical and bio applications, optical-system quality is directly tied to patient safety. Aesthetic lasers, surgical equipment, and high-resolution bio-imaging systems must meet designed output specifications without deviation. Precision beam diagnostics verify energy symmetry in real time and support safe medical-device quality assurance.",
+      "In medical and bioengineering applications, the reliability of optical systems is directly tied to patient safety. Aesthetic lasers, precision surgical equipment, and high-resolution bio-imaging systems must meet designed output specifications without deviation. Our solution verifies energy symmetry in real time through precise beam diagnostics and supports a safe, complete quality-assurance system for medical devices.",
     imageUrl: "/applications/medical-bio.png",
     bulletsKo: [],
     bulletsEn: [],
@@ -71,9 +71,9 @@ export const defaultApplications = [
     titleKo: "Automotive (Second Battery, LiDAR)",
     titleEn: "Automotive (Second Battery, LiDAR)",
     summaryKo:
-      "전기차와 자율주행 시대로의 전환은 첨단 광학 기술을 바탕으로 완성됩니다. 이차전지의 화재를 예방하는 정밀한 레이저 용접부터, 자율주행의 눈인 라이다(LiDAR) 센서의 빔 확산 패턴 및 안전성 검증까지. 무결점 전장 부품 생산과 센서 신뢰성 확보를 위한 핵심 레이저 진단 솔루션을 제공합니다.",
+      "전기차와 자율주행 시대로의 전환은 첨단 광학 기술을 바탕으로 완성됩니다. 이차전지의 화재를 예방하는 정밀한 레이저 용접부터, 자율주행의 핵심인 라이다(LiDAR) 센서의 빔 확산 패턴 및 안전성 검증까지 완벽한 품질 관리가 요구됩니다. 특히 고출력 LUM-B-L 모델은 빅셀(VCSEL) 검사에 최적화되어 있어, 무결점 전장 부품 생산과 센서 신뢰성 확보를 위한 핵심 레이저 진단 솔루션을 제공합니다.",
     summaryEn:
-      "The transition to electric mobility and autonomous driving depends on advanced optical technology. From precision laser welding that helps prevent battery failures to beam-pattern and safety verification for LiDAR sensors, we provide essential laser diagnostic solutions for defect-free automotive production and sensor reliability.",
+      "The transition to electric vehicles and autonomous driving is built on advanced optical technology. From precision laser welding that helps prevent secondary-battery fires to beam-spread pattern and safety verification for LiDAR sensors, complete quality control is required. In particular, the high-power LUM-B-L model is optimized for VCSEL inspection, delivering a core laser-diagnostic solution for defect-free automotive components and sensor reliability.",
     imageUrl: "/applications/automotive-lidar.png",
     bulletsKo: [],
     bulletsEn: [],
@@ -83,9 +83,9 @@ export const defaultApplications = [
     titleKo: "OLED Display",
     titleEn: "OLED Display",
     summaryKo:
-      "플렉시블 및 초박막 디스플레이는 레이저 미세 가공의 정점을 요구합니다. 플렉시블 패널 박리를 위한 LLO 공정부터 UTG 커팅에 이르기까지, 초점과 대면적 에너지 균일도에 대한 치밀한 제어가 필요합니다. 고해상도 빔 프로파일링으로 핵심 가공 파라미터를 모니터링하여 압도적인 양산 수율을 달성할 수 있도록 돕습니다.",
+      "플렉시블 및 초박막 디스플레이는 레이저 미세 가공 기술의 정점을 요구합니다. 당사는 LUM-B-L을 통한 플렉시블 패널 박리(Laser Lift-Off) 및 Micro LED 공정, LUM-F를 활용한 UTG 커팅 및 초미세 홀 드릴링(Laser Hole Drilling) 등 핵심 공정에 최적화된 빔 프로파일링을 제공합니다. 더불어 고속 양산을 위한 LUM-B의 고속 빔 분할(High-Speed Beam Splitting) 및 솔더링, LUM-Z의 멀티 스팟(Multi Spot) 분석을 통해 치밀한 에너지 균일도 제어를 실현하여 압도적인 양산 수율 달성을 돕습니다.",
     summaryEn:
-      "Flexible and ultra-thin displays push the limits of laser micromachining. From LLO for panel separation to UTG cutting, these processes demand meticulous control over focal position and large-area energy uniformity. High-resolution beam profiling monitors critical processing parameters to help achieve exceptional production yields.",
+      "Flexible and ultra-thin displays demand the highest level of laser micromachining. We provide beam profiling optimized for key processes including flexible-panel laser lift-off and Micro LED processes with LUM-B-L, as well as UTG cutting and ultra-fine laser hole drilling with LUM-F. In addition, LUM-B supports high-speed beam splitting and soldering for mass production, while LUM-Z enables multi-spot analysis to realize tight energy-uniformity control and maximize production yield.",
     imageUrl: "/applications/oled-display.png",
     bulletsKo: [],
     bulletsEn: [],
@@ -95,9 +95,9 @@ export const defaultApplications = [
     titleKo: "AOI",
     titleEn: "AOI",
     summaryKo:
-      "자동 광학 검사(AOI) 시스템의 정확도는 비전을 비추는 조명 및 광원의 품질에 크게 의존합니다. 불균일한 빛 분포는 미세 불량을 놓치거나 오검출을 유발합니다. 첨단 광학 측정 기술로 AOI 장비의 조명 균일도를 정밀 교정하여, 마이크로 단위의 결함을 일관되게 찾아내는 완벽한 검사 신뢰성을 제공합니다.",
+      "자동 광학 검사(AOI) 시스템의 정확도는 비전을 비추는 조명 및 광원의 품질에 크게 의존합니다. 불균일한 빛 분포는 미세 불량을 놓치거나 오검출을 유발할 수 있습니다. LUM-B 모델은 레이저 소스의 품질 보증 및 연구개발(Laser Source QA & R&D)은 물론, 초기 레이저 정렬(Initial Laser Alignment) 과정에서 탁월한 성능을 발휘합니다. 이를 통해 첨단 광학 측정 기술로 AOI 장비의 조명 균일도를 정밀하게 교정하여, 마이크로 단위의 결함을 일관되게 찾아내는 완벽한 검사 신뢰성을 제공합니다.",
     summaryEn:
-      "Automated Optical Inspection (AOI) accuracy depends heavily on illumination quality. Uneven light distribution can cause missed defects or false detections. Our advanced optical measurement approach precisely calibrates AOI illumination uniformity, enabling consistent micron-level defect detection and dependable inspection performance.",
+      "The accuracy of automated optical inspection (AOI) systems depends heavily on the quality of illumination and light sources. Uneven light distribution can lead to missed micro defects or false detections. The LUM-B model delivers excellent performance not only in laser source QA and R&D, but also during initial laser alignment. With advanced optical measurement technology, it precisely calibrates illumination uniformity in AOI equipment and provides reliable inspection performance for consistent micron-level defect detection.",
     imageUrl: "/applications/aoi.png",
     bulletsKo: [],
     bulletsEn: [],

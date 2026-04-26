@@ -16,8 +16,13 @@ const inquirySchema = z.object({
 });
 
 export async function POST(request: Request) {
+  let locale = "en";
+
   try {
-    const body = inquirySchema.parse(await request.json());
+    const rawBody = await request.json();
+    locale = typeof rawBody?.locale === "string" ? rawBody.locale : "en";
+    const body = inquirySchema.parse(rawBody);
+    const isKo = locale === "ko";
 
     await prisma.inquiry.create({
       data: {
@@ -39,14 +44,16 @@ export async function POST(request: Request) {
     await sendInquiryMail(body);
 
     return NextResponse.json({
-      message: "Inquiry submitted successfully.",
+      message: isKo
+        ? "문의가 정상적으로 접수되었습니다."
+        : "Your inquiry has been submitted successfully.",
     });
   } catch (error) {
     console.error(error);
 
     return NextResponse.json(
       {
-        error: "Unable to submit the inquiry.",
+        error: locale === "ko" ? "문의 접수에 실패했습니다." : "Unable to submit the inquiry.",
       },
       { status: 400 },
     );
