@@ -45,7 +45,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       message: isKo
-        ? "문의가 정상적으로 접수되었습니다."
+        ? "\uBB38\uC758\uAC00 \uC815\uC0C1\uC801\uC73C\uB85C \uC811\uC218\uB418\uC5C8\uC2B5\uB2C8\uB2E4."
         : "Your inquiry has been submitted successfully.",
     });
   } catch (error) {
@@ -53,7 +53,10 @@ export async function POST(request: Request) {
 
     return NextResponse.json(
       {
-        error: locale === "ko" ? "문의 접수에 실패했습니다." : "Unable to submit the inquiry.",
+        error:
+          locale === "ko"
+            ? "\uBB38\uC758 \uC811\uC218\uC5D0 \uC2E4\uD328\uD588\uC2B5\uB2C8\uB2E4."
+            : "Unable to submit the inquiry.",
       },
       { status: 400 },
     );

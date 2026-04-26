@@ -3586,24 +3586,37 @@ select {
 }
 
 .productDetailVisualImage {
-  object-fit: contain;
-  object-position: center;
-  padding: 0;
-}
-
-.productDetailVisualImage.isScaledProduct {
-  transform: scale(1.12);
-}
-
-.productDetailVisualImage.isLumBCover {
   object-fit: cover;
   object-position: center;
   padding: 0;
-  transform: none;
 }
 
-.productDetailVisualImage.isSoftware {
-  transform: none;
+.productDetailVisualImage.detailVisual-lum-b {
+  object-position: center center;
+}
+
+.productDetailVisualImage.detailVisual-lum-b-l {
+  object-position: center center;
+}
+
+.productDetailVisualImage.detailVisual-lum-f {
+  object-position: center center;
+}
+
+.productDetailVisualImage.detailVisual-lum-z {
+  object-position: center center;
+}
+
+.productDetailVisualImage.detailVisual-software {
+  object-position: center center;
+}
+
+.productDetailVisualImage.detailVisual-ifi {
+  object-position: center center;
+}
+
+.productDetailVisualImage.detailVisual-customizing {
+  object-position: center center;
 }
 
 .productDetailVisualSkeleton {
@@ -6097,10 +6110,6 @@ td {
     padding: 0;
   }
 
-  .productDetailVisualImage.isScaledProduct {
-    transform: scale(1.08);
-  }
-
   .productSection {
     padding: 34px 0;
   }
@@ -6353,10 +6362,6 @@ td {
 
   .productDetailVisualImage {
     padding: 0;
-  }
-
-  .productDetailVisualImage.isScaledProduct {
-    transform: scale(1.03);
   }
 
   .productTechTable thead th,

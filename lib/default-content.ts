@@ -2,18 +2,18 @@ import { PRODUCT_DISPLAY_NAMES } from "./product-display";
 
 export const defaultSiteConfig = {
   id: 1,
-  heroTitleKo: "정밀 공정에 맞는\n신뢰 가능한 광학 솔루션",
+  heroTitleKo: "\uC815\uBC00 \uACF5\uC815\uC5D0 \uB9DE\uB294\n\uC2E0\uB8B0 \uAC00\uB2A5\uD55C \uAD11\uD559 \uC194\uB8E8\uC158",
   heroTitleEn: "Reliable optical solutions for precision manufacturing",
   heroDescriptionKo:
-    "루모스는 산업용 검사 환경에 맞춘 광학 장비와 소프트웨어를 공급합니다.",
+    "\uB8E8\uBAA8\uC2A4\uB294 \uC0B0\uC5C5\uC6A9 \uAC80\uC0AC \uD658\uACBD\uC5D0 \uB9DE\uCD98 \uAD11\uD559 \uD558\uB4DC\uC6E8\uC5B4\uC640 \uC18C\uD504\uD2B8\uC6E8\uC5B4\uB97C \uACF5\uAE09\uD569\uB2C8\uB2E4.",
   heroDescriptionEn:
     "Lumos delivers industrial optical hardware and software for production inspection workflows.",
   heroImageUrl: "/hero-main-camera-hud.png",
   heroFontSize: 52,
-  storyTitleKo: "브랜드 어원 : 루모스",
+  storyTitleKo: "\uBE0C\uB79C\uB4DC \uC5B4\uC6D0 : \uB8E8\uBAA8\uC2A4",
   storyTitleEn: "Brand Origin : Rumos",
   storyBodyKo:
-    "LUMOS는 빛을 뜻하는 라틴어 'Lumen'에서 유래했습니다. 정확한 측정을 통해 빛의 본질을 포착하고, 광학 및 레이저 빔 분석 분야에 신뢰할 수 있는 정밀도를 제공하겠다는 의미를 담고 있습니다.",
+    "LUMOS\uB294 \uBE5B\uC744 \uC758\uBBF8\uD558\uB294 \uB77C\uD2F4\uC5B4 'Lumen'\uC5D0\uC11C \uC720\uB798\uD588\uC2B5\uB2C8\uB2E4. \uC815\uD655\uD55C \uCE21\uC815\uC744 \uD1B5\uD574 \uBE5B\uC758 \uBCF8\uC9C8\uC744 \uD30C\uC545\uD558\uACE0, \uAD11\uD559 \uBC0F \uB808\uC774\uC800 \uBE54 \uBD84\uC11D \uBD84\uC57C\uC5D0\uC11C \uC2E0\uB8B0\uD560 \uC218 \uC788\uB294 \uC815\uBC00\uD568\uC744 \uC81C\uACF5\uD558\uACA0\uB2E4\uB294 \uC758\uBBF8\uB97C \uB2F4\uACE0 \uC788\uC2B5\uB2C8\uB2E4.",
   storyBodyEn:
     "LUMOS comes from the Latin 'Lumen' (Light). It represents our mission to capture the true essence of light through precise measurement and to deliver trusted precision for optics and laser beam analysis.",
   storyFontSize: 18,
@@ -21,10 +21,10 @@ export const defaultSiteConfig = {
   seriesTitleEn: "LUMOS series",
   seriesLeadKo: "",
   seriesLeadEn: "",
-  seoTitleKo: "루모스 | 산업용 광학 솔루션",
+  seoTitleKo: "\uB8E8\uBAA8\uC2A4 | \uC0B0\uC5C5\uC6A9 \uAD11\uD559 \uC194\uB8E8\uC158",
   seoTitleEn: "Lumos | Industrial Optical Solutions",
   seoDescriptionKo:
-    "루모스 제품, 애플리케이션, 자료실, 문의를 제공하는 공식 웹사이트입니다.",
+    "\uB8E8\uBAA8\uC2A4 \uC81C\uD488, \uC560\uD50C\uB9AC\uCF00\uC774\uC158, \uC790\uB8CC\uC2E4, \uBB38\uC758\uB97C \uC81C\uACF5\uD558\uB294 \uACF5\uC2DD \uC6F9\uC0AC\uC774\uD2B8\uC785\uB2C8\uB2E4.",
   seoDescriptionEn:
     "Official website for Lumos products, applications, resources, and contact.",
 } as const;
@@ -35,7 +35,7 @@ export const defaultApplications = [
     titleKo: "Semiconductor",
     titleEn: "Semiconductor",
     summaryKo:
-      "반도체 제조 공정에서 레이저 가공의 정밀도는 최종 수율과 직결됩니다. 차세대 패키징을 위한 LUM-B의 레이저 솔더링(Laser Soldering)부터 대면적 공정에 최적화된 LUM-B-L의 웨이퍼 어닐링(Wafer Annealing)에 이르기까지 정확한 에너지 분포 제어가 필수적입니다. 또한, LUM-F를 활용한 웨이퍼 그루빙 및 다이싱(Wafer Grooving & Dicing)과 TGV 공정, 그리고 LUM-Z의 초정밀 스텔스 다이싱(Stealth Dicing) 및 TGV 솔루션을 통해 기판 손상을 완벽히 방지하고 최고 수준의 공정 재현성을 보장합니다.",
+      "\uBC18\uB3C4\uCCB4 \uC81C\uC870 \uACF5\uC815\uC5D0\uC11C \uB808\uC774\uC800 \uAC00\uACF5\uC758 \uC815\uBC00\uB3C4\uB294 \uCD5C\uC885 \uC218\uC728\uACFC \uC9C1\uACB0\uB429\uB2C8\uB2E4. \uCC28\uC138\uB300 \uD328\uD0A4\uC9D5\uC744 \uC704\uD55C LUM-B\uC758 \uB808\uC774\uC800 \uC194\uB354\uB9C1(Laser Soldering)\uBD80\uD130 \uB300\uBA74\uC801 \uACF5\uC815\uC5D0 \uCD5C\uC801\uD654\uB41C LUM-B-L\uC758 \uC6E8\uC774\uD37C \uC5B4\uB2D0\uB9C1(Wafer Annealing)\uC5D0 \uC774\uB974\uAE30\uAE4C\uC9C0 \uC815\uD655\uD55C \uC5D0\uB108\uC9C0 \uBD84\uD3EC \uC81C\uC5B4\uAC00 \uD544\uC218\uC801\uC785\uB2C8\uB2E4. \uB610\uD55C, LUM-F\uB97C \uD65C\uC6A9\uD55C \uC6E8\uC774\uD37C \uADF8\uB8E8\uBE59 \uBC0F \uB2E4\uC774\uC2F1(Wafer Grooving & Dicing)\uACFC TGV \uACF5\uC815, \uADF8\uB9AC\uACE0 LUM-Z\uC758 \uCD08\uC815\uBC00 \uC2A4\uD154\uC2A4 \uB2E4\uC774\uC2F1(Stealth Dicing) \uBC0F TGV \uC194\uB8E8\uC158\uC744 \uD1B5\uD574 \uAE30\uD310 \uC190\uC0C1\uC744 \uC644\uBCBD\uD788 \uBC29\uC9C0\uD558\uACE0 \uCD5C\uACE0 \uC218\uC900\uC758 \uACF5\uC815 \uC7AC\uD604\uC131\uC744 \uBCF4\uC7A5\uD569\uB2C8\uB2E4.",
     summaryEn:
       "In semiconductor manufacturing, laser-processing precision is directly tied to final yield. From LUM-B for laser soldering in next-generation packaging to LUM-B-L for wafer annealing optimized for large-area processes, precise energy-distribution control is essential. In addition, LUM-F supports wafer grooving, dicing, and TGV processes, while LUM-Z enables ultra-precise stealth dicing and TGV solutions to prevent substrate damage and ensure the highest level of process repeatability.",
     imageUrl: "/applications/semiconductor.png",
@@ -47,7 +47,7 @@ export const defaultApplications = [
     titleKo: "Solar Cell",
     titleEn: "Solar Cell",
     summaryKo:
-      "태양전지의 효율 극대화를 위해서는 제조 공정의 결점 없는 정밀함이 요구됩니다. 엣지 아이솔레이션(Edge Isolation), 스크라이빙(Scribing) 등의 레이저 가공 시 열영향구역(HAZ)과 미세 크랙을 최소화하려면 흔들림 없는 빔 품질이 필수적입니다. 당사의 첨단 빔 모니터링 시스템은 광원을 완벽하게 최적화하여 태양전지의 광전 효율과 제품 수명을 획기적으로 향상시킵니다.",
+      "\uD0DC\uC591\uC804\uC9C0\uC758 \uD6A8\uC728 \uADF9\uB300\uD654\uB97C \uC704\uD574\uC11C\uB294 \uC81C\uC870 \uACF5\uC815\uC758 \uACB0\uC810 \uC5C6\uB294 \uC815\uBC00\uD568\uC774 \uC694\uAD6C\uB429\uB2C8\uB2E4. \uC5E3\uC9C0 \uC544\uC774\uC194\uB808\uC774\uC158(Edge Isolation), \uC2A4\uD06C\uB77C\uC774\uBE59(Scribing) \uB4F1\uC758 \uB808\uC774\uC800 \uAC00\uACF5 \uC2DC \uC5F4\uC601\uD5A5\uAD6C\uC5ED(HAZ)\uACFC \uBBF8\uC138 \uD06C\uB799\uC744 \uCD5C\uC18C\uD654\uD558\uB824\uBA74 \uD754\uB4E4\uB9BC \uC5C6\uB294 \uBE54 \uD488\uC9C8\uC774 \uD544\uC218\uC801\uC785\uB2C8\uB2E4. \uB2F9\uC0AC\uC758 \uCCA8\uB2E8 \uBE54 \uBAA8\uB2C8\uD130\uB9C1 \uC2DC\uC2A4\uD15C\uC740 \uAD11\uC6D0\uC744 \uC644\uBCBD\uD558\uAC8C \uCD5C\uC801\uD654\uD558\uC5EC \uD0DC\uC591\uC804\uC9C0\uC758 \uAD11\uC804 \uD6A8\uC728\uACFC \uC81C\uD488 \uC218\uBA85\uC744 \uD68D\uAE30\uC801\uC73C\uB85C \uD5A5\uC0C1\uC2DC\uD0B5\uB2C8\uB2E4.",
     summaryEn:
       "Maximizing solar-cell efficiency requires defect-free manufacturing precision. During laser processes such as edge isolation and scribing, stable beam quality is essential to minimize heat-affected zones and micro-cracks. Our advanced beam-monitoring system fully optimizes the light source to significantly improve photovoltaic efficiency and product lifetime.",
     imageUrl: "/applications/solar-cell.png",
@@ -59,7 +59,7 @@ export const defaultApplications = [
     titleKo: "Medical & Bio",
     titleEn: "Medical & Bio",
     summaryKo:
-      "의료 및 생명공학 분야에서 광학 시스템의 신뢰성은 환자의 안전과 직결됩니다. 피부 미용 레이저, 정밀 외과용 장비 및 고해상도 바이오 이미징 시스템은 설계된 출력 스펙을 오차 없이 준수해야 합니다. 당사의 솔루션은 정밀한 빔 진단을 통해 실시간으로 에너지 대칭성을 검증하여, 의료 기기의 안전하고 완벽한 품질 보증(QA) 체계를 지원합니다.",
+      "\uC758\uB8CC \uBC0F \uC0DD\uBA85\uACF5\uD559 \uBD84\uC57C\uC5D0\uC11C \uAD11\uD559 \uC2DC\uC2A4\uD15C\uC758 \uC2E0\uB8B0\uC131\uC740 \uD658\uC790\uC758 \uC548\uC804\uACFC \uC9C1\uACB0\uB429\uB2C8\uB2E4. \uD53C\uBD80 \uBBF8\uC6A9 \uB808\uC774\uC800, \uC815\uBC00 \uC678\uACFC\uC6A9 \uC7A5\uBE44 \uBC0F \uACE0\uD574\uC0C1\uB3C4 \uBC14\uC774\uC624 \uC774\uBBF8\uC9D5 \uC2DC\uC2A4\uD15C\uC740 \uC124\uACC4\uB41C \uCD9C\uB825 \uC2A4\uD399\uC744 \uC624\uCC28 \uC5C6\uC774 \uC900\uC218\uD574\uC57C \uD569\uB2C8\uB2E4. \uB2F9\uC0AC\uC758 \uC194\uB8E8\uC158\uC740 \uC815\uBC00\uD55C \uBE54 \uC9C4\uB2E8\uC744 \uD1B5\uD574 \uC2E4\uC2DC\uAC04\uC73C\uB85C \uC5D0\uB108\uC9C0 \uB300\uCE6D\uC131\uC744 \uAC80\uC99D\uD558\uC5EC, \uC758\uB8CC \uAE30\uAE30\uC758 \uC548\uC804\uD558\uACE0 \uC644\uBCBD\uD55C \uD488\uC9C8 \uBCF4\uC99D(QA) \uCCB4\uACC4\uB97C \uC9C0\uC6D0\uD569\uB2C8\uB2E4.",
     summaryEn:
       "In medical and bioengineering applications, the reliability of optical systems is directly tied to patient safety. Aesthetic lasers, precision surgical equipment, and high-resolution bio-imaging systems must meet designed output specifications without deviation. Our solution verifies energy symmetry in real time through precise beam diagnostics and supports a safe, complete quality-assurance system for medical devices.",
     imageUrl: "/applications/medical-bio.png",
@@ -71,7 +71,7 @@ export const defaultApplications = [
     titleKo: "Automotive (Second Battery, LiDAR)",
     titleEn: "Automotive (Second Battery, LiDAR)",
     summaryKo:
-      "전기차와 자율주행 시대로의 전환은 첨단 광학 기술을 바탕으로 완성됩니다. 이차전지의 화재를 예방하는 정밀한 레이저 용접부터, 자율주행의 핵심인 라이다(LiDAR) 센서의 빔 확산 패턴 및 안전성 검증까지 완벽한 품질 관리가 요구됩니다. 특히 고출력 LUM-B-L 모델은 빅셀(VCSEL) 검사에 최적화되어 있어, 무결점 전장 부품 생산과 센서 신뢰성 확보를 위한 핵심 레이저 진단 솔루션을 제공합니다.",
+      "\uC804\uAE30\uCC28\uC640 \uC790\uC728\uC8FC\uD589 \uC2DC\uB300\uB85C\uC758 \uC804\uD658\uC740 \uCCA8\uB2E8 \uAD11\uD559 \uAE30\uC220\uC744 \uBC14\uD0D5\uC73C\uB85C \uC644\uC131\uB429\uB2C8\uB2E4. \uC774\uCC28\uC804\uC9C0\uC758 \uD654\uC7AC\uB97C \uC608\uBC29\uD558\uB294 \uC815\uBC00\uD55C \uB808\uC774\uC800 \uC6A9\uC811\uBD80\uD130, \uC790\uC728\uC8FC\uD589\uC758 \uD575\uC2EC\uC778 \uB77C\uC774\uB2E4(LiDAR) \uC13C\uC11C\uC758 \uBE54 \uD655\uC0B0 \uD328\uD134 \uBC0F \uC548\uC804\uC131 \uAC80\uC99D\uAE4C\uC9C0 \uC644\uBCBD\uD55C \uD488\uC9C8 \uAD00\uB9AC\uAC00 \uC694\uAD6C\uB429\uB2C8\uB2E4. \uD2B9\uD788 \uACE0\uCD9C\uB825 LUM-B-L \uBAA8\uB378\uC740 \uBE45\uC140(VCSEL) \uAC80\uC0AC\uC5D0 \uCD5C\uC801\uD654\uB418\uC5B4 \uC788\uC5B4, \uBB34\uACB0\uC810 \uC804\uC7A5 \uBD80\uD488 \uC0DD\uC0B0\uACFC \uC13C\uC11C \uC2E0\uB8B0\uC131 \uD655\uBCF4\uB97C \uC704\uD55C \uD575\uC2EC \uB808\uC774\uC800 \uC9C4\uB2E8 \uC194\uB8E8\uC158\uC744 \uC81C\uACF5\uD569\uB2C8\uB2E4.",
     summaryEn:
       "The transition to electric vehicles and autonomous driving is built on advanced optical technology. From precision laser welding that helps prevent secondary-battery fires to beam-spread pattern and safety verification for LiDAR sensors, complete quality control is required. In particular, the high-power LUM-B-L model is optimized for VCSEL inspection, delivering a core laser-diagnostic solution for defect-free automotive components and sensor reliability.",
     imageUrl: "/applications/automotive-lidar.png",
@@ -83,7 +83,7 @@ export const defaultApplications = [
     titleKo: "OLED Display",
     titleEn: "OLED Display",
     summaryKo:
-      "플렉시블 및 초박막 디스플레이는 레이저 미세 가공 기술의 정점을 요구합니다. 당사는 LUM-B-L을 통한 플렉시블 패널 박리(Laser Lift-Off) 및 Micro LED 공정, LUM-F를 활용한 UTG 커팅 및 초미세 홀 드릴링(Laser Hole Drilling) 등 핵심 공정에 최적화된 빔 프로파일링을 제공합니다. 더불어 고속 양산을 위한 LUM-B의 고속 빔 분할(High-Speed Beam Splitting) 및 솔더링, LUM-Z의 멀티 스팟(Multi Spot) 분석을 통해 치밀한 에너지 균일도 제어를 실현하여 압도적인 양산 수율 달성을 돕습니다.",
+      "\uD50C\uB809\uC2DC\uBE14 \uBC0F \uCD08\uBC15\uB9C9 \uB514\uC2A4\uD50C\uB808\uC774\uB294 \uB808\uC774\uC800 \uBBF8\uC138 \uAC00\uACF5 \uAE30\uC220\uC758 \uC815\uC810\uC744 \uC694\uAD6C\uD569\uB2C8\uB2E4. \uB2F9\uC0AC\uB294 LUM-B-L\uC744 \uD1B5\uD55C \uD50C\uB809\uC2DC\uBE14 \uD328\uB110 \uBC15\uB9AC(Laser Lift-Off) \uBC0F Micro LED \uACF5\uC815, LUM-F\uB97C \uD65C\uC6A9\uD55C UTG \uCEE4\uD305 \uBC0F \uCD08\uBBF8\uC138 \uD640 \uB4DC\uB9B4\uB9C1(Laser Hole Drilling) \uB4F1 \uD575\uC2EC \uACF5\uC815\uC5D0 \uCD5C\uC801\uD654\uB41C \uBE54 \uD504\uB85C\uD30C\uC77C\uB9C1\uC744 \uC81C\uACF5\uD569\uB2C8\uB2E4. \uB354\uBD88\uC5B4 \uACE0\uC18D \uC591\uC0B0\uC744 \uC704\uD55C LUM-B\uC758 \uACE0\uC18D \uBE54 \uBD84\uD560(High-Speed Beam Splitting) \uBC0F \uC194\uB354\uB9C1, LUM-Z\uC758 \uBA40\uD2F0 \uC2A4\uD31F(Multi Spot) \uBD84\uC11D\uC744 \uD1B5\uD574 \uCE58\uBC00\uD55C \uC5D0\uB108\uC9C0 \uADE0\uC77C\uB3C4 \uC81C\uC5B4\uB97C \uC2E4\uD604\uD558\uC5EC \uC555\uB3C4\uC801\uC778 \uC591\uC0B0 \uC218\uC728 \uB2EC\uC131\uC744 \uB3D5\uC2B5\uB2C8\uB2E4.",
     summaryEn:
       "Flexible and ultra-thin displays demand the highest level of laser micromachining. We provide beam profiling optimized for key processes including flexible-panel laser lift-off and Micro LED processes with LUM-B-L, as well as UTG cutting and ultra-fine laser hole drilling with LUM-F. In addition, LUM-B supports high-speed beam splitting and soldering for mass production, while LUM-Z enables multi-spot analysis to realize tight energy-uniformity control and maximize production yield.",
     imageUrl: "/applications/oled-display.png",
@@ -95,7 +95,7 @@ export const defaultApplications = [
     titleKo: "AOI",
     titleEn: "AOI",
     summaryKo:
-      "자동 광학 검사(AOI) 시스템의 정확도는 비전을 비추는 조명 및 광원의 품질에 크게 의존합니다. 불균일한 빛 분포는 미세 불량을 놓치거나 오검출을 유발할 수 있습니다. LUM-B 모델은 레이저 소스의 품질 보증 및 연구개발(Laser Source QA & R&D)은 물론, 초기 레이저 정렬(Initial Laser Alignment) 과정에서 탁월한 성능을 발휘합니다. 이를 통해 첨단 광학 측정 기술로 AOI 장비의 조명 균일도를 정밀하게 교정하여, 마이크로 단위의 결함을 일관되게 찾아내는 완벽한 검사 신뢰성을 제공합니다.",
+      "\uC790\uB3D9 \uAD11\uD559 \uAC80\uC0AC(AOI) \uC2DC\uC2A4\uD15C\uC758 \uC815\uD655\uB3C4\uB294 \uBE44\uC804\uC744 \uBE44\uCD94\uB294 \uC870\uBA85 \uBC0F \uAD11\uC6D0\uC758 \uD488\uC9C8\uC5D0 \uD06C\uAC8C \uC758\uC874\uD569\uB2C8\uB2E4. \uBD88\uADE0\uC77C\uD55C \uBE5B \uBD84\uD3EC\uB294 \uBBF8\uC138 \uBD88\uB7C9\uC744 \uB193\uCE58\uAC70\uB098 \uC624\uAC80\uCD9C\uC744 \uC720\uBC1C\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4. LUM-B \uBAA8\uB378\uC740 \uB808\uC774\uC800 \uC18C\uC2A4\uC758 \uD488\uC9C8 \uBCF4\uC99D \uBC0F \uC5F0\uAD6C\uAC1C\uBC1C(Laser Source QA & R&D)\uC740 \uBB3C\uB860, \uCD08\uAE30 \uB808\uC774\uC800 \uC815\uB82C(Initial Laser Alignment) \uACFC\uC815\uC5D0\uC11C \uD0C1\uC6D4\uD55C \uC131\uB2A5\uC744 \uBC1C\uD718\uD569\uB2C8\uB2E4. \uC774\uB97C \uD1B5\uD574 \uCCA8\uB2E8 \uAD11\uD559 \uCE21\uC815 \uAE30\uC220\uB85C AOI \uC7A5\uBE44\uC758 \uC870\uBA85 \uADE0\uC77C\uB3C4\uB97C \uC815\uBC00\uD558\uAC8C \uAD50\uC815\uD558\uC5EC, \uB9C8\uC774\uD06C\uB85C \uB2E8\uC704\uC758 \uACB0\uD568\uC744 \uC77C\uAD00\uB418\uAC8C \uCC3E\uC544\uB0B4\uB294 \uC644\uBCBD\uD55C \uAC80\uC0AC \uC2E0\uB8B0\uC131\uC744 \uC81C\uACF5\uD569\uB2C8\uB2E4.",
     summaryEn:
       "The accuracy of automated optical inspection (AOI) systems depends heavily on the quality of illumination and light sources. Uneven light distribution can lead to missed micro defects or false detections. The LUM-B model delivers excellent performance not only in laser source QA and R&D, but also during initial laser alignment. With advanced optical measurement technology, it precisely calibrates illumination uniformity in AOI equipment and provides reliable inspection performance for consistent micron-level defect detection.",
     imageUrl: "/applications/aoi.png",
