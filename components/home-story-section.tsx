@@ -88,15 +88,15 @@ export function HomeStorySection({
             ))}
           </div>
         </div>
-        <div className="storyBand storyReveal" style={{ ["--story-reveal-delay" as string]: "220ms" }}>
-          <div className="storyMilestone">
+        <div className="storyBand">
+          <div className="storyMilestone storyReveal storySlideFromRight" style={{ ["--story-reveal-delay" as string]: "220ms" }}>
             <span>{storyMilestone}</span>
           </div>
           <div className="storyHighlightGrid">
             {storyHighlights.map((item, index) => (
               <div
                 key={item.key}
-                className="storyHighlightSlot storyReveal"
+                className="storyHighlightSlot storyReveal storySlideFromRight"
                 style={{ ["--story-reveal-delay" as string]: `${340 + index * 110}ms` }}
               >
                 <StoryHighlightCard

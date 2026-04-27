@@ -135,7 +135,7 @@ select {
 }
 
 .shell.is-ko main .storyEyebrow {
-  font-size: 13.3px;
+  font-size: 19px;
   font-weight: 400;
   line-height: 1.55;
   word-break: keep-all;
@@ -166,7 +166,7 @@ select {
   padding: 7px 12px;
   background: var(--blue-soft);
   color: var(--blue-deep);
-  font-size: 9.1px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.08em;
   border: 1px solid rgba(13, 91, 215, 0.14);
@@ -174,7 +174,7 @@ select {
 
 .eyebrow {
   color: var(--blue);
-  font-size: 9.1px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -182,7 +182,7 @@ select {
 
 .headline {
   margin: 14px 0 0;
-  font-size: clamp(23.8px, 3.5vw, 42px);
+  font-size: clamp(34px, 5vw, 60px);
   line-height: 1.02;
   letter-spacing: -0.04em;
   white-space: pre-line;
@@ -191,7 +191,7 @@ select {
 .subhead {
   margin: 18px 0 0;
   color: var(--muted);
-  font-size: 12.6px;
+  font-size: 18px;
   line-height: 1.7;
   max-width: 640px;
 }
@@ -228,14 +228,14 @@ select {
 
 .sectionTitle {
   margin: 0;
-  font-size: clamp(23.8px, 3.5vw, 37.8px);
+  font-size: clamp(34px, 5vw, 54px);
   letter-spacing: -0.03em;
 }
 
 .sectionLead {
   margin: 12px 0 0;
   color: var(--muted);
-  font-size: 11.9px;
+  font-size: 17px;
   line-height: 1.7;
 }
 
@@ -421,7 +421,7 @@ select {
 .subpageHero-products .sectionTitle {
   color: #ffffff;
   white-space: nowrap;
-  font-size: clamp(22.4px, 2.24vw, 35px);
+  font-size: clamp(32px, 3.2vw, 50px);
 }
 
 .subpageHero-products .sectionLead {
@@ -541,7 +541,7 @@ select {
 .companyHistoryTitle {
   margin: 0;
   color: #1c4f96;
-  font-size: clamp(23.8px, 2.66vw, 39.2px);
+  font-size: clamp(34px, 3.8vw, 56px);
   line-height: 0.98;
   letter-spacing: -0.05em;
 }
@@ -552,7 +552,7 @@ select {
   gap: 10px;
   padding-top: 14px;
   color: rgba(15, 34, 61, 0.52);
-  font-size: 7.7px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.32em;
   white-space: nowrap;
@@ -574,7 +574,7 @@ select {
 .companyHistoryBody p {
   margin: 0;
   color: #303947;
-  font-size: clamp(11.2px, 0.756vw, 12.6px);
+  font-size: clamp(16px, 1.08vw, 18px);
   line-height: 1.78;
   letter-spacing: -0.018em;
 }
@@ -597,7 +597,7 @@ select {
 
 .companyPrinciplesBrand {
   color: #1c4f96;
-  font-size: clamp(33.6px, 4.06vw, 61.6px);
+  font-size: clamp(48px, 5.8vw, 88px);
   line-height: 0.92;
   letter-spacing: -0.06em;
 }
@@ -605,7 +605,7 @@ select {
 .companyPrinciplesLead {
   margin: 0;
   color: #5fb5f5;
-  font-size: clamp(15.4px, 1.54vw, 23.8px);
+  font-size: clamp(22px, 2.2vw, 34px);
   font-weight: 700;
   line-height: 1.02;
   letter-spacing: -0.04em;
@@ -633,7 +633,7 @@ select {
 }
 
 .companyPrinciplesHead span {
-  font-size: clamp(14px, 1.12vw, 19.6px);
+  font-size: clamp(20px, 1.6vw, 28px);
   font-weight: 700;
   letter-spacing: -0.03em;
 }
@@ -651,7 +651,7 @@ select {
   margin: 0;
   max-width: 560px;
   color: #143d7c;
-  font-size: clamp(15.4px, 1.33vw, 23.8px);
+  font-size: clamp(22px, 1.9vw, 34px);
   font-weight: 700;
   line-height: 1.24;
   letter-spacing: -0.04em;
@@ -712,7 +712,7 @@ select {
 .companyOriginTitle {
   margin: 0;
   color: #1c4f96;
-  font-size: clamp(28px, 3.5vw, 50.4px);
+  font-size: clamp(40px, 5vw, 72px);
   line-height: 0.95;
   letter-spacing: -0.06em;
 }
@@ -724,7 +724,7 @@ select {
 
 .companyOriginHeading {
   color: #54adef;
-  font-size: clamp(15.4px, 1.26vw, 21px);
+  font-size: clamp(22px, 1.8vw, 30px);
   line-height: 1.05;
   letter-spacing: -0.04em;
 }
@@ -737,7 +737,7 @@ select {
 .companyOriginBody p {
   margin: 0;
   color: #12161d;
-  font-size: clamp(11.2px, 0.77vw, 13.3px);
+  font-size: clamp(16px, 1.1vw, 19px);
   line-height: 1.82;
   letter-spacing: -0.024em;
 }
@@ -821,7 +821,7 @@ select {
   border: 0;
   background: #ffffff;
   color: rgba(15, 34, 61, 0.74);
-  font-size: 9.1px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -938,7 +938,7 @@ select {
   align-items: center;
   min-height: 126px;
   padding: 0;
-  font-size: 15.4px;
+  font-size: 22px;
   font-weight: 700;
   color: var(--text);
   letter-spacing: 0.01em;
@@ -1007,7 +1007,7 @@ select {
   background: transparent;
   border: 1px solid rgba(15, 34, 61, 0);
   transition: 180ms ease;
-  font-size: 11.2px;
+  font-size: 16px;
   line-height: 1.25;
   letter-spacing: 0;
 }
@@ -1044,7 +1044,7 @@ select {
   border: 1px solid var(--line);
   border-radius: 4px;
   background: #ffffff;
-  font-size: 9.8px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--text);
 }
@@ -1090,7 +1090,7 @@ select {
   justify-content: center;
   width: 32px;
   min-width: 32px;
-  font-size: 9.1px;
+  font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.08em;
   line-height: 1;
@@ -1104,7 +1104,7 @@ select {
   gap: 10px;
   padding: 11px 12px;
   border-radius: 4px;
-  font-size: 9.8px;
+  font-size: 14px;
 }
 
 .localeDropdownLink:hover,
@@ -1157,7 +1157,7 @@ select {
 }
 
 .mobileMenuTitle {
-  font-size: 12.6px;
+  font-size: 18px;
   font-weight: 800;
   color: var(--blue-deep);
 }
@@ -1257,13 +1257,13 @@ select {
 
 .lumosAdminSidebarHead strong {
   display: block;
-  font-size: 12.6px;
+  font-size: 18px;
 }
 
 .lumosAdminSidebarHead span {
   display: block;
   margin-top: 5px;
-  font-size: 8.4px;
+  font-size: 12px;
   color: var(--admin-muted);
 }
 
@@ -1316,7 +1316,7 @@ select {
 
 .lumosAdminNavGroupLabel {
   padding: 0 10px;
-  font-size: 7.7px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1369,7 +1369,7 @@ select {
 }
 
 .lumosAdminNavMeta {
-  font-size: 8.4px;
+  font-size: 12px;
   line-height: 1.5;
 }
 
@@ -1387,7 +1387,7 @@ select {
 }
 
 .lumosAdminLayout[data-collapsed="true"] .lumosAdminNavLabel {
-  font-size: 7.7px;
+  font-size: 11px;
   text-align: center;
 }
 
@@ -1417,7 +1417,7 @@ select {
 
 .lumosAdminHeader h1 {
   margin: 0;
-  font-size: 19.6px;
+  font-size: 28px;
 }
 
 .lumosAdminHeader p {
@@ -1453,14 +1453,14 @@ select {
 }
 
 .lumosAdminStatItem span {
-  font-size: 7.7px;
+  font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--admin-muted);
 }
 
 .lumosAdminStatItem strong {
-  font-size: 9.8px;
+  font-size: 14px;
 }
 
 .lumosAdminHeaderActions {
@@ -1496,7 +1496,7 @@ select {
   border-radius: 999px;
   background: #d93025;
   color: #ffffff;
-  font-size: 7px;
+  font-size: 10px;
   font-weight: 700;
   line-height: 1;
   box-shadow: 0 0 0 2px var(--admin-surface);
@@ -1530,7 +1530,7 @@ select {
 
 .lumosAdminModalHead h2 {
   margin: 8px 0 0;
-  font-size: 16.8px;
+  font-size: 24px;
 }
 
 .lumosAdminModalBody {
@@ -1560,7 +1560,7 @@ select {
 }
 
 .lumosAdminNotificationCopy strong {
-  font-size: 11.2px;
+  font-size: 16px;
 }
 
 .lumosAdminNotificationCopy p {
@@ -1586,11 +1586,11 @@ select {
 }
 
 .lumosAdminAssetPreviewHead strong {
-  font-size: 9.8px;
+  font-size: 14px;
 }
 
 .lumosAdminAssetPreviewHead span {
-  font-size: 8.4px;
+  font-size: 12px;
   color: var(--admin-muted);
 }
 
@@ -1712,7 +1712,7 @@ select {
 }
 
 .lumosAdminDirectoryPrimary strong {
-  font-size: 12.6px;
+  font-size: 18px;
   color: var(--admin-accent);
 }
 
@@ -1744,7 +1744,7 @@ select {
   gap: 4px;
   justify-items: end;
   color: var(--admin-muted);
-  font-size: 8.4px;
+  font-size: 12px;
 }
 
 .lumosAdminEmptyState {
@@ -1774,7 +1774,7 @@ select {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 8.4px;
+  font-size: 12px;
   color: var(--admin-muted);
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -1812,7 +1812,7 @@ select {
 }
 
 .lumosAdminPageEyebrow {
-  font-size: 8.4px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1821,7 +1821,7 @@ select {
 
 .lumosAdminPageCopy h2 {
   margin: 0;
-  font-size: 16.8px;
+  font-size: 24px;
 }
 
 .lumosAdminPageCopy p {
@@ -1848,7 +1848,7 @@ select {
   border-radius: 999px;
   border: 1px solid var(--admin-border);
   background: var(--admin-surface-strong);
-  font-size: 8.4px;
+  font-size: 12px;
   color: var(--admin-muted);
 }
 
@@ -1878,7 +1878,7 @@ select {
 
 .lumosAdminSectionHead h2 {
   margin: 0;
-  font-size: 14px;
+  font-size: 20px;
 }
 
 .lumosAdminSectionHead p {
@@ -1906,12 +1906,12 @@ select {
 .adminHint {
   margin: -4px 0 0;
   color: var(--admin-muted);
-  font-size: 9.1px;
+  font-size: 13px;
   line-height: 1.6;
 }
 
 .lumosAdminLayout .field span {
-  font-size: 9.1px;
+  font-size: 13px;
   font-weight: 700;
   color: var(--admin-muted);
 }
@@ -1976,7 +1976,7 @@ select {
 .lumosAdminHistoryItem span,
 .lumosAdminInquiryMeta span {
   color: var(--admin-muted);
-  font-size: 9.1px;
+  font-size: 13px;
 }
 
 .lumosAdminInquiryMeta {
@@ -2011,7 +2011,7 @@ select {
 
 .lumosAdminLogHead {
   padding: 0 10px 8px;
-  font-size: 8.4px;
+  font-size: 12px;
   font-weight: 700;
   color: var(--admin-muted);
 }
@@ -2043,7 +2043,7 @@ select {
 
 .adminLoginHead h1 {
   margin: 10px 0 0;
-  font-size: 21px;
+  font-size: 30px;
 }
 
 .adminLoginHead p {
@@ -2066,7 +2066,7 @@ select {
 }
 
 .adminLoginCard .field span {
-  font-size: 8.4px;
+  font-size: 12px;
   font-weight: 700;
   color: #5f6f82;
   letter-spacing: 0.04em;
@@ -2089,7 +2089,7 @@ select {
 .adminLoginError,
 .adminLoginMessage {
   margin: 0;
-  font-size: 9.8px;
+  font-size: 14px;
 }
 
 .adminLoginError {
@@ -2196,7 +2196,7 @@ select {
   min-height: 20px;
   margin-bottom: 2px;
   color: #ffffff;
-  font-size: 12.6px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1.25;
 }
@@ -2255,7 +2255,7 @@ select {
   gap: 16px;
   padding-top: 18px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 9.8px;
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.82);
 }
 
@@ -2272,7 +2272,7 @@ select {
   border: 1px solid rgba(15, 34, 61, 0.12);
   background: rgba(255, 255, 255, 0.96);
   color: var(--blue-deep);
-  font-size: 8.4px;
+  font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.08em;
   opacity: 0;
@@ -2534,7 +2534,7 @@ select {
   margin-top: 0;
   max-width: 720px;
   color: rgba(248, 251, 255, 0.92);
-  font-size: 12.6px;
+  font-size: 18px;
   line-height: 1.95;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.24);
 }
@@ -2549,7 +2549,7 @@ select {
   display: inline-flex;
   margin-bottom: 10px;
   color: rgba(130, 205, 255, 0.96);
-  font-size: 8.4px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -2561,7 +2561,7 @@ select {
 .heroRelationText {
   margin: 0;
   color: rgba(233, 241, 250, 0.84);
-  font-size: 11.2px;
+  font-size: 16px;
   line-height: 1.9;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.22);
   opacity: 0;
@@ -2619,6 +2619,8 @@ select {
 }
 
 .storySection {
+  position: relative;
+  isolation: isolate;
   width: 100%;
   padding: 82px 0 72px;
   background-image: url("/story-origin-lab.png");
@@ -2627,7 +2629,19 @@ select {
   background-repeat: no-repeat;
 }
 
+.storySection::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(244, 248, 252, 0.78) 0%, rgba(244, 248, 252, 0.72) 46%, rgba(244, 248, 252, 0.34) 100%),
+    linear-gradient(180deg, rgba(244, 248, 252, 0.46) 0%, rgba(244, 248, 252, 0.18) 100%);
+}
+
 .storyInner {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: minmax(190px, 0.52fr) minmax(0, 1.48fr);
   gap: 36px 42px;
@@ -2636,7 +2650,12 @@ select {
 
 .storyLeadBlock {
   align-self: center;
-  padding-left: 26px;
+  padding: 24px 26px;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(15, 34, 61, 0.12);
+  border-radius: 4px;
+  box-shadow: 0 12px 28px rgba(8, 20, 40, 0.12);
+  backdrop-filter: blur(3px);
 }
 
 .storyReveal {
@@ -2651,6 +2670,17 @@ select {
 
 .storyReveal.isRevealed {
   opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.storyReveal.storySlideFromRight {
+  transform: translate3d(72px, 0, 0);
+  transition:
+    opacity 0.68s ease,
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.storyReveal.storySlideFromRight.isRevealed {
   transform: translate3d(0, 0, 0);
 }
 
@@ -2680,12 +2710,17 @@ select {
   display: grid;
   gap: 20px;
   max-width: 760px;
-  padding-right: 18px;
+  padding: 24px 28px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(15, 34, 61, 0.12);
+  border-radius: 4px;
+  box-shadow: 0 12px 28px rgba(8, 20, 40, 0.12);
+  backdrop-filter: blur(3px);
 }
 
 .storyEyebrow {
   color: #009fe3;
-  font-size: 12.6px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1.45;
   letter-spacing: 0;
@@ -2700,7 +2735,7 @@ select {
 
 .storyParagraph {
   margin: 0;
-  font-size: 11.2px;
+  font-size: 16px;
   line-height: 1.9;
   color: #0e1724;
   word-break: keep-all;
@@ -2738,7 +2773,7 @@ select {
 
 .storyMilestone span {
   display: block;
-  font-size: 16.8px;
+  font-size: 24px;
   font-weight: 800;
   line-height: 1.52;
   white-space: pre-line;
@@ -2841,7 +2876,7 @@ select {
   color: #ffffff;
   background: #003e6c;
   box-shadow: 2px 2px 4px rgba(4, 18, 32, 0.28);
-  font-size: 8.4px;
+  font-size: 12px;
   font-weight: 700;
   line-height: 1;
   letter-spacing: 0;
@@ -2853,7 +2888,7 @@ select {
   min-height: 54px;
   width: 100%;
   color: #00275f;
-  font-size: 15.4px;
+  font-size: 22px;
   font-weight: 800;
   line-height: 1.65;
   letter-spacing: 0;
@@ -2865,7 +2900,7 @@ select {
 .storyHighlightBody {
   margin: 0;
   color: #00275f;
-  font-size: 11.2px;
+  font-size: 16px;
   line-height: 1.55;
   transform: none;
 }
@@ -2899,7 +2934,7 @@ select {
 
 .storyRelationTitle {
   margin: 0;
-  font-size: clamp(19.6px, 1.68vw, 28px);
+  font-size: clamp(28px, 2.4vw, 40px);
   line-height: 1.1;
   letter-spacing: -0.04em;
   color: #153a69;
@@ -2908,7 +2943,7 @@ select {
 .storyRelationBody {
   margin: 0;
   max-width: 860px;
-  font-size: 11.9px;
+  font-size: 17px;
   line-height: 1.85;
   color: #24364b;
   word-break: keep-all;
@@ -2938,7 +2973,7 @@ select {
 }
 
 .patentTitle {
-  font-size: clamp(26.6px, 2.8vw, 37.8px);
+  font-size: clamp(38px, 4vw, 54px);
 }
 
 .patentLead {
@@ -2951,7 +2986,7 @@ select {
   align-items: center;
   min-height: 44px;
   color: var(--blue-deep);
-  font-size: 9.8px;
+  font-size: 14px;
   font-weight: 700;
   white-space: nowrap;
 }
@@ -2991,7 +3026,7 @@ select {
 
 .patentCardType {
   color: #1db7c1;
-  font-size: 9.8px;
+  font-size: 14px;
   font-weight: 700;
 }
 
@@ -3001,7 +3036,7 @@ select {
 
 .patentCardTitle {
   margin: 18px 0 0;
-  font-size: 12.6px;
+  font-size: 18px;
   line-height: 1.5;
   letter-spacing: -0.02em;
   color: #111827;
@@ -3014,7 +3049,7 @@ select {
 .patentCardSummary {
   margin: 14px 0 0;
   color: #4a5b71;
-  font-size: 9.8px;
+  font-size: 14px;
   line-height: 1.75;
 }
 
@@ -3032,7 +3067,7 @@ select {
 
 .patentCardDate {
   color: #7a8798;
-  font-size: 9.1px;
+  font-size: 13px;
   font-weight: 600;
 }
 
@@ -3084,7 +3119,7 @@ select {
   border: 1px solid rgba(15, 34, 61, 0.14);
   background: #ffffff;
   color: #27415f;
-  font-size: 9.1px;
+  font-size: 13px;
   font-weight: 700;
 }
 
@@ -3219,7 +3254,7 @@ select {
   display: grid;
   gap: 4px;
   color: #1c6cb3;
-  font-size: clamp(12.6px, 0.98vw, 15.4px);
+  font-size: clamp(18px, 1.4vw, 22px);
   font-weight: 700;
   line-height: 1.22;
   letter-spacing: -0.01em;
@@ -3370,7 +3405,7 @@ select {
 }
 
 .seriesCardSoftwarePanel strong {
-  font-size: 16.8px;
+  font-size: 24px;
   letter-spacing: -0.02em;
 }
 
@@ -3380,7 +3415,7 @@ select {
   padding: 6px 10px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   color: rgba(255, 255, 255, 0.8);
-  font-size: 7.7px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.14em;
 }
@@ -3400,13 +3435,13 @@ select {
 }
 
 .seriesCardText strong {
-  font-size: 16.8px;
+  font-size: 24px;
   letter-spacing: -0.03em;
 }
 
 .seriesCardText span {
   color: var(--muted);
-  font-size: 9.8px;
+  font-size: 14px;
   line-height: 1.6;
 }
 
@@ -3418,7 +3453,7 @@ select {
   height: 34px;
   border: 1px solid rgba(15, 34, 61, 0.12);
   color: var(--blue-deep);
-  font-size: 12.6px;
+  font-size: 18px;
   transition:
     transform 220ms ease,
     border-color 220ms ease,
@@ -3480,14 +3515,14 @@ select {
 
 .productShowcaseTitle {
   margin: 0;
-  font-size: 12.6px;
+  font-size: 18px;
   line-height: 1.45;
   color: #111827;
 }
 
 .productShowcaseText {
   margin: 0;
-  font-size: 11.9px;
+  font-size: 17px;
   line-height: 1.7;
   color: #111827;
 }
@@ -3532,7 +3567,7 @@ select {
 }
 
 .productSubnavIndex {
-  font-size: 7.7px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
   color: rgba(15, 34, 61, 0.54);
@@ -3566,7 +3601,7 @@ select {
   border: 0;
   background: transparent;
   color: var(--blue-deep);
-  font-size: 12.6px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1;
   opacity: 0;
@@ -3594,13 +3629,13 @@ select {
 
 .productDirectoryNo {
   color: var(--blue);
-  font-size: 8.4px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.16em;
 }
 
 .productDirectoryName {
-  font-size: 15.4px;
+  font-size: 22px;
 }
 
 .productDirectorySummary {
@@ -3643,7 +3678,7 @@ select {
 
 .productMetaLine span {
   color: #ffffff;
-  font-size: clamp(23.8px, 2.17vw, 44.8px);
+  font-size: clamp(34px, 3.1vw, 64px);
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 0.96;
@@ -3652,7 +3687,7 @@ select {
 
 .productMetaLine strong {
   color: #ffffff;
-  font-size: clamp(16.8px, 1.54vw, 30.8px);
+  font-size: clamp(24px, 2.2vw, 44px);
   font-weight: 400;
   line-height: 1.14;
   letter-spacing: -0.04em;
@@ -3665,7 +3700,7 @@ select {
 
 .productDetailFeatureTitle {
   color: #22b7ff;
-  font-size: clamp(15.4px, 1.12vw, 22.4px);
+  font-size: clamp(22px, 1.6vw, 32px);
   font-weight: 700;
   line-height: 1.1;
 }
@@ -3677,7 +3712,7 @@ select {
 
 .productDetailFeatureItem {
   color: rgba(255, 255, 255, 0.96);
-  font-size: clamp(11.9px, 0.805vw, 16.8px);
+  font-size: clamp(17px, 1.15vw, 24px);
   line-height: 1.35;
   letter-spacing: -0.02em;
 }
@@ -3774,7 +3809,7 @@ select {
   width: min(100%, 1080px);
   margin: -8px auto 0;
   color: #51657d;
-  font-size: 10.5px;
+  font-size: 15px;
   line-height: 1.75;
 }
 
@@ -3850,7 +3885,7 @@ select {
 .ifiProjectionCaption {
   text-align: center;
   color: #111827;
-  font-size: 11.9px;
+  font-size: 17px;
   font-weight: 800;
   line-height: 1.4;
 }
@@ -3922,22 +3957,22 @@ select {
   padding: 18px 20px;
   background: #1f4c86;
   color: #ffffff;
-  font-size: 11.2px;
+  font-size: 16px;
   font-weight: 700;
   text-align: center;
 }
 
 .lumBFilterTable thead tr:first-child th {
-  font-size: 14px;
+  font-size: 20px;
 }
 
 .lumBFilterTable thead tr:first-child strong {
-  font-size: 19.6px;
+  font-size: 28px;
   font-weight: 800;
 }
 
 .lumBFilterTable thead tr:last-child th {
-  font-size: 12.6px;
+  font-size: 18px;
 }
 
 .lumBFilterTable tbody th,
@@ -3953,7 +3988,7 @@ select {
 }
 
 .lumBFilterTable tbody td {
-  font-size: 12.6px;
+  font-size: 18px;
   font-weight: 700;
   color: #1b2430;
 }
@@ -4016,7 +4051,7 @@ select {
   padding: 16px 18px;
   background: #1f4c86;
   color: #ffffff;
-  font-size: 12.6px;
+  font-size: 18px;
   font-weight: 800;
 }
 
@@ -4082,16 +4117,16 @@ select {
   background: #1f4c86;
   color: #ffffff;
   text-align: center;
-  font-size: 11.2px;
+  font-size: 16px;
   font-weight: 800;
 }
 
 .lumFFilterTable thead tr:first-child th {
-  font-size: 14px;
+  font-size: 20px;
 }
 
 .lumFFilterTable thead tr:first-child strong {
-  font-size: 19.6px;
+  font-size: 28px;
   font-weight: 800;
 }
 
@@ -4201,7 +4236,7 @@ select {
   }
 
   .ifiProjectionCaption {
-    font-size: 10.5px;
+    font-size: 15px;
   }
 
   .lumBFilterTableWrap,
@@ -4223,24 +4258,24 @@ select {
   .lumFFilterTable tbody th,
   .lumFFilterTable tbody td {
     padding: 11px 8px;
-    font-size: 8.4px;
+    font-size: 12px;
     line-height: 1.45;
     word-break: keep-all;
   }
 
   .lumBFilterTable thead tr:first-child th,
   .lumFFilterTable thead tr:first-child th {
-    font-size: 9.8px;
+    font-size: 14px;
   }
 
   .lumBFilterTable thead tr:first-child strong,
   .lumFFilterTable thead tr:first-child strong {
-    font-size: 12.6px;
+    font-size: 18px;
   }
 
   .lumBFilterTable thead tr:last-child th,
   .lumFFilterTable thead tr:last-child th {
-    font-size: 8.4px;
+    font-size: 12px;
   }
 }
 
@@ -4314,7 +4349,7 @@ select {
 
 .softwareFeatureCard strong {
   color: var(--blue-deep);
-  font-size: 14px;
+  font-size: 20px;
   letter-spacing: -0.02em;
 }
 
@@ -4382,7 +4417,7 @@ select {
   padding: 16px 18px;
   background: #0f4f8d;
   color: #ffffff;
-  font-size: 11.2px;
+  font-size: 16px;
   font-weight: 800;
   text-align: center;
 }
@@ -4398,7 +4433,7 @@ select {
   padding: 15px 18px;
   border-bottom: 1px solid #a9c2da;
   text-align: center;
-  font-size: 11.2px;
+  font-size: 16px;
   line-height: 1.5;
 }
 
@@ -4419,7 +4454,7 @@ select {
   padding: 17px 18px;
   background: #0f4f8d;
   color: #ffffff;
-  font-size: 11.2px;
+  font-size: 16px;
   font-weight: 800;
   text-align: center;
 }
@@ -4457,7 +4492,7 @@ select {
 }
 
 .applicationsHeroMetaItem strong {
-  font-size: 22.4px;
+  font-size: 32px;
   line-height: 1;
 }
 
@@ -4558,7 +4593,7 @@ select {
 
 .applicationsIndexNo {
   color: var(--blue);
-  font-size: 8.4px;
+  font-size: 12px;
   letter-spacing: 0.14em;
 }
 
@@ -4575,7 +4610,7 @@ select {
   border: 0;
   background: transparent;
   color: var(--blue-deep);
-  font-size: 12.6px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1;
   opacity: 0;
@@ -4643,13 +4678,13 @@ select {
 
 .applicationShowcaseTitle {
   margin: 0;
-  font-size: 12.6px;
+  font-size: 18px;
   color: #111827;
 }
 
 .applicationShowcaseText {
   margin: 0;
-  font-size: 11.9px;
+  font-size: 17px;
   line-height: 1.65;
   color: #111827;
 }
@@ -4694,7 +4729,7 @@ select {
   top: 22px;
   left: 22px;
   color: var(--blue-deep);
-  font-size: 9.8px;
+  font-size: 14px;
   font-weight: 800;
   letter-spacing: 0.18em;
 }
@@ -4736,7 +4771,7 @@ select {
 
 .applicationKicker {
   color: var(--blue);
-  font-size: 9.1px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -4744,14 +4779,14 @@ select {
 
 .applicationTitle {
   margin: 0;
-  font-size: clamp(22.4px, 2.8vw, 32.2px);
+  font-size: clamp(32px, 4vw, 46px);
   letter-spacing: -0.03em;
 }
 
 .applicationSummary {
   margin: 0;
   color: var(--muted);
-  font-size: 11.9px;
+  font-size: 17px;
   line-height: 1.8;
 }
 
@@ -4797,7 +4832,7 @@ select {
 }
 
 .contactInfoRow strong {
-  font-size: 15.4px;
+  font-size: 22px;
 }
 
 .contactInfoRow span {
@@ -4831,7 +4866,7 @@ select {
   content: "*";
   color: #e11d48;
   font-weight: 700;
-  font-size: 0.735em;
+  font-size: 1.05em;
 }
 
 .contactForm .field {
@@ -4851,17 +4886,24 @@ select {
 
 .contactFormError {
   margin: 0;
-  font-size: 9.1px;
+  font-size: 13px;
   line-height: 1.5;
   color: #d11f38;
 }
 
 .contactRobotCheck {
   display: grid;
+  justify-items: center;
   gap: 8px;
   padding: 14px 16px;
   border: 1px solid rgba(15, 34, 61, 0.12);
   background: #ffffff;
+}
+
+.contactRecaptchaWidget {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .contactRobotCheck label {
@@ -4869,7 +4911,7 @@ select {
   align-items: center;
   gap: 10px;
   color: var(--text);
-  font-size: 9.8px;
+  font-size: 14px;
   line-height: 1.4;
 }
 
@@ -4906,7 +4948,7 @@ select {
 
 .distributorSectionHead h2 {
   margin: 0;
-  font-size: 19.6px;
+  font-size: 28px;
 }
 
 .distributorSectionHead p {
@@ -4940,7 +4982,7 @@ select {
 
 .distributorOverviewCard strong,
 .distributorDirectoryMeta strong {
-  font-size: 12.6px;
+  font-size: 18px;
 }
 
 .distributorOverviewCard p,
@@ -4989,7 +5031,7 @@ select {
 }
 
 .distributorDirectoryMeta span {
-  font-size: 9.1px;
+  font-size: 13px;
   font-weight: 700;
   color: var(--blue);
   letter-spacing: 0.04em;
@@ -5068,7 +5110,7 @@ select {
 
 .resourcesTableHead {
   padding: 14px 18px;
-  font-size: 9.8px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--muted);
   border-bottom: 1px solid rgba(15, 34, 61, 0.12);
@@ -5111,7 +5153,7 @@ select {
 
 .resourceDetailTitle {
   margin: 0;
-  font-size: clamp(19.6px, 2.1vw, 26.6px);
+  font-size: clamp(28px, 3vw, 38px);
   line-height: 1.22;
   color: var(--text);
 }
@@ -5141,7 +5183,7 @@ select {
 .resourceDetailTitleBlock strong,
 .resourceMetaInline strong,
 .resourceDetailSectionHead strong {
-  font-size: 9.8px;
+  font-size: 14px;
   color: var(--muted);
   letter-spacing: 0.04em;
 }
@@ -5201,7 +5243,7 @@ select {
 }
 
 .resourceAttachmentName {
-  font-size: 10.5px;
+  font-size: 15px;
   font-weight: 600;
   line-height: 1.7;
   color: var(--text);
@@ -5362,7 +5404,7 @@ td {
     border: 1px solid rgba(255, 255, 255, 0.22);
     background: rgba(255, 255, 255, 0.08);
     color: #ffffff;
-    font-size: 16.8px;
+    font-size: 24px;
     line-height: 1;
   }
 
@@ -5421,7 +5463,7 @@ td {
   }
 
   .companyHistoryBody p {
-    font-size: 11.2px;
+    font-size: 16px;
     line-height: 1.78;
   }
 
@@ -5430,7 +5472,7 @@ td {
   }
 
   .companyPrinciplesLead {
-    font-size: 26.6px;
+    font-size: 38px;
   }
 
   .companyPrinciplesTable {
@@ -5447,7 +5489,7 @@ td {
   }
 
   .companyPrinciplesCell p {
-    font-size: 23.8px;
+    font-size: 34px;
   }
 
   .companyOriginLayout {
@@ -5469,7 +5511,7 @@ td {
   }
 
   .companyOriginBody p {
-    font-size: 11.9px;
+    font-size: 17px;
     line-height: 1.82;
   }
 
@@ -5510,7 +5552,7 @@ td {
 
   .heroWheelCenter {
     inset: 58px;
-    font-size: 7px;
+    font-size: 10px;
     letter-spacing: 0.14em;
   }
 
@@ -5529,7 +5571,7 @@ td {
     right: 18px;
     bottom: 18px;
     max-width: 190px;
-    font-size: 8.4px;
+    font-size: 12px;
     line-height: 1.55;
   }
 
@@ -5654,7 +5696,7 @@ td {
 
   .subpageHero-products .sectionTitle {
     white-space: normal;
-    font-size: clamp(21px, 3.64vw, 29.4px);
+    font-size: clamp(30px, 5.2vw, 42px);
   }
 }
 
@@ -5677,7 +5719,7 @@ td {
   .sectionLead,
   .applicationSummary,
   .productDirectorySummary {
-    font-size: 11.2px;
+    font-size: 16px;
     line-height: 1.75;
   }
 
@@ -5687,7 +5729,7 @@ td {
   }
 
   .brandLink {
-    font-size: 15.4px;
+    font-size: 22px;
   }
 
   .footerGrid {
@@ -5752,7 +5794,7 @@ td {
   .heroVisualLabel {
     top: 16px;
     left: 16px;
-    font-size: 7px;
+    font-size: 10px;
     letter-spacing: 0.14em;
   }
 
@@ -5781,12 +5823,12 @@ td {
 
   .heroWheelCenter {
     inset: 47px;
-    font-size: 6.3px;
+    font-size: 9px;
   }
 
   .heroVisualCaption {
     max-width: 150px;
-    font-size: 7.7px;
+    font-size: 11px;
     line-height: 1.45;
   }
 
@@ -5832,7 +5874,7 @@ td {
   }
 
   .heroLead {
-    font-size: 11.2px;
+    font-size: 16px;
     line-height: 1.82;
   }
 
@@ -5842,7 +5884,7 @@ td {
   }
 
   .heroMediaSpecLabel {
-    font-size: 7px;
+    font-size: 10px;
     letter-spacing: 0.14em;
   }
 
@@ -5877,20 +5919,20 @@ td {
 
   .storyHighlightLabel {
     width: min(140px, 100%);
-    font-size: 7.7px;
+    font-size: 11px;
     letter-spacing: 0;
     line-height: 1;
   }
 
   .storyHighlightTitle {
     display: block;
-    font-size: 13.3px;
+    font-size: 19px;
   }
 
   .storyHighlightBody {
     display: block;
     overflow: visible;
-    font-size: 8.4px;
+    font-size: 12px;
     line-height: 1.45;
     word-break: keep-all;
   }
@@ -5906,11 +5948,11 @@ td {
   .storyContent {
     gap: 20px;
     margin-top: 0;
-    padding: 0;
+    padding: 20px;
   }
 
   .storyEyebrow {
-    font-size: 11.2px;
+    font-size: 16px;
   }
 
   .storyParagraphs {
@@ -5918,7 +5960,7 @@ td {
   }
 
   .storyParagraph {
-    font-size: 11.2px;
+    font-size: 16px;
     line-height: 1.85;
   }
 
@@ -5934,7 +5976,7 @@ td {
   }
 
   .storyMilestone span {
-    font-size: 15.4px;
+    font-size: 22px;
   }
 
   .storyRelationCard {
@@ -5943,11 +5985,11 @@ td {
   }
 
   .storyRelationTitle {
-    font-size: 18.2px;
+    font-size: 26px;
   }
 
   .storyRelationBody {
-    font-size: 10.5px;
+    font-size: 15px;
     line-height: 1.8;
   }
 
@@ -5971,21 +6013,21 @@ td {
   }
 
   .companyHistoryTitle {
-    font-size: 25.2px;
+    font-size: 36px;
   }
 
   .companyHistoryKicker {
-    font-size: 7px;
+    font-size: 10px;
     letter-spacing: 0.24em;
     white-space: normal;
   }
 
   .companyPrinciplesBrand {
-    font-size: 40.6px;
+    font-size: 58px;
   }
 
   .companyPrinciplesLead {
-    font-size: 16.8px;
+    font-size: 24px;
     line-height: 1.12;
   }
 
@@ -6000,7 +6042,7 @@ td {
   }
 
   .companyPrinciplesHead span {
-    font-size: 14.7px;
+    font-size: 21px;
   }
 
   .companyPrinciplesCell {
@@ -6009,12 +6051,12 @@ td {
   }
 
   .companyPrinciplesCell p {
-    font-size: 17.5px;
+    font-size: 25px;
     line-height: 1.22;
   }
 
   .companyOriginTitle {
-    font-size: 39.2px;
+    font-size: 56px;
   }
 
   .companyOriginMedia {
@@ -6022,7 +6064,7 @@ td {
   }
 
   .companyOriginHeading {
-    font-size: 16.8px;
+    font-size: 24px;
     line-height: 1.12;
   }
 
@@ -6031,7 +6073,7 @@ td {
   }
 
   .companyOriginBody p {
-    font-size: 11.2px;
+    font-size: 16px;
     line-height: 1.76;
   }
 
@@ -6072,7 +6114,7 @@ td {
   }
 
   .distributorSectionHead h2 {
-    font-size: 16.8px;
+    font-size: 24px;
   }
 
   .productsPage .subpageContent {
@@ -6093,7 +6135,7 @@ td {
   }
 
   .applicationsHeroMetaItem strong {
-    font-size: 18.2px;
+    font-size: 26px;
   }
 
   .applicationsIndexInner,
@@ -6132,11 +6174,11 @@ td {
   }
 
   .applicationShowcaseTitle {
-    font-size: 11.9px;
+    font-size: 17px;
   }
 
   .applicationShowcaseText {
-    font-size: 10.5px;
+    font-size: 15px;
     line-height: 1.8;
   }
 
@@ -6151,11 +6193,11 @@ td {
   }
 
   .productShowcaseTitle {
-    font-size: 11.9px;
+    font-size: 17px;
   }
 
   .productShowcaseText {
-    font-size: 10.5px;
+    font-size: 15px;
     line-height: 1.8;
   }
 
@@ -6185,7 +6227,7 @@ td {
   .applicationVisualBadge {
     top: 16px;
     left: 16px;
-    font-size: 8.4px;
+    font-size: 12px;
   }
 
   .applicationFeature {
@@ -6206,19 +6248,19 @@ td {
   }
 
   .productMetaLine span {
-    font-size: 32.2px;
+    font-size: 46px;
   }
 
   .productMetaLine strong {
-    font-size: 23.8px;
+    font-size: 34px;
   }
 
   .productDetailFeatureTitle {
-    font-size: 16.8px;
+    font-size: 24px;
   }
 
   .productDetailFeatureItem {
-    font-size: 14px;
+    font-size: 20px;
   }
 
   .productDetailVisualPanel {
@@ -6240,11 +6282,11 @@ td {
   .productAccessoryTable th,
   .productAccessoryTable td {
     padding: 13px 12px;
-    font-size: 9.8px;
+    font-size: 14px;
   }
 
   .productDirectoryName {
-    font-size: 13.3px;
+    font-size: 19px;
   }
 
   .resourcesTableHead {
@@ -6262,7 +6304,7 @@ td {
   .resourcesRow > span:last-child {
     grid-column: 2;
     color: var(--muted);
-    font-size: 9.1px;
+    font-size: 13px;
   }
 
   .resourceDetailHead {
@@ -6284,7 +6326,7 @@ td {
 @media (max-width: 520px) {
   .headline,
   .sectionTitle {
-    font-size: 21px;
+    font-size: 30px;
   }
 
   .brandLink {
@@ -6296,7 +6338,7 @@ td {
   }
 
   .mobileMenuTitle {
-    font-size: 11.9px;
+    font-size: 17px;
   }
 
   .applicationsBodyShowcase {
@@ -6308,12 +6350,12 @@ td {
   }
 
   .storyDisplayTitle {
-    font-size: 32.2px;
+    font-size: 46px;
     line-height: 0.98;
   }
 
   .storyParagraph {
-    font-size: 10.5px;
+    font-size: 15px;
     line-height: 1.8;
   }
 
@@ -6364,7 +6406,7 @@ td {
   }
 
   .applicationsIndexNo {
-    font-size: 8.4px;
+    font-size: 12px;
     letter-spacing: 0.14em;
   }
 
@@ -6373,7 +6415,7 @@ td {
   }
 
   .productDirectoryNo {
-    font-size: 17.5px;
+    font-size: 25px;
   }
 
   .homeSeriesSlide .seriesCard {
@@ -6430,11 +6472,11 @@ td {
   }
 
   .seriesCardText strong {
-    font-size: 13.3px;
+    font-size: 19px;
   }
 
   .seriesCardText span {
-    font-size: 9.1px;
+    font-size: 13px;
   }
 
   .productMetaLine {
@@ -6442,19 +6484,19 @@ td {
   }
 
   .productMetaLine span {
-    font-size: 26.6px;
+    font-size: 38px;
   }
 
   .productMetaLine strong {
-    font-size: 19.6px;
+    font-size: 28px;
   }
 
   .productDetailFeatureTitle {
-    font-size: 14.7px;
+    font-size: 21px;
   }
 
   .productDetailFeatureItem {
-    font-size: 12.6px;
+    font-size: 18px;
   }
 
   .productDetailVisualImage {
@@ -6468,7 +6510,7 @@ td {
   .productAccessoryTable th,
   .productAccessoryTable td {
     padding: 11px 8px;
-    font-size: 8.4px;
+    font-size: 12px;
     line-height: 1.45;
   }
 
@@ -6482,7 +6524,7 @@ td {
     min-height: 40px;
     padding: 0 12px;
     gap: 6px;
-    font-size: 7.7px;
+    font-size: 11px;
   }
 }
 .shell main {
