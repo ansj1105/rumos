@@ -2633,10 +2633,11 @@ select {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   background:
-    linear-gradient(90deg, rgba(244, 248, 252, 0.78) 0%, rgba(244, 248, 252, 0.72) 46%, rgba(244, 248, 252, 0.34) 100%),
-    linear-gradient(180deg, rgba(244, 248, 252, 0.46) 0%, rgba(244, 248, 252, 0.18) 100%);
+    linear-gradient(90deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.12) 44%, rgba(3, 8, 18, 0.16) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(3, 8, 18, 0.18) 100%);
+  pointer-events: none;
 }
 
 .storyInner {
@@ -2651,11 +2652,10 @@ select {
 .storyLeadBlock {
   align-self: center;
   padding: 24px 26px;
-  background: rgba(255, 255, 255, 0.86);
+  background: rgba(255, 255, 255, 0.92);
   border: 1px solid rgba(15, 34, 61, 0.12);
   border-radius: 4px;
-  box-shadow: 0 12px 28px rgba(8, 20, 40, 0.12);
-  backdrop-filter: blur(3px);
+  box-shadow: 0 16px 34px rgba(8, 20, 40, 0.18);
 }
 
 .storyReveal {
@@ -2711,11 +2711,10 @@ select {
   gap: 20px;
   max-width: 760px;
   padding: 24px 28px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.94);
   border: 1px solid rgba(15, 34, 61, 0.12);
   border-radius: 4px;
-  box-shadow: 0 12px 28px rgba(8, 20, 40, 0.12);
-  backdrop-filter: blur(3px);
+  box-shadow: 0 16px 34px rgba(8, 20, 40, 0.18);
 }
 
 .storyEyebrow {
