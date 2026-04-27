@@ -66,8 +66,16 @@ const productFallbackImages = {
   "lum-z": "/products/lum-z/main.png",
   ifi: "/products/ifi/main.png",
   software: "/products/software/main.png",
-  customizing: "/products/lum-b/main.png",
+  customizing: "/products/customizing/main.png",
 } as const;
+
+function getProductShowcaseImage(slug: string, imageUrl?: string | null) {
+  if (slug === "customizing") {
+    return productFallbackImages.customizing;
+  }
+
+  return imageUrl || productFallbackImages[slug as keyof typeof productFallbackImages] || "/products/lum-b/main.png";
+}
 
 export default async function ProductsPage({
   params,
@@ -108,11 +116,7 @@ export default async function ProductsPage({
             >
               <div className="productShowcaseMedia">
                 <Image
-                  src={
-                    product.imageUrl ||
-                    productFallbackImages[product.slug as keyof typeof productFallbackImages] ||
-                    "/products/lum-b/main.png"
-                  }
+                  src={getProductShowcaseImage(product.slug, product.imageUrl)}
                   alt={locale === "ko" ? product.nameKo : product.nameEn}
                   width={1200}
                   height={900}

@@ -53,8 +53,8 @@ const seriesItems: SeriesCardItem[] = [
   {
     slug: "customizing",
     name: "Customizing",
-    imageUrl: "/products/lum-b/main.png",
-    imageClassName: "isLumB",
+    imageUrl: "/products/customizing/main.png",
+    imageClassName: "isCustomizing",
   },
 ];
 
@@ -79,7 +79,7 @@ export function HomeSeriesOverview({
     const product = products?.find((candidate) => candidate.slug === item.slug);
     return {
       ...item,
-      imageUrl: product?.imageUrl || item.imageUrl,
+      imageUrl: item.slug === "customizing" ? item.imageUrl : product?.imageUrl || item.imageUrl,
     };
   });
   const desktopTopRow = mergedSeriesItems.slice(0, 4);
@@ -243,6 +243,22 @@ function getSymmetricRevealDelay(length: number, index: number) {
   return (pairStep + centerBonus) * 140;
 }
 
+function splitSeriesTitle(name: string) {
+  const match = name.match(/^(.*)\s(\([^)]+\))$/);
+
+  if (!match) {
+    return {
+      productName: name,
+      category: null,
+    };
+  }
+
+  return {
+    productName: match[1],
+    category: match[2],
+  };
+}
+
 function SeriesFeatureCard({
   item,
   locale,
@@ -252,6 +268,8 @@ function SeriesFeatureCard({
   locale: Locale;
   revealDelayMs?: number;
 }) {
+  const titleParts = splitSeriesTitle(item.name);
+
   return (
     <Link
       href={`/${locale}/products/${item.slug}`}
@@ -269,7 +287,12 @@ function SeriesFeatureCard({
         />
       </div>
       <div className="seriesFeatureContent">
-        <strong className="seriesFeatureTitle">{item.name}</strong>
+        <strong className="seriesFeatureTitle">
+          <span className="seriesFeatureTitleName">{titleParts.productName}</span>
+          {titleParts.category ? (
+            <span className="seriesFeatureTitleCategory">{titleParts.category}</span>
+          ) : null}
+        </strong>
       </div>
     </Link>
   );

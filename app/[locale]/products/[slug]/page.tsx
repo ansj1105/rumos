@@ -327,7 +327,7 @@ export default async function ProductDetailPage({
             ? { src: "/products/detail-hero/ifi.png", alt: "IFI detail hero image" }
             : isSoftwareSeries
               ? { src: "/products/software/main.png", alt: "Lumosity software detail hero image" }
-              : { src: "/products/lum-b/main.png", alt: "Customizing detail hero image" };
+              : { src: "/products/customizing/main.png", alt: "Customizing detail hero image" };
   const productDetailHeroHeadline = isLumBSeries
     ? "LUM-B"
     : isLumBLSeries

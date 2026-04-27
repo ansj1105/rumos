@@ -16,12 +16,14 @@ export function HomeStorySection({
   storyDisplayLines,
   storyParagraphs,
   storyFontSize,
+  storyMilestone,
   storyHighlights,
 }: {
   brandOriginTitle: string;
   storyDisplayLines: [string, string] | string[];
   storyParagraphs: string[];
   storyFontSize?: number | null;
+  storyMilestone: string;
   storyHighlights: StoryHighlightItem[];
 }) {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -85,20 +87,20 @@ export function HomeStorySection({
               </p>
             ))}
           </div>
+        </div>
+        <div className="storyBand storyReveal" style={{ ["--story-reveal-delay" as string]: "220ms" }}>
+          <div className="storyMilestone">
+            <span>{storyMilestone}</span>
+          </div>
           <div className="storyHighlightGrid">
-            {storyHighlights.map((item, index) => (
-              <div
+            {storyHighlights.map((item) => (
+              <StoryHighlightCard
                 key={item.key}
-                className="storyReveal"
-                style={{ ["--story-reveal-delay" as string]: `${220 + index * 100}ms` }}
-              >
-                <StoryHighlightCard
-                  iconKey={item.key}
-                  label={item.label}
-                  title={item.title}
-                  body={item.body}
-                />
-              </div>
+                iconKey={item.key}
+                label={item.label}
+                title={item.title}
+                body={item.body}
+              />
             ))}
           </div>
         </div>

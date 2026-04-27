@@ -162,7 +162,7 @@ export const defaultProducts = [
     { label: "Configuration", value: "Modular system" },
     { label: "Operation", value: "Adapted to process conditions" },
   ],
-  imageUrl: null,
+  imageUrl: item.slug === "customizing" ? "/products/customizing/main.png" : null,
   seoTitleKo: `${item.name} | 루모스`,
   seoTitleEn: `${item.name} | Lumos`,
   seoDescriptionKo: `${item.name} 제품 상세 안내 페이지입니다.`,
