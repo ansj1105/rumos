@@ -6,6 +6,7 @@ dist
 coverage
 prisma/dev.db
 *.log
+*.pem
 .DS_Store
 docs/
 logo/

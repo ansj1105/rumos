@@ -132,7 +132,7 @@ export default async function OpenGraphImage() {
             <div
               style={{
                 display: "flex",
-                fontSize: 18,
+                fontSize: 12.6,
                 letterSpacing: "0.24em",
                 color: "rgba(255,255,255,0.7)",
                 fontWeight: 700,
@@ -144,7 +144,7 @@ export default async function OpenGraphImage() {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                fontSize: 56,
+                fontSize: 39.2,
                 lineHeight: 1.08,
                 letterSpacing: "-0.04em",
                 fontWeight: 800,
@@ -157,7 +157,7 @@ export default async function OpenGraphImage() {
               style={{
                 display: "flex",
                 maxWidth: 560,
-                fontSize: 24,
+                fontSize: 16.8,
                 lineHeight: 1.55,
                 color: "rgba(255,255,255,0.8)",
               }}

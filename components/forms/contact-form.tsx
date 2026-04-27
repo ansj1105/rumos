@@ -1,23 +1,110 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 
-type FieldName = "company" | "name" | "email" | "phone" | "message";
+type FieldName = "inquiryType" | "company" | "name" | "email" | "phone" | "message" | "robotVerified";
 
-const REQUIRED_FIELDS: FieldName[] = ["company", "name", "email", "phone", "message"];
+const REQUIRED_FIELDS: FieldName[] = ["inquiryType", "company", "name", "email", "phone", "message"];
+const RECAPTCHA_SCRIPT_SRC = "https://www.google.com/recaptcha/api.js?render=explicit";
+
+declare global {
+  interface Window {
+    grecaptcha?: {
+      render: (
+        container: HTMLElement,
+        parameters: {
+          sitekey: string;
+          callback: (token: string) => void;
+          "expired-callback": () => void;
+          "error-callback": () => void;
+        },
+      ) => number;
+      reset: (widgetId?: number) => void;
+    };
+  }
+}
 
 export function ContactForm({
   locale,
-  inquiryType,
 }: {
   locale: string;
-  inquiryType: string;
 }) {
   const [status, setStatus] = useState("");
   const [fieldErrors, setFieldErrors] = useState<Partial<Record<FieldName, string>>>({});
   const [submitting, setSubmitting] = useState(false);
+  const [captchaSiteKey, setCaptchaSiteKey] = useState("");
+  const [captchaToken, setCaptchaToken] = useState("");
+  const captchaContainerRef = useRef<HTMLDivElement | null>(null);
+  const captchaWidgetIdRef = useRef<number | null>(null);
   const isKo = locale === "ko";
   const requiredErrorMessage = isKo ? "\uD544\uC218 \uC785\uB825 \uAC12\uC785\uB2C8\uB2E4" : "This field is required.";
+  const robotErrorMessage = isKo ? "\uB85C\uBD07\uC774 \uC544\uB2D8\uC744 \uD655\uC778\uD574 \uC8FC\uC138\uC694." : "Please complete the reCAPTCHA verification.";
+
+  useEffect(() => {
+    let active = true;
+
+    async function loadSiteKey() {
+      const response = await fetch("/api/contact/recaptcha-site-key");
+      const data = (await response.json()) as { siteKey?: string };
+
+      if (active && data.siteKey) {
+        setCaptchaSiteKey(data.siteKey);
+      }
+    }
+
+    loadSiteKey().catch(() => {
+      if (active) {
+        setCaptchaSiteKey("");
+      }
+    });
+
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!captchaSiteKey || !captchaContainerRef.current || captchaWidgetIdRef.current !== null) {
+      return;
+    }
+
+    function renderCaptcha() {
+      if (!window.grecaptcha || !captchaContainerRef.current || captchaWidgetIdRef.current !== null) {
+        return;
+      }
+
+      captchaWidgetIdRef.current = window.grecaptcha.render(captchaContainerRef.current, {
+        sitekey: captchaSiteKey,
+        callback: (token) => {
+          setCaptchaToken(token);
+          clearFieldError("robotVerified");
+        },
+        "expired-callback": () => setCaptchaToken(""),
+        "error-callback": () => setCaptchaToken(""),
+      });
+    }
+
+    if (window.grecaptcha) {
+      renderCaptcha();
+      return;
+    }
+
+    const existingScript = document.querySelector<HTMLScriptElement>(`script[src="${RECAPTCHA_SCRIPT_SRC}"]`);
+    const script = existingScript ?? document.createElement("script");
+
+    script.src = RECAPTCHA_SCRIPT_SRC;
+    script.async = true;
+    script.defer = true;
+    script.addEventListener("load", renderCaptcha);
+
+    if (!existingScript) {
+      document.head.appendChild(script);
+    }
+
+    return () => {
+      script.removeEventListener("load", renderCaptcha);
+    };
+  }, [captchaSiteKey]);
 
   function validateForm(formData: FormData) {
     const nextErrors: Partial<Record<FieldName, string>> = {};
@@ -27,6 +114,10 @@ export function ContactForm({
       if (typeof value !== "string" || value.trim().length === 0) {
         nextErrors[field] = requiredErrorMessage;
       }
+    }
+
+    if (!captchaToken) {
+      nextErrors.robotVerified = robotErrorMessage;
     }
 
     return nextErrors;
@@ -54,13 +145,14 @@ export function ContactForm({
     const response = await fetch("/api/contact", {
       method: "POST",
       body: JSON.stringify({
-        inquiryType,
+        inquiryType: formData.get("inquiryType"),
         company: formData.get("company"),
         position: formData.get("position"),
         name: formData.get("name"),
         email: formData.get("email"),
         phone: formData.get("phone"),
         message: formData.get("message"),
+        recaptchaToken: captchaToken,
         locale,
       }),
       headers: {
@@ -72,17 +164,36 @@ export function ContactForm({
     setStatus(data.message ?? data.error ?? "");
     if (response.ok) {
       event.currentTarget.reset();
+      setCaptchaToken("");
+      if (window.grecaptcha && captchaWidgetIdRef.current !== null) {
+        window.grecaptcha.reset(captchaWidgetIdRef.current);
+      }
     }
     setSubmitting(false);
   }
 
   return (
     <form onSubmit={onSubmit} className="contactForm" noValidate>
-      <div className="contactFormTypeBanner">
-        <strong>{isKo ? "\uBB38\uC758 \uC720\uD615" : "Inquiry Type"}</strong>
-        <span>{inquiryType}</span>
-      </div>
       <div className="contactFormGrid">
+        <div className="field">
+          <label htmlFor="inquiryType" className="contactFormLabel isRequired">
+            {isKo ? "\uBB38\uC758\uC720\uD615" : "Inquiry Type"}
+          </label>
+          <select
+            id="inquiryType"
+            name="inquiryType"
+            defaultValue=""
+            aria-invalid={fieldErrors.inquiryType ? "true" : "false"}
+            onChange={() => clearFieldError("inquiryType")}
+          >
+            <option value="" disabled>
+              {isKo ? "\uC120\uD0DD\uD574 \uC8FC\uC138\uC694" : "Please select"}
+            </option>
+            <option value="Sales">Sales</option>
+            <option value="Service">Service</option>
+          </select>
+          {fieldErrors.inquiryType ? <p className="contactFormError">{fieldErrors.inquiryType}</p> : null}
+        </div>
         <div className="field">
           <label htmlFor="company" className="contactFormLabel isRequired">
             {isKo ? "\uD68C\uC0AC\uBA85" : "Company"}
@@ -150,6 +261,13 @@ export function ContactForm({
           onChange={() => clearFieldError("message")}
         />
         {fieldErrors.message ? <p className="contactFormError">{fieldErrors.message}</p> : null}
+      </div>
+      <div className="contactRobotCheck">
+        <div ref={captchaContainerRef} className="contactRecaptchaWidget" />
+        {!captchaSiteKey ? (
+          <span>{isKo ? "\uBCF4\uC548 \uC778\uC99D\uC744 \uBD88\uB7EC\uC624\uB294 \uC911\uC785\uB2C8\uB2E4." : "Loading security verification."}</span>
+        ) : null}
+        {fieldErrors.robotVerified ? <p className="contactFormError">{fieldErrors.robotVerified}</p> : null}
       </div>
       <button className="button primary" disabled={submitting} type="submit">
         {submitting

@@ -79,7 +79,7 @@ export function HomeStorySection({
               <p
                 key={`${index}-${paragraph.slice(0, 24)}`}
                 className="storyParagraph"
-                style={storyFontSize ? { fontSize: `${storyFontSize}px` } : undefined}
+                style={storyFontSize ? { fontSize: `${storyFontSize * 0.7}px` } : undefined}
               >
                 {paragraph}
               </p>

@@ -5,15 +5,42 @@ import { sendInquiryMail } from "@/lib/mailer";
 import { prisma } from "@/lib/prisma";
 
 const inquirySchema = z.object({
-  inquiryType: z.string().optional().nullable(),
+  inquiryType: z.enum(["Sales", "Service"]),
   company: z.string().trim().min(1),
   position: z.string().optional().nullable(),
   name: z.string().trim().min(1),
   email: z.string().trim().email(),
   phone: z.string().trim().min(1),
   message: z.string().trim().min(1),
+  recaptchaToken: z.string().trim().min(1),
   locale: z.string().min(2),
 });
+
+async function verifyRecaptcha(token: string) {
+  const secret = process.env.RECAPTCHA_SECRET_KEY;
+
+  if (!secret) {
+    return false;
+  }
+
+  const response = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+    method: "POST",
+    body: new URLSearchParams({
+      secret,
+      response: token,
+    }),
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+  });
+
+  if (!response.ok) {
+    return false;
+  }
+
+  const result = (await response.json()) as { success?: boolean };
+  return result.success === true;
+}
 
 export async function POST(request: Request) {
   let locale = "en";
@@ -23,6 +50,18 @@ export async function POST(request: Request) {
     locale = typeof rawBody?.locale === "string" ? rawBody.locale : "en";
     const body = inquirySchema.parse(rawBody);
     const isKo = locale === "ko";
+    const recaptchaVerified = await verifyRecaptcha(body.recaptchaToken);
+
+    if (!recaptchaVerified) {
+      return NextResponse.json(
+        {
+          error: isKo
+            ? "\uBCF4\uC548 \uC778\uC99D\uC5D0 \uC2E4\uD328\uD588\uC2B5\uB2C8\uB2E4."
+            : "Security verification failed.",
+        },
+        { status: 400 },
+      );
+    }
 
     await prisma.inquiry.create({
       data: {
