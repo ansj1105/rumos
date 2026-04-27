@@ -5,7 +5,7 @@ import { useEffect, useRef, useState, type FormEvent } from "react";
 type FieldName = "inquiryType" | "company" | "name" | "email" | "phone" | "message" | "robotVerified";
 
 const REQUIRED_FIELDS: FieldName[] = ["inquiryType", "company", "name", "email", "phone", "message"];
-const RECAPTCHA_SCRIPT_SRC = "https://www.google.com/recaptcha/api.js?render=explicit";
+const RECAPTCHA_SCRIPT_SRC = "https://www.recaptcha.net/recaptcha/api.js?render=explicit";
 
 declare global {
   interface Window {
@@ -19,6 +19,7 @@ declare global {
           "error-callback": () => void;
         },
       ) => number;
+      ready?: (callback: () => void) => void;
       reset: (widgetId?: number) => void;
     };
   }
@@ -34,6 +35,8 @@ export function ContactForm({
   const [submitting, setSubmitting] = useState(false);
   const [captchaSiteKey, setCaptchaSiteKey] = useState("");
   const [captchaToken, setCaptchaToken] = useState("");
+  const [captchaRendered, setCaptchaRendered] = useState(false);
+  const [captchaLoadFailed, setCaptchaLoadFailed] = useState(false);
   const captchaContainerRef = useRef<HTMLDivElement | null>(null);
   const captchaWidgetIdRef = useRef<number | null>(null);
   const isKo = locale === "ko";
@@ -68,20 +71,52 @@ export function ContactForm({
       return;
     }
 
+    let disposed = false;
+    let retryCount = 0;
+    let retryTimer: number | null = null;
+    setCaptchaLoadFailed(false);
+
     function renderCaptcha() {
-      if (!window.grecaptcha || !captchaContainerRef.current || captchaWidgetIdRef.current !== null) {
+      if (disposed || captchaWidgetIdRef.current !== null) {
         return;
       }
 
-      captchaWidgetIdRef.current = window.grecaptcha.render(captchaContainerRef.current, {
-        sitekey: captchaSiteKey,
-        callback: (token) => {
-          setCaptchaToken(token);
-          clearFieldError("robotVerified");
-        },
-        "expired-callback": () => setCaptchaToken(""),
-        "error-callback": () => setCaptchaToken(""),
-      });
+      if (!window.grecaptcha || typeof window.grecaptcha.render !== "function" || !captchaContainerRef.current) {
+        if (retryCount < 20) {
+          retryCount += 1;
+          retryTimer = window.setTimeout(renderCaptcha, 250);
+        } else {
+          setCaptchaLoadFailed(true);
+        }
+        return;
+      }
+
+      const doRender = () => {
+        if (disposed || !window.grecaptcha || !captchaContainerRef.current || captchaWidgetIdRef.current !== null) {
+          return;
+        }
+
+        try {
+          captchaWidgetIdRef.current = window.grecaptcha.render(captchaContainerRef.current, {
+            sitekey: captchaSiteKey,
+            callback: (token) => {
+              setCaptchaToken(token);
+              clearFieldError("robotVerified");
+            },
+            "expired-callback": () => setCaptchaToken(""),
+            "error-callback": () => setCaptchaToken(""),
+          });
+          setCaptchaRendered(true);
+        } catch {
+          setCaptchaLoadFailed(true);
+        }
+      };
+
+      if (typeof window.grecaptcha.ready === "function") {
+        window.grecaptcha.ready(doRender);
+      } else {
+        doRender();
+      }
     }
 
     if (window.grecaptcha) {
@@ -91,18 +126,25 @@ export function ContactForm({
 
     const existingScript = document.querySelector<HTMLScriptElement>(`script[src="${RECAPTCHA_SCRIPT_SRC}"]`);
     const script = existingScript ?? document.createElement("script");
+    const handleScriptError = () => setCaptchaLoadFailed(true);
 
     script.src = RECAPTCHA_SCRIPT_SRC;
     script.async = true;
     script.defer = true;
     script.addEventListener("load", renderCaptcha);
+    script.addEventListener("error", handleScriptError);
 
     if (!existingScript) {
       document.head.appendChild(script);
     }
 
     return () => {
+      disposed = true;
+      if (retryTimer) {
+        window.clearTimeout(retryTimer);
+      }
       script.removeEventListener("load", renderCaptcha);
+      script.removeEventListener("error", handleScriptError);
     };
   }, [captchaSiteKey]);
 
@@ -264,8 +306,15 @@ export function ContactForm({
       </div>
       <div className="contactRobotCheck">
         <div ref={captchaContainerRef} className="contactRecaptchaWidget" />
-        {!captchaSiteKey ? (
+        {!captchaSiteKey || (!captchaRendered && !captchaLoadFailed) ? (
           <span>{isKo ? "\uBCF4\uC548 \uC778\uC99D\uC744 \uBD88\uB7EC\uC624\uB294 \uC911\uC785\uB2C8\uB2E4." : "Loading security verification."}</span>
+        ) : null}
+        {captchaLoadFailed ? (
+          <p className="contactFormError">
+            {isKo
+              ? "\uBCF4\uC548 \uC778\uC99D\uC744 \uBD88\uB7EC\uC624\uC9C0 \uBABB\uD588\uC2B5\uB2C8\uB2E4. \uD398\uC774\uC9C0\uB97C \uC0C8\uB85C\uACE0\uCE68\uD574 \uC8FC\uC138\uC694."
+              : "Security verification could not be loaded. Please refresh the page."}
+          </p>
         ) : null}
         {fieldErrors.robotVerified ? <p className="contactFormError">{fieldErrors.robotVerified}</p> : null}
       </div>
