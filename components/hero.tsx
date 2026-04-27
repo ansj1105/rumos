@@ -40,7 +40,7 @@ export function Hero({ locale, heroImageUrl }: HeroProps) {
       </div>
       <div className="container heroInner">
         <div className="heroCopy">
-          <span className="eyebrow heroEyebrow">{dict.hero.eyebrow}</span>
+          {dict.hero.eyebrow ? <span className="eyebrow heroEyebrow">{dict.hero.eyebrow}</span> : null}
           <h1 className="headline heroHeadline">
             <span className="heroHeadlineLine">{dict.hero.titlePrefix}</span>
             <span className="heroHeadlineLine heroHeadlineAccentLine">
@@ -49,10 +49,12 @@ export function Hero({ locale, heroImageUrl }: HeroProps) {
           </h1>
           <div className="heroBody">
             <p className="subhead heroLead">{dict.hero.lead}</p>
+            {/*
             <div className="heroRelationBlock">
               <span className="heroRelationLabel">{dict.hero.relationLabel}</span>
               <p className="heroRelationText">{dict.hero.relationBody}</p>
             </div>
+            */}
           </div>
         </div>
       </div>

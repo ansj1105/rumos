@@ -115,12 +115,12 @@ export const dictionaries: Record<Locale, Dictionary> = {
       },
     ],
     hero: {
-      eyebrow: "LUMOS Background | SHINHOTEK",
+      eyebrow: "",
       titlePrefix: "About",
       titleHighlight: "LUMOS",
       lead:
-        "2000년 Coherent AVIA 레이저가 세계 최초로 디스플레이 양산라인에 적용되며 디스플레이 생산의 주요 생산 수단이 되었듯이, 2016년 독일 Metrolux사의 FM100 모델이 양산라인에서 모니터링 모듈로 적용되었고 이후 빔프로파일러는 파워미터와 함께 한국 내 레이저 장비 모니터링의 한 축이 되었습니다.",
-      relationLabel: "SHINHOTEK",
+        "전 세계의 하나뿐인 대면적 CMOS sensor가 적용된 Large Beam Profiler",
+      relationLabel: "",
       relationBody:
         "신호텍은 20년간 Metrolux의 한국 대리점으로서 한국 양산라인에 수백 대의 빔프로파일러를 공급하며 그 노하우를 축적해 왔습니다. 2000년대 초반 Metrolux가 아쉽게도 제품 단종을 결정하게 되어, 그동안 축적해 놓은 Metrolux의 명성과 품질을 유산으로 4년여의 개발을 통해 이어받아 2026년 LUMOS라는 브랜드로 새롭게 출발하게 되었습니다. LUMOS는 한국 최초의 commercial beam profiler로서 한국의 강점인 반도체, 디스플레이, 2차전지, PCB 고객의 니즈를 빔프로파일러의 품질에 녹여냄으로써 세계에서 가장 양산에 최적화되어 있다고 감히 자부할 수 있습니다.",
       ctaDetail: "자세히 보기",
@@ -221,12 +221,12 @@ export const dictionaries: Record<Locale, Dictionary> = {
       },
     ],
     hero: {
-      eyebrow: "LUMOS Background | SHINHOTEK",
+      eyebrow: "",
       titlePrefix: "About",
       titleHighlight: "LUMOS",
       lead:
-        "Just as the Coherent AVIA laser became the primary production tool for display laser applications after it was first applied to mass production lines for mobile displays in Korea, the Metrolux (Germany) FM100 model was adopted as a monitoring module for mass production in Korea in 2016. Since then, beam profilers, along with power meters, have become a standard option for laser equipment monitoring in laser microprocessing systems across Korea.",
-      relationLabel: "SHINHOTEK",
+        "Large Beam Profiler with the world's only large-area CMOS sensor.",
+      relationLabel: "",
       relationBody:
         "As the Korean distributor of Metrolux for 20 years, Shinhotek accumulated extensive know-how by supplying hundreds of beam profilers to mass production lines in Korea. When Metrolux regrettably decided to discontinue its products in the early 2000s, we carried forward its reputation and quality through approximately four years of development and launched a new brand, LUMOS, in 2026. As Korea's first commercial beam profiler, LUMOS reflects the needs of customers across Korean industries, including semiconductors, displays, secondary batteries, and PCBs. We are confident in stating that our products are among the world's most optimized for mass production.",
       ctaDetail: "Learn more",
