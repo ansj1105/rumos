@@ -81,7 +81,7 @@ export function HomeStorySection({
               <p
                 key={`${index}-${paragraph.slice(0, 24)}`}
                 className="storyParagraph"
-                style={storyFontSize ? { fontSize: `${storyFontSize * 0.7}px` } : undefined}
+                style={storyFontSize ? { fontSize: `${storyFontSize}px` } : undefined}
               >
                 {paragraph}
               </p>
@@ -93,14 +93,19 @@ export function HomeStorySection({
             <span>{storyMilestone}</span>
           </div>
           <div className="storyHighlightGrid">
-            {storyHighlights.map((item) => (
-              <StoryHighlightCard
+            {storyHighlights.map((item, index) => (
+              <div
                 key={item.key}
-                iconKey={item.key}
-                label={item.label}
-                title={item.title}
-                body={item.body}
-              />
+                className="storyHighlightSlot storyReveal"
+                style={{ ["--story-reveal-delay" as string]: `${340 + index * 110}ms` }}
+              >
+                <StoryHighlightCard
+                  iconKey={item.key}
+                  label={item.label}
+                  title={item.title}
+                  body={item.body}
+                />
+              </div>
             ))}
           </div>
         </div>

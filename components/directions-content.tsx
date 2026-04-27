@@ -61,7 +61,7 @@ export function DirectionsContent({ locale }: DirectionsContentProps) {
   );
 
   const encodedQuery = encodeURIComponent(activeLocation.query);
-  const googleMapEmbedUrl = `https://www.google.com/maps?output=embed&q=${encodedQuery}&z=4`;
+  const googleMapEmbedUrl = `https://www.google.com/maps?output=embed&q=${encodedQuery}&z=15`;
   const googleMapUrl = `https://www.google.com/maps/search/?api=1&query=${encodedQuery}`;
   const kakaoMapUrl =
     activeLocation.latitude && activeLocation.longitude

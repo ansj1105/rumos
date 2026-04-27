@@ -11,7 +11,7 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   const [config, products] = await Promise.all([getSiteConfig(), getProducts()]);
-  const brandOriginTitle = "Brand Origin: LUMOS";
+  const brandOriginTitle = locale === "ko" ? "브랜드 어원 : 루모스" : "Brand Origin: LUMOS";
   const storyDisplayLines = ["The Origin", "of LUMOS"];
   const storyParagraphs = [
     "LUMOS comes from the Latin 'Lumen' (Light). It represents our mission to capture the true essence of light through precise measurement. We deliver trusted precision for optics and laser beam analysis.",
