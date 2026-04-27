@@ -4839,6 +4839,10 @@ select {
   gap: 8px;
 }
 
+.contactForm select#inquiryType {
+  padding-left: 10px;
+}
+
 .contactForm input[aria-invalid="true"],
 .contactForm select[aria-invalid="true"],
 .contactForm textarea[aria-invalid="true"] {
