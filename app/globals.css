@@ -4978,9 +4978,9 @@ select {
   display: grid;
   justify-items: center;
   gap: 8px;
-  padding: 14px 16px;
-  border: 1px solid rgba(15, 34, 61, 0.12);
-  background: #ffffff;
+  padding: 0;
+  border: 0;
+  background: transparent;
 }
 
 .contactRecaptchaWidget {
