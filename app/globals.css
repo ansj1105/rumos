@@ -3253,8 +3253,9 @@ select {
 .seriesFeatureTitle {
   display: grid;
   gap: 4px;
+  max-width: 100%;
   color: #1c6cb3;
-  font-size: clamp(18px, 1.4vw, 22px);
+  font-size: clamp(16px, 1.18vw, 21px);
   font-weight: 700;
   line-height: 1.22;
   letter-spacing: -0.01em;
@@ -3264,10 +3265,16 @@ select {
 .seriesFeatureTitleName,
 .seriesFeatureTitleCategory {
   display: block;
+  max-width: 100%;
+  white-space: nowrap;
 }
 
 .seriesFeatureTitleCategory {
   font-size: 0.92em;
+}
+
+.seriesFeatureCard[data-series-slug="ifi"] .seriesFeatureTitle {
+  font-size: clamp(13px, 0.92vw, 17px);
 }
 
 .homeSeriesSlider {
@@ -3509,22 +3516,24 @@ select {
 
 .productShowcaseBody {
   display: grid;
-  gap: 14px;
+  gap: 10px;
   min-width: 0;
 }
 
 .productShowcaseTitle {
   margin: 0;
-  font-size: 18px;
-  line-height: 1.45;
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 1.35;
   color: #111827;
 }
 
 .productShowcaseText {
   margin: 0;
-  font-size: 17px;
+  font-size: 15px;
+  font-weight: 400;
   line-height: 1.7;
-  color: #111827;
+  color: #4b5563;
 }
 
 .productSubnav {
@@ -3644,7 +3653,7 @@ select {
 }
 
 .productDetailHero {
-  padding: 30px 0 42px;
+  padding: 30px 0 18px;
   background: var(--bg);
 }
 
@@ -3782,6 +3791,10 @@ select {
 .productSection {
   padding: 48px 0;
   border-bottom: 1px solid rgba(15, 34, 61, 0.08);
+}
+
+.productDetailHero + .subpageContent .productSection:first-child {
+  padding-top: 20px;
 }
 
 .productSectionSplit {
@@ -6203,11 +6216,11 @@ td {
   }
 
   .productShowcaseTitle {
-    font-size: 17px;
+    font-size: 20px;
   }
 
   .productShowcaseText {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.8;
   }
 
@@ -6245,7 +6258,7 @@ td {
   }
 
   .productDetailHero {
-    padding: 8px 0 28px;
+    padding: 8px 0 14px;
   }
 
   .productDetailCopy {
@@ -6283,6 +6296,10 @@ td {
 
   .productSection {
     padding: 34px 0;
+  }
+
+  .productDetailHero + .subpageContent .productSection:first-child {
+    padding-top: 18px;
   }
 
   .productTechTable thead th,

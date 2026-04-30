@@ -122,7 +122,7 @@ export function ApplicationsIndexNav({
           type="button"
           className={`applicationsIndexMore isPrev ${canScrollPrev ? "isVisible" : ""}`}
           onClick={scrollPrev}
-          aria-label={locale === "ko" ? "이전 어플리케이션 보기" : "Previous applications"}
+          aria-label={locale === "ko" ? "이전 어플리케이션 보기" : "Previous application"}
           aria-hidden={!canScrollPrev}
           tabIndex={canScrollPrev ? 0 : -1}
         >
@@ -149,7 +149,7 @@ export function ApplicationsIndexNav({
           type="button"
           className={`applicationsIndexMore isNext ${canScrollNext ? "isVisible" : ""}`}
           onClick={scrollNext}
-          aria-label={locale === "ko" ? "다음 어플리케이션 보기" : "More applications"}
+          aria-label={locale === "ko" ? "다음 어플리케이션 보기" : "More application"}
           aria-hidden={!canScrollNext}
           tabIndex={canScrollNext ? 0 : -1}
         >

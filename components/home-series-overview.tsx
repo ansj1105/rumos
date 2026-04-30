@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+import { PRODUCT_DISPLAY_NAMES } from "@/lib/product-display";
 import type { Locale } from "@/lib/site";
 
 type SeriesCardItem = {
@@ -16,43 +17,43 @@ type SeriesCardItem = {
 const seriesItems: SeriesCardItem[] = [
   {
     slug: "lum-b",
-    name: "Raw Beam Profiler (LUM-B)",
+    name: PRODUCT_DISPLAY_NAMES["lum-b"],
     imageUrl: "/products/lum-b/main.png",
     imageClassName: "isLumB",
   },
   {
     slug: "lum-b-l",
-    name: "Large Beam Profiler (LUM-B-L)",
+    name: PRODUCT_DISPLAY_NAMES["lum-b-l"],
     imageUrl: "/products/lum-b-l/main.png",
     imageClassName: "isLumBL",
   },
   {
     slug: "lum-f",
-    name: "Focus Beam Profiler (LUM-F)",
+    name: PRODUCT_DISPLAY_NAMES["lum-f"],
     imageUrl: "/products/lum-f/main.png",
     imageClassName: "isLumF",
   },
   {
     slug: "lum-z",
-    name: "3D Beam Profiling and Analysis (LUM-Z)",
+    name: PRODUCT_DISPLAY_NAMES["lum-z"],
     imageUrl: "/products/lum-z/main.png",
     imageClassName: "isLumZ",
   },
   {
     slug: "software",
-    name: "Lumosity (Software)",
+    name: PRODUCT_DISPLAY_NAMES.software,
     imageUrl: "/products/software/main.png",
     imageClassName: "isSoftware",
   },
   {
     slug: "ifi",
-    name: "Infinity Flat Top Imaging Optics (IFI)",
+    name: PRODUCT_DISPLAY_NAMES.ifi,
     imageUrl: "/products/ifi/main.png",
     imageClassName: "isIFI",
   },
   {
     slug: "customizing",
-    name: "Customizing",
+    name: PRODUCT_DISPLAY_NAMES.customizing,
     imageUrl: "/products/customizing/main.png",
     imageClassName: "isCustomizing",
   },

@@ -18,8 +18,8 @@ type PageHeroConfigItem = {
 };
 
 const pageLabelMap: Record<string, string> = {
-  applications: "Applications",
-  products: "Products",
+  applications: "Application",
+  products: "Product",
   "contact-quote": "Contact Quote",
   "contact-distributors": "Contact Distributors",
   "contact-directions": "Contact Directions",

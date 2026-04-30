@@ -427,7 +427,7 @@ export async function saveProduct(formData: FormData) {
   if (id === 0) {
     const count = await prisma.product.count();
     if (count >= 10) {
-      throw new Error("Products are limited to 10 entries.");
+      throw new Error("Product is limited to 10 entries.");
     }
   }
 

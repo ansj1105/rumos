@@ -97,7 +97,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
           { label: "Raw Beam Profiler (LUM-B)", href: "/products/lum-b" },
           { label: "Large Beam Profiler (LUM-B-L)", href: "/products/lum-b-l" },
           { label: "Focus Beam Profiler (LUM-F)", href: "/products/lum-f" },
-          { label: "3D Beam Profiling and Analysis (LUM-Z)", href: "/products/lum-z" },
+          { label: "3D Beam Profiler (LUM-Z)", href: "/products/lum-z" },
           { label: "Lumosity (Software)", href: "/products/software" },
           { label: "Infinity Flat Top Imaging Optics (IFI)", href: "/products/ifi" },
           { label: "Customizing", href: "/products/customizing" },
@@ -137,7 +137,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
       directionsTitle: "오시는 길",
       directionsBody:
         "서울 금천구 가산디지털 1로 19 대륭테크노타운 18차 1306호",
-      applicationsTitle: "Applications",
+      applicationsTitle: "Application",
       applicationsBody:
         "반도체, NAND 등 실제 산업 적용 사례를 한 페이지에서 정리합니다.",
     },
@@ -148,11 +148,11 @@ export const dictionaries: Record<Locale, Dictionary> = {
       mapHint: "운영 시 Kakao Map 또는 Naver Map 임베드를 연결하면 됩니다.",
     },
     applications: {
-      title: "Applications",
+      title: "Application",
       lead: "산업별 적용 포인트와 핵심 설명을 관리형 데이터로 제공합니다.",
     },
     products: {
-      title: "Products",
+      title: "Product",
       lead: "공정 조건과 검사 목적에 맞는 루모스 제품군을 확인하실 수 있습니다.",
     },
     contact: {
@@ -184,7 +184,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
     meta: {
       title: "Lumos | Industrial Optical Solutions",
       description:
-        "Official website for Lumos products, applications, contact, and resources.",
+        "Official website for Lumos product, application, contact, and resources.",
     },
     nav: [
       {
@@ -192,7 +192,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
         href: "/company",
       },
       {
-        label: "Applications",
+        label: "Application",
         href: "/applications",
         children: [{ label: "Application Overview", href: "/applications" }],
       },
@@ -203,7 +203,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
           { label: "Raw Beam Profiler (LUM-B)", href: "/products/lum-b" },
           { label: "Large Beam Profiler (LUM-B-L)", href: "/products/lum-b-l" },
           { label: "Focus Beam Profiler (LUM-F)", href: "/products/lum-f" },
-          { label: "3D Beam Profiling and Analysis (LUM-Z)", href: "/products/lum-z" },
+          { label: "3D Beam Profiler (LUM-Z)", href: "/products/lum-z" },
           { label: "Lumosity (Software)", href: "/products/software" },
           { label: "Infinity Flat Top Imaging Optics (IFI)", href: "/products/ifi" },
           { label: "Customizing", href: "/products/customizing" },
@@ -228,7 +228,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
         "Large Beam Profiler with the world's only large-area CMOS sensor.",
       relationLabel: "",
       relationBody:
-        "As the Korean distributor of Metrolux for 20 years, Shinhotek accumulated extensive know-how by supplying hundreds of beam profilers to mass production lines in Korea. When Metrolux regrettably decided to discontinue its products in the early 2000s, we carried forward its reputation and quality through approximately four years of development and launched a new brand, LUMOS, in 2026. As Korea's first commercial beam profiler, LUMOS reflects the needs of customers across Korean industries, including semiconductors, displays, secondary batteries, and PCBs. We are confident in stating that our products are among the world's most optimized for mass production.",
+        "As the Korean distributor of Metrolux for 20 years, Shinhotek accumulated extensive know-how by supplying hundreds of beam profilers to mass production lines in Korea. When Metrolux regrettably decided to discontinue its product in the early 2000s, we carried forward its reputation and quality through approximately four years of development and launched a new brand, LUMOS, in 2026. As Korea's first commercial beam profiler, LUMOS reflects the needs of customers across Korean industries, including semiconductors, displays, secondary batteries, and PCBs. We are confident in stating that our product is among the world's most optimized for mass production.",
       ctaDetail: "Learn more",
       visualLabel: "Precision optical engineering",
     },
@@ -238,12 +238,12 @@ export const dictionaries: Record<Locale, Dictionary> = {
         "LUMOS is inspired by the Latin Lumen (light),\nreflecting our mission to measure light with precision.",
     },
     homepage: {
-      productTitle: "Products",
+      productTitle: "Product",
       productLead: "Explore the core product family and software lineup.",
       directionsTitle: "Directions",
       directionsBody:
         "1306, Daeryung Technotown 18-cha, 19 Gasan digital 1-ro, Geumcheon-gu, Seoul",
-      applicationsTitle: "Applications",
+      applicationsTitle: "Application",
       applicationsBody:
         "Industrial use cases such as semiconductor and NAND are organized on a single page.",
     },
@@ -254,11 +254,11 @@ export const dictionaries: Record<Locale, Dictionary> = {
       mapHint: "Connect Kakao Map or Naver Map embed for production use.",
     },
     applications: {
-      title: "Applications",
+      title: "Application",
       lead: "Industry-specific use cases and key descriptions are delivered from managed content.",
     },
     products: {
-      title: "Products",
+      title: "Product",
       lead: "Explore the Lumos product lineup for different inspection goals and process conditions.",
     },
     contact: {
@@ -282,7 +282,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
     },
     admin: {
       title: "Admin",
-      lead: "Operators can manage homepage, products, applications, resources, and inquiries.",
+      lead: "Operators can manage homepage, product, application, resources, and inquiries.",
     },
   },
 };

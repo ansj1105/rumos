@@ -80,7 +80,7 @@ export function AdminProductsTabs({
   return (
     <div className="lumosAdminTabs">
       <div className="lumosAdminTabToolbar">
-        <div className="lumosAdminTabList" role="tablist" aria-label="Products">
+        <div className="lumosAdminTabList" role="tablist" aria-label="Product">
           {sortedProducts.map((product) => (
             <button
               key={product.id}
@@ -211,11 +211,11 @@ export function AdminProductsTabs({
             </div>
             <div className="lumosAdminFormGrid">
               <label className="field">
-                <span>Applications KO</span>
+                <span>Application KO</span>
                 <textarea name="applicationsKo" />
               </label>
               <label className="field">
-                <span>Applications EN</span>
+                <span>Application EN</span>
                 <textarea name="applicationsEn" />
               </label>
             </div>
@@ -386,11 +386,11 @@ export function AdminProductsTabs({
             </div>
             <div className="lumosAdminFormGrid">
               <label className="field">
-                <span>Applications KO</span>
+                <span>Application KO</span>
                 <textarea name="applicationsKo" defaultValue={textValue(activeProduct.applicationsKo)} />
               </label>
               <label className="field">
-                <span>Applications EN</span>
+                <span>Application EN</span>
                 <textarea name="applicationsEn" defaultValue={textValue(activeProduct.applicationsEn)} />
               </label>
             </div>

@@ -52,6 +52,20 @@ const fallbackPageHeroConfigs = defaultPageHeroConfigs.map((config, index) => ({
   updatedAt: fallbackNow,
 }));
 
+function normalizePageHeroLabel<T extends { pageKey: string; titleKo: string; titleEn: string }>(
+  config: T,
+) {
+  if (config.pageKey === "applications") {
+    return { ...config, titleKo: "Application", titleEn: "Application" };
+  }
+
+  if (config.pageKey === "products") {
+    return { ...config, titleKo: "Product", titleEn: "Product" };
+  }
+
+  return config;
+}
+
 function logFallback(scope: string, error: unknown) {
   console.warn(`[content] falling back to static data for ${scope}`);
   if (process.env.NODE_ENV !== "production") {
@@ -172,9 +186,10 @@ export async function getResourceBySlug(slug: string) {
 
 export async function getPageHeroConfigs() {
   try {
-    return await prisma.pageHeroConfig.findMany({
+    const configs = await prisma.pageHeroConfig.findMany({
       orderBy: { pageKey: "asc" },
     });
+    return configs.map(normalizePageHeroLabel);
   } catch (error) {
     logFallback("pageHeroConfigs", error);
     return fallbackPageHeroConfigs;
@@ -183,9 +198,10 @@ export async function getPageHeroConfigs() {
 
 export async function getPageHeroConfig(pageKey: string) {
   try {
-    return await prisma.pageHeroConfig.findUnique({
+    const config = await prisma.pageHeroConfig.findUnique({
       where: { pageKey },
     });
+    return config ? normalizePageHeroLabel(config) : null;
   } catch (error) {
     logFallback(`pageHeroConfig:${pageKey}`, error);
     return fallbackPageHeroConfigs.find((config) => config.pageKey === pageKey) ?? null;

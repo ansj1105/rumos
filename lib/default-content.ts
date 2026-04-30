@@ -26,7 +26,7 @@ export const defaultSiteConfig = {
   seoDescriptionKo:
     "\uB8E8\uBAA8\uC2A4 \uC81C\uD488, \uC560\uD50C\uB9AC\uCF00\uC774\uC158, \uC790\uB8CC\uC2E4, \uBB38\uC758\uB97C \uC81C\uACF5\uD558\uB294 \uACF5\uC2DD \uC6F9\uC0AC\uC774\uD2B8\uC785\uB2C8\uB2E4.",
   seoDescriptionEn:
-    "Official website for Lumos products, applications, resources, and contact.",
+    "Official website for Lumos product, application, resources, and contact.",
 } as const;
 
 export const defaultApplications = [
@@ -61,7 +61,7 @@ export const defaultApplications = [
     summaryKo:
       "\uC758\uB8CC \uBC0F \uC0DD\uBA85\uACF5\uD559 \uBD84\uC57C\uC5D0\uC11C \uAD11\uD559 \uC2DC\uC2A4\uD15C\uC758 \uC2E0\uB8B0\uC131\uC740 \uD658\uC790\uC758 \uC548\uC804\uACFC \uC9C1\uACB0\uB429\uB2C8\uB2E4. \uD53C\uBD80 \uBBF8\uC6A9 \uB808\uC774\uC800, \uC815\uBC00 \uC678\uACFC\uC6A9 \uC7A5\uBE44 \uBC0F \uACE0\uD574\uC0C1\uB3C4 \uBC14\uC774\uC624 \uC774\uBBF8\uC9D5 \uC2DC\uC2A4\uD15C\uC740 \uC124\uACC4\uB41C \uCD9C\uB825 \uC2A4\uD399\uC744 \uC624\uCC28 \uC5C6\uC774 \uC900\uC218\uD574\uC57C \uD569\uB2C8\uB2E4. \uB2F9\uC0AC\uC758 \uC194\uB8E8\uC158\uC740 \uC815\uBC00\uD55C \uBE54 \uC9C4\uB2E8\uC744 \uD1B5\uD574 \uC2E4\uC2DC\uAC04\uC73C\uB85C \uC5D0\uB108\uC9C0 \uB300\uCE6D\uC131\uC744 \uAC80\uC99D\uD558\uC5EC, \uC758\uB8CC \uAE30\uAE30\uC758 \uC548\uC804\uD558\uACE0 \uC644\uBCBD\uD55C \uD488\uC9C8 \uBCF4\uC99D(QA) \uCCB4\uACC4\uB97C \uC9C0\uC6D0\uD569\uB2C8\uB2E4.",
     summaryEn:
-      "In medical and bioengineering applications, the reliability of optical systems is directly tied to patient safety. Aesthetic lasers, precision surgical equipment, and high-resolution bio-imaging systems must meet designed output specifications without deviation. Our solution verifies energy symmetry in real time through precise beam diagnostics and supports a safe, complete quality-assurance system for medical devices.",
+      "In medical and bioengineering application, the reliability of optical systems is directly tied to patient safety. Aesthetic lasers, precision surgical equipment, and high-resolution bio-imaging systems must meet designed output specifications without deviation. Our solution verifies energy symmetry in real time through precise beam diagnostics and supports a safe, complete quality-assurance system for medical devices.",
     imageUrl: "/applications/medical-bio.png",
     bulletsKo: [],
     bulletsEn: [],
@@ -296,8 +296,8 @@ export const defaultPageHeroConfigs = [
     pageKey: "applications",
     eyebrowKo: "APPLICATION",
     eyebrowEn: "APPLICATION",
-    titleKo: "Applications",
-    titleEn: "Applications",
+    titleKo: "Application",
+    titleEn: "Application",
     descriptionKo: "산업별 공정 환경에 맞는 광학 측정 및 검사 적용 분야를 소개합니다.",
     descriptionEn: "Explore optical measurement and inspection use cases across industrial workflows.",
     backgroundImageUrl: "/subpage-applications-bg.png",
@@ -307,8 +307,8 @@ export const defaultPageHeroConfigs = [
     pageKey: "products",
     eyebrowKo: "Product",
     eyebrowEn: "Product",
-    titleKo: "Products",
-    titleEn: "Products",
+    titleKo: "Product",
+    titleEn: "Product",
     descriptionKo: "공정 조건과 검사 목적에 맞는 루모스 제품군을 확인하실 수 있습니다.",
     descriptionEn: "Explore the Lumos product lineup for different inspection goals and process conditions.",
     backgroundImageUrl: "/subpage-products-laser-bg.png",

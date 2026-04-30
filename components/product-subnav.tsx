@@ -98,7 +98,7 @@ export function ProductSubnav({
           type="button"
           className={`productSubnavMore isPrev ${canScrollPrev ? "isVisible" : ""}`}
           onClick={scrollPrev}
-          aria-label={locale === "ko" ? "이전 제품 보기" : "Previous products"}
+          aria-label={locale === "ko" ? "이전 제품 보기" : "Previous product"}
           aria-hidden={!canScrollPrev}
           tabIndex={canScrollPrev ? 0 : -1}
         >
@@ -123,7 +123,7 @@ export function ProductSubnav({
           type="button"
           className={`productSubnavMore isNext ${canScrollNext ? "isVisible" : ""}`}
           onClick={scrollNext}
-          aria-label={locale === "ko" ? "다음 제품 보기" : "More products"}
+          aria-label={locale === "ko" ? "다음 제품 보기" : "More product"}
           aria-hidden={!canScrollNext}
           tabIndex={canScrollNext ? 0 : -1}
         >

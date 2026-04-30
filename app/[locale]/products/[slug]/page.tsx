@@ -348,7 +348,7 @@ export default async function ProductDetailPage({
       : isLumFSeries
         ? "High-Precision Micro Beam Profiling and Analysis"
         : isLumZSeries
-          ? "3D Beam Profiling and Analysis"
+          ? "3D Beam Profiler"
           : isIFISeries
             ? "Infinity Flat top Imaging optics"
             : isSoftwareSeries
@@ -406,9 +406,6 @@ export default async function ProductDetailPage({
           <>
             {isLumBSeries ? (
               <section className="productSection">
-                <div className="productSectionHead">
-                  <h2 className="sectionTitle">{ui.technicalData}</h2>
-                </div>
                 <div className="lumBTechnicalComposite">
                   <div className="lumBTechnicalVisual">
                     <Image
@@ -462,9 +459,6 @@ export default async function ProductDetailPage({
               </section>
             ) : isLumBLSeries ? (
               <section className="productSection">
-                <div className="productSectionHead">
-                  <h2 className="sectionTitle">{ui.technicalData}</h2>
-                </div>
                 <div className="productSpecBlock">
                   <table className="productTechTable">
                     <thead>
@@ -486,9 +480,6 @@ export default async function ProductDetailPage({
               </section>
             ) : (
               <section className="productSection">
-                <div className="productSectionHead">
-                  <h2 className="sectionTitle">{ui.technicalData}</h2>
-                </div>
                 <div className="productSpecBlock">
                   <table className="productTechTable">
                     <thead>
@@ -532,9 +523,6 @@ export default async function ProductDetailPage({
           </>
         ) : isLumZSeries ? (
           <section className="productSection">
-            <div className="productSectionHead">
-              <h2 className="sectionTitle">{ui.zSpec}</h2>
-            </div>
             <div className="productSpecBlock">
               <table className="productTechTable">
                 <thead>
@@ -557,9 +545,6 @@ export default async function ProductDetailPage({
         ) : isIFISeries ? (
           <>
             <section className="productSection">
-              <div className="productSectionHead">
-                <h2 className="sectionTitle">{ui.technicalData}</h2>
-              </div>
               <div className="productSpecBlock">
                 <table className="productTechTable">
                   <thead>

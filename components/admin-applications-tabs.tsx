@@ -45,7 +45,7 @@ export function AdminApplicationsTabs({
   return (
     <div className="lumosAdminTabs">
       <div className="lumosAdminTabToolbar">
-        <div className="lumosAdminTabList" role="tablist" aria-label="Applications">
+        <div className="lumosAdminTabList" role="tablist" aria-label="Application">
           {sortedApplications.map((application) => (
             <button
               key={application.id}

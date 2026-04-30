@@ -280,7 +280,7 @@ export function AdminHomeTabs({
                         href="/asdasddfg/admin/products"
                         className="lumosAdminGhostButton"
                       >
-                        Products 관리
+                        Product 관리
                       </a>
                       <button type="submit" className="lumosAdminPrimaryButton">
                         이미지 저장
