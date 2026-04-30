@@ -2654,8 +2654,8 @@ select {
   gap: 36px 42px;
   align-items: center;
   padding: 28px 30px;
-  background: rgba(242, 246, 250, 0.92);
-  border: 1px solid rgba(172, 186, 202, 0.34);
+  background: rgba(112, 126, 142, 0.82);
+  border: 1px solid rgba(220, 228, 236, 0.42);
   border-radius: 8px;
   box-shadow: 0 16px 32px rgba(8, 20, 40, 0.14);
 }
@@ -2694,7 +2694,7 @@ select {
   margin: 0;
   display: grid;
   gap: 8px;
-  color: #101827;
+  color: #005090;
   font-size: clamp(30.8px, 3vw, 42px);
   line-height: 1.35;
   letter-spacing: 0;
@@ -2708,7 +2708,7 @@ select {
 }
 
 .storyDisplayTitleLineAccent {
-  color: #101827;
+  color: #005090;
   text-shadow: none;
 }
 
@@ -2719,7 +2719,7 @@ select {
 }
 
 .storyEyebrow {
-  color: #1f2937;
+  color: #0075bd;
   font-size: 18px;
   font-weight: 700;
   line-height: 1.45;
@@ -2737,7 +2737,7 @@ select {
   margin: 0;
   font-size: 16px;
   line-height: 1.9;
-  color: #111827;
+  color: #ffffff;
   word-break: keep-all;
   overflow-wrap: anywhere;
   text-shadow: none;
@@ -4733,10 +4733,9 @@ select {
 .applicationImageRailImage {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  height: auto;
+  height: 132px;
   object-fit: cover;
-  border: 4px solid #111111;
+  border: 0;
   background: #ffffff;
 }
 
@@ -6286,7 +6285,7 @@ td {
   }
 
   .applicationImageRailImage {
-    border-width: 3px;
+    height: 118px;
   }
 
   .productShowcaseRow {
