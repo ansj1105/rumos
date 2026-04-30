@@ -2,29 +2,16 @@
 
 import { useEffect, useRef } from "react";
 
-import { StoryHighlightCard } from "@/components/story-highlight-card";
-
-export type StoryHighlightItem = {
-  key: "vision" | "goal";
-  label: string;
-  title: string;
-  body: string;
-};
-
 export function HomeStorySection({
   brandOriginTitle,
   storyDisplayLines,
   storyParagraphs,
   storyFontSize,
-  storyMilestone,
-  storyHighlights,
 }: {
   brandOriginTitle: string;
   storyDisplayLines: [string, string] | string[];
   storyParagraphs: string[];
   storyFontSize?: number | null;
-  storyMilestone: string;
-  storyHighlights: StoryHighlightItem[];
 }) {
   const sectionRef = useRef<HTMLElement | null>(null);
 
@@ -88,27 +75,6 @@ export function HomeStorySection({
                 </p>
               ))}
             </div>
-          </div>
-        </div>
-        <div className="storyBand">
-          <div className="storyMilestone storyReveal storySlideFromRight" style={{ ["--story-reveal-delay" as string]: "220ms" }}>
-            <span>{storyMilestone}</span>
-          </div>
-          <div className="storyHighlightGrid">
-            {storyHighlights.map((item, index) => (
-              <div
-                key={item.key}
-                className="storyHighlightSlot storyReveal storySlideFromRight"
-                style={{ ["--story-reveal-delay" as string]: `${340 + index * 110}ms` }}
-              >
-                <StoryHighlightCard
-                  iconKey={item.key}
-                  label={item.label}
-                  title={item.title}
-                  body={item.body}
-                />
-              </div>
-            ))}
           </div>
         </div>
       </div>

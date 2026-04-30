@@ -1,9 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import { Fragment } from "react";
 import { useState } from "react";
 
-import type { ApplicationGalleryImage } from "@/lib/application-gallery";
+import type { ApplicationGalleryItem } from "@/lib/application-gallery";
 
 const visibleCount = 4;
 
@@ -11,14 +12,14 @@ export function ApplicationImageRail({
   images,
   title,
 }: {
-  images: ApplicationGalleryImage[];
+  images: ApplicationGalleryItem[];
   title: string;
 }) {
   const [startIndex, setStartIndex] = useState(0);
   const maxStartIndex = Math.max(0, images.length - visibleCount);
   const canGoPrev = startIndex > 0;
   const canGoNext = startIndex < maxStartIndex;
-  const visibleImages = images.slice(startIndex, startIndex + visibleCount);
+  const visibleItems = images.slice(startIndex, startIndex + visibleCount);
 
   if (images.length === 0) {
     return null;
@@ -47,17 +48,41 @@ export function ApplicationImageRail({
 
       <div className="applicationImageRailViewport">
         <div className="applicationImageRailTrack">
-          {visibleImages.map((image) => (
-            <div key={image.src} className="applicationImageRailItem">
-              <Image
-                src={image.src}
-                alt={image.alt}
-                width={640}
-                height={420}
-                sizes="(max-width: 720px) 50vw, 25vw"
-                className="applicationImageRailImage"
-              />
-            </div>
+          {visibleItems.map((item) => (
+            <article key={item.title} className="applicationImageRailItem">
+              <div className="applicationImageRailCopy">
+                <h3 className="applicationImageRailTitle">{item.title}</h3>
+                <p className="applicationImageRailDescription">{item.description}</p>
+              </div>
+              <div
+                className={
+                  item.images.length > 1
+                    ? "applicationImageRailImageGroup hasMultiple"
+                    : "applicationImageRailImageGroup"
+                }
+              >
+                {item.images.map((image, index) => (
+                  <Fragment key={image.src}>
+                    {index > 0 ? (
+                      <span
+                        className="applicationImageRailArrow"
+                        aria-hidden="true"
+                      >
+                        →
+                      </span>
+                    ) : null}
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      width={420}
+                      height={280}
+                      sizes="(max-width: 720px) 42vw, 13vw"
+                      className="applicationImageRailImage"
+                    />
+                  </Fragment>
+                ))}
+              </div>
+            </article>
           ))}
         </div>
       </div>

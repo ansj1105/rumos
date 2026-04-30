@@ -1,5 +1,5 @@
 import { HomeSeriesOverview } from "@/components/home-series-overview";
-import { HomeStorySection, type StoryHighlightItem } from "@/components/home-story-section";
+import { HomeStorySection } from "@/components/home-story-section";
 import { Hero } from "@/components/hero";
 import { getProducts, getSiteConfig } from "@/lib/content";
 import type { Locale } from "@/lib/site";
@@ -17,20 +17,6 @@ export default async function HomePage({
     "LUMOS comes from the Latin 'Lumen' (Light). It represents our mission to capture the true essence of light through precise measurement. We deliver trusted precision for optics and laser beam analysis.",
     "True laser performance is defined by accurate measurement, not just appearance. LUMOS empowers users to evaluate performance with clarity through advanced beam profiling. Our goal is to set the new industry standard in precision metrology.",
   ];
-  const storyHighlights: StoryHighlightItem[] = [
-    {
-      key: "vision",
-      label: "Vision",
-      title: "\"Trusting LUMOS Through\nThe Light of Laser\"",
-      body: "",
-    },
-    {
-      key: "goal",
-      label: "Goal",
-      title: "\"The Trusted Standard for\nLaser Beam Measurement.\"",
-      body: "",
-    },
-  ];
 
   return (
     <>
@@ -40,8 +26,6 @@ export default async function HomePage({
         storyDisplayLines={storyDisplayLines}
         storyParagraphs={storyParagraphs}
         storyFontSize={config?.storyFontSize}
-        storyMilestone={"The first\nBeam Profiler\nin Korea"}
-        storyHighlights={storyHighlights}
       />
 
       <HomeSeriesOverview

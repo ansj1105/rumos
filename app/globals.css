@@ -93,7 +93,6 @@ select {
   .button,
   .heroRelationLabel,
   .storyEyebrow,
-  .storyHighlightLabel,
   .seriesFeatureTitle,
   .productSubnavLink,
   .productSubnavIndex,
@@ -2679,17 +2678,6 @@ select {
   transform: translate3d(0, 0, 0);
 }
 
-.storyReveal.storySlideFromRight {
-  transform: translate3d(72px, 0, 0);
-  transition:
-    opacity 0.68s ease,
-    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.storyReveal.storySlideFromRight.isRevealed {
-  transform: translate3d(0, 0, 0);
-}
-
 .storyDisplayTitle {
   margin: 0;
   display: grid;
@@ -2749,167 +2737,6 @@ select {
 
 .storyParagraphEmphasis {
   font-weight: 700;
-}
-
-.storyBand {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: minmax(210px, 0.42fr) minmax(0, 1fr);
-  min-height: 146px;
-  margin-top: 24px;
-  overflow: hidden;
-  border: 1px solid rgba(172, 186, 202, 0.34);
-  border-radius: 8px;
-  background: rgba(232, 238, 245, 0.92);
-}
-
-.storyMilestone {
-  position: relative;
-  display: flex;
-  align-items: center;
-  min-height: 146px;
-  padding: 26px 58px 26px 18px;
-  color: #ffffff;
-  background: #1f4f78;
-  clip-path: polygon(0 0, calc(100% - 34px) 0, 100% 50%, calc(100% - 34px) 100%, 0 100%);
-}
-
-.storyMilestone span {
-  display: block;
-  font-size: 24px;
-  font-weight: 800;
-  line-height: 1.52;
-  white-space: pre-line;
-}
-
-.storyHighlightGrid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 48px;
-  align-items: center;
-  padding: 30px 30px 30px 50px;
-}
-
-.storyHighlightSlot {
-  display: grid;
-  height: 100%;
-}
-
-.storyHighlightCard {
-  position: relative;
-  display: grid;
-  align-items: center;
-  justify-items: center;
-  overflow: visible;
-  border-radius: 0;
-  border: 0;
-  background: transparent;
-  transition:
-    border-color 180ms ease,
-    box-shadow 180ms ease,
-    transform 120ms ease;
-}
-
-.storyHighlightCard:hover {
-  border-color: transparent;
-  box-shadow: none;
-}
-
-.storyHighlightCardInner {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-  justify-items: center;
-  width: 100%;
-  max-width: 310px;
-  gap: 22px;
-  padding: 0;
-  border-radius: 0;
-  border: 0;
-  transform: none;
-}
-
-.storyHighlightCopy {
-  display: grid;
-  justify-items: center;
-  gap: 22px;
-  width: 100%;
-  min-width: 0;
-}
-
-.storyHighlightGlow {
-  display: none;
-}
-
-.storyHighlightIcon {
-  display: none;
-}
-
-.storyHighlightIcon::after {
-  content: none;
-}
-
-.storyHighlightSvg {
-  position: relative;
-  z-index: 1;
-  width: 56px;
-  height: 56px;
-}
-
-.storyHighlightSvgLine {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.storyHighlightSvgCore {
-  fill: currentColor;
-}
-
-.storyHighlightLabel {
-  display: block;
-  width: min(150px, 100%);
-  min-height: 22px;
-  justify-self: start;
-  padding: 6px 9px;
-  color: #ffffff;
-  background: #003e6c;
-  box-shadow: 2px 2px 4px rgba(4, 18, 32, 0.28);
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: 0;
-  text-transform: none;
-}
-
-.storyHighlightTitle {
-  display: block;
-  min-height: 54px;
-  width: 100%;
-  color: #00275f;
-  font-size: 22px;
-  font-weight: 800;
-  line-height: 1.65;
-  letter-spacing: 0;
-  text-align: center;
-  white-space: pre-line;
-  transform: none;
-}
-
-.storyHighlightBody {
-  margin: 0;
-  color: #00275f;
-  font-size: 16px;
-  line-height: 1.55;
-  transform: none;
-}
-
-.storyHighlightBody:empty {
-  display: none;
 }
 
 .storyRelationSection {
@@ -4723,17 +4550,61 @@ select {
 .applicationImageRailTrack {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
+  gap: 16px;
 }
 
 .applicationImageRailItem {
+  display: grid;
+  min-height: 100%;
   min-width: 0;
+  align-content: start;
+  gap: 12px;
+}
+
+.applicationImageRailCopy {
+  display: grid;
+  gap: 8px;
+}
+
+.applicationImageRailTitle {
+  margin: 0;
+  padding-bottom: 7px;
+  border-bottom: 3px solid #00508e;
+  color: #00508e;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.applicationImageRailDescription {
+  min-height: 58px;
+  margin: 0;
+  color: #4a5565;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.applicationImageRailImageGroup {
+  display: grid;
+  align-items: center;
+  gap: 8px;
+}
+
+.applicationImageRailImageGroup.hasMultiple {
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+}
+
+.applicationImageRailArrow {
+  color: #00508e;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1;
 }
 
 .applicationImageRailImage {
   display: block;
   width: 100%;
-  height: 132px;
+  height: 88px;
   object-fit: cover;
   border: 0;
   background: #ffffff;
@@ -5437,10 +5308,6 @@ td {
     padding-right: 0;
   }
 
-  .storyHighlightGrid {
-    grid-template-columns: 1fr;
-  }
-
   .patentGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -5665,10 +5532,6 @@ td {
   .storyTopPanel {
     gap: 24px;
     padding: 24px;
-  }
-
-  .storyBand {
-    grid-template-columns: minmax(180px, 0.44fr) minmax(0, 1fr);
   }
 
   .storyRelationSection {
@@ -5981,55 +5844,6 @@ td {
     letter-spacing: 0.14em;
   }
 
-  .storyHighlightGrid {
-    grid-template-columns: 1fr;
-    width: 100%;
-    gap: 22px;
-    padding: 22px;
-  }
-
-  .storyHighlightSlot {
-    min-height: 92px;
-  }
-
-  .storyHighlightCard {
-    display: grid;
-    padding: 0;
-  }
-
-  .storyHighlightCardInner {
-    grid-template-columns: 1fr;
-    align-items: center;
-    justify-items: center;
-    gap: 14px;
-    min-height: 0;
-    padding: 0;
-  }
-
-  .storyHighlightIcon {
-    display: none;
-  }
-
-  .storyHighlightLabel {
-    width: min(140px, 100%);
-    font-size: 11px;
-    letter-spacing: 0;
-    line-height: 1;
-  }
-
-  .storyHighlightTitle {
-    display: block;
-    font-size: 19px;
-  }
-
-  .storyHighlightBody {
-    display: block;
-    overflow: visible;
-    font-size: 12px;
-    line-height: 1.45;
-    word-break: keep-all;
-  }
-
   .homeSeriesSlide .seriesFeatureCard {
     min-height: 280px;
   }
@@ -6055,21 +5869,6 @@ td {
   .storyParagraph {
     font-size: 16px;
     line-height: 1.85;
-  }
-
-  .storyBand {
-    grid-template-columns: 1fr;
-    margin-top: 8px;
-  }
-
-  .storyMilestone {
-    min-height: 116px;
-    padding: 24px 28px;
-    clip-path: none;
-  }
-
-  .storyMilestone span {
-    font-size: 22px;
   }
 
   .storyRelationCard {
@@ -6277,6 +6076,7 @@ td {
 
   .applicationImageRailItem {
     min-width: 0;
+    gap: 10px;
   }
 
   .applicationImageRailTrack {
@@ -6284,8 +6084,17 @@ td {
     gap: 10px;
   }
 
+  .applicationImageRailTitle {
+    font-size: 15px;
+  }
+
+  .applicationImageRailDescription {
+    min-height: 0;
+    font-size: 11px;
+  }
+
   .applicationImageRailImage {
-    height: 118px;
+    height: 74px;
   }
 
   .productShowcaseRow {
