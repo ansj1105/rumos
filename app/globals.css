@@ -2654,8 +2654,8 @@ select {
   gap: 36px 42px;
   align-items: center;
   padding: 28px 30px;
-  background: rgba(112, 126, 142, 0.82);
-  border: 1px solid rgba(220, 228, 236, 0.42);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(172, 186, 202, 0.28);
   border-radius: 8px;
   box-shadow: 0 16px 32px rgba(8, 20, 40, 0.14);
 }
@@ -2737,7 +2737,7 @@ select {
   margin: 0;
   font-size: 16px;
   line-height: 1.9;
-  color: #ffffff;
+  color: #111827;
   word-break: keep-all;
   overflow-wrap: anywhere;
   text-shadow: none;
