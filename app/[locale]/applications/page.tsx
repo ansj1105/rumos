@@ -1,6 +1,8 @@
 import { ApplicationsIndexNav } from "@/components/applications-index-nav";
+import { ApplicationImageRail } from "@/components/application-image-rail";
 import { FadeImage } from "@/components/fade-image";
 import { SubpageHero } from "@/components/subpage-hero";
+import { applicationGalleryImages } from "@/lib/application-gallery";
 import { getApplications, getPageHeroConfig } from "@/lib/content";
 import { defaultApplications } from "@/lib/default-content";
 import { getDictionary } from "@/lib/dictionaries";
@@ -27,6 +29,7 @@ export default async function ApplicationsPage({
       imageUrl: source?.imageUrl ?? entry.imageUrl ?? "",
       bodyKo: source?.summaryKo ?? entry.summaryKo,
       bodyEn: source?.summaryEn ?? entry.summaryEn,
+      galleryImages: applicationGalleryImages[entry.slug] ?? [],
     };
   });
 
@@ -65,6 +68,10 @@ export default async function ApplicationsPage({
                   {locale === "ko" ? entry.bodyKo : entry.bodyEn}
                 </p>
               </div>
+              <ApplicationImageRail
+                images={entry.galleryImages}
+                title={locale === "ko" ? entry.titleKo : entry.titleEn}
+              />
             </section>
           ))}
         </div>

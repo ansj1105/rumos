@@ -2635,8 +2635,8 @@ select {
   inset: 0;
   z-index: 0;
   background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.12) 44%, rgba(3, 8, 18, 0.16) 100%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(3, 8, 18, 0.18) 100%);
+    linear-gradient(90deg, rgba(255, 255, 255, 0.68) 0%, rgba(245, 248, 251, 0.62) 44%, rgba(236, 241, 246, 0.56) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(236, 241, 246, 0.42) 100%);
   pointer-events: none;
 }
 
@@ -2654,10 +2654,10 @@ select {
   gap: 36px 42px;
   align-items: center;
   padding: 28px 30px;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.36);
-  border-radius: 4px;
-  box-shadow: 0 18px 38px rgba(8, 20, 40, 0.2);
+  background: rgba(242, 246, 250, 0.92);
+  border: 1px solid rgba(172, 186, 202, 0.34);
+  border-radius: 8px;
+  box-shadow: 0 16px 32px rgba(8, 20, 40, 0.14);
 }
 
 .storyLeadBlock {
@@ -2694,7 +2694,7 @@ select {
   margin: 0;
   display: grid;
   gap: 8px;
-  color: #005090;
+  color: #101827;
   font-size: clamp(30.8px, 3vw, 42px);
   line-height: 1.35;
   letter-spacing: 0;
@@ -2708,7 +2708,7 @@ select {
 }
 
 .storyDisplayTitleLineAccent {
-  color: #005090;
+  color: #101827;
   text-shadow: none;
 }
 
@@ -2719,7 +2719,7 @@ select {
 }
 
 .storyEyebrow {
-  color: #009fe3;
+  color: #1f2937;
   font-size: 18px;
   font-weight: 700;
   line-height: 1.45;
@@ -2737,7 +2737,7 @@ select {
   margin: 0;
   font-size: 16px;
   line-height: 1.9;
-  color: #0e1724;
+  color: #111827;
   word-break: keep-all;
   overflow-wrap: anywhere;
   text-shadow: none;
@@ -2757,7 +2757,10 @@ select {
   grid-template-columns: minmax(210px, 0.42fr) minmax(0, 1fr);
   min-height: 146px;
   margin-top: 24px;
-  background: #c8d7ef;
+  overflow: hidden;
+  border: 1px solid rgba(172, 186, 202, 0.34);
+  border-radius: 8px;
+  background: rgba(232, 238, 245, 0.92);
 }
 
 .storyMilestone {
@@ -2767,7 +2770,7 @@ select {
   min-height: 146px;
   padding: 26px 58px 26px 18px;
   color: #ffffff;
-  background: #003e6c;
+  background: #1f4f78;
   clip-path: polygon(0 0, calc(100% - 34px) 0, 100% 50%, calc(100% - 34px) 100%, 0 100%);
 }
 
@@ -3793,6 +3796,10 @@ select {
   border-bottom: 1px solid rgba(15, 34, 61, 0.08);
 }
 
+.productSection + .productSection {
+  padding-top: 0;
+}
+
 .productDetailHero + .subpageContent .productSection:first-child {
   padding-top: 20px;
 }
@@ -4700,6 +4707,70 @@ select {
   font-size: 17px;
   line-height: 1.65;
   color: #111827;
+}
+
+.applicationImageRail {
+  position: relative;
+  grid-column: 1 / -1;
+  margin-top: 2px;
+}
+
+.applicationImageRailViewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.applicationImageRailTrack {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.applicationImageRailItem {
+  min-width: 0;
+}
+
+.applicationImageRailImage {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: cover;
+  border: 4px solid #111111;
+  background: #ffffff;
+}
+
+.applicationImageRailButton {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 58px;
+  border: 1px solid rgba(15, 34, 61, 0.18);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.94);
+  color: #0f223d;
+  font-size: 34px;
+  line-height: 1;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.applicationImageRailButton.isPrev {
+  left: 8px;
+}
+
+.applicationImageRailButton.isNext {
+  right: 8px;
+}
+
+.applicationImageRailButton:hover,
+.applicationImageRailButton:focus-visible {
+  border-color: rgba(28, 108, 179, 0.45);
+  color: #1c6cb3;
 }
 
 .applicationsList {
@@ -6203,6 +6274,19 @@ td {
   .applicationShowcaseText {
     font-size: 15px;
     line-height: 1.8;
+  }
+
+  .applicationImageRailItem {
+    min-width: 0;
+  }
+
+  .applicationImageRailTrack {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .applicationImageRailImage {
+    border-width: 3px;
   }
 
   .productShowcaseRow {

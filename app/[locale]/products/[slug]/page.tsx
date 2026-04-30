@@ -183,19 +183,16 @@ const lumZSpecRows = [
 
 const ifiTechnicalRows = [
   { label: "Wavelength(1) [nm]", values: ["808, 976, 1064", "808, 976, 1064", "808, 976, 1064"] },
-  { label: "Fiber Core Size(2) [mm]", values: ["0.6 X 0.6", "0.6 X 0.6", "0.6 X 0.6"] },
+  { label: "Fiber Core Size(2) [mm]", values: ["0.6 x 0.6", "0.6 x 0.6", "0.6 x 0.6"] },
   { label: "Fiber NA", values: ["0.22", "0.22", "0.22"] },
   { label: "LASER Power [W]", values: ["< 2000 (with Water Cooling)", "< 2000 (with Water Cooling)", "< 2000 (with Water Cooling)"] },
-  { label: "Connector Type(1)", values: ["QBH, D80", "QBH, D80", "QBH, D80"] },
+  { label: "Connector Type", values: ["QBH, D80", "QBH, D80", "QBH, D80"] },
   { label: "Beam Profile", values: ["Flat Top Square", "Flat Top Square", "Flat Top Square"] },
-  { label: "Flat Top Size(3) [mm]", values: ["2 X 2 - 30 X 30", "5 X 5 - 30 X 30", "7 X 7 - 30 X 30"] },
+  { label: "Flat Top Size(3) [mm]", values: ["2 x 2 - 30 x 30", "5 x 5 - 30 x 30", "7 x 7 - 30 x 30"] },
   { label: "WD(3) [mm]", values: ["200 - 2500", "50 - 540", "50 - 320"] },
-  { label: "Infinity Flat Top Size(3) [mm]", values: ["30 X 30 - ∞", "30 X 30 - ∞", "30 X 30 - ∞"] },
-  { label: "Infinity WD(3) [mm]", values: ["2500 - ∞", "540 - ∞", "320 - ∞"] },
+  { label: "Infinity Flat Top Size(3) [mm]", values: ["30 x 30 -", "30 x 30 -", "30 x 30 -"] },
+  { label: "Infinity WD(3) [mm]", values: ["2500 -", "540 -", "320 -"] },
   { label: "Uniformity [%]", values: ["> 90", "> 90", "> 90"] },
-  { label: "Operating Temperature [°C]", values: ["0 to 60", "0 to 60", "0 to 60"] },
-  { label: "Storage Temperature [°C]", values: ["-20 to 80", "-20 to 80", "-20 to 80"] },
-  { label: "Relative Humidity [%]", values: ["10 to 95", "10 to 95", "10 to 95"] },
 ] as const;
 
 const ifiRemarks = [
@@ -570,15 +567,13 @@ export default async function ProductDetailPage({
             </section>
 
             <section className="productSection">
-              <div className="productSectionHead">
-                <h2 className="sectionTitle">REMARKS</h2>
-              </div>
-              <div className="softwareInterfaceList">
-                {ifiRemarks.map((item, index) => (
-                  <div key={item} className="softwareInterfaceItem">
-                    <span>{`(${index + 1}) ${item}`}</span>
-                  </div>
-                ))}
+              <div className="lumBRemarksBlock">
+                <div className="productAccessoryHeading">REMARKS</div>
+                <div className="lumBRemarksList">
+                  {ifiRemarks.map((item, index) => (
+                    <div key={item} className="lumBRemarkItem">{`[${index + 1}] ${item}`}</div>
+                  ))}
+                </div>
               </div>
             </section>
           </>
