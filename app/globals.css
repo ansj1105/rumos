@@ -4564,6 +4564,7 @@ select {
 .applicationImageRailCopy {
   display: grid;
   gap: 8px;
+  padding: 10px 0 0 10px;
 }
 
 .applicationImageRailTitle {
@@ -6086,6 +6087,10 @@ td {
 
   .applicationImageRailTitle {
     font-size: 15px;
+  }
+
+  .applicationImageRailCopy {
+    padding: 6px 0 0 6px;
   }
 
   .applicationImageRailDescription {

@@ -404,6 +404,7 @@ export default async function ProductDetailPage({
             {isLumBSeries ? (
               <section className="productSection">
                 <div className="lumBTechnicalComposite">
+                  {/*
                   <div className="lumBTechnicalVisual">
                     <Image
                       src="/products/lum-b/lum-b-tech-visual.png"
@@ -413,6 +414,7 @@ export default async function ProductDetailPage({
                       className="lumBTechnicalVisualImage"
                     />
                   </div>
+                  */}
                   <div className="productSpecBlock">
                     <table className="productTechTable">
                       <thead>
